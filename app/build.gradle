@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    buildFeatures { buildConfig true }
+    namespace 'com.aldia.app'
+    compileSdk 36
+
+    defaultConfig {
+        def ghRepo = System.getenv("GITHUB_REPOSITORY") ?: ""
+        buildConfigField "String", "GITHUB_REPOSITORY", "\"${ghRepo}\""
+        applicationId "com.aldia.app"
+        minSdk 26
+        targetSdk 36
+        def runNumber = System.getenv("GITHUB_RUN_NUMBER")
+        versionCode runNumber != null ? Math.max(2, runNumber.toInteger()) : 2
+        versionName "2.8"
+    }
+
+    signingConfigs {
+        debugFixed {
+            storeFile file('keystore/al-dia-debug.keystore')
+            storePassword 'aldia123'
+            keyAlias 'aldia'
+            keyPassword 'aldia123'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debugFixed
+        }
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
