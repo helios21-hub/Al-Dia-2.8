@@ -1,0 +1,25 @@
+AL DÍA — CAMBIOS v2.9
+
+PLANTILLA CARNES-VEGETALES
+- Nueva lógica de planilla: al entrar aparece un único botón “Crear planilla”.
+- Una vez creada, permite añadir múltiples productos antes de generar el XLSX.
+- Cada producto aparece como módulo horizontal con Local, Artículo, Descripción y Fecha de vencimiento del Producto.
+- Los módulos se pueden tocar para editar y tienen eliminación compacta.
+- “Fecha de vencimiento del Producto” pasa a ser texto libre, conservando ese nombre.
+- “Local” continúa fijo en 953 y bloqueado.
+- Al finalizar se genera un único XLSX con una fila por producto.
+- La planilla completa queda en Historial con opciones Descargar XLSX y Compartir XLSX.
+- El borrador activo se conserva si se cierra la app y entra en Exportar/Importar.
+
+XLSX
+- Cabecera ajustada al archivo de referencia.
+- Fondo verde claro en los siete encabezados.
+- Subtítulos “Lo completa el local” en rojo y “Lo completa compras” en azul.
+- Se mantienen las 7 columnas y las columnas Acción/Vigencia quedan vacías.
+- Anchos, bordes, altura de cabecera y fuente se aproximan al archivo de ejemplo.
+
+BACKUP
+- Formato actualizado a versión 9 e incluye el borrador de la planilla Carnes-Vegetales.
+
+VERSIÓN
+- Al Día 2.9.
