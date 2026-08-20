@@ -1,0 +1,46 @@
+AL DÍA — CAMBIOS v2.7
+
+CORRECCIÓN CRÍTICA
+- Corregido el fallo global que impedía crear o guardar elementos nuevos en Vencimientos, Pedidos, Muestras y Notas.
+- La causa estaba en variables de memoria de productos no inicializadas en v2.6, lo que interrumpía saveAll() antes de guardar.
+- Exportar copia también quedaba afectado por el mismo error y fue corregido.
+
+VENCIMIENTOS / EDICIÓN
+- Guardar cambios aplica el nombre y el resto de datos inmediatamente.
+- La ventana de edición se cierra automáticamente al guardar.
+- La corrección se aplica también a productos de Pedidos y productos guardados que usan el mismo modal.
+- Se elimina el botón Editar visible: tocar la ficha abre la edición.
+- Las acciones Retirar, Compartir y Eliminar quedan más compactas.
+- Desde Resumen de hoy / Vencimientos, la alerta lleva al primer producto que requiere atención y lo resalta.
+
+FORMULARIOS
+- Los formularios de Añadir producto quedan plegados por defecto en Vencimientos, Pedidos, Muestras y Consultor.
+- Se despliegan tocando su encabezado y se vuelven a plegar al añadir correctamente.
+
+PEDIDOS
+- Se elimina el botón Editar de las fichas.
+- Tocar una ficha abre la edición, sin interferir con cantidad, ordenar o eliminar.
+
+MUESTRAS
+- Corregido el flujo de creación: no queda fijada Hortalizas Pesadas ni otra categoría por defecto.
+- Se puede cambiar de categoría libremente antes del primer producto.
+- La categoría se bloquea recién al añadir el primer producto.
+- Finalizar o cancelar vuelve al estado sin categoría seleccionada.
+- Se conserva correctamente una muestra activa con productos al cerrar y abrir.
+
+CONSULTOR / PRODUCTOS GUARDADOS
+- Se elimina el botón Editar visible.
+- Tocar la fila/ficha abre la edición.
+
+INICIO
+- Se quita la lupa ubicada junto a Ajustes.
+- Se mantiene solo el buscador debajo de la fecha y hora.
+
+AJUSTES / NOTIFICACIONES
+- Corregida la persistencia de la hora de notificación: la hora elegida se guarda y se conserva al cerrar y volver a abrir.
+- La configuración vuelve a sincronizarse con el programador nativo.
+
+BACKUP
+- Exportar copia vuelve a abrir el selector de Android y permite guardar el JSON.
+- Formato de backup actualizado a versión 7.
+- Incluye memoria separada de productos y sesión activa de Muestras.

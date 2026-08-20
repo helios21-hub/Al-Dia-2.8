@@ -1,0 +1,12 @@
+AL DÍA — CAMBIOS v2.2
+
+Notas rápidas
+- Checklist, viñetas y numeración pasan a comportarse como en un editor de texto.
+- Al pulsar Enter dentro de una lista, la siguiente línea conserva automáticamente el formato.
+- En listas numeradas, la numeración continúa automáticamente.
+- Pulsar Enter sobre un elemento vacío sale de la lista.
+- Los botones Checklist / Lista / Numerar funcionan como formato de la línea o selección y pueden activarse/desactivarse.
+- La barra de formato indica visualmente qué tipo de lista está activa en la línea actual.
+- Backspace sobre un elemento vacío quita el formato de lista.
+- La estrella se rediseñó para distinguir claramente el estado inactivo del estado fijado.
+- La estrella fijada usa amarillo sólido y mayor contraste tanto en modo claro como oscuro.

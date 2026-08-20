@@ -1,0 +1,49 @@
+AL DÍA — CAMBIOS v2.6
+
+CORRECCIONES
+- Vencimientos: al editar un producto, la vista se refresca inmediatamente.
+- Resumen de hoy: renderizado reforzado para que Vencimientos, Próximo pedido y Muestra en curso puedan mostrarse sin que un error de otra sección bloquee el resumen.
+- Pedidos: Próximo pedido se actualiza al entrar a la sección.
+- Pedidos: Finalizar pedido solo aparece cuando la lista activa tiene productos.
+- Muestras: ya no inicia automáticamente en Vegetales ni en otra categoría.
+- Muestras: entra en estado vacío y la categoría solo se bloquea al añadir el primer producto.
+- Muestras: finalizar/cancelar vuelve al estado vacío.
+- Reloj del Inicio: se mantienen actualizaciones en tiempo real, pero se muestran solo hora y minutos.
+
+MEMORIA DE PRODUCTOS
+- Vencimientos, Pedidos y Muestras recuerdan de forma independiente los nombres de productos usados anteriormente.
+- El campo Producto muestra sugerencias propias de cada sección.
+- Estas memorias se incluyen en Exportar/Importar.
+
+PERSISTENCIA
+- Se refuerza la persistencia general guardando una copia del estado completo también en almacenamiento nativo Android.
+- Ajustes, productos, notas, muestra activa y demás información persistente se restauran al volver a abrir la app.
+- La muestra activa conserva su categoría y productos mientras no sea finalizada o cancelada.
+
+NOTIFICACIONES
+- Comprobación automática del permiso de notificaciones.
+- Si el permiso ya existe, no vuelve a solicitarse.
+- Si fue rechazado, Ajustes muestra el estado y un botón para habilitarlo.
+- Reprogramación de alertas al abrir la app, reiniciar el teléfono, actualizar la app o cambiar fecha/zona horaria.
+- Las notificaciones siguen programadas de forma nativa aunque la app esté cerrada o en segundo plano.
+- Se añade botón temporal “Prueba real de productos” que usa los Vencimientos cargados de verdad.
+- Se mantiene la prueba genérica por separado.
+
+NOTAS RÁPIDAS
+- Se añade recordatorio por fecha y hora.
+- El recordatorio genera una notificación nativa aunque la app esté cerrada.
+- Los recordatorios se incluyen en Exportar/Importar.
+
+AJUSTES / ACTUALIZACIONES
+- Ajustes muestra la versión instalada.
+- Se añade “Buscar actualizaciones”.
+- La comprobación usa la última versión publicada en GitHub Releases del mismo repositorio.
+- Se incluye el workflow “Publicar actualización Al Día” para crear una Release con el APK desde GitHub Actions.
+- Para que la búsqueda automática funcione, el repositorio debe tener una Release publicada y ser accesible por la app.
+
+BACKUP
+- Formato actualizado a versión 6.
+- Incluye memoria de productos y sesión activa de Muestras, además del resto de datos existentes.
+
+INTERFAZ
+- Se mantienen y refinan los colores de sección más sutiles, reduciendo saturación e impacto visual.

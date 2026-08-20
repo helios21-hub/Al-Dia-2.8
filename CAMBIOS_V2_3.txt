@@ -1,0 +1,9 @@
+AL DÍA — CAMBIOS v2.3
+
+Interfaz
+- Revisión general de botones e iconos en toda la app.
+- Se normaliza el centrado horizontal y vertical de iconos y textos.
+- Se corrige especialmente el botón + de Notas rápidas.
+- Se corrigen botones de Ajustes, volver, cerrar, estrella, X de historiales, ordenar y acciones compactas.
+- Se ajustan line-height, padding y alineación para evitar iconos desplazados hacia arriba o abajo.
+- En Notas rápidas, el botón “← Inicio” pasa a mostrarse igual que en el resto: “← Volver a Inicio”.

@@ -1,0 +1,16 @@
+AL DÍA — CAMBIOS v2.1
+
+Notas rápidas
+- Rediseño completo en formato de hojas/notas tipo sticky notes.
+- Al entrar, no aparece formulario ni menú de notas: solo el botón + y las notas existentes.
+- Las notas se acomodan automáticamente en dos columnas según su altura.
+- Tocar una nota la abre para seguir editándola.
+- Se elimina Prioridad; la estrella amarilla pasa a ser la única forma de fijar una nota como acceso rápido.
+- Las notas fijadas se ordenan primero.
+- Fecha y hora de creación se generan automáticamente.
+- La fecha/hora de edición también se actualiza automáticamente.
+- Editor con herramientas para Checklist, lista con punto y lista numerada.
+- Los elementos de checklist se pueden marcar directamente desde la tarjeta.
+- Compartir y Eliminar pasan al editor de la nota.
+- Las notas reciben colores pastel automáticos para diferenciarlas visualmente.
+- Se conservan los datos antiguos de notas completadas en backups, aunque ya no se muestran como una pestaña separada.

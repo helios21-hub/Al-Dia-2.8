@@ -1,0 +1,4 @@
+AL DÍA — CAMBIOS v2.3.1
+
+Inicio
+- En el bloque de Vencimientos, cuando no hay productos para revisar, el estado pasa de “Todo al día” a “Sin vencimientos”.

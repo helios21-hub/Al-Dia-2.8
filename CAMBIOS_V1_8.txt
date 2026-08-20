@@ -1,0 +1,20 @@
+AL DÍA — CAMBIOS v1.8
+
+Vencimientos
+- “Productos guardados de Vencimientos” pasa a llamarse “Productos frecuentes”.
+- Los productos frecuentes quedan separados de los vencimientos activos.
+- Añadir un vencimiento ya NO lo convierte automáticamente en frecuente.
+- Se agregó “Guardar como producto frecuente” para elegir cuáles querés reutilizar.
+- Todos los vencimientos añadidos aparecen en la sección “Productos activos”.
+- Se corrigió un error heredado del buscador eliminado que podía impedir renderizar correctamente la lista de activos.
+
+Notificaciones
+- Se agregó “Probar notificación” en Ajustes.
+- La prueba se envía inmediatamente y solicita permiso en Android si hace falta.
+- Las alertas programadas quedan configuradas para las 06:00.
+- Solo se avisa si hay vencimientos próximos (1–7 días), productos para retirar hoy o productos cuyo retiro ya está atrasado.
+- No se incluyen Pedidos en estas notificaciones.
+
+Muestras
+- Se mantiene la corrección para que Vegetales no cree una fila/producto vacío al abrir Muestras.
+- La muestra comienza vacía y la categoría puede cambiarse hasta agregar el primer producto.

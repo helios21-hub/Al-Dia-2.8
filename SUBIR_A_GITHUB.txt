@@ -1,0 +1,10 @@
+PASOS RÁPIDOS
+
+1. Descomprimí este ZIP.
+2. Entrá a github.com y creá un repositorio nuevo.
+3. Subí TODO lo que está dentro de la carpeta AlDia_Android.
+   Importante: .github debe quedar en la raíz del repositorio.
+4. En GitHub: Actions > Compilar APK Al Día > Run workflow.
+5. Esperá a que finalice.
+6. Abrí la ejecución > Artifacts > Al-Dia-APK.
+7. Descargá el artefacto y extraé Al-Dia-debug.apk.

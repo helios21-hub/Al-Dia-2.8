@@ -1,0 +1,14 @@
+AL DÍA — AJUSTE MUESTRAS 1.3
+
+- En Pedidos y Muestras, “Tipo” pasa a llamarse “Medición”.
+- Las opciones aparecen como Peso primero y Unidad después.
+- Muestras usa un formulario único, similar a Pedidos.
+- La plantilla se elige mediante un desplegable integrado en el formulario.
+- Después del primer producto, la plantilla queda bloqueada hasta finalizar o cancelar.
+- Cada producto añadido aparece debajo como una fila compacta con Producto, Depósito, Góndola y Total.
+- Cada fila muestra únicamente su propia unidad: kg si es Peso, u si es Unidad.
+- No permite repetir el mismo producto dentro de una muestra.
+- Finalizar muestra ya no pide confirmación: guarda en historial, limpia la lista y vuelve al estado inicial.
+- Nuevo botón Cancelar junto a Finalizar muestra. Cancelar sí pide confirmación y elimina la muestra en curso.
+- Eliminar un producto individual de una muestra también pide confirmación.
+- El historial de muestras realizadas sigue siendo plegable/desplegable.

@@ -1,0 +1,14 @@
+AL DÍA — CAMBIOS v2.4
+
+- Nuevo Consultor de productos como función global separada de las 4 casillas.
+- Acceso por lupa junto a Ajustes y barra de búsqueda en Inicio.
+- Consultor: Nombre obligatorio; Código/scanning y Categoría opcionales.
+- Categorías libres creadas por el usuario.
+- Búsqueda parcial por nombre, código o categoría.
+- Fecha y hora actual en Inicio.
+- Corrección de contraste del botón Volver a Inicio en Ajustes para todos los temas.
+- Muestras: tocar un producto abre su edición sin botón Editar.
+- Muestras: nuevos colores, Unidad grafito y Peso coral/rosa.
+- Notas: indicador rojo de Inicio corregido para contar solo notas con estrella.
+- Notas: modo Organizar para cambiar tamaño (normal/grande/compacto) y reordenar arrastrando.
+- Exportar/Importar actualizado a versión 4 e incluye Consultor y nuevos datos de Notas.

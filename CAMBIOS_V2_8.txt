@@ -1,0 +1,20 @@
+AL DÍA — CAMBIOS v2.8
+
+PLANTILLA CARNES-VEGETALES
+- Nueva quinta tarjeta en Inicio: Carnes-Vegetales.
+- Formulario con Local 953 fijo y bloqueado, Artículo, Descripción y Fecha de vencimiento del Producto.
+- Al guardar, se crea automáticamente un XLSX nativo y el registro queda en historial.
+- El XLSX contiene 7 columnas en este orden: Local, Artículo, Descripción, Acción, Vigencia desde, Vigencia hasta, Fecha de vencimiento del Producto.
+- Acción, Vigencia desde y Vigencia hasta se incluyen vacías.
+- Nombre automático: Plantilla Carnes-Vegetales DD-MM-YY.xlsx.
+- Desde el historial se puede Descargar XLSX o Compartir XLSX.
+- Los registros de la plantilla se incluyen en Exportar/Importar. Formato de backup v8.
+
+AUTOCAPITALIZACIÓN
+- Primera letra automática en mayúscula en campos de texto editables de todas las secciones.
+- Se excluyen códigos, búsquedas, fechas, horas, cantidades y otros campos técnicos.
+- Funciona también en Notas rápidas y en la nueva Plantilla Carnes-Vegetales.
+
+VERSIÓN
+- Versión de la app: 2.8.
+- Los workflows de GitHub Actions continúan siendo exclusivamente manuales (workflow_dispatch).

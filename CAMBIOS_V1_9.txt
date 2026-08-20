@@ -1,0 +1,14 @@
+AL DÍA — CAMBIOS v1.9
+
+Navegación
+- Vencimientos, Pedidos y Muestras dejan de mostrarse como pestañas superiores.
+- Se agregan tres botones en Inicio para entrar a cada sección.
+- Cada sección incorpora “Volver a Inicio”.
+- Se desactiva el swipe entre secciones principales para evitar navegación accidental.
+
+Identidad visual
+- Vencimientos usa azul/celeste como color identificador.
+- Pedidos usa naranja/ámbar.
+- Muestras usa violeta.
+- Los colores de Peso/kg y Unidad se mantienen iguales en todas las secciones:
+  Unidad = azul, Peso/kg = violeta.

@@ -1,0 +1,15 @@
+AL DÍA — CAMBIOS v1.10
+
+Ajustes
+- Notificaciones pasa a ser un bloque independiente y queda primero.
+- Personalización queda en el medio.
+- Copia de seguridad pasa al final.
+- Las notificaciones vienen activadas por defecto en instalaciones nuevas.
+- Se puede elegir la hora del primer aviso diario.
+- Se puede elegir: No repetir, repetir cada 1 hora o cada 2 horas.
+- Si se activa la repetición, solo continúa durante ese mismo día mientras sigan existiendo vencimientos para avisar.
+- Se mantiene el botón Probar notificación.
+
+Notificaciones
+- Continúan aplicándose únicamente a vencimientos próximos (1–7 días), productos para retirar hoy y retiros atrasados.
+- Al cambiar hora, repetición o activación, Android reprograma el aviso.

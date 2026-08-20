@@ -1,0 +1,30 @@
+AL DÍA — REVISIÓN CONSOLIDADA v1.10.1
+
+CORRECCIONES DE LA REVISIÓN
+- Corregido un error de sintaxis JavaScript en syncNativeNotificationData que podía dejar el HTML/app en negro.
+- Unificado el valor por defecto de Notificaciones como ACTIVADO también en Android nativo.
+- Corregidos textos de Productos guardados de Pedidos que accidentalmente aparecían como “productos frecuentes”.
+
+VERIFICADO EN LA BASE ACTUAL
+- Inicio con accesos a Vencimientos, Pedidos y Muestras.
+- Cada sección tiene Volver a Inicio y acceso a Ajustes junto al título.
+- Identidad de color por sección.
+- Unidad en azul y Peso/kg en violeta.
+- Vencimientos: Productos frecuentes separados de Productos activos.
+- Vencimientos añadidos aparecen en Activos.
+- Botón Retirar con modal propio.
+- Pedidos con tarjetas compactas, notas, cantidad base, orden manual e historial.
+- Muestras con selección de muestra, bloqueo al cargar el primer producto, Cancelar, Finalizar e historial plegable.
+- Muestras abre sin crear una fila/producto vacío.
+- Buscadores de Vencimientos y Pedidos retirados por el momento.
+- Ajustes: Notificaciones primero, Personalización en medio y Copia de seguridad al final.
+- Notificaciones configurables: activación, hora, no repetir / cada 1 hora / cada 2 horas y prueba inmediata.
+- Las alertas consideran próximos (1–7 días), retiro del día y retiros atrasados.
+- Exportación de copia permite elegir destino en Android.
+
+COMPROBACIONES TÉCNICAS
+- Sintaxis JavaScript validada con Node.js.
+- Referencias DOM principales revisadas. Las referencias a badges/antiguos accesos que ya no existen están protegidas por comprobaciones opcionales.
+- Estructura Android de notificaciones, receiver, scheduler y manifest revisada.
+
+Esta v1.10.1 es la base consolidada recomendada para continuar los próximos cambios.

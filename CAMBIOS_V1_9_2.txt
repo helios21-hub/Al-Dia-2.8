@@ -1,0 +1,8 @@
+AL DÍA — CAMBIOS v1.9.2
+
+Navegación / encabezados
+- Al entrar en Vencimientos, Pedidos o Muestras desaparece el botón superior “Inicio”.
+- El botón de Ajustes también deja la barra superior y pasa a la misma fila del título de cada sección, alineado a la derecha.
+- Se cambia el icono de Ajustes por un engranaje.
+- En Inicio se mantiene el acceso superior existente.
+- Ajustes conserva un botón para volver a Inicio.

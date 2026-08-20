@@ -1,0 +1,46 @@
+AL DÍA — CAMBIOS v2.5
+
+INICIO
+- Se elimina el botón superior “Inicio”.
+- El icono, nombre “Al Día” y subtítulo pasan al encabezado superior.
+- Lupa del Consultor y Ajustes aparecen únicamente en Inicio.
+- El encabezado completo se oculta al entrar a cualquier otra sección.
+- Inicio más compacto para reducir scroll.
+- El reloj usa la hora local del dispositivo y se actualiza cada segundo, mostrando segundos.
+
+RESUMEN DE HOY
+- Ahora puede mostrar varios elementos simultáneamente.
+- Prioridad fija: Vencimientos → Próximo pedido → Muestra en curso.
+- Cada elemento es tocable y abre directamente la sección correspondiente.
+
+PEDIDOS
+- “Próximo pedido” muestra día y número de fecha, por ejemplo “Jueves 20”.
+- Historial de Pedidos incorpora búsqueda por fecha, categoría o producto.
+
+MUESTRAS
+- Categorías actualizadas a: Hortalizas Pesadas, Especias, Frutas secas, Vegetales, Frutas y Carbón.
+- Migración automática de categorías antiguas para no perder datos.
+- Historial de Muestras incorpora búsqueda por fecha, categoría o producto.
+- Se conserva la edición tocando directamente el producto y el aviso “Editando”.
+- Se restaura la diferenciación funcional de Unidad/Peso y se cambia el color general de Muestras por un acento verde grisáceo más suave.
+
+COLORES / INTERFAZ
+- Revisión global de colores para reducir saturación e impacto visual.
+- La identidad de cada sección se mantiene con bordes y acentos más sutiles.
+- Vencimientos, Pedidos, Muestras y Notas usan tonos más suaves.
+- Los botones principales mantienen contraste sin dominar visualmente la pantalla.
+
+CONSULTOR
+- Se mantienen las categorías libres con sugerencias de categorías ya utilizadas.
+- Las coincidencias de búsqueda se resaltan dentro de nombre, código o categoría.
+
+INDICADORES
+- Se mantienen los badges únicamente para elementos que requieren atención: vencimientos, pedido de hoy, muestra activa y notas con estrella.
+
+COPIA DE SEGURIDAD
+- Formato actualizado a versión 5.
+- Se mantiene la regla de incluir todos los datos persistentes.
+- Al importar, se muestra una vista previa con fecha y cantidades antes de reemplazar datos.
+- Ajustes muestra la fecha/hora de la última copia exportada.
+- Al exportar correctamente se registra un resumen de lo guardado.
+- El proyecto Android notifica al HTML cuando la exportación nativa finaliza correctamente.

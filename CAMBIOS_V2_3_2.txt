@@ -1,0 +1,5 @@
+AL DÍA — CAMBIOS v2.3.2
+
+Notas rápidas
+- El indicador rojo de Notas en el menú de Inicio ahora solo cuenta notas marcadas con estrella.
+- Las notas sin estrella ya no generan indicador rojo en Inicio.

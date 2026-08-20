@@ -1,0 +1,56 @@
+AL DÍA — CAMBIOS 1.1
+
+- Ventanas de confirmación propias de la app (sin cartel file://).
+- El botón Retirar mantiene confirmación, cambia de color y ahora dice “Retirar”.
+- X de historiales con color de texto.
+- Animaciones al cambiar/deslizar pestañas.
+- Más espacio superior en la interfaz.
+- Icono elegido mostrado al lado del nombre Al Día.
+- Opción Duplicar retirada.
+- Inicio: Ver vencimientos abre directamente los productos que corresponde retirar.
+- Inicio: Hacer pedido abre directamente el día correspondiente.
+- Código / Scanning sigue siendo opcional.
+- Nota opcional agregada a Pedidos.
+- Textos de “machete” reemplazados por Pedido / Historial de pedidos.
+- Exportación Android permite elegir dónde guardar la copia.
+- Notificaciones activables/desactivables desde Ajustes.
+- Nueva sección Muestras con plantillas: Vegetales, Frutas, Hortalizas, Frutos secos y Leña / Carbón.
+- Muestras por Unidad o Peso, con Depósito y Góndola.
+- Campos numéricos preparados para teclado numérico.
+- Totales separados en unidades y kg.
+- Finalizar muestra guarda fecha/hora e historial permanente.
+- Historial de muestras con eliminación manual mediante X.
+- Las plantillas conservan productos/tipos y reinician cantidades al finalizar.
+- Se puede añadir una fila/producto en cualquier momento.
+
+PENDIENTE PARA REVISAR APARTE
+- Idea de añadir iconos adicionales a menús/opciones para mejorar el aspecto visual.
+
+ACTUALIZACIÓN ADICIONAL DE MUESTRAS
+- Plantilla/categoría integrada dentro de la misma sección de carga.
+- La carga de muestra ahora se trabaja en bloques por fila, más cómodos de leer.
+- Al finalizar una muestra, la lista actual vuelve al estado por defecto.
+- El historial de muestras puede plegarse y desplegarse tocando cada muestra.
+
+AJUSTE MUESTRAS 1.4
+- Quitados los totales generales de la muestra en curso; cada producto conserva su propio Depósito, Góndola y Total.
+- Peso/kg se destaca en violeta y Unidad/u en azul en cada fila.
+- En la interfaz de Muestras, “Plantilla” pasa a llamarse “Muestra”.
+
+AJUSTE MUESTRAS / PEDIDOS 1.5
+- Eliminadas las sumas generales del historial de Muestras.
+- Historial de Muestras más compacto: una fila por muestra finalizada, desplegable al tocar.
+- Filas de productos de Muestras más compactas, sin cajas grandes por cada dato.
+- “Medición” cambia a “Cantidad en” para aclarar Unidad/Peso.
+- En Pedidos: Unidad aparece primero y es el valor inicial; Peso queda segundo.
+
+AJUSTE PEDIDOS 1.6
+- Productos de Pedidos pasan a un formato mucho más compacto, tipo fila/tarjeta corta.
+- Nombre, código, Unidad/Peso, cantidad y cantidad base ocupan menos altura.
+- Editar, Ordenar y Eliminar quedan en una sola fila de acciones.
+
+AJUSTE 1.7
+- Se quitaron por el momento los buscadores de productos de Vencimientos y Pedidos.
+- Se corrige el producto/fila vacío que podía aparecer en Vegetales al abrir Muestras por datos guardados de versiones anteriores.
+- Las notificaciones quedan limitadas a vencimientos próximos (1 a 7 días para retirar) y productos que corresponde retirar hoy.
+- Se quitan de las notificaciones los pedidos pendientes y los retiros ya atrasados.

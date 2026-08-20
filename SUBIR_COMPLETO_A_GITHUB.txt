@@ -1,0 +1,26 @@
+AL DÍA v2.3.1 — PROYECTO COMPLETO PARA RESUBIR A GITHUB
+
+Este ZIP contiene el proyecto completo y la corrección de Gradle incluida.
+
+RECOMENDADO:
+1. Descomprimí el ZIP.
+2. Entrá en tu repositorio de GitHub > Code.
+3. Si querés evitar mezclar archivos viejos, eliminá primero los archivos/carpetas antiguos del proyecto o usá un repositorio limpio.
+4. Subí TODO el contenido que está dentro de la carpeta AlDia_Android:
+   - app/
+   - gradle/
+   - build.gradle
+   - settings.gradle
+   - gradle.properties
+   - gradlew
+   - gradlew.bat
+   - .gitignore
+   - README y demás archivos
+5. Conservá también tu carpeta .github/workflows/build-apk.yml si ya existe en el repositorio.
+6. Hacé Commit changes.
+7. Entrá en Actions y ejecutá “Compilar APK Al Día” si no arranca automáticamente.
+
+IMPORTANTE:
+- El build.gradle raíz ya incluye:
+  id 'com.android.application' version '8.13.2' apply false
+- settings.gradle ya incluye los repositorios de plugins necesarios.

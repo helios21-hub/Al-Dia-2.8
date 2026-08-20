@@ -1,0 +1,13 @@
+AL DÍA — v2.0
+
+- Inicio renovado como centro de control con grilla 2x2, indicadores rojos y resúmenes accionables.
+- Nueva sección Notas rápidas con prioridad, fecha/hora opcional, estrella amarilla para fijar, completar, editar, compartir e historial.
+- Próximo pedido cambia al siguiente día a partir de las 10:15. Entrar a Pedidos desde Inicio ya no fuerza automáticamente el día.
+- Botón Finalizar pedido más destacado.
+- Limpiar historial con confirmación en Vencimientos, Pedidos, Muestras y Notas.
+- Historial de Pedidos plegable.
+- Repetición de notificaciones cada 30 min, 1 h o 2 h. La repetición solo continúa por productos pendientes de retirar; los próximos se incluyen en el aviso diario pero no se repiten.
+- Temas: Claro, Oscuro, Azul petróleo, Verde bosque y Grafito/Azul noche. Contraste oscuro revisado.
+- Nuevo icono oficial: calendario azul con check y reloj.
+- Compartir mediante selector nativo Android: muestras realizadas, pedidos realizados, vencimientos/lista y notas rápidas.
+- Estados vacíos y resúmenes del Inicio mejorados.

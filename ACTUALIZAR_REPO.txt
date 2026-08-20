@@ -1,0 +1,11 @@
+ACTUALIZAR AL DÍA v2.0
+
+1. Descomprimí AlDia_Actualizacion_v2_0.zip.
+2. En GitHub abrí tu repositorio de Al Día.
+3. Add file > Upload files.
+4. Subí la carpeta app completa reemplazando los archivos existentes.
+5. Commit changes.
+6. Actions > Compilar APK Al Día > Run workflow.
+7. Al finalizar descargá Artifacts > Al-Dia-APK.
+
+Esta versión conserva las claves de almacenamiento existentes y agrega nuevos datos para Notas rápidas.
