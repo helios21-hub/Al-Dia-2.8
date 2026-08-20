@@ -1,0 +1,28 @@
+AL DÍA — CAMBIOS v2.11
+
+PEDIDOS · APRENDIZAJE GRADUAL
+
+- Se conserva la plantilla estacional y la estructura existente del módulo Pedidos.
+- Tipo de cantidad configurable por producto: Bulto o Peso. Los productos existentes migran a Bulto; Sandía se conserva como Peso.
+- Configuración permanente por producto: rotación, reacción a oferta y sensibilidad cuando está caro.
+- Stock actual, estado de precio y movimiento esperado dentro del pedido.
+- Necesidad estimada y Pedido sugerido calculados por separado.
+- Pedido final manual independiente del valor sugerido.
+- Botón “Usar sugerido” para copiar la sugerencia al Pedido sin mezclar ambos valores.
+- Aprendizaje independiente para Martes, Jueves y Sábado.
+- Revisión del ciclo anterior con stock restante y resultado: sobró mucho, sobró un poco, quedó bien, faltó un poco o faltó mucho.
+- Consumo aproximado calculado como stock inicial + pedido - stock restante.
+- Correcciones graduales con mayor peso al historial reciente, evitando que una sola observación cambie todo.
+- Los faltantes elevan gradualmente la referencia aun cuando el stock llegó a cero.
+- Los sobrantes reiterados reducen gradualmente la referencia.
+- Ajustes temporales por Oferta / Normal / Caro y Poco / Normal / Mucho movimiento.
+- Confianza de sugerencia: Sin historial, Baja, Media o Alta.
+- Advertencias breves para explicar por qué la sugerencia sube, baja o queda en 0.
+- Historial ampliado con sugerido, pedido real, stock inicial, stock restante, consumo aproximado y resultado.
+- Opción avanzada para reiniciar aprendizaje por Martes, Jueves, Sábado o todos los días.
+- El aprendizaje estacional se conserva aunque un producto desaparezca temporalmente de la plantilla.
+- Exportar/Importar actualizado a copia v11 incluyendo perfiles y aprendizaje de Pedidos.
+
+VERSIÓN
+- versionName 2.11
+- versionCode base 211000 + GITHUB_RUN_NUMBER
