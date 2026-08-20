@@ -1,0 +1,31 @@
+AL DÍA — CAMBIOS v2.10
+
+INICIO
+- En Resumen de hoy, el texto secundario queda siempre debajo de la alerta principal.
+
+PLANTILLA CARNES-VEGETALES
+- Los módulos de productos muestran Local, Artículo, Descripción y Fecha de vencimiento del Producto.
+- Se mantiene la creación de una planilla con múltiples productos y el historial XLSX.
+
+PEDIDOS
+- Sugerencia automática mensual para Martes, Jueves y Sábado basada en la planilla de frutas y verduras de estación.
+- Las variedades genéricas se desglosan (duraznos, pelones, ciruelas, uvas, melones, naranjas, mandarinas, manzanas, peras, repollos, papas, cebollas y zapallos).
+- Se agregan todo el año Lechuga Francesa, tomates, berenjenas, pimientos, zapallitos, perejil, puerro y cebolla de verdeo.
+- Lista ordenada por Frutas y Verduras, manteniendo familias de productos juntas.
+- Todos los valores sugeridos empiezan en 0.
+- La cantidad sugerida se muestra como texto junto al producto, no como una segunda casilla.
+- Tocando la tarjeta se puede cambiar la cantidad sugerida permanente.
+- La única casilla visible de cantidad corresponde al pedido actual.
+- La cantidad del pedido puede diferir de la sugerida sin modificarla.
+- Añadir producto queda al final de la plantilla/lista.
+- Se elimina la lógica obligatoria de Finalizar/Realizar pedido.
+- Guardar pedido en historial es opcional y guarda una copia de los productos con cantidad mayor a 0.
+- Se conserva el aviso del próximo día de pedido.
+
+COPIAS DE SEGURIDAD
+- Formato de copia actualizado a versión 10.
+- Incluye cantidades sugeridas y estado de plantilla mensual de Pedidos.
+
+ANDROID
+- Versión 2.10.
+- versionCode con base 210000 para asegurar que Android reconozca esta compilación como actualización.

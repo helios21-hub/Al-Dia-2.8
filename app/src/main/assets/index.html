@@ -718,8 +718,8 @@ body.dark #tab-muestras .sample-stock-value.weight{color:#fda4af!important}
   width:28px;height:28px;display:flex;align-items:center;justify-content:center;
   border-radius:9px;background:rgba(100,116,139,.08);font-size:16px
 }
-.today-summary-item .summary-title{font-size:13px;font-weight:900;line-height:1.2}
-.today-summary-item .summary-sub{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.25}
+.today-summary-item .summary-title{display:block;font-size:13px;font-weight:900;line-height:1.2}
+.today-summary-item .summary-sub{display:block;font-size:11px;color:var(--muted);margin-top:3px;line-height:1.25}
 .today-summary-item .summary-arrow{color:var(--muted);font-size:18px}
 .today-summary-item.expiry{border-left:3px solid #7aa9c2}
 .today-summary-item.order{border-left:3px solid #c5a06b}
@@ -860,6 +860,18 @@ mark.search-hit{
 .carnes-form-card .footer-note{line-height:1.4}
 @media(max-width:390px){.home-section-buttons{grid-template-columns:1fr 1fr!important}.home-section-btn{padding:11px!important}.home-section-btn.plantilla{grid-column:1/-1}}
 
+
+
+/* v2.10 - Pedidos por sugerencia mensual */
+.order-season-hint{font-size:11px;color:var(--muted);margin:3px 0 0;line-height:1.35}
+.order-subgroup-title{font-size:10px;font-weight:900;letter-spacing:.055em;text-transform:uppercase;color:var(--muted);padding:9px 2px 5px;border-bottom:1px solid var(--border);margin-bottom:7px}
+.order-suggested{font-size:11px;color:var(--muted);margin-top:3px}
+.order-suggested strong{color:var(--text)}
+.order-qty-input-v210{width:92px;min-height:36px;text-align:center;font-weight:850}
+.order-template-note{font-size:11px;color:var(--muted);padding:9px 10px;border:1px dashed var(--border);border-radius:10px;margin:8px 0 10px}
+.order-save-wrap{margin-top:10px}
+.order-save-wrap .btn-complete-order{width:100%}
+.order-save-wrap .order-status-note{margin-top:5px}
 
 /* v2.9 - Planilla Carnes-Vegetales con múltiples productos */
 .cv-start-card.hidden,.cv-draft-card.hidden{display:none!important}
@@ -1004,39 +1016,41 @@ mark.search-hit{
       <button class="subtab" data-order-tab="sabado">Sábado</button>
     </div>
 
-    <div class="card add-product-panel">
-      <button class="add-product-toggle" type="button" data-add-panel="order"><span>＋ Añadir producto</span><span class="add-panel-arrow">⌄</span></button>
-      <form id="orderForm" class="add-product-form hidden">
-        <div><label>Nombre</label><input id="orderName" list="savedProducts" autocomplete="off" required><datalist id="savedProducts"></datalist></div>
-        <div><label>Scanning / Código</label><input id="orderCode" autocomplete="off"></div>
-        <div><label>Categoría</label><select id="orderCategory">
-          <option>Frutas / Vegetales</option><option>Frutos Secos</option><option>Leña / Carbón</option><option>Jugos</option><option>Cuarta Gama</option>
-        </select></div>
-        <div><label>Cantidad en</label><select id="orderUnitType"><option value="unidad">Unidad</option><option value="peso">Peso</option></select></div>
-        <div><label>Cantidad</label><select id="orderQty"></select><input id="orderWeight" class="hidden" type="number" inputmode="decimal" step="0.01" min="0.01" placeholder="Ej: 1,5"></div>
-        <div><label>Nota opcional</label><input id="orderNotes" autocomplete="off"></div>
-        <button class="btn-primary" type="submit">Añadir producto</button>
-      </form>
-    </div>
-
     <div class="view-tabs">
       <button class="view-tab active" data-order-view="current">Pedido</button>
       <button class="view-tab" data-order-view="history">Historial de pedidos</button>
     </div>
 
     <div id="order-current-view">
-      <div class="primary-action-wrap"><div class="primary-action-label">Acción principal</div><button class="btn-complete-order" id="completeOrderBtn">✓ Finalizar pedido</button><div class="order-status-note" id="orderStatusNote">Pedido pendiente</div></div>
       <div class="card">
-        <div class="topbar"><strong id="orderTitle">Pedido - Martes</strong><span class="pill" id="orderCount">0 productos</span></div>
+        <div class="topbar"><div><strong id="orderTitle">Pedido - Martes</strong><div class="order-season-hint" id="orderSeasonHint">Sugerencia mensual</div></div><span class="pill" id="orderCount">0 productos</span></div>
+        <div class="order-template-note">La cantidad de la casilla corresponde solo al pedido actual. El valor sugerido se muestra junto a cada producto y se cambia tocando la tarjeta.</div>
         <div id="orderEmpty" class="empty">Todavía no agregaste productos para este día.</div>
         <div id="orderCategories"></div>
       </div>
+
+      <div class="card add-product-panel" style="margin-top:10px">
+        <button class="add-product-toggle" type="button" data-add-panel="order"><span>＋ Añadir producto</span><span class="add-panel-arrow">⌄</span></button>
+        <form id="orderForm" class="add-product-form hidden">
+          <div><label>Nombre</label><input id="orderName" list="savedProducts" autocomplete="off" required><datalist id="savedProducts"></datalist></div>
+          <div><label>Scanning / Código</label><input id="orderCode" autocomplete="off"></div>
+          <div><label>Categoría</label><select id="orderCategory">
+            <option>Frutas / Vegetales</option><option>Frutos Secos</option><option>Leña / Carbón</option><option>Jugos</option><option>Cuarta Gama</option>
+          </select></div>
+          <div><label>Cantidad en</label><select id="orderUnitType"><option value="unidad">Unidad</option><option value="peso">Peso</option></select></div>
+          <div><label>Cantidad del pedido</label><input id="orderQtyInput" type="number" inputmode="decimal" step="1" min="0" value="0"></div>
+          <div><label>Nota opcional</label><input id="orderNotes" autocomplete="off"></div>
+          <button class="btn-primary" type="submit">Añadir producto</button>
+        </form>
+      </div>
+
+      <div class="primary-action-wrap order-save-wrap"><div class="primary-action-label">Copia opcional</div><button class="btn-complete-order" id="completeOrderBtn">Guardar pedido en historial</button><div class="order-status-note" id="orderStatusNote">No es obligatorio guardar el pedido.</div></div>
     </div>
 
     <div id="order-history-view" class="card hidden">
       <div class="topbar"><div class="history-toolbar"><strong id="orderHistoryTitle">Historial - Martes</strong><div class="history-tools"><span class="pill" id="orderHistoryCount">0 pedidos</span><button class="clear-history-btn" id="clearOrderHistoryBtn" type="button">Limpiar historial</button></div></div></div>
       <input class="history-search" id="orderHistorySearch" type="search" autocomplete="off" placeholder="Buscar por fecha, categoría o producto">
-      <div id="orderHistoryEmpty" class="empty">Todavía no hay pedidos realizados.</div>
+      <div id="orderHistoryEmpty" class="empty">Todavía no hay pedidos guardados.</div>
       <div id="orderHistoryList"></div>
     </div>
   </section>
@@ -1333,6 +1347,8 @@ const K={
   orders:"control_pedidos_v1",
   orderHistory:"control_pedidos_historial_v1",
   orderCompletion:"control_pedidos_estado_realizado_v1",
+  orderSuggestedQty:"al_dia_pedidos_cantidad_sugerida_v1",
+  orderTemplateState:"al_dia_pedidos_plantilla_mensual_v1",
   orderSaved:"control_productos_guardados_v1",
   samples:"al_dia_muestras_plantillas_v1",
   sampleHistory:"al_dia_muestras_historial_v1",
@@ -1359,6 +1375,10 @@ let savedExpiryProducts=JSON.parse(localStorage.getItem(K.expirySaved)||"{}");
 let orders=JSON.parse(localStorage.getItem(K.orders)||'{"martes":[],"jueves":[],"sabado":[]}');
 let orderHistory=JSON.parse(localStorage.getItem(K.orderHistory)||'{"martes":[],"jueves":[],"sabado":[]}');
 let orderCompletion=JSON.parse(localStorage.getItem(K.orderCompletion)||'{"martes":null,"jueves":null,"sabado":null}');
+let orderSuggestedQty=JSON.parse(localStorage.getItem(K.orderSuggestedQty)||"{}");
+if(!orderSuggestedQty||typeof orderSuggestedQty!=="object"||Array.isArray(orderSuggestedQty))orderSuggestedQty={};
+let orderTemplateState=JSON.parse(localStorage.getItem(K.orderTemplateState)||'{"martes":"","jueves":"","sabado":""}');
+if(!orderTemplateState||typeof orderTemplateState!=="object"||Array.isArray(orderTemplateState))orderTemplateState={martes:"",jueves:"",sabado:""};
 let savedProducts=JSON.parse(localStorage.getItem(K.orderSaved)||"{}");
 const sampleCats=["Hortalizas Pesadas","Especias","Frutas secas","Vegetales","Frutas","Carbón"];
 let sampleTemplates=JSON.parse(localStorage.getItem(K.samples)||"{}");
@@ -1405,7 +1425,7 @@ if(!Array.isArray(orderProductMemory))orderProductMemory=[];
 if(!Array.isArray(sampleProductMemory))sampleProductMemory=[];
 const sampleWithRows=sampleCats.find(c=>Array.isArray(sampleTemplates[c])&&sampleTemplates[c].length>0)||"";
 let activeSampleTemplate=(sampleSessionState&&sampleCats.includes(sampleSessionState.activeTemplate)&&Array.isArray(sampleTemplates[sampleSessionState.activeTemplate])&&sampleTemplates[sampleSessionState.activeTemplate].length>0)?sampleSessionState.activeTemplate:sampleWithRows;
-["martes","jueves","sabado"].forEach(d=>{orders[d]??=[];orderHistory[d]??=[];orderCompletion[d]??=null});
+["martes","jueves","sabado"].forEach(d=>{orders[d]??=[];orderHistory[d]??=[];orderCompletion[d]??=null;orderTemplateState[d]??=""});
 let activeOrderTab="martes", editCtx=null, expiryFilter="all";
 let appSettings=JSON.parse(localStorage.getItem(K.settings)||'{"theme":"light","textSize":"normal","notifications":true,"notificationTime":"06:00","notificationRepeat":0}');
 if(appSettings.notifications==null)appSettings.notifications=true;
@@ -1419,6 +1439,8 @@ const saveAll=()=>{
   localStorage.setItem(K.orders,JSON.stringify(orders));
   localStorage.setItem(K.orderHistory,JSON.stringify(orderHistory));
   localStorage.setItem(K.orderCompletion,JSON.stringify(orderCompletion));
+  localStorage.setItem(K.orderSuggestedQty,JSON.stringify(orderSuggestedQty));
+  localStorage.setItem(K.orderTemplateState,JSON.stringify(orderTemplateState));
   localStorage.setItem(K.orderSaved,JSON.stringify(savedProducts));
   localStorage.setItem(K.samples,JSON.stringify(sampleTemplates));
   localStorage.setItem(K.sampleHistory,JSON.stringify(sampleHistory));
@@ -1765,174 +1787,129 @@ function renderExpirySavedManager(){
   document.querySelectorAll("[data-saved-expiry-key]").forEach(row=>row.onclick=e=>{if(e.target.closest("button"))return;openSavedExpiryEdit(row.dataset.savedExpiryKey)});
 }
 
-function rememberOrder(name,code,category,unitType){
-  if(!name.trim())return;
-  savedProducts[norm(name)]={name:name.trim(),code:code.trim(),category,unitType};
-  renderOrderDatalist();saveAll();
+const ORDER_MONTH_NAMES=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+const ORDER_FRUIT_BY_MONTH=[
+  ["Duraznos","pelones","ciruelas","cereza","uvas","melones","sandia"],
+  ["Duraznos","pelones","ciruelas","cereza","uvas","melones","sandia"],
+  ["Duraznos","pelones","ciruelas","uvas","pomelo","Manzana roja","pera","kiwi"],
+  ["uvas","mandarina","pomelo","Manzana roja","pera","naranjas","Manzana granny","kiwi"],
+  ["uvas","mandarina","pomelo","Manzana roja","pera","naranjas","Manzana granny","Arandano","kiwi"],
+  ["uvas","mandarina","pomelo","Manzana roja","pera","naranjas","Manzana granny","Arandano","Frutilla"],
+  ["mandarina","pomelo","Manzana roja","pera","naranjas","Manzana granny","Arandano","Frutilla","kiwi"],
+  ["mandarina","pomelo","Manzana roja","pera","naranjas","Manzana granny","Arandano","Frutilla","kiwi"],
+  ["mandarina","pomelo","Manzana roja","pera","naranjas","Manzana granny","Arandano","Frutilla","kiwi"],
+  ["mandarina","pomelo","Manzana roja","pera","naranjas","Manzana granny","Arandano","Frutilla","kiwi"],
+  ["pera","naranjas","Arandano","Frutilla","cereza","damasco","Duraznos","melones","sandia"],
+  ["Duraznos","pelones","ciruelas","cereza","uvas","melones","sandia","damasco"]
+];
+const ORDER_VEG_BY_MONTH=[
+  ["Acelga","albahaca","Apio","Espinaca","lechuga capuchina","lechuga mantecosa","perejil","Puerro","Radicheta","Remolacha","Repollos","Kale","Rucula","Zanahoria"],
+  ["Acelga","albahaca","Apio","lechuga capuchina","perejil","Puerro","Radicheta","Remolacha","Repollos","Kale","Zanahoria","Zapallos","cebolla"],
+  ["albahaca","Apio","lechuga capuchina","Puerro","Radicheta","Repollos","Kale","papas","Zanahoria","Batatas","Zapallos","cebolla"],
+  ["Apio","brocolli","coliflor","Espinaca","lechuga capuchina","lechuga mantecosa","perejil","Puerro","Radicheta","Remolacha","Repollos","Kale","rabanito","Rucula","papas","Zanahoria","Batatas","Zapallos","cebolla"],
+  ["Acelga","Apio","brocolli","coliflor","Espinaca","lechuga capuchina","lechuga mantecosa","perejil","Puerro","Radicheta","Remolacha","Repollos","Kale","rabanito","Rucula","Repollitos de bruselaas","papas","Zanahoria","Batatas","Zapallos","ajo","cebolla"],
+  ["Acelga","Apio","brocolli","coliflor","Espinaca","lechuga capuchina","lechuga mantecosa","perejil","Puerro","Remolacha","Repollos","Kale","rabanito","Rucula","Repollitos de bruselaas","papas","Zanahoria","Batatas","Zapallos","ajo","cebolla"],
+  ["Acelga","Apio","brocolli","coliflor","Espinaca","lechuga capuchina","lechuga mantecosa","Puerro","Repollos","Kale","rabanito","Repollitos de bruselaas","papas","Zanahoria","Batatas","Zapallos","ajo","cebolla"],
+  ["Acelga","albahaca","Apio","brocolli","coliflor","lechuga capuchina","lechuga mantecosa","Repollos","Kale","Repollitos de bruselaas","papas","Zanahoria","Batatas","Zapallos","ajo","cebolla"],
+  ["Acelga","albahaca","brocolli","coliflor","lechuga capuchina","perejil","Puerro","Radicheta","Remolacha","Repollos","Kale","Rucula","Repollitos de bruselaas","Zanahoria","Zapallos","ajo","cebolla"],
+  ["Acelga","albahaca","Apio","brocolli","coliflor","Espinaca","lechuga capuchina","lechuga mantecosa","perejil","Puerro","Radicheta","Remolacha","rabanito","Rucula","papas","Zanahoria","ajo"],
+  ["Acelga","albahaca","Apio","brocolli","coliflor","Espinaca","lechuga capuchina","lechuga mantecosa","perejil","Puerro","Radicheta","Remolacha","Repollos","Kale","rabanito","Rucula","papas","Zanahoria","Batatas","ajo"],
+  ["Acelga","albahaca","Apio","brocolli","coliflor","Espinaca","lechuga capuchina","lechuga mantecosa","perejil","Puerro","Radicheta","Remolacha","Repollos","Kale","rabanito","Rucula","papas","Zanahoria","Batatas","Zapallos","ajo"]
+];
+const ORDER_FRUIT_EXPAND={
+  "duraznos":["Durazno Amarillo","Durazno Blanco","Durazno Chato"],
+  "pelones":["Pelón Amarillo","Pelón Blanco"],
+  "ciruelas":["Ciruela Negra","Ciruela Amarilla"],
+  "uvas":["Uva Negra","Uva Blanca","Uva Roja"],
+  "melones":["Melón Amarillo","Melón Blanco","Melón Escrito","Melón Orange"],
+  "naranjas":["Naranja de Jugo","Naranja Ombligo"],
+  "mandarina":["Mandarina Nova","Mandarina Murcot","Mandarina Elendale"],
+  "manzana roja":["Manzana Roja","Manzana Crispy Pink","Manzana Granny Smith"],
+  "manzana granny":["Manzana Roja","Manzana Crispy Pink","Manzana Granny Smith"],
+  "pera":["Pera Packham","Pera Williams","Pera Red Battler","Pera Beurre","Pera Asiática"]
+};
+const ORDER_VEG_EXPAND={
+  "repollos":["Repollo Colorado","Repollo Blanco"],
+  "papas":["Papa Lavada Suelta","Papa Negra Granel","Papa Cepillada"],
+  "cebolla":["Cebolla Granel","Cebolla Blanca","Cebolla Roja"],
+  "zapallos":["Zapallo Anco","Zapallo Inglés","Zapallo Plomo","Zapallo Muscat"]
+};
+const ORDER_ALWAYS_VEG=[
+  "Lechuga Francesa",
+  "Tomate Redondo","Tomate Perita","Cherry Rojo","Cherry Amarillo","Cherry Morado",
+  "Berenjena Negra","Berenjena Violeta",
+  "Pimiento Rojo","Pimiento Amarillo","Pimiento Verde",
+  "Zapallito Largo","Zapallito Redondo",
+  "Perejil","Puerro","Cebolla de Verdeo"
+];
+const ORDER_FRUIT_ORDER=[
+  "Durazno Amarillo","Durazno Blanco","Durazno Chato","Pelón Amarillo","Pelón Blanco",
+  "Ciruela Negra","Ciruela Amarilla","Cereza","Uva Negra","Uva Blanca","Uva Roja",
+  "Melón Amarillo","Melón Blanco","Melón Escrito","Melón Orange","Sandía","Damasco",
+  "Mandarina Nova","Mandarina Murcot","Mandarina Elendale","Pomelo",
+  "Manzana Roja","Manzana Crispy Pink","Manzana Granny Smith",
+  "Pera Packham","Pera Williams","Pera Red Battler","Pera Beurre","Pera Asiática",
+  "Naranja de Jugo","Naranja Ombligo","Arándano","Frutilla","Kiwi"
+];
+const ORDER_VEG_ORDER=[
+  "Lechuga Capuchina","Lechuga Mantecosa","Lechuga Francesa",
+  "Acelga","Apio","Cebolla de Verdeo","Puerro","Espinaca","Perejil",
+  "Albahaca","Radicheta","Rúcula","Kale",
+  "Tomate Redondo","Tomate Perita","Cherry Rojo","Cherry Amarillo","Cherry Morado",
+  "Berenjena Negra","Berenjena Violeta","Pimiento Rojo","Pimiento Amarillo","Pimiento Verde",
+  "Brócoli","Coliflor","Remolacha","Repollo Colorado","Repollo Blanco","Rabanito","Repollitos de Bruselas",
+  "Papa Lavada Suelta","Papa Negra Granel","Papa Cepillada","Zanahoria","Batatas",
+  "Cebolla Granel","Cebolla Blanca","Cebolla Roja","Ajo",
+  "Zapallo Anco","Zapallo Inglés","Zapallo Plomo","Zapallo Muscat","Zapallito Largo","Zapallito Redondo"
+];
+const ORDER_NAME_CANON={
+  "cereza":"Cereza","sandia":"Sandía","damasco":"Damasco","pomelo":"Pomelo","arandano":"Arándano","frutilla":"Frutilla","kiwi":"Kiwi",
+  "acelga":"Acelga","albahaca":"Albahaca","apio":"Apio","espinaca":"Espinaca","lechuga capuchina":"Lechuga Capuchina","lechuga mantecosa":"Lechuga Mantecosa",
+  "perejil":"Perejil","puerro":"Puerro","radicheta":"Radicheta","remolacha":"Remolacha","kale":"Kale","rucula":"Rúcula","zanahoria":"Zanahoria",
+  "brocolli":"Brócoli","coliflor":"Coliflor","rabanito":"Rabanito","repollitos de bruselaas":"Repollitos de Bruselas","batatas":"Batatas","ajo":"Ajo"
+};
+function orderMonthKey(date=new Date()){return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}`}
+function orderSuggestedFor(name){const v=Number(orderSuggestedQty[norm(name)]);return Number.isFinite(v)&&v>=0?v:0}
+function setOrderSuggested(name,value){const v=Number(value);orderSuggestedQty[norm(name)]=Number.isFinite(v)&&v>=0?v:0}
+function expandOrderSeasonNames(base,expander){const out=[];base.forEach(raw=>{const key=norm(raw),expanded=expander[key];if(expanded)expanded.forEach(n=>out.push(n));else out.push(ORDER_NAME_CANON[key]||capitalizeFirstUserLetter(String(raw)))});return [...new Map(out.map(n=>[norm(n),n])).values()]}
+function orderSortByMaster(names,master){const rank=new Map(master.map((n,i)=>[norm(n),i]));return [...names].sort((a,b)=>(rank.get(norm(a))??9999)-(rank.get(norm(b))??9999)||a.localeCompare(b,"es"))}
+function buildMonthlyOrderSuggestion(date=new Date()){
+  const m=date.getMonth();
+  const fruits=orderSortByMaster(expandOrderSeasonNames(ORDER_FRUIT_BY_MONTH[m]||[],ORDER_FRUIT_EXPAND),ORDER_FRUIT_ORDER);
+  const vegRaw=[...expandOrderSeasonNames(ORDER_VEG_BY_MONTH[m]||[],ORDER_VEG_EXPAND),...ORDER_ALWAYS_VEG];
+  const vegetables=orderSortByMaster([...new Map(vegRaw.map(n=>[norm(n),n])).values()],ORDER_VEG_ORDER);
+  return [...fruits.map(name=>({name,seasonGroup:"Frutas"})),...vegetables.map(name=>({name,seasonGroup:"Verduras"}))];
 }
-function renderOrderDatalist(){
-  const saved=Object.values(savedProducts).sort((a,b)=>a.name.localeCompare(b.name,"es"));
-  const seen=new Set(saved.map(p=>norm(p.name)));
-  const extra=orderProductMemory.filter(n=>!seen.has(norm(n)));
-  $("savedProducts").innerHTML=saved.map(p=>`<option value="${esc(p.name)}" label="${esc(p.code||"Sin código")} · ${esc(p.category||"Sin categoría")}"></option>`).join("")+extra.map(n=>`<option value="${esc(n)}"></option>`).join("");
+function ensureOrderTemplateForDay(day){
+  const mk=orderMonthKey();if(orderTemplateState[day]===mk)return false;
+  const existing=Array.isArray(orders[day])?orders[day]:[],manual=existing.filter(x=>!x.templateSeed),manualNames=new Set(manual.map(x=>norm(x.name)));
+  const suggested=buildMonthlyOrderSuggestion().filter(x=>!manualNames.has(norm(x.name))).map(x=>{const q=orderSuggestedFor(x.name);return {id:uid(),name:x.name,code:"",category:"Frutas / Vegetales",unitType:"unidad",qty:q,notes:"",templateSeed:true,seasonGroup:x.seasonGroup}});
+  orders[day]=[...suggested,...manual];orderTemplateState[day]=mk;saveAll();return true;
 }
+function rememberOrder(name,code,category,unitType){if(!name.trim())return;savedProducts[norm(name)]={name:name.trim(),code:code.trim(),category,unitType};renderOrderDatalist();saveAll()}
+function renderOrderDatalist(){const saved=Object.values(savedProducts).sort((a,b)=>a.name.localeCompare(b.name,"es")),seen=new Set(saved.map(p=>norm(p.name))),extra=orderProductMemory.filter(n=>!seen.has(norm(n)));$("savedProducts").innerHTML=saved.map(p=>`<option value="${esc(p.name)}" label="${esc(p.code||"Sin código")} · ${esc(p.category||"Sin categoría")}"></option>`).join("")+extra.map(n=>`<option value="${esc(n)}"></option>`).join("")}
 $("orderName").addEventListener("input",()=>{const p=savedProducts[norm($("orderName").value)];if(p){$("orderCode").value=p.code||"";$("orderCategory").value=p.category||cats[0];$("orderUnitType").value=p.unitType||"unidad";toggleQtyInput()}});
-for(let i=1;i<=99;i++)$("orderQty").insertAdjacentHTML("beforeend",`<option value="${i}">${i}</option>`);
-function toggleQtyInput(){const w=$("orderUnitType").value==="peso";$("orderQty").classList.toggle("hidden",w);$("orderWeight").classList.toggle("hidden",!w);if(w&&!$("orderWeight").value)$("orderWeight").value="1";if(!w)$("orderWeight").value=""}
+function toggleQtyInput(){const input=$("orderQtyInput");if(!input)return;const weight=$("orderUnitType").value==="peso";input.step=weight?"0.01":"1";input.inputMode=weight?"decimal":"numeric";if(input.value==="")input.value="0"}
 $("orderUnitType").onchange=toggleQtyInput;
-
-function qtyOptions(v){let s="";for(let i=1;i<=99;i++)s+=`<option value="${i}" ${Number(v)===i?"selected":""}>${i}</option>`;return s}
+function orderItemCardHtml(x){const suggested=orderSuggestedFor(x.name),qty=Number.isFinite(Number(x.qty))&&Number(x.qty)>=0?Number(x.qty):suggested;return `<div class="order-item order-item-compact" data-order-item-id="${x.id}" draggable="true"><div class="order-compact-head"><div class="order-compact-product"><div class="name">${esc(x.name)}</div><div class="meta">${esc(x.code||"—")}${x.notes?` · Nota: ${esc(x.notes)}`:""}</div><div class="order-suggested">Sugerido: <strong>${suggested}${x.unitType==="peso"?" kg":" u"}</strong></div></div><span class="unit-badge ${x.unitType==="peso"?"weight":"unit"}">${x.unitType==="peso"?"Peso (kg)":"Unidad"}</span></div><div class="order-compact-middle"><div class="order-compact-qty"><span class="order-qty-label">Cantidad</span><input class="order-qty-input order-qty-input-v210" type="number" inputmode="${x.unitType==="peso"?"decimal":"numeric"}" step="${x.unitType==="peso"?"0.01":"1"}" min="0" value="${qty}" data-order-qty="${x.id}"></div></div><div class="order-compact-actions"><button class="drag-handle order-drag-compact" data-drag-handle="${x.id}" type="button">≡ Ordenar</button><button class="btn-danger order-delete-compact" data-del-order="${x.id}" type="button">Eliminar</button></div></div>`}
 function renderOrders(){
-  const current=orders[activeOrderTab],visible=current;
-  $("orderTitle").textContent=`Pedido - ${dayLabel(activeOrderTab)}`;$("orderCount").textContent=`${current.length} producto${current.length===1?"":"s"}`;$("orderEmpty").style.display=visible.length?"none":"block";$("orderCategories").innerHTML="";
-  cats.forEach(cat=>{const ps=visible.filter(x=>(x.category||cats[0])===cat);if(!ps.length)return;ps.forEach(x=>{if(x.baseQty==null)x.baseQty=Number(x.qty||1);if(x.qty==null)x.qty=x.baseQty});const wrap=document.createElement("div");wrap.className="order-category";const id="cat-"+cat.replace(/[^a-z0-9]/gi,"-");wrap.innerHTML=`<button class="category-header" data-toggle="${id}"><span>${esc(cat)}</span><span class="category-count">${ps.length}</span></button><div class="category-body" id="${id}">${ps.map(x=>`<div class="order-item order-item-compact" data-order-item-id="${x.id}" draggable="true"><div class="order-compact-head"><div class="order-compact-product"><div class="name">${esc(x.name)}</div><div class="meta">${esc(x.code||"—")}${x.notes?` · Nota: ${esc(x.notes)}`:""}</div></div><span class="unit-badge ${x.unitType==="peso"?"weight":"unit"}">${x.unitType==="peso"?"Peso (kg)":"Unidad"}</span></div><div class="order-compact-middle"><div class="order-compact-qty"><span class="order-qty-label">Cantidad</span>${x.unitType==="peso"?`<input class="order-qty-input weight-input" type="number" inputmode="decimal" step="0.01" min="0.01" value="${x.qty}" data-weight="${x.id}">`:`<select class="order-qty-input unit-input" data-qty="${x.id}">${qtyOptions(x.qty)}</select>`}</div><div class="meta order-base">Base: ${x.baseQty}${x.unitType==="peso"?" kg":" u"}</div></div><div class="order-compact-actions"><button class="drag-handle order-drag-compact" data-drag-handle="${x.id}" type="button">≡ Ordenar</button><button class="btn-danger order-delete-compact" data-del-order="${x.id}" type="button">Eliminar</button></div></div>`).join("")}</div>`;$("orderCategories").appendChild(wrap)});
+  ensureOrderTemplateForDay(activeOrderTab);const current=orders[activeOrderTab],visible=current;
+  $("orderTitle").textContent=`Pedido - ${dayLabel(activeOrderTab)}`;$("orderSeasonHint").textContent=`Sugerencia de ${ORDER_MONTH_NAMES[new Date().getMonth()]} · cantidades del pedido editables`;$("orderCount").textContent=`${current.length} producto${current.length===1?"":"s"}`;$("orderEmpty").style.display=visible.length?"none":"block";$("orderCategories").innerHTML="";
+  cats.forEach(cat=>{const ps=visible.filter(x=>(x.category||cats[0])===cat);if(!ps.length)return;const wrap=document.createElement("div");wrap.className="order-category";const id="cat-"+cat.replace(/[^a-z0-9]/gi,"-");let body="";if(cat==="Frutas / Vegetales"){const fruits=ps.filter(x=>x.seasonGroup==="Frutas"),veg=ps.filter(x=>x.seasonGroup==="Verduras"),other=ps.filter(x=>!x.seasonGroup);if(fruits.length)body+=`<div class="order-subgroup-title">Frutas</div>${fruits.map(orderItemCardHtml).join("")}`;if(veg.length)body+=`<div class="order-subgroup-title">Verduras</div>${veg.map(orderItemCardHtml).join("")}`;if(other.length)body+=`<div class="order-subgroup-title">Otros</div>${other.map(orderItemCardHtml).join("")}`}else body=ps.map(orderItemCardHtml).join("");wrap.innerHTML=`<button class="category-header" data-toggle="${id}"><span>${esc(cat)}</span><span class="category-count">${ps.length}</span></button><div class="category-body" id="${id}">${body}</div>`;$("orderCategories").appendChild(wrap)});
   document.querySelectorAll("[data-toggle]").forEach(b=>b.onclick=()=>document.getElementById(b.dataset.toggle).classList.toggle("collapsed"));
-  document.querySelectorAll("[data-qty]").forEach(s=>s.onchange=()=>{const x=current.find(y=>y.id===s.dataset.qty);x.qty=Number(s.value);saveAll()});
-  document.querySelectorAll("[data-weight]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.weight);const v=Number(i.value);if(v>0){x.qty=v;saveAll()}});
-  
-  document.querySelectorAll("[data-order-item-id]").forEach(card=>{
-    card.addEventListener("click",e=>{if(e.target.closest("button,input,select,.drag-handle"))return;openOrderEdit(card.dataset.orderItemId)});
-  });
-
-  // Reordenamiento por arrastre: funciona con mouse y también con toque.
+  document.querySelectorAll("[data-order-qty]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderQty);if(!x)return;const v=Number(i.value);x.qty=Number.isFinite(v)&&v>=0?v:0;i.value=String(x.qty);saveAll();renderCompletion()});
+  document.querySelectorAll("[data-order-item-id]").forEach(card=>{card.addEventListener("click",e=>{if(e.target.closest("button,input,select,.drag-handle"))return;openOrderEdit(card.dataset.orderItemId)})});
   let draggedId=null;
-
-  document.querySelectorAll("[data-order-item-id]").forEach(card=>{
-    card.addEventListener("dragstart",e=>{
-      draggedId=card.dataset.orderItemId;
-      card.classList.add("dragging");
-      if(e.dataTransfer){
-        e.dataTransfer.effectAllowed="move";
-        e.dataTransfer.setData("text/plain",draggedId);
-      }
-    });
-
-    card.addEventListener("dragend",()=>{
-      card.classList.remove("dragging");
-      document.querySelectorAll("[data-order-item-id]").forEach(c=>c.classList.remove("drag-over"));
-      draggedId=null;
-    });
-
-    card.addEventListener("dragover",e=>{
-      e.preventDefault();
-      if(card.dataset.orderItemId!==draggedId) card.classList.add("drag-over");
-    });
-
-    card.addEventListener("dragleave",()=>card.classList.remove("drag-over"));
-
-    card.addEventListener("drop",e=>{
-      e.preventDefault();
-      card.classList.remove("drag-over");
-      const fromId=draggedId || (e.dataTransfer?e.dataTransfer.getData("text/plain"):null);
-      const toId=card.dataset.orderItemId;
-      if(!fromId || fromId===toId) return;
-
-      const arr=orders[activeOrderTab];
-      const fromIndex=arr.findIndex(x=>x.id===fromId);
-      const toIndex=arr.findIndex(x=>x.id===toId);
-      if(fromIndex<0 || toIndex<0) return;
-
-      const [moved]=arr.splice(fromIndex,1);
-      arr.splice(toIndex,0,moved);
-      saveAll();
-      renderOrders();
-    });
-  });
-
-  // Soporte táctil específico para Android.
-  document.querySelectorAll("[data-drag-handle]").forEach(handle=>{
-    let touchId=null;
-    let activeCard=null;
-
-    handle.addEventListener("touchstart",e=>{
-      if(!e.touches.length) return;
-      touchId=handle.dataset.dragHandle;
-      activeCard=document.querySelector(`[data-order-item-id="${touchId}"]`);
-      if(activeCard) activeCard.classList.add("dragging");
-    },{passive:true});
-
-    handle.addEventListener("touchmove",e=>{
-      if(!touchId || !e.touches.length) return;
-      const t=e.touches[0];
-      const target=document.elementFromPoint(t.clientX,t.clientY)?.closest("[data-order-item-id]");
-      document.querySelectorAll("[data-order-item-id]").forEach(c=>c.classList.remove("drag-over"));
-      if(target && target.dataset.orderItemId!==touchId) target.classList.add("drag-over");
-    },{passive:true});
-
-    handle.addEventListener("touchend",e=>{
-      if(!touchId) return;
-      const t=e.changedTouches && e.changedTouches[0];
-      const target=t ? document.elementFromPoint(t.clientX,t.clientY)?.closest("[data-order-item-id]") : null;
-
-      if(activeCard) activeCard.classList.remove("dragging");
-      document.querySelectorAll("[data-order-item-id]").forEach(c=>c.classList.remove("drag-over"));
-
-      if(target && target.dataset.orderItemId!==touchId){
-        const arr=orders[activeOrderTab];
-        const fromIndex=arr.findIndex(x=>x.id===touchId);
-        const toIndex=arr.findIndex(x=>x.id===target.dataset.orderItemId);
-        if(fromIndex>=0 && toIndex>=0){
-          const [moved]=arr.splice(fromIndex,1);
-          arr.splice(toIndex,0,moved);
-          saveAll();
-          renderOrders();
-        }
-      }
-
-      touchId=null;
-      activeCard=null;
-    },{passive:true});
-  });
+  document.querySelectorAll("[data-order-item-id]").forEach(card=>{card.addEventListener("dragstart",e=>{draggedId=card.dataset.orderItemId;card.classList.add("dragging");if(e.dataTransfer){e.dataTransfer.effectAllowed="move";e.dataTransfer.setData("text/plain",draggedId)}});card.addEventListener("dragend",()=>{card.classList.remove("dragging");document.querySelectorAll("[data-order-item-id]").forEach(c=>c.classList.remove("drag-over"));draggedId=null});card.addEventListener("dragover",e=>{e.preventDefault();if(card.dataset.orderItemId!==draggedId)card.classList.add("drag-over")});card.addEventListener("dragleave",()=>card.classList.remove("drag-over"));card.addEventListener("drop",e=>{e.preventDefault();card.classList.remove("drag-over");const fromId=draggedId||(e.dataTransfer?e.dataTransfer.getData("text/plain"):null),toId=card.dataset.orderItemId;if(!fromId||fromId===toId)return;const arr=orders[activeOrderTab],fromIndex=arr.findIndex(x=>x.id===fromId),toIndex=arr.findIndex(x=>x.id===toId);if(fromIndex<0||toIndex<0)return;const[moved]=arr.splice(fromIndex,1);arr.splice(toIndex,0,moved);saveAll();renderOrders()})});
+  document.querySelectorAll("[data-drag-handle]").forEach(handle=>{let touchId=null,activeCard=null;handle.addEventListener("touchstart",e=>{if(!e.touches.length)return;touchId=handle.dataset.dragHandle;activeCard=document.querySelector(`[data-order-item-id="${touchId}"]`);if(activeCard)activeCard.classList.add("dragging")},{passive:true});handle.addEventListener("touchmove",e=>{if(!touchId||!e.touches.length)return;const t=e.touches[0],target=document.elementFromPoint(t.clientX,t.clientY)?.closest("[data-order-item-id]");document.querySelectorAll("[data-order-item-id]").forEach(c=>c.classList.remove("drag-over"));if(target&&target.dataset.orderItemId!==touchId)target.classList.add("drag-over")},{passive:true});handle.addEventListener("touchend",e=>{if(!touchId)return;const t=e.changedTouches&&e.changedTouches[0],target=t?document.elementFromPoint(t.clientX,t.clientY)?.closest("[data-order-item-id]"):null;if(activeCard)activeCard.classList.remove("dragging");document.querySelectorAll("[data-order-item-id]").forEach(c=>c.classList.remove("drag-over"));if(target&&target.dataset.orderItemId!==touchId){const arr=orders[activeOrderTab],fromIndex=arr.findIndex(x=>x.id===touchId),toIndex=arr.findIndex(x=>x.id===target.dataset.orderItemId);if(fromIndex>=0&&toIndex>=0){const[moved]=arr.splice(fromIndex,1);arr.splice(toIndex,0,moved);saveAll();renderOrders()}}touchId=null;activeCard=null},{passive:true})});
 }
-$("orderForm").onsubmit=e=>{
-  e.preventDefault();
-  const name=$("orderName").value.trim(),code=$("orderCode").value.trim(),cat=$("orderCategory").value,type=$("orderUnitType").value,base=type==="peso"?Number($("orderWeight").value):Number($("orderQty").value);
-  if(!name)return showToast("Ingresá un nombre.");
-  if(type==="peso"&&(!base||base<=0))return showToast("Ingresá un peso válido.");
-  if(orders[activeOrderTab].some(x=>norm(x.name)===norm(name)))return showToast("Ese producto ya está en este pedido.");
-  rememberOrder(name,code,cat,type);
-  rememberProductName(orderProductMemory,name);
-  orders[activeOrderTab].push({id:uid(),name,code,category:cat,unitType:type,baseQty:base,qty:base,notes:$("orderNotes").value.trim()});
-  saveAll();e.target.reset();$("orderCategory").value=cats[0];$("orderUnitType").value="unidad";toggleQtyInput();collapseAddPanel("order");renderAll();showToast("Producto añadido")
-};
-
-function renderCompletion(){
-  cleanCompletion();const hasProducts=(orders[activeOrderTab]||[]).length>0;
-  const actionWrap=$("completeOrderBtn")?.closest(".primary-action-wrap");
-  if(actionWrap)actionWrap.classList.toggle("hidden",!hasProducts);
-  const done=orderCompletion[activeOrderTab]===localDate(new Date());$("completeOrderBtn").classList.toggle("completed",done);$("completeOrderBtn").textContent=done?"✓ Pedido realizado":"✓ Finalizar pedido";$("orderStatusNote").textContent=done?"Pedido verificado por hoy · Tocá de nuevo para volver a pendiente":"Pedido pendiente";$("orderStatusNote").classList.toggle("completed",done);saveAll()
-}
-$("completeOrderBtn").onclick=async()=>{
-  const t=localDate(new Date());
-  if(orderCompletion[activeOrderTab]===t){orderCompletion[activeOrderTab]=null;saveAll();renderAll();return}
-  const current=orders[activeOrderTab];if(!current.length)return showToast("No hay productos cargados.");if(!await askConfirm(`¿Guardar como realizado el pedido de ${dayLabel(activeOrderTab)}?`,"Finalizar pedido"))return;
-  const now=new Date(),dateLabel=now.toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
-  orderHistory[activeOrderTab].unshift({id:uid(),dateLabel,items:current.map(x=>({...x,qty:Number(x.qty),baseQty:Number(x.baseQty)}))});orderHistory[activeOrderTab]=orderHistory[activeOrderTab].slice(0,20);
-  orders[activeOrderTab]=current.map(x=>({...x,qty:Number(x.baseQty)}));orderCompletion[activeOrderTab]=t;saveAll();renderAll()
-};
+$("orderForm").onsubmit=e=>{e.preventDefault();const name=$("orderName").value.trim(),code=$("orderCode").value.trim(),cat=$("orderCategory").value,type=$("orderUnitType").value,qty=Number($("orderQtyInput").value||0);if(!name)return showToast("Ingresá un nombre.");if(!Number.isFinite(qty)||qty<0)return showToast("Ingresá una cantidad válida.");if(orders[activeOrderTab].some(x=>norm(x.name)===norm(name)))return showToast("Ese producto ya está en este pedido.");rememberOrder(name,code,cat,type);rememberProductName(orderProductMemory,name);orders[activeOrderTab].push({id:uid(),name,code,category:cat,unitType:type,qty,notes:$("orderNotes").value.trim(),templateSeed:false,seasonGroup:""});saveAll();e.target.reset();$("orderCategory").value=cats[0];$("orderUnitType").value="unidad";$("orderQtyInput").value="0";toggleQtyInput();collapseAddPanel("order");renderAll();showToast("Producto añadido")};
+function renderCompletion(){const btn=$("completeOrderBtn"),note=$("orderStatusNote");if(!btn||!note)return;const active=(orders[activeOrderTab]||[]).filter(x=>Number(x.qty)>0).length;btn.disabled=active===0;btn.textContent="Guardar pedido en historial";note.textContent=active?`${active} producto${active===1?"":"s"} con cantidad mayor a 0 · Guardado opcional`:"No es obligatorio guardar el pedido. Cargá una cantidad mayor a 0 si querés guardar una copia.";note.classList.remove("completed")}
+$("completeOrderBtn").onclick=async()=>{const current=orders[activeOrderTab]||[],selected=current.filter(x=>Number(x.qty)>0);if(!selected.length)return showToast("No hay cantidades cargadas para guardar.");if(!await askConfirm(`Se guardará una copia del pedido de ${dayLabel(activeOrderTab)} con ${selected.length} producto${selected.length===1?"":"s"}.`,"Guardar pedido"))return;const now=new Date(),dateLabel=now.toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});orderHistory[activeOrderTab].unshift({id:uid(),dateLabel,items:selected.map(x=>({...x,qty:Number(x.qty),suggestedQty:orderSuggestedFor(x.name)}))});orderHistory[activeOrderTab]=orderHistory[activeOrderTab].slice(0,30);saveAll();renderOrderHistory();renderCompletion();showToast("Pedido guardado en el historial")};
 let orderHistoryOpen={};
-function orderShareText(e){return `Al Día · Pedido realizado\n${dayLabel(activeOrderTab)} · ${e.dateLabel}\n\n${e.items.map(x=>`${x.name}: ${x.qty}${x.unitType==="peso"?" kg":" u"}${x.notes?` · ${x.notes}`:""}`).join("\n")}`}
-function renderOrderHistory(){
-  const h=orderHistory[activeOrderTab];
-  const q=norm($("orderHistorySearch")?.value||"");
-  const visible=h.filter(e=>{
-    if(!q)return true;
-    const hay=[e.dateLabel,dayLabel(activeOrderTab),...(e.items||[]).flatMap(x=>[x.name,x.code,x.category,x.notes])].join(" ");
-    return norm(hay).includes(q);
-  });
-  $("orderHistoryTitle").textContent=`Historial - ${dayLabel(activeOrderTab)}`;
-  $("orderHistoryCount").textContent=q?`${visible.length} de ${h.length}`:`${h.length} pedido${h.length===1?"":"s"}`;
-  $("orderHistoryEmpty").style.display=visible.length?"none":"block";
-  $("orderHistoryEmpty").textContent=q?"No hay coincidencias en este historial.":"Todavía no hay pedidos realizados.";
-  $("orderHistoryList").innerHTML="";
-  visible.forEach(e=>{
-    const open=!!orderHistoryOpen[e.id],card=document.createElement("div");card.className="history-order-card";
-    card.innerHTML=`<button class="history-delete" data-del-oh="${e.id}"><span aria-hidden="true">×</span></button><button class="sample-history-header" data-toggle-order-history="${e.id}" type="button"><div class="sample-history-title"><span class="sample-history-chevron">${open?"▾":"▸"}</span><span>Pedido realizado</span></div><span class="sample-history-date">${esc(e.dateLabel)}</span></button><div class="sample-history-body ${open?"":"hidden"}">${cats.map(c=>{const ps=e.items.filter(x=>(x.category||cats[0])===c);return ps.length?`<div class="history-order-item"><strong>${esc(c)}</strong>${ps.map(x=>`<div style="margin-top:5px">${esc(x.name)} — ${x.qty}${x.unitType==="peso"?" kg":" u"}${x.notes?` · Nota: ${esc(x.notes)}`:""}</div>`).join("")}</div>`:""}).join("")}<button class="share-btn" data-share-order-history="${e.id}" type="button" style="width:100%;margin-top:8px">Compartir pedido</button></div>`;
-    $("orderHistoryList").appendChild(card)
-  });
-  document.querySelectorAll("[data-toggle-order-history]").forEach(b=>b.onclick=()=>{orderHistoryOpen[b.dataset.toggleOrderHistory]=!orderHistoryOpen[b.dataset.toggleOrderHistory];renderOrderHistory()});
-  document.querySelectorAll("[data-share-order-history]").forEach(b=>b.onclick=()=>{const e=h.find(x=>x.id===b.dataset.shareOrderHistory);if(e)shareText("Pedido realizado",orderShareText(e))});
-}
+function orderShareText(e){return `Al Día · Pedido guardado\n${dayLabel(activeOrderTab)} · ${e.dateLabel}\n\n${e.items.map(x=>`${x.name}: ${x.qty}${x.unitType==="peso"?" kg":" u"}${x.notes?` · ${x.notes}`:""}`).join("\n")}`}
+function renderOrderHistory(){const h=orderHistory[activeOrderTab],q=norm($("orderHistorySearch")?.value||""),visible=h.filter(e=>{if(!q)return true;const hay=[e.dateLabel,dayLabel(activeOrderTab),...(e.items||[]).flatMap(x=>[x.name,x.code,x.category,x.notes])].join(" ");return norm(hay).includes(q)});$("orderHistoryTitle").textContent=`Historial - ${dayLabel(activeOrderTab)}`;$("orderHistoryCount").textContent=q?`${visible.length} de ${h.length}`:`${h.length} pedido${h.length===1?"":"s"}`;$("orderHistoryEmpty").style.display=visible.length?"none":"block";$("orderHistoryEmpty").textContent=q?"No hay coincidencias en este historial.":"Todavía no hay pedidos guardados.";$("orderHistoryList").innerHTML="";visible.forEach(e=>{const open=!!orderHistoryOpen[e.id],card=document.createElement("div");card.className="history-order-card";card.innerHTML=`<button class="history-delete" data-del-oh="${e.id}"><span aria-hidden="true">×</span></button><button class="sample-history-header" data-toggle-order-history="${e.id}" type="button"><div class="sample-history-title"><span class="sample-history-chevron">${open?"▾":"▸"}</span><span>Pedido guardado</span></div><span class="sample-history-date">${esc(e.dateLabel)}</span></button><div class="sample-history-body ${open?"":"hidden"}">${cats.map(c=>{const ps=e.items.filter(x=>(x.category||cats[0])===c);return ps.length?`<div class="history-order-item"><strong>${esc(c)}</strong>${ps.map(x=>`<div style="margin-top:5px">${esc(x.name)} — ${x.qty}${x.unitType==="peso"?" kg":" u"}${x.notes?` · Nota: ${esc(x.notes)}`:""}</div>`).join("")}</div>`:""}).join("")}<button class="share-btn" data-share-order-history="${e.id}" type="button" style="width:100%;margin-top:8px">Compartir pedido</button></div>`;$("orderHistoryList").appendChild(card)});document.querySelectorAll("[data-toggle-order-history]").forEach(b=>b.onclick=()=>{orderHistoryOpen[b.dataset.toggleOrderHistory]=!orderHistoryOpen[b.dataset.toggleOrderHistory];renderOrderHistory()});document.querySelectorAll("[data-share-order-history]").forEach(b=>b.onclick=()=>{const e=h.find(x=>x.id===b.dataset.shareOrderHistory);if(e)shareText("Pedido guardado",orderShareText(e))})}
+
 function renderOrderSavedManager(){
   const vals=Object.values(savedProducts).sort((a,b)=>a.name.localeCompare(b.name,"es"));$("orderSavedProductsPanel").innerHTML=vals.length?"":"<div class='empty'>No hay productos guardados.</div>";
   vals.forEach(p=>{const key=norm(p.name),el=document.createElement("div");el.className="saved-product-row tappable-row";el.dataset.savedOrderKey=key;el.tabIndex=0;el.innerHTML=`<strong>${esc(p.name)}</strong><div class="meta">${esc(p.code||"Sin código")} · ${esc(p.category||"Sin categoría")} · ${p.unitType==="peso"?"Peso":"Unidad"}</div><div class="saved-product-actions"><button class="btn-danger" data-del-os="${esc(key)}">Eliminar</button></div>`;$("orderSavedProductsPanel").appendChild(el)});
@@ -2416,7 +2393,10 @@ function closeModal(){editCtx=null;$("editModalBackdrop").classList.remove("open
 $("editCancelBtn").onclick=closeModal;$("editModalBackdrop").onclick=e=>{if(e.target===$("editModalBackdrop"))closeModal()};
 function openExpiryEdit(id){const x=items.find(y=>y.id===id);if(!x)return;openModal("Editar vencimiento",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Fecha</label><input id="m3" type="date" value="${x.date}"><label style="margin-top:10px">Retiro</label><select id="m4"><option value="0" ${Number(x.withdrawDays)===0?"selected":""}>Retirar el día</option><option value="10" ${Number(x.withdrawDays)===10?"selected":""}>Retirar 10 días antes</option></select><label style="margin-top:10px">Nota</label><input id="m5" value="${esc(x.notes||"")}">`,{type:"expiry",id})}
 function openSavedExpiryEdit(key){const x=savedExpiryProducts[key];openModal("Editar producto frecuente",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Retiro</label><select id="m3"><option value="0" ${Number(x.withdrawDays)===0?"selected":""}>Retirar el día</option><option value="10" ${Number(x.withdrawDays)===10?"selected":""}>Retirar 10 días antes</option></select>`,{type:"saved-expiry",key})}
-function openOrderEdit(id){const x=orders[activeOrderTab].find(y=>y.id===id);openModal("Editar producto del pedido",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Categoría</label><select id="m3">${cats.map(c=>`<option ${x.category===c?"selected":""}>${c}</option>`).join("")}</select><label style="margin-top:10px">Cantidad en</label><select id="m4"><option value="unidad" ${x.unitType!=="peso"?"selected":""}>Unidad</option><option value="peso" ${x.unitType==="peso"?"selected":""}>Peso</option></select><label style="margin-top:10px">Cantidad base</label><input id="m5" type="number" inputmode="decimal" step="0.01" min="0.01" value="${x.baseQty}"><label style="margin-top:10px">Nota opcional</label><input id="m6" value="${esc(x.notes||"")}">`,{type:"order",id,day:activeOrderTab})}
+function openOrderEdit(id){
+  const x=orders[activeOrderTab].find(y=>y.id===id);if(!x)return;
+  openModal("Editar producto del pedido",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Categoría</label><select id="m3">${cats.map(c=>`<option ${x.category===c?"selected":""}>${c}</option>`).join("")}</select><label style="margin-top:10px">Cantidad en</label><select id="m4"><option value="unidad" ${x.unitType!=="peso"?"selected":""}>Unidad</option><option value="peso" ${x.unitType==="peso"?"selected":""}>Peso</option></select><label style="margin-top:10px">Cantidad sugerida</label><input id="m5" type="number" inputmode="decimal" step="0.01" min="0" value="${orderSuggestedFor(x.name)}"><div class="footer-note" style="margin-top:4px">Este valor se usará como cantidad por defecto en futuras sugerencias. No cambia la cantidad del pedido actual.</div><label style="margin-top:10px">Nota opcional</label><input id="m6" value="${esc(x.notes||"")}">`,{type:"order",id,day:activeOrderTab})
+}
 function openSavedOrderEdit(key){const x=savedProducts[key];openModal("Editar producto guardado",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Categoría</label><select id="m3">${cats.map(c=>`<option ${x.category===c?"selected":""}>${c}</option>`).join("")}</select><label style="margin-top:10px">Cantidad en</label><select id="m4"><option value="unidad" ${x.unitType!=="peso"?"selected":""}>Unidad</option><option value="peso" ${x.unitType==="peso"?"selected":""}>Peso</option></select>`,{type:"saved-order",key})}
 $("editSaveBtn").onclick=()=>{
   if(!editCtx)return;
@@ -2424,7 +2404,7 @@ $("editSaveBtn").onclick=()=>{
   try{
     if(ctx.type==="expiry"){const x=items.find(y=>y.id===ctx.id);if(!x)return;if(!$("m1").value.trim()||!$("m3").value)return showToast("Completá producto y fecha.");x.name=$("m1").value.trim();x.code=$("m2").value.trim();x.date=$("m3").value;x.withdrawDays=Number($("m4").value);x.notes=$("m5").value.trim();rememberProductName(expiryProductMemory,x.name);}
     if(ctx.type==="saved-expiry"){const old=ctx.key,name=$("m1").value.trim(),code=$("m2").value.trim(),wd=Number($("m3").value);if(!name)return showToast("Ingresá un producto.");delete savedExpiryProducts[old];savedExpiryProducts[norm(name)]={name,code,withdrawDays:wd};rememberProductName(expiryProductMemory,name);}
-    if(ctx.type==="order"){const x=orders[ctx.day].find(y=>y.id===ctx.id),base=Number($("m5").value);if(!x||!$("m1").value.trim())return showToast("Ingresá un producto.");x.name=$("m1").value.trim();x.code=$("m2").value.trim();x.category=$("m3").value;x.unitType=$("m4").value;x.baseQty=base>0?base:1;x.qty=x.baseQty;x.notes=$("m6").value.trim();rememberProductName(orderProductMemory,x.name);}
+    if(ctx.type==="order"){const x=orders[ctx.day].find(y=>y.id===ctx.id),suggested=Number($("m5").value);if(!x||!$("m1").value.trim())return showToast("Ingresá un producto.");x.name=$("m1").value.trim();x.code=$("m2").value.trim();x.category=$("m3").value;x.unitType=$("m4").value;x.notes=$("m6").value.trim();setOrderSuggested(x.name,Number.isFinite(suggested)&&suggested>=0?suggested:0);rememberProductName(orderProductMemory,x.name);}
     if(ctx.type==="saved-order"){const old=ctx.key,name=$("m1").value.trim(),code=$("m2").value.trim(),cat=$("m3").value,type=$("m4").value;if(!name)return showToast("Ingresá un producto.");delete savedProducts[old];savedProducts[norm(name)]={name,code,category:cat,unitType:type};rememberProductName(orderProductMemory,name);}
     saveAll();
     closeModal();
@@ -2779,10 +2759,10 @@ function backupSummaryText(d,includeTitle=true){
     const dt=new Date(d.exportedAt);
     if(!Number.isNaN(dt.getTime()))when=dt.toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
   }
-  return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos realizados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}`;
+  return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos guardados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}`;
 }
 function currentBackupObject(){
-  return {version:9,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,orders,orderHistory,orderCompletion,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:10,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;
@@ -2813,6 +2793,8 @@ function applyBackupObject(d,silent=false){
   orders=d.orders||{martes:[],jueves:[],sabado:[]};
   orderHistory=d.orderHistory||{martes:[],jueves:[],sabado:[]};
   orderCompletion=d.orderCompletion||{martes:null,jueves:null,sabado:null};
+  orderSuggestedQty=d.orderSuggestedQty&&typeof d.orderSuggestedQty==="object"?d.orderSuggestedQty:{};
+  orderTemplateState=d.orderTemplateState&&typeof d.orderTemplateState==="object"?d.orderTemplateState:{martes:"",jueves:"",sabado:""};
   savedProducts=d.savedProducts||{};
   sampleTemplates=d.sampleTemplates||Object.fromEntries(sampleCats.map(c=>[c,[]]));
   sampleHistory=d.sampleHistory||[];
@@ -2834,6 +2816,7 @@ function applyBackupObject(d,silent=false){
     orders[x]??=[];
     orderHistory[x]??=[];
     orderCompletion[x]??=null;
+    orderTemplateState[x]??="";
   });
   saveAll();
   if(!silent)renderAll();
