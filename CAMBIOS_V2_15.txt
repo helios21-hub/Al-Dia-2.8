@@ -1,0 +1,7 @@
+AL DÍA v2.15
+
+- Se reemplaza en toda la app “Hortalizas Pesadas” por “Hortalizas”.
+- Cebolla de Verdeo queda clasificada como Vegetales.
+- Se agrega migración automática para datos guardados de versiones anteriores.
+- Pedidos y Base de aprendizaje cambian automáticamente al mes actual al abrir/volver a la app y también si cambia el mes mientras permanece abierta.
+- Backup actualizado a formato v15.

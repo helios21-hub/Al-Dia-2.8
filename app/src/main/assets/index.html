@@ -893,41 +893,79 @@ mark.search-hit{
 @media(max-width:430px){.cv-draft-topbar{align-items:flex-start;flex-direction:column}.cv-draft-topbar .secondary-btn{width:100%}.cv-final-actions{grid-template-columns:1fr}.cv-product-grid{min-width:560px}}
 
 
-/* v2.11 - Pedidos con aprendizaje gradual */
-.order-review-card{margin:10px 0;border-left:4px solid #806d52}
+/* v2.12 - Pedidos compactos + gestos + jerarquía visual */
+.order-review-card{margin:10px 0;border-left:3px solid #b48d58}
 .order-review-card.hidden{display:none!important}
 .order-review-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px}
-.order-review-title{font-weight:900;font-size:14px}
-.order-review-sub{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.35}
-.order-review-list{display:grid;gap:8px}
-.order-review-item{border:1px solid var(--border);border-radius:11px;padding:9px;background:var(--card)}
-.order-review-item-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:6px}
-.order-review-item-head strong{font-size:12px}
-.order-review-prevmeta{font-size:10px;color:var(--muted);line-height:1.35}
-.order-review-fields{display:grid;grid-template-columns:1fr 1.35fr;gap:7px;margin-top:7px}
-.order-review-fields label{font-size:9px}
-.order-review-fields input,.order-review-fields select{min-height:34px;font-size:12px;padding:6px 8px}
-.order-review-confirm{width:100%;margin-top:9px}
-.order-item-smart{padding:10px}
-.order-smart-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:7px 0}
-.order-smart-stat{border:1px solid var(--border);border-radius:9px;padding:6px;background:color-mix(in srgb,var(--card) 92%,var(--border) 8%)}
-.order-smart-stat span{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:800}
-.order-smart-stat strong{display:block;font-size:12px;margin-top:2px;word-break:break-word}
-.order-smart-inputs{display:grid;grid-template-columns:.8fr 1fr 1fr;gap:6px;margin:7px 0}
-.order-smart-inputs label{font-size:8px;margin-bottom:3px}
-.order-smart-inputs input,.order-smart-inputs select{min-height:34px;font-size:11px;padding:5px 7px}
-.order-smart-orderline{display:flex;gap:8px;align-items:flex-end;justify-content:space-between;margin-top:8px}
-.order-smart-orderline .order-compact-qty{flex:1}
-.order-smart-orderline .order-qty-input{width:100%;max-width:120px}
-.order-use-suggested{min-height:36px;padding:6px 9px;font-size:10px;white-space:nowrap}
-.order-confidence{font-size:10px;color:var(--muted);margin-top:2px}
-.order-smart-warning{font-size:10px;line-height:1.35;padding:6px 7px;border-radius:8px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.20);margin-top:6px}
-.order-profile-summary{font-size:10px;color:var(--muted);margin-top:2px}
-.order-learned-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0}
-.order-learned-summary div{border:1px solid var(--border);border-radius:8px;padding:6px;text-align:center;font-size:10px}
-.order-learned-summary strong{display:block;font-size:12px;margin-top:2px}
-.order-advanced-note{font-size:10px;color:var(--muted);line-height:1.35;margin:4px 0 8px}
-@media(max-width:430px){.order-smart-inputs{grid-template-columns:1fr 1fr}.order-smart-inputs>div:last-child{grid-column:1/-1}.order-smart-summary{grid-template-columns:1fr 1fr}.order-smart-stat:last-child{grid-column:1/-1}.order-review-fields{grid-template-columns:1fr}.order-smart-orderline{align-items:stretch;flex-direction:column}.order-use-suggested{width:100%}}
+.order-review-title{font-weight:900;font-size:14px}.order-review-sub{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.35}
+.order-review-list{display:grid;gap:7px}.order-review-item{border:1px solid var(--border);border-radius:11px;padding:9px;background:var(--card)}
+.order-review-item-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:6px}.order-review-item-head strong{font-size:12px}
+.order-review-prevmeta{font-size:10px;color:var(--muted);line-height:1.35}.order-review-fields{display:grid;grid-template-columns:1fr 1.35fr;gap:7px;margin-top:7px}
+.order-review-fields label{font-size:9px}.order-review-fields input,.order-review-fields select{min-height:34px;font-size:12px;padding:6px 8px}.order-review-confirm{width:100%;margin-top:9px}
+
+/* Cada producto es una fila compacta claramente separada */
+.order-item-smart{position:relative;display:grid;grid-template-columns:minmax(128px,1.6fr) 58px 66px 72px;gap:7px;align-items:center;padding:8px 10px!important;margin:0;background:var(--card);border:1px solid color-mix(in srgb,var(--border) 88%,#8b704c 12%);border-left:3px solid #c5a06b;border-radius:11px;box-shadow:0 1px 3px rgba(15,23,42,.06);touch-action:pan-y;user-select:none}
+.order-item-smart+.order-item-smart{margin-top:7px}
+.order-compact-head{min-width:0}.order-compact-product{min-width:0}.order-compact-product .name{font-size:13px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.2}.order-compact-product .meta{font-size:9px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}.order-profile-summary{font-size:9px;color:var(--muted);margin-top:2px}
+.order-inline-cell{min-width:0}.order-inline-cell label{display:block;font-size:8px;color:var(--muted);font-weight:800;margin-bottom:2px;text-align:center}.order-inline-cell input{min-height:32px;height:32px;padding:4px 5px;font-size:12px;text-align:center;border-radius:8px}.order-inline-cell .order-qty-input{width:100%;max-width:none;font-weight:900;border-width:2px}
+.order-suggested-tap{width:100%;min-height:32px;height:32px;padding:3px 4px;border-radius:8px;background:rgba(128,109,82,.08);border:1px solid rgba(128,109,82,.22);color:var(--text);font-size:11px;font-weight:900}.order-suggested-tap:disabled{opacity:.55}.order-suggested-tap small{display:block;font-size:7px;color:var(--muted);font-weight:800;line-height:1}
+.order-row-meta{grid-column:1/-1;display:flex;align-items:center;gap:5px;flex-wrap:wrap;min-height:20px;border-top:1px solid color-mix(in srgb,var(--border) 72%,transparent);padding-top:5px;margin-top:0}
+.order-mini-select{width:auto;min-width:86px;min-height:28px;height:28px;padding:2px 22px 2px 6px;font-size:9px;border-radius:8px;background:var(--card)}
+.order-confidence-chip,.order-warning-chip{display:inline-flex;align-items:center;min-height:25px;padding:3px 7px;border-radius:999px;font-size:9px;font-weight:800;background:rgba(100,116,139,.08);color:var(--muted);border:1px solid color-mix(in srgb,var(--border) 85%,transparent)}
+.order-warning-chip{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.20);color:#8a5b00;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.dark .order-warning-chip{color:#f4c66b}
+.order-drag-state{outline:2px solid rgba(37,99,235,.32);outline-offset:2px;box-shadow:0 5px 16px rgba(15,23,42,.18)!important;opacity:.94}
+.order-drop-target{border-top:3px solid #2563eb!important}
+.order-category .category-body{display:grid;gap:0}
+.order-category{overflow:visible}
+
+/* Configuración avanzada plegable */
+.order-advanced-details{margin-top:12px;border:1px solid var(--border);border-radius:11px;background:rgba(100,116,139,.04);overflow:hidden}.order-advanced-details summary{cursor:pointer;padding:10px 11px;font-weight:900;font-size:12px;list-style:none}.order-advanced-details summary::-webkit-details-marker{display:none}.order-advanced-details summary::after{content:"⌄";float:right;color:var(--muted)}.order-advanced-details[open] summary::after{transform:rotate(180deg)}.order-advanced-body{padding:0 11px 11px}.order-learned-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0}.order-learned-summary div{border:1px solid var(--border);border-radius:8px;padding:6px;text-align:center;font-size:10px}.order-learned-summary strong{display:block;font-size:12px;margin-top:2px}.order-advanced-note{font-size:10px;color:var(--muted);line-height:1.35;margin:4px 0 8px}
+
+/* Gestos de lista: tocar=editar, mantener=ordenar, deslizar=eliminar */
+.swipe-delete-ready{position:relative;overflow:visible;transition:transform .14s ease,border-color .14s ease,box-shadow .14s ease}.swipe-delete-ready.swipe-moving{transition:none}.swipe-delete-ready.swipe-armed{border-color:rgba(220,38,38,.45)!important;box-shadow:0 0 0 2px rgba(220,38,38,.07)!important}.swipe-delete-hint{position:absolute;right:8px;top:50%;transform:translateY(-50%);z-index:9;display:none;pointer-events:none;background:#dc2626;color:#fff;border-radius:8px;padding:5px 8px;font-size:9px;font-weight:900;box-shadow:0 3px 10px rgba(220,38,38,.18)}.swipe-delete-ready.swipe-armed>.swipe-delete-hint{display:block}.swipe-delete-source{display:none!important}
+[data-del-order],[data-del-expiry],[data-del-exp-h],[data-del-oh],[data-del-exp-s],[data-del-os],[data-del-sample-row],[data-del-sample-history],[data-del-consultant],[data-del-cv-item],[data-del-cv]{display:none!important}
+
+/* Más separación visual sin inflar las fichas */
+.list{gap:8px}.item,.saved-product-row,.consultor-product-row,.sample-stock-row,.cv-product-module,.history-order-card,.history-card,.sample-history-card,.cv-history-item{box-shadow:0 1px 3px rgba(15,23,42,.05)}
+.saved-product-row,.consultor-product-row,.cv-product-module,.history-order-card,.history-card,.sample-history-card,.cv-history-item{border-color:color-mix(in srgb,var(--border) 90%,#64748b 10%)}
+.card{box-shadow:0 2px 9px rgba(15,23,42,.055)}
+body.dark .card,body.dark .order-item-smart{box-shadow:0 2px 10px rgba(0,0,0,.22)}
+
+@media(max-width:430px){.order-item-smart{grid-template-columns:minmax(112px,1.55fr) 52px 61px 67px;gap:5px;padding:7px 8px!important}.order-compact-product .name{font-size:12px}.order-inline-cell input,.order-suggested-tap{height:31px;min-height:31px}.order-mini-select{min-width:78px;max-width:105px}.order-review-fields{grid-template-columns:1fr}}
+
+
+/* v2.13 - Base de aprendizaje, categorías y disponibilidad mensual */
+.home-section-btn.aprendizaje{background:linear-gradient(145deg,#f6f4ff,#eef5ff);border-color:#d9d7ef}
+.learning-summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.learning-kpi{background:#f8fafc;border:1px solid #e4e7ec;border-radius:12px;padding:10px}.learning-kpi strong{display:block;font-size:1.15rem}.learning-kpi span{font-size:.72rem;color:#667085}
+.learning-source{border-left:4px solid #7785aa;background:#f8f9fc}.learning-source-name{font-weight:800}.learning-source-meta{font-size:.78rem;color:#667085;margin-top:4px}
+.learning-toolbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.learning-toolbar input{grid-column:1/-1}
+.learning-list{display:flex;flex-direction:column;gap:7px}.learning-product{background:#fff;border:1px solid #dde2e8;border-radius:12px;padding:10px 12px;box-shadow:0 1px 2px rgba(16,24,40,.04);cursor:pointer}.learning-product-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.learning-product-name{font-weight:800}.learning-product-meta{font-size:.75rem;color:#667085;margin-top:4px}.learning-origin{font-size:.68rem;padding:3px 7px;border-radius:999px;background:#f2f4f7;color:#475467;white-space:nowrap}
+.cat-frutas{border-left:4px solid #e49b6e}.cat-vegetales{border-left:4px solid #72a985}.cat-hortalizas-pesadas{border-left:4px solid #a78b6d}.order-subgroup-title.cat-frutas{background:#fff5ed;color:#9a4d22}.order-subgroup-title.cat-vegetales{background:#edf8f0;color:#356a47}.order-subgroup-title.cat-hortalizas-pesadas{background:#f7f1eb;color:#70543d}
+.month-picker{margin-top:8px}.month-picker-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:7px}.month-toggle-all{border:0;background:#eef2f6;color:#344054;border-radius:9px;padding:6px 9px;font-size:.72rem;font-weight:700}.month-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.month-chip{position:relative}.month-chip input{position:absolute;opacity:0;pointer-events:none}.month-chip span{display:block;text-align:center;border:1px solid #d0d5dd;border-radius:9px;padding:7px 3px;font-size:.72rem;background:#fff}.month-chip input:checked+span{background:#eaf2ff;border-color:#8db5ef;color:#175cd3;font-weight:800}.month-count-note{font-size:.72rem;color:#667085;margin-top:6px}
+@media(max-width:520px){.learning-summary-grid{grid-template-columns:repeat(3,1fr)}.learning-toolbar{grid-template-columns:1fr 1fr}.month-grid{grid-template-columns:repeat(4,1fr)}}
+
+
+/* v2.15 - Hortalizas, corrección de Verdeo y cambio mensual automático */
+:root{--surface-soft:#f8fafc;--surface-strong:#eef2f6;--input-bg:#ffffff;--chip-bg:#eef2ff;--chip-text:#3730a3}
+body.dark,body.theme-petrol,body.theme-forest,body.theme-graphite{--surface-soft:rgba(255,255,255,.045);--surface-strong:rgba(255,255,255,.075);--input-bg:var(--card);--chip-bg:rgba(96,165,250,.15);--chip-text:#dbeafe}
+input,select,textarea{background:var(--input-bg)!important;color:var(--text)!important;border-color:var(--border)!important}
+button{color:inherit}.btn-primary,.settings-btn,.section-settings-btn,.confirm-ok,.btn-retired{color:#fff!important}
+.secondary-btn,.manage-toggle,.main-tab,.subtab,.view-tab,.filter-btn{background:var(--surface-strong);color:var(--text);border:1px solid var(--border)}
+.pill,.category-count{background:var(--chip-bg)!important;color:var(--chip-text)!important;border:1px solid var(--border)}
+.card,.order-category,.history-card,.history-order-card,.saved-product-row,.modal{background:var(--card)!important;color:var(--text)!important}.category-header{background:var(--surface-soft)!important;color:var(--text)!important}.fixed-input:disabled{background:var(--surface-strong)!important;color:var(--muted)!important}
+body.dark .btn-danger,body.theme-petrol .btn-danger,body.theme-forest .btn-danger,body.theme-graphite .btn-danger{background:#4b1f24!important;color:#fecaca!important}
+body.dark .share-btn,body.theme-petrol .share-btn,body.theme-forest .share-btn,body.theme-graphite .share-btn{background:#123a4a!important;color:#bae6fd!important}
+body.dark .clear-history-btn,body.theme-petrol .clear-history-btn,body.theme-forest .clear-history-btn,body.theme-graphite .clear-history-btn{background:#4b1f24!important;color:#fecaca!important}
+.order-category{overflow:hidden!important;margin-bottom:8px!important}.order-category .category-header{min-height:42px;padding:8px 10px!important;margin:0!important;border:0!important;text-transform:none!important;letter-spacing:0!important;font-size:13px!important}.order-cat-label{display:flex;align-items:center;gap:7px;font-weight:900}.order-cat-chevron{width:16px;text-align:center;font-size:15px;color:var(--muted)}.order-category .category-body{padding:0 9px 9px!important}.order-category .category-body.collapsed{display:none!important}
+.learning-sheet-card{padding:11px!important}.learning-sheet-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}.learning-view-tabs{display:flex;gap:5px;flex:0 0 auto}.learning-view-btn{min-height:34px;padding:5px 9px;font-size:11px;background:var(--surface-strong);color:var(--text);border:1px solid var(--border)}.learning-view-btn.active{background:var(--primary)!important;color:#fff!important;border-color:var(--primary)!important}.learning-sheet-wrap{margin-top:10px}.learning-month-table-wrap,.learning-annual-wrap{overflow:auto;border:1px solid var(--border);border-radius:12px;background:var(--card)}
+.learning-month-table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed}.learning-month-table th{padding:8px 5px;font-size:11px;text-align:left;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:2;background:var(--surface-strong)}.learning-month-table th+th,.learning-month-table td+td{border-left:1px solid var(--border)}.learning-month-table th span{display:block;font-weight:900}.learning-month-table th small{display:block;margin-top:2px;color:var(--muted);font-size:9px}.learning-month-table td{padding:0;border-bottom:1px solid var(--border);vertical-align:top}.learning-month-table tr:last-child td{border-bottom:0}.learning-sheet-product{width:100%;min-height:34px;padding:5px 6px;border:0;border-radius:0;background:transparent!important;color:var(--text)!important;text-align:left;font-size:10px;font-weight:750;line-height:1.18}.learning-sheet-product:active{background:var(--surface-strong)!important}.learning-empty-cell{background:rgba(100,116,139,.025)}
+.learn-fruit{box-shadow:inset 3px 0 0 #d9866b!important}.learn-veg{box-shadow:inset 3px 0 0 #68a879!important}.learn-heavy{box-shadow:inset 3px 0 0 #9a7b52!important}
+.learning-annual-table{border-collapse:separate;border-spacing:0;min-width:760px;width:100%;font-size:10px}.learning-annual-table th,.learning-annual-table td{border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:5px;text-align:center}.learning-annual-table thead th{position:sticky;top:0;background:var(--surface-strong);z-index:3;font-weight:900}.learning-annual-table thead th:first-child,.learning-annual-table tbody th{position:sticky;left:0;background:var(--card);z-index:2;text-align:left;min-width:150px}.learning-annual-table thead th:first-child{z-index:4;background:var(--surface-strong)}.learning-annual-name{width:100%;min-height:28px;padding:3px 6px;background:transparent!important;color:var(--text)!important;text-align:left;border-radius:6px;font-size:10px}.month-on{background:rgba(37,99,235,.12);color:var(--primary);font-weight:900}.month-off{color:transparent;background:transparent}
+@media(max-width:420px){.learning-toolbar{grid-template-columns:1fr!important}.learning-sheet-head{align-items:center}.learning-month-table th{font-size:10px}.learning-sheet-product{font-size:9.5px;padding:5px 4px}.learning-month-table-wrap{max-height:58vh}}
+#backToTopBtn{left:50%!important;right:auto!important;top:max(12px,calc(env(safe-area-inset-top) + 8px))!important;bottom:auto!important;transform:translateX(-50%);width:42px!important;height:42px!important;min-height:42px!important;background:rgba(17,24,39,.88)!important;backdrop-filter:blur(7px);box-shadow:0 5px 16px rgba(15,23,42,.22)!important}
+body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backToTopBtn,body.theme-graphite #backToTopBtn{background:rgba(30,41,59,.92)!important;color:#fff!important;border:1px solid rgba(255,255,255,.18)}
 
 </style>
 </head>
@@ -974,6 +1012,7 @@ mark.search-hit{
       <button class="home-section-btn muestras" id="homeMuestrasBtn" type="button"><span class="home-alert-badge" id="homeSampleBadge">0</span><span class="home-section-top"><span class="home-section-icon">📦</span><strong>Muestras</strong></span><small id="homeSampleSummary">Sin muestra en curso</small></button>
       <button class="home-section-btn notas" id="homeNotesBtn" type="button"><span class="home-alert-badge" id="homeNotesBadge">0</span><span class="home-section-top"><span class="home-section-icon">📝</span><strong>Notas rápidas</strong></span><small id="homeNotesSummary">No hay notas pendientes</small></button>
       <button class="home-section-btn plantilla" id="homePlantillaBtn" type="button"><span class="home-section-top"><span class="home-section-icon">📊</span><strong>Carnes-Vegetales</strong></span><small>Generar plantilla XLSX</small></button>
+      <button class="home-section-btn aprendizaje" id="homeLearningBtn" type="button"><span class="home-section-top"><span class="home-section-icon">🧠</span><strong>Base de aprendizaje</strong></span><small>Temporadas y datos usados por la app</small></button>
     </div>
     </div>
   </section>
@@ -1066,7 +1105,7 @@ mark.search-hit{
 
     <div id="order-current-view">
       <div class="card">
-        <div class="topbar"><div><strong id="orderTitle">Pedido - Martes</strong><div class="order-season-hint" id="orderSeasonHint">Sugerencia mensual</div></div><span class="pill" id="orderCount">0 productos</span></div>
+        <div class="topbar"><div><strong id="orderTitle">Pedido - Martes</strong><div class="order-season-hint" id="orderSeasonHint">Temporada del mes</div></div><span class="pill" id="orderCount">0 productos</span></div>
         <div class="order-template-note">La casilla Pedido corresponde solo a tu decisión actual. La app calcula Necesidad y Sugerido sin reemplazar lo que vos cargues. Tocá la tarjeta para configurar el producto.</div>
         <div id="orderEmpty" class="empty">Todavía no agregaste productos para este día.</div>
         <div id="orderCategories"></div>
@@ -1078,8 +1117,9 @@ mark.search-hit{
           <div><label>Nombre</label><input id="orderName" list="savedProducts" autocomplete="off" required><datalist id="savedProducts"></datalist></div>
           <div><label>Scanning / Código</label><input id="orderCode" autocomplete="off"></div>
           <div><label>Categoría</label><select id="orderCategory">
-            <option>Frutas / Vegetales</option><option>Frutos Secos</option><option>Leña / Carbón</option><option>Jugos</option><option>Cuarta Gama</option>
+            <option>Frutas</option><option>Vegetales</option><option>Hortalizas</option>
           </select></div>
+          <div class="month-picker" id="orderMonthPicker"><div class="month-picker-head"><label style="margin:0">Meses disponibles</label><button class="month-toggle-all" id="orderMonthsToggleAll" type="button">Seleccionar todos</button></div><div class="month-grid" id="orderMonthsGrid"></div><div class="month-count-note" id="orderMonthsCount">0 de 12 meses seleccionados</div></div>
           <div><label>Tipo de cantidad</label><select id="orderUnitType"><option value="bulto">Bulto</option><option value="peso">Peso</option></select></div>
           <div><label>Rotación</label><select id="orderRotation"><option value="alta">Alta</option><option value="media" selected>Media</option><option value="baja">Baja</option></select></div>
           <div><label>Reacción a oferta</label><select id="orderOfferReaction"><option value="ninguna" selected>Ninguna</option><option value="baja">Baja</option><option value="media">Media</option><option value="alta">Alta</option></select></div>
@@ -1098,6 +1138,20 @@ mark.search-hit{
       <input class="history-search" id="orderHistorySearch" type="search" autocomplete="off" placeholder="Buscar por fecha, categoría o producto">
       <div id="orderHistoryEmpty" class="empty">Todavía no hay pedidos guardados.</div>
       <div id="orderHistoryList"></div>
+    </div>
+  </section>
+
+
+  <section id="tab-aprendizaje" class="main-section">
+    <div class="section-title-row"><div><h1>Base de aprendizaje</h1><div class="subtitle">Información que Al Día utiliza como referencia para Pedidos y futuras funciones.</div></div></div>
+    <button class="back-home-btn" data-back-home type="button">← Volver a Inicio</button>
+    <div class="card learning-source"><div class="learning-source-name">📄 Productos de temporada</div><div class="learning-source-meta">Fuente inicial: DISCO - FRUTAS Y VERDURAS DE ESTACIÓN.xlsx · complementada con tus variedades y ajustes manuales.</div></div>
+    <div class="learning-summary-grid"><div class="learning-kpi"><strong id="learningMonthName">—</strong><span>Mes seleccionado</span></div><div class="learning-kpi"><strong id="learningMonthCount">0</strong><span>Productos activos</span></div><div class="learning-kpi"><strong id="learningAllYearCount">0</strong><span>Todo el año</span></div></div>
+    <div class="card learning-sheet-card">
+      <div class="learning-sheet-head"><div><strong>Productos de temporada</strong><div class="footer-note">Vista general de la disponibilidad mensual. Tocá un producto para editarlo.</div></div><div class="learning-view-tabs"><button id="learningMonthlyViewBtn" class="learning-view-btn active" type="button">Mes</button><button id="learningAnnualViewBtn" class="learning-view-btn" type="button">Año</button></div></div>
+      <div class="learning-toolbar"><input id="learningSearch" type="search" placeholder="Buscar producto"><select id="learningMonthFilter"></select><select id="learningCategoryFilter"><option value="">Todas las categorías</option><option>Frutas</option><option>Vegetales</option><option>Hortalizas</option></select></div>
+      <div class="footer-note" id="learningTransitions"></div>
+      <div id="learningProductList" class="learning-sheet-wrap"></div>
     </div>
   </section>
 
@@ -1290,7 +1344,6 @@ mark.search-hit{
 
       <div class="notification-permission-status" id="notificationPermissionStatus">Comprobando permiso de notificaciones…</div>
       <button class="secondary-btn" id="requestNotificationPermissionBtn" type="button" style="width:100%;margin-top:8px">Habilitar permiso de notificaciones</button>
-      <button class="secondary-btn" id="testNotificationBtn" type="button" style="width:100%;margin-top:8px">Probar notificación genérica</button>
       <button class="secondary-btn temporary-test-btn" id="testProductNotificationBtn" type="button" style="width:100%;margin-top:8px">Prueba temporal · alerta real de productos</button>
     </div>
 
@@ -1409,9 +1462,10 @@ const K={
   sampleSession:"al_dia_muestra_sesion_v1",
   carnesVegetales:"al_dia_plantilla_carnes_vegetales_v1",
   carnesVegetalesDraft:"al_dia_plantilla_carnes_vegetales_borrador_v1",
+  learningCatalog:"al_dia_base_aprendizaje_productos_v1",
   settings:"dia_a_dia_ajustes_v1"
 };
-const cats=["Frutas / Vegetales","Frutos Secos","Leña / Carbón","Jugos","Cuarta Gama"];
+const cats=["Frutas","Vegetales","Hortalizas"];
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
 const uid=()=>crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random());
@@ -1429,7 +1483,9 @@ if(!orderTemplateState||typeof orderTemplateState!=="object"||Array.isArray(orde
 let orderProfiles=JSON.parse(localStorage.getItem(K.orderProfiles)||"{}");
 if(!orderProfiles||typeof orderProfiles!=="object"||Array.isArray(orderProfiles))orderProfiles={};
 let savedProducts=JSON.parse(localStorage.getItem(K.orderSaved)||"{}");
-const sampleCats=["Hortalizas Pesadas","Especias","Frutas secas","Vegetales","Frutas","Carbón"];
+let learningCatalog=JSON.parse(localStorage.getItem(K.learningCatalog)||"[]");
+if(!Array.isArray(learningCatalog))learningCatalog=[];
+const sampleCats=["Hortalizas","Especias","Frutas secas","Vegetales","Frutas","Carbón"];
 let sampleTemplates=JSON.parse(localStorage.getItem(K.samples)||"{}");
 let sampleHistory=JSON.parse(localStorage.getItem(K.sampleHistory)||"[]");
 let notes=JSON.parse(localStorage.getItem(K.notes)||"[]");
@@ -1443,7 +1499,7 @@ let cvEditingItemId=null;
 
 function migrateSampleCategories(){
   const aliases={
-    "Hortalizas":"Hortalizas Pesadas",
+    "Hortalizas Pesadas":"Hortalizas",
     "Frutos secos":"Frutas secas",
     "Leña / Carbón":"Carbón"
   };
@@ -1499,6 +1555,7 @@ const saveAll=()=>{
   localStorage.setItem(K.consultant,JSON.stringify(consultantProducts));
   localStorage.setItem(K.carnesVegetales,JSON.stringify(carnesVegetalesHistory));
   localStorage.setItem(K.carnesVegetalesDraft,JSON.stringify(carnesVegetalesDraft));
+  localStorage.setItem(K.learningCatalog,JSON.stringify(learningCatalog));
   localStorage.setItem(K.backupMeta,JSON.stringify(backupMetaState));
   localStorage.setItem(K.expiryProductMemory,JSON.stringify(expiryProductMemory));
   localStorage.setItem(K.orderProductMemory,JSON.stringify(orderProductMemory));
@@ -1910,7 +1967,7 @@ const ORDER_VEG_ORDER=[
   "Tomate Redondo","Tomate Perita","Cherry Rojo","Cherry Amarillo","Cherry Morado",
   "Berenjena Negra","Berenjena Violeta","Pimiento Rojo","Pimiento Amarillo","Pimiento Verde",
   "Brócoli","Coliflor","Remolacha","Repollo Colorado","Repollo Blanco","Rabanito","Repollitos de Bruselas",
-  "Papa Lavada Suelta","Papa Negra Granel","Papa Cepillada","Zanahoria","Batatas",
+  "Papa Lavada Suelta","Papa Negra Granel","Papa Cepillada","Zanahoria","Batatas","Boniato",
   "Cebolla Granel","Cebolla Blanca","Cebolla Roja","Ajo",
   "Zapallo Anco","Zapallo Inglés","Zapallo Plomo","Zapallo Muscat","Zapallito Largo","Zapallito Redondo"
 ];
@@ -1953,56 +2010,88 @@ function orderSuggestedFor(name,day=activeOrderTab,item=null){if(item)return ord
 function setOrderSuggested(name,value){const p=orderProfileFor(name),v=Number(value);p.legacySuggested=Number.isFinite(v)&&v>=0?v:0;orderSuggestedQty[norm(name)]=p.legacySuggested}
 function expandOrderSeasonNames(base,expander){const out=[];base.forEach(raw=>{const key=norm(raw),expanded=expander[key];if(expanded)expanded.forEach(n=>out.push(n));else out.push(ORDER_NAME_CANON[key]||capitalizeFirstUserLetter(String(raw)))});return [...new Map(out.map(n=>[norm(n),n])).values()]}
 function orderSortByMaster(names,master){const rank=new Map(master.map((n,i)=>[norm(n),i]));return [...names].sort((a,b)=>(rank.get(norm(a))??9999)-(rank.get(norm(b))??9999)||a.localeCompare(b,"es"))}
-function buildMonthlyOrderSuggestion(date=new Date()){
-  const m=date.getMonth();
-  const fruits=orderSortByMaster(expandOrderSeasonNames(ORDER_FRUIT_BY_MONTH[m]||[],ORDER_FRUIT_EXPAND),ORDER_FRUIT_ORDER);
-  const vegRaw=[...expandOrderSeasonNames(ORDER_VEG_BY_MONTH[m]||[],ORDER_VEG_EXPAND),...ORDER_ALWAYS_VEG];
-  const vegetables=orderSortByMaster([...new Map(vegRaw.map(n=>[norm(n),n])).values()],ORDER_VEG_ORDER);
-  return [...fruits.map(name=>({name,seasonGroup:"Frutas"})),...vegetables.map(name=>({name,seasonGroup:"Verduras"}))];
+function defaultCategoryForProduct(name,group="Vegetales"){
+  const k=norm(name);
+  const heavy=["papa","cebolla","batata","boniato","zanahoria","ajo","zapallo anco","zapallo ingles","zapallo plomo","zapallo muscat"];
+  if(group==="Frutas")return "Frutas";
+  if(k.includes("cebolla de verdeo")||k.includes("verdeo"))return "Vegetales";
+  if(heavy.some(x=>k.includes(x)))return "Hortalizas";
+  return "Vegetales";
 }
+function seedLearningCatalog(){
+  if(learningCatalog.length)return;
+  const map=new Map();
+  for(let m=0;m<12;m++){
+    const fruits=orderSortByMaster(expandOrderSeasonNames(ORDER_FRUIT_BY_MONTH[m]||[],ORDER_FRUIT_EXPAND),ORDER_FRUIT_ORDER);
+    const veg=orderSortByMaster(expandOrderSeasonNames(ORDER_VEG_BY_MONTH[m]||[],ORDER_VEG_EXPAND),ORDER_VEG_ORDER);
+    fruits.forEach(name=>{const k=norm(name);if(!map.has(k))map.set(k,{id:uid(),name,category:"Frutas",months:[],origin:"Planilla estacional"});map.get(k).months.push(m+1)});
+    veg.forEach(name=>{const k=norm(name);if(!map.has(k))map.set(k,{id:uid(),name,category:defaultCategoryForProduct(name,"Vegetales"),months:[],origin:"Planilla estacional"});map.get(k).months.push(m+1)});
+  }
+  ORDER_ALWAYS_VEG.forEach(name=>{const k=norm(name),x=map.get(k)||{id:uid(),name,category:defaultCategoryForProduct(name,"Vegetales"),months:[],origin:"Ajuste manual"};x.months=[1,2,3,4,5,6,7,8,9,10,11,12];if(!map.has(k))map.set(k,x)});
+  const bat=map.get(norm("Batatas"));const bon={id:uid(),name:"Boniato",category:"Hortalizas",months:bat?.months?.length?[...bat.months]:[3,4,5,6,7,11,12],origin:"Ajuste manual"};map.set(norm("Boniato"),bon);
+  learningCatalog=[...map.values()].map(x=>({...x,months:[...new Set(x.months)].sort((a,b)=>a-b)}));
+}
+function knowledgeFor(name,create=false){let x=learningCatalog.find(y=>norm(y.name)===norm(name));if(!x&&create){x={id:uid(),name:String(name||""),category:"Vegetales",months:[new Date().getMonth()+1],origin:"Añadido manualmente"};learningCatalog.push(x)}return x}
+function migrateOrderCategoriesV215(){
+  const normalizeCategory=(cat,name,group="Vegetales")=>{
+    if(cat==="Hortalizas Pesadas")cat="Hortalizas";
+    if(norm(name).includes("cebolla de verdeo")||norm(name).includes("verdeo"))return "Vegetales";
+    if(cat==="Frutas / Vegetales"||!cats.includes(cat))return defaultCategoryForProduct(name,group);
+    return cat;
+  };
+  learningCatalog.forEach(x=>{x.category=normalizeCategory(x.category,x.name,x.category==="Frutas"?"Frutas":"Vegetales")});
+  const fix=x=>{if(!x)return;const group=x.seasonGroup==="Frutas"?"Frutas":"Vegetales";x.category=normalizeCategory(x.category,x.name,group);x.seasonGroup=x.category};
+  Object.values(orders).flat().forEach(fix);
+  Object.values(orderHistory).flat().forEach(h=>(h.items||[]).forEach(fix));
+  Object.values(savedProducts).forEach(fix);
+}
+function buildMonthlyOrderSuggestion(date=new Date()){seedLearningCatalog();const m=date.getMonth()+1;return learningCatalog.filter(x=>Array.isArray(x.months)&&x.months.includes(m)).map(x=>({name:x.name,seasonGroup:x.category,category:x.category}));}
 function ensureOrderTemplateForDay(day){
   const mk=orderMonthKey();if(orderTemplateState[day]===mk)return false;
   const existing=Array.isArray(orders[day])?orders[day]:[],manual=existing.filter(x=>!x.templateSeed),manualNames=new Set(manual.map(x=>norm(x.name)));
-  const suggested=buildMonthlyOrderSuggestion().filter(x=>!manualNames.has(norm(x.name))).map(x=>{const p=orderProfileFor(x.name,norm(x.name)==="sandia"?"peso":"bulto");return {id:uid(),name:x.name,code:"",category:"Frutas / Vegetales",unitType:p.qtyType,qty:0,stockCurrent:0,priceState:"normal",expectedMovement:"normal",notes:"",templateSeed:true,seasonGroup:x.seasonGroup}});
+  const suggested=buildMonthlyOrderSuggestion().filter(x=>!manualNames.has(norm(x.name))).map(x=>{const p=orderProfileFor(x.name,norm(x.name)==="sandia"?"peso":"bulto");return {id:uid(),name:x.name,code:"",category:x.category||x.seasonGroup||"Vegetales",unitType:p.qtyType,qty:0,stockCurrent:0,priceState:"normal",expectedMovement:"normal",notes:"",templateSeed:true,seasonGroup:x.seasonGroup}});
   orders[day]=[...suggested,...manual];orderTemplateState[day]=mk;saveAll();return true;
 }
 function rememberOrder(name,code,category,unitType,rotation="media",offerReaction="ninguna",expensiveSensitivity="ninguna"){
-  if(!name.trim())return;const p=orderProfileFor(name,unitType);p.qtyType=orderQtyType(unitType,name);p.rotation=rotation;p.offerReaction=offerReaction;p.expensiveSensitivity=expensiveSensitivity;savedProducts[norm(name)]={name:name.trim(),code:code.trim(),category,unitType:p.qtyType};renderOrderDatalist();saveAll()
+  if(!name.trim())return;const p=orderProfileFor(name,unitType);p.qtyType=orderQtyType(unitType,name);p.rotation=rotation;p.offerReaction=offerReaction;p.expensiveSensitivity=expensiveSensitivity;savedProducts[norm(name)]={name:name.trim(),code:code.trim(),category,unitType:p.qtyType};const k=knowledgeFor(name,true);k.name=name.trim();k.category=category;renderOrderDatalist();saveAll()
 }
 function renderOrderDatalist(){$("savedProducts").innerHTML=Object.values(savedProducts).sort((a,b)=>a.name.localeCompare(b.name,"es")).map(x=>`<option value="${esc(x.name)}"></option>`).join("")}
-$("orderName").addEventListener("input",()=>{const p=savedProducts[norm($("orderName").value)],profile=orderProfileFor($("orderName").value,p?.unitType||"bulto",false);if(p){$("orderCode").value=p.code||"";$("orderCategory").value=p.category||cats[0];$("orderUnitType").value=orderQtyType(profile?.qtyType||p.unitType,p.name);if(profile){$("orderRotation").value=profile.rotation;$("orderOfferReaction").value=profile.offerReaction;$("orderExpensiveSensitivity").value=profile.expensiveSensitivity}toggleQtyInput()}});
+$("orderName").addEventListener("input",()=>{const p=savedProducts[norm($("orderName").value)],profile=orderProfileFor($("orderName").value,p?.unitType||"bulto",false);if(p){$("orderCode").value=p.code||"";$("orderCategory").value=p.category||cats[0];const know=knowledgeFor(p.name,false);if(know)initOrderMonthPicker(know.months);$("orderUnitType").value=orderQtyType(profile?.qtyType||p.unitType,p.name);if(profile){$("orderRotation").value=profile.rotation;$("orderOfferReaction").value=profile.offerReaction;$("orderExpensiveSensitivity").value=profile.expensiveSensitivity}toggleQtyInput()}});
 function toggleQtyInput(){const input=$("orderQtyInput");if(!input)return;const weight=$("orderUnitType").value==="peso";input.step=weight?"0.1":"1";input.inputMode=weight?"decimal":"numeric";if(input.value==="")input.value="0"}
 $("orderUnitType").onchange=toggleQtyInput;
 function orderItemCardHtml(x){
-  const c=orderCalc(x),p=c.profile,unit=orderUnitLabel(p),qty=Math.max(0,Number(x.qty)||0),warn=c.warnings.slice(0,2).map(w=>`<div class="order-smart-warning">${esc(w)}</div>`).join("");x.unitType=p.qtyType;
-  return `<div class="order-item order-item-compact order-item-smart" data-order-item-id="${x.id}" draggable="true"><div class="order-compact-head"><div class="order-compact-product"><div class="name">${esc(x.name)}</div><div class="meta">${esc(x.code||"—")}${x.notes?` · Nota: ${esc(x.notes)}`:""}</div><div class="order-profile-summary">${p.qtyType==="peso"?"Peso":"Bulto"} · Rotación ${esc(p.rotation)}</div></div><span class="unit-badge ${p.qtyType==="peso"?"weight":"unit"}">${p.qtyType==="peso"?"Peso (kg)":"Bulto"}</span></div><div class="order-smart-inputs"><div><label>Stock actual</label><input type="number" min="0" step="${p.qtyType==="peso"?"0.1":"1"}" inputmode="${p.qtyType==="peso"?"decimal":"numeric"}" value="${c.stock}" data-order-stock="${x.id}"></div><div><label>Precio</label><select data-order-price="${x.id}"><option value="normal" ${x.priceState!=="oferta"&&x.priceState!=="caro"?"selected":""}>Normal</option><option value="oferta" ${x.priceState==="oferta"?"selected":""}>Oferta</option><option value="caro" ${x.priceState==="caro"?"selected":""}>Caro</option></select></div><div><label>Movimiento esperado</label><select data-order-movement="${x.id}"><option value="poco" ${x.expectedMovement==="poco"?"selected":""}>Poco</option><option value="normal" ${x.expectedMovement!=="poco"&&x.expectedMovement!=="mucho"?"selected":""}>Normal</option><option value="mucho" ${x.expectedMovement==="mucho"?"selected":""}>Mucho</option></select></div></div><div class="order-smart-summary"><div class="order-smart-stat"><span>Necesidad estimada</span><strong>${c.estimated} ${unit}</strong></div><div class="order-smart-stat"><span>Sugerido</span><strong>${c.suggested} ${unit}</strong></div><div class="order-smart-stat"><span>Confianza</span><strong>${c.confidence}</strong></div></div><div class="order-smart-orderline"><div class="order-compact-qty"><span class="order-qty-label">Pedido</span><input class="order-qty-input order-qty-input-v210" type="number" inputmode="${p.qtyType==="peso"?"decimal":"numeric"}" step="${p.qtyType==="peso"?"0.1":"1"}" min="0" value="${qty}" data-order-qty="${x.id}"></div><button class="secondary-btn order-use-suggested" data-use-order-suggested="${x.id}" type="button" ${c.suggested<=0?"disabled":""}>Usar sugerido (${c.suggested})</button></div>${warn}<div class="order-compact-actions"><button class="drag-handle order-drag-compact" data-drag-handle="${x.id}" type="button">≡ Ordenar</button><button class="btn-danger order-delete-compact" data-del-order="${x.id}" type="button">Eliminar</button></div></div>`}
-function previousOrderDay(day){return day==="jueves"?"martes":day==="sabado"?"jueves":"sabado"}
-function latestPendingOrderReview(day){const prev=previousOrderDay(day),entry=(orderHistory[prev]||[]).find(e=>!e.feedbackCompletedAt&&Array.isArray(e.items)&&e.items.length);return entry?{prev,entry}:null}
-function renderOrderReview(){
-  const card=$("orderReviewCard");if(!card)return;const pending=latestPendingOrderReview(activeOrderTab);if(!pending){card.classList.add("hidden");$("orderReviewList").innerHTML="";return}const {prev,entry}=pending;card.classList.remove("hidden");$("orderReviewTitle").textContent=`Revisar ${dayLabel(prev)} anterior`;$("orderReviewSub").textContent="Indicá cuánto quedó y cómo terminó cada producto. Esta revisión ajusta gradualmente la referencia de ese ciclo.";$("orderReviewCount").textContent=`${entry.items.length} producto${entry.items.length===1?"":"s"}`;
-  $("orderReviewList").innerHTML=entry.items.map((it,i)=>{const p=orderProfileFor(it.name,it.unitType),unit=orderUnitLabel(p),available=Math.max(0,Number(it.stockInitial)||0)+Math.max(0,Number(it.qty)||0);return `<div class="order-review-item"><div class="order-review-item-head"><strong>${esc(it.name)}</strong><span class="unit-badge ${p.qtyType==="peso"?"weight":"unit"}">${p.qtyType==="peso"?"kg":"Bulto"}</span></div><div class="order-review-prevmeta">Stock inicial: ${Number(it.stockInitial)||0} · Pedido: ${Number(it.qty)||0} · Total disponible: ${available} ${unit}<br>Sugerido que había dado la app: ${Number(it.suggestedQty)||0}</div><div class="order-review-fields"><div><label>Stock restante</label><input type="number" min="0" step="${p.qtyType==="peso"?"0.1":"1"}" data-review-stock="${i}" value="${it.stockRemaining??""}"></div><div><label>Resultado del ciclo</label><select data-review-result="${i}"><option value="">Elegir…</option><option value="sobra_mucho">Sobró mucho</option><option value="sobra_poco">Sobró un poco</option><option value="bien">Quedó bien</option><option value="falta_poco">Faltó un poco</option><option value="falta_mucho">Faltó mucho</option></select></div></div></div>`}).join("");
-  $("confirmOrderReviewBtn").onclick=()=>confirmOrderReview(pending);
+  const c=orderCalc(x),p=c.profile,unit=orderUnitLabel(p),qty=Math.max(0,Number(x.qty)||0),warning=c.warnings[0]||"";x.unitType=p.qtyType;
+  return `<div class="order-item order-item-compact order-item-smart" data-order-item-id="${x.id}"><div class="order-compact-head"><div class="order-compact-product"><div class="name">${esc(x.name)}</div><div class="meta">${esc(x.code||"Sin código")}</div><div class="order-profile-summary">${p.qtyType==="peso"?"Peso (kg)":"Bulto"} · Rotación ${esc(p.rotation)}</div></div></div><div class="order-inline-cell"><label>Stock</label><input type="number" min="0" step="${p.qtyType==="peso"?"0.1":"1"}" inputmode="${p.qtyType==="peso"?"decimal":"numeric"}" value="${c.stock}" data-order-stock="${x.id}" aria-label="Stock actual de ${esc(x.name)}"></div><div class="order-inline-cell"><label>Sugerido</label><button class="order-suggested-tap" data-use-order-suggested="${x.id}" type="button" ${c.suggested<=0?"disabled":""}><small>usar</small>${c.suggested}</button></div><div class="order-inline-cell"><label>Pedido</label><input class="order-qty-input order-qty-input-v210" type="number" inputmode="${p.qtyType==="peso"?"decimal":"numeric"}" step="${p.qtyType==="peso"?"0.1":"1"}" min="0" value="${qty}" data-order-qty="${x.id}" aria-label="Pedido de ${esc(x.name)}"></div><div class="order-row-meta"><select class="order-mini-select" data-order-price="${x.id}" aria-label="Precio de ${esc(x.name)}"><option value="normal" ${x.priceState!=="oferta"&&x.priceState!=="caro"?"selected":""}>Precio normal</option><option value="oferta" ${x.priceState==="oferta"?"selected":""}>Oferta</option><option value="caro" ${x.priceState==="caro"?"selected":""}>Caro</option></select><select class="order-mini-select" data-order-movement="${x.id}" aria-label="Movimiento esperado de ${esc(x.name)}"><option value="poco" ${x.expectedMovement==="poco"?"selected":""}>Poco mov.</option><option value="normal" ${x.expectedMovement!=="poco"&&x.expectedMovement!=="mucho"?"selected":""}>Mov. normal</option><option value="mucho" ${x.expectedMovement==="mucho"?"selected":""}>Mucho mov.</option></select><span class="order-confidence-chip">Confianza: ${esc(c.confidence)}</span>${warning?`<span class="order-warning-chip" title="${esc(warning)}">${esc(warning)}</span>`:""}</div><button class="btn-danger swipe-delete-source" data-del-order="${x.id}" type="button" tabindex="-1" aria-hidden="true">Eliminar</button></div>`
 }
 async function confirmOrderReview(pending){
   const {prev,entry}=pending,feedback=[];for(let i=0;i<entry.items.length;i++){const sv=Number(document.querySelector(`[data-review-stock="${i}"]`)?.value),result=document.querySelector(`[data-review-result="${i}"]`)?.value;if(!Number.isFinite(sv)||sv<0)return showToast("Completá el stock restante de todos los productos.");if(!result)return showToast("Indicá el resultado de todos los productos.");feedback.push({stockRemaining:sv,result})}
   if(!await askConfirm(`Se actualizará gradualmente el aprendizaje del pedido de ${dayLabel(prev)} usando ${feedback.length} resultado${feedback.length===1?"":"s"}.`,"Confirmar aprendizaje"))return;
   const resultFactor={sobra_mucho:.78,sobra_poco:.90,bien:1,falta_poco:1.12,falta_mucho:1.28};entry.items.forEach((it,i)=>{const fb=feedback[i],p=orderProfileFor(it.name,it.unitType),l=p.learning[prev],available=Math.max(0,Number(it.stockInitial)||0)+Math.max(0,Number(it.qty)||0),consumption=Math.max(0,available-fb.stockRemaining),factor=resultFactor[fb.result]||1,demand=Math.max(0,consumption*factor),temporary=Math.max(.45,Number(it.appliedDemandFactor)||1),observedBase=demand/temporary,old=l.base!=null?Number(l.base):(Number(p.legacySuggested)>0?Number(p.legacySuggested):null),alpha=old==null?1:l.cycles<3?.35:l.cycles<8?.25:.18,newBase=old==null?observedBase:old*(1-alpha)+observedBase*alpha;l.base=Math.max(0,Math.round(newBase*100)/100);l.cycles=(Number(l.cycles)||0)+1;l.recent=[fb.result,...(l.recent||[])].slice(0,8);it.stockRemaining=fb.stockRemaining;it.approxConsumption=Math.round(consumption*100)/100;it.result=fb.result;it.feedbackAt=new Date().toISOString()});entry.feedbackCompletedAt=new Date().toISOString();saveAll();renderOrders();renderOrderReview();renderOrderHistory();showToast("Aprendizaje actualizado")
 }
+const orderCategoryExpanded={martes:{},jueves:{},sabado:{}};
 function renderOrders(){
   ensureOrderTemplateForDay(activeOrderTab);const current=orders[activeOrderTab],visible=current;current.forEach(x=>{x.stockCurrent=Math.max(0,Number(x.stockCurrent)||0);x.priceState=["oferta","normal","caro"].includes(x.priceState)?x.priceState:"normal";x.expectedMovement=["poco","normal","mucho"].includes(x.expectedMovement)?x.expectedMovement:"normal";const p=orderProfileFor(x.name,x.unitType);x.unitType=p.qtyType});
-  $("orderTitle").textContent=`Pedido - ${dayLabel(activeOrderTab)}`;$("orderSeasonHint").textContent=`Sugerencia de ${ORDER_MONTH_NAMES[new Date().getMonth()]} · aprendizaje independiente para ${dayLabel(activeOrderTab)}`;$("orderCount").textContent=`${current.length} producto${current.length===1?"":"s"}`;$("orderEmpty").style.display=visible.length?"none":"block";$("orderCategories").innerHTML="";
-  cats.forEach(cat=>{const ps=visible.filter(x=>(x.category||cats[0])===cat);if(!ps.length)return;const wrap=document.createElement("div");wrap.className="order-category";const id="cat-"+cat.replace(/[^a-z0-9]/gi,"-");let body="";if(cat==="Frutas / Vegetales"){const fruits=ps.filter(x=>x.seasonGroup==="Frutas"),veg=ps.filter(x=>x.seasonGroup==="Verduras"),other=ps.filter(x=>!x.seasonGroup);if(fruits.length)body+=`<div class="order-subgroup-title">Frutas</div>${fruits.map(orderItemCardHtml).join("")}`;if(veg.length)body+=`<div class="order-subgroup-title">Verduras</div>${veg.map(orderItemCardHtml).join("")}`;if(other.length)body+=`<div class="order-subgroup-title">Otros</div>${other.map(orderItemCardHtml).join("")}`}else body=ps.map(orderItemCardHtml).join("");wrap.innerHTML=`<button class="category-header" data-toggle="${id}"><span>${esc(cat)}</span><span class="category-count">${ps.length}</span></button><div class="category-body" id="${id}">${body}</div>`;$("orderCategories").appendChild(wrap)});
-  document.querySelectorAll("[data-toggle]").forEach(b=>b.onclick=()=>document.getElementById(b.dataset.toggle).classList.toggle("collapsed"));
+  $("orderTitle").textContent=`Pedido - ${dayLabel(activeOrderTab)}`;$("orderSeasonHint").textContent=`Temporada · ${capitalizeFirstUserLetter(ORDER_MONTH_NAMES[new Date().getMonth()])} · aprendizaje independiente para ${dayLabel(activeOrderTab)}`;$("orderCount").textContent=`${current.length} producto${current.length===1?"":"s"}`;$("orderEmpty").style.display=visible.length?"none":"block";$("orderCategories").innerHTML="";
+  cats.forEach(cat=>{const ps=visible.filter(x=>(x.category||cats[0])===cat);if(!ps.length)return;const wrap=document.createElement("div");wrap.className="order-category";const id="cat-"+activeOrderTab+"-"+cat.replace(/[^a-z0-9]/gi,"-");let body=ps.map(orderItemCardHtml).join("");const cls=cat==="Frutas"?"cat-frutas":cat==="Vegetales"?"cat-vegetales":"cat-hortalizas-pesadas";const open=!!orderCategoryExpanded[activeOrderTab]?.[cat];wrap.innerHTML=`<button class="category-header order-subgroup-title ${cls}" data-order-category="${esc(cat)}" data-toggle="${id}" aria-expanded="${open}"><span class="order-cat-label"><span class="order-cat-chevron">${open?"▾":"▸"}</span>${esc(cat)}</span><span class="category-count">${ps.length}</span></button><div class="category-body ${open?"":"collapsed"}" id="${id}">${body}</div>`;$("orderCategories").appendChild(wrap)});
+  document.querySelectorAll("[data-order-category]").forEach(b=>b.onclick=()=>{const cat=b.dataset.orderCategory;orderCategoryExpanded[activeOrderTab][cat]=!orderCategoryExpanded[activeOrderTab][cat];const body=document.getElementById(b.dataset.toggle);body?.classList.toggle("collapsed",!orderCategoryExpanded[activeOrderTab][cat]);b.setAttribute("aria-expanded",String(!!orderCategoryExpanded[activeOrderTab][cat]));const ch=b.querySelector(".order-cat-chevron");if(ch)ch.textContent=orderCategoryExpanded[activeOrderTab][cat]?"▾":"▸"});
   document.querySelectorAll("[data-order-qty]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderQty);if(!x)return;const v=Number(i.value);x.qty=Number.isFinite(v)&&v>=0?v:0;i.value=String(x.qty);saveAll();renderCompletion()});
   document.querySelectorAll("[data-order-stock]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderStock);if(!x)return;const v=Number(i.value);x.stockCurrent=Number.isFinite(v)&&v>=0?v:0;saveAll();renderOrders();renderCompletion()});
   document.querySelectorAll("[data-order-price]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderPrice);if(!x)return;x.priceState=i.value;saveAll();renderOrders()});
   document.querySelectorAll("[data-order-movement]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderMovement);if(!x)return;x.expectedMovement=i.value;saveAll();renderOrders()});
   document.querySelectorAll("[data-use-order-suggested]").forEach(b=>b.onclick=e=>{e.stopPropagation();const x=current.find(y=>y.id===b.dataset.useOrderSuggested);if(!x)return;x.qty=orderCalc(x).suggested;saveAll();renderOrders();renderCompletion()});
-  document.querySelectorAll("[data-order-item-id]").forEach(card=>{card.addEventListener("click",e=>{if(e.target.closest("button,input,select,.drag-handle"))return;openOrderEdit(card.dataset.orderItemId)})});
-  let draggedId=null;document.querySelectorAll("[data-order-item-id]").forEach(card=>{card.addEventListener("dragstart",e=>{draggedId=card.dataset.orderItemId;card.classList.add("dragging");if(e.dataTransfer){e.dataTransfer.effectAllowed="move";e.dataTransfer.setData("text/plain",draggedId)}});card.addEventListener("dragend",()=>{card.classList.remove("dragging");document.querySelectorAll("[data-order-item-id]").forEach(c=>c.classList.remove("drag-over"));draggedId=null});card.addEventListener("dragover",e=>{e.preventDefault();if(card.dataset.orderItemId!==draggedId)card.classList.add("drag-over")});card.addEventListener("dragleave",()=>card.classList.remove("drag-over"));card.addEventListener("drop",e=>{e.preventDefault();card.classList.remove("drag-over");const fromId=draggedId||(e.dataTransfer?e.dataTransfer.getData("text/plain"):null),toId=card.dataset.orderItemId;if(!fromId||fromId===toId)return;const arr=orders[activeOrderTab],fromIndex=arr.findIndex(x=>x.id===fromId),toIndex=arr.findIndex(x=>x.id===toId);if(fromIndex<0||toIndex<0)return;const[moved]=arr.splice(fromIndex,1);arr.splice(toIndex,0,moved);saveAll();renderOrders()})});
+  document.querySelectorAll("[data-order-item-id]").forEach(card=>{card.addEventListener("click",e=>{if(card.dataset.gestureConsumed==="1"){card.dataset.gestureConsumed="0";return}if(e.target.closest("button,input,select"))return;openOrderEdit(card.dataset.orderItemId)})});
+  initOrderLongPressReorder();
+  refreshSwipeDelete();
   renderOrderReview();
 }
-$("orderForm").onsubmit=e=>{e.preventDefault();const name=$("orderName").value.trim(),code=$("orderCode").value.trim(),cat=$("orderCategory").value,type=$("orderUnitType").value,qty=Number($("orderQtyInput").value||0),rotation=$("orderRotation").value,offer=$("orderOfferReaction").value,expensive=$("orderExpensiveSensitivity").value;if(!name)return showToast("Ingresá un nombre.");if(!Number.isFinite(qty)||qty<0)return showToast("Ingresá una cantidad válida.");if(orders[activeOrderTab].some(x=>norm(x.name)===norm(name)))return showToast("Ese producto ya está en este pedido.");rememberOrder(name,code,cat,type,rotation,offer,expensive);rememberProductName(orderProductMemory,name);orders[activeOrderTab].push({id:uid(),name,code,category:cat,unitType:orderQtyType(type,name),qty,stockCurrent:0,priceState:"normal",expectedMovement:"normal",notes:$("orderNotes").value.trim(),templateSeed:false,seasonGroup:""});saveAll();e.target.reset();$("orderCategory").value=cats[0];$("orderUnitType").value="bulto";$("orderRotation").value="media";$("orderOfferReaction").value="ninguna";$("orderExpensiveSensitivity").value="ninguna";$("orderQtyInput").value="0";toggleQtyInput();collapseAddPanel("order");renderAll();showToast("Producto añadido")};
+const MONTH_SHORT=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
+function monthPickerHtml(selected=[]){const set=new Set((selected||[]).map(Number));return MONTH_SHORT.map((m,i)=>`<label class="month-chip"><input type="checkbox" value="${i+1}" ${set.has(i+1)?"checked":""}><span>${m}</span></label>`).join("")}
+function initOrderMonthPicker(selected=[1,2,3,4,5,6,7,8,9,10,11,12]){const g=$("orderMonthsGrid");if(!g)return;g.innerHTML=monthPickerHtml(selected);g.querySelectorAll("input").forEach(x=>x.onchange=updateOrderMonthCount);updateOrderMonthCount()}
+function selectedOrderMonths(){return [...($("orderMonthsGrid")?.querySelectorAll("input:checked")||[])].map(x=>Number(x.value))}
+function updateOrderMonthCount(){const n=selectedOrderMonths().length;if($("orderMonthsCount"))$("orderMonthsCount").textContent=`${n} de 12 meses seleccionados`;if($("orderMonthsToggleAll"))$("orderMonthsToggleAll").textContent=n===12?"Deseleccionar todos":"Seleccionar todos"}
+if($("orderMonthsToggleAll"))$("orderMonthsToggleAll").onclick=()=>{const all=selectedOrderMonths().length===12;$("orderMonthsGrid").querySelectorAll("input").forEach(x=>x.checked=!all);updateOrderMonthCount()};
+initOrderMonthPicker();
+$("orderForm").onsubmit=e=>{e.preventDefault();const name=$("orderName").value.trim(),code=$("orderCode").value.trim(),cat=$("orderCategory").value,type=$("orderUnitType").value,qty=Number($("orderQtyInput").value||0),rotation=$("orderRotation").value,offer=$("orderOfferReaction").value,expensive=$("orderExpensiveSensitivity").value,months=selectedOrderMonths();if(!name)return showToast("Ingresá un nombre.");if(!months.length)return showToast("Seleccioná al menos un mes de disponibilidad.");if(!Number.isFinite(qty)||qty<0)return showToast("Ingresá una cantidad válida.");if(orders[activeOrderTab].some(x=>norm(x.name)===norm(name)))return showToast("Ese producto ya está en este pedido.");rememberOrder(name,code,cat,type,rotation,offer,expensive);const know=knowledgeFor(name,true);know.name=name;know.category=cat;know.months=months;know.origin=know.origin||"Añadido manualmente";rememberProductName(orderProductMemory,name);orders[activeOrderTab].push({id:uid(),name,code,category:cat,unitType:orderQtyType(type,name),qty,stockCurrent:0,priceState:"normal",expectedMovement:"normal",notes:$("orderNotes").value.trim(),templateSeed:false,seasonGroup:cat});saveAll();e.target.reset();$("orderCategory").value=cats[0];$("orderUnitType").value="bulto";$("orderRotation").value="media";$("orderOfferReaction").value="ninguna";$("orderExpensiveSensitivity").value="ninguna";$("orderQtyInput").value="0";initOrderMonthPicker();toggleQtyInput();collapseAddPanel("order");renderAll();showToast("Producto añadido")};
 function renderCompletion(){const btn=$("completeOrderBtn"),note=$("orderStatusNote");if(!btn||!note)return;const active=(orders[activeOrderTab]||[]).filter(x=>Number(x.qty)>0).length;btn.disabled=active===0;btn.textContent="Guardar pedido en historial";note.textContent=active?`${active} producto${active===1?"":"s"} con pedido mayor a 0 · Se guardarán sugerido y pedido por separado`:`No es obligatorio guardar el pedido. La plantilla y el aprendizaje se mantienen igualmente.`;note.classList.remove("completed")}
 $("completeOrderBtn").onclick=async()=>{const current=orders[activeOrderTab]||[],selected=current.filter(x=>Number(x.qty)>0);if(!selected.length)return showToast("No hay cantidades cargadas para guardar.");if(!await askConfirm(`Se guardará una copia del pedido de ${dayLabel(activeOrderTab)} con ${selected.length} producto${selected.length===1?"":"s"}.`,`Guardar pedido`))return;const now=new Date(),dateLabel=now.toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});const itemsToSave=selected.map(x=>{const c=orderCalc(x);return {...x,unitType:c.profile.qtyType,stockInitial:c.stock,priceState:x.priceState||"normal",movementExpected:x.expectedMovement||"normal",rotation:c.profile.rotation,offerReaction:c.profile.offerReaction,expensiveSensitivity:c.profile.expensiveSensitivity,estimatedNeed:c.estimated,suggestedQty:c.suggested,qty:Number(x.qty),appliedDemandFactor:c.factors.total,confidence:c.confidence}});orderHistory[activeOrderTab].unshift({id:uid(),dateLabel,day:activeOrderTab,items:itemsToSave,feedbackCompletedAt:null});orderHistory[activeOrderTab]=orderHistory[activeOrderTab].slice(0,30);saveAll();renderOrderHistory();renderCompletion();renderOrderReview();showToast("Pedido guardado en el historial")};
 let orderHistoryOpen={};
@@ -2493,7 +2582,7 @@ function closeModal(){editCtx=null;$("editModalBackdrop").classList.remove("open
 $("editCancelBtn").onclick=closeModal;$("editModalBackdrop").onclick=e=>{if(e.target===$("editModalBackdrop"))closeModal()};
 function openExpiryEdit(id){const x=items.find(y=>y.id===id);if(!x)return;openModal("Editar vencimiento",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Fecha</label><input id="m3" type="date" value="${x.date}"><label style="margin-top:10px">Retiro</label><select id="m4"><option value="0" ${Number(x.withdrawDays)===0?"selected":""}>Retirar el día</option><option value="10" ${Number(x.withdrawDays)===10?"selected":""}>Retirar 10 días antes</option></select><label style="margin-top:10px">Nota</label><input id="m5" value="${esc(x.notes||"")}">`,{type:"expiry",id})}
 function openSavedExpiryEdit(key){const x=savedExpiryProducts[key];openModal("Editar producto frecuente",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Retiro</label><select id="m3"><option value="0" ${Number(x.withdrawDays)===0?"selected":""}>Retirar el día</option><option value="10" ${Number(x.withdrawDays)===10?"selected":""}>Retirar 10 días antes</option></select>`,{type:"saved-expiry",key})}
-function orderProfileEditHtml(x,includeNotes=true){const p=orderProfileFor(x.name,x.unitType),learn=["martes","jueves","sabado"].map(d=>{const l=p.learning[d];return `<div>${dayLabel(d)}<strong>${l.base==null?"—":Math.round(l.base*10)/10}</strong><span>${l.cycles} ciclo${l.cycles===1?"":"s"}</span></div>`}).join("");return `<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Categoría</label><select id="m3">${cats.map(c=>`<option ${x.category===c?"selected":""}>${c}</option>`).join("")}</select><label style="margin-top:10px">Tipo de cantidad</label><select id="m4"><option value="bulto" ${p.qtyType!=="peso"?"selected":""}>Bulto</option><option value="peso" ${p.qtyType==="peso"?"selected":""}>Peso</option></select><label style="margin-top:10px">Rotación normal</label><select id="m5"><option value="alta" ${p.rotation==="alta"?"selected":""}>Alta</option><option value="media" ${p.rotation==="media"?"selected":""}>Media</option><option value="baja" ${p.rotation==="baja"?"selected":""}>Baja</option></select><label style="margin-top:10px">Reacción a oferta</label><select id="m6"><option value="ninguna" ${p.offerReaction==="ninguna"?"selected":""}>Ninguna</option><option value="baja" ${p.offerReaction==="baja"?"selected":""}>Baja</option><option value="media" ${p.offerReaction==="media"?"selected":""}>Media</option><option value="alta" ${p.offerReaction==="alta"?"selected":""}>Alta</option></select><label style="margin-top:10px">Sensibilidad cuando está caro</label><select id="m7"><option value="ninguna" ${p.expensiveSensitivity==="ninguna"?"selected":""}>Ninguna</option><option value="baja" ${p.expensiveSensitivity==="baja"?"selected":""}>Baja</option><option value="media" ${p.expensiveSensitivity==="media"?"selected":""}>Media</option><option value="alta" ${p.expensiveSensitivity==="alta"?"selected":""}>Alta</option></select>${includeNotes?`<label style="margin-top:10px">Nota opcional</label><input id="m8" value="${esc(x.notes||"")}">`:""}<div class="order-advanced-note">Aprendizaje por día. La base se ajusta con los resultados reales, no por cambiar manualmente el Pedido.</div><div class="order-learned-summary">${learn}</div><label>Reiniciar aprendizaje</label><select id="m9"><option value="">No reiniciar</option><option value="martes">Solo Martes</option><option value="jueves">Solo Jueves</option><option value="sabado">Solo Sábado</option><option value="todos">Todos los días</option></select>`}
+function orderProfileEditHtml(x,includeNotes=true){const p=orderProfileFor(x.name,x.unitType),learn=["martes","jueves","sabado"].map(d=>{const l=p.learning[d];return `<div>${dayLabel(d)}<strong>${l.base==null?"—":Math.round(l.base*10)/10}</strong><span>${l.cycles} ciclo${l.cycles===1?"":"s"}</span></div>`}).join("");return `<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Categoría</label><select id="m3">${cats.map(c=>`<option ${x.category===c?"selected":""}>${c}</option>`).join("")}</select><label style="margin-top:10px">Tipo de cantidad</label><select id="m4"><option value="bulto" ${p.qtyType!=="peso"?"selected":""}>Bulto</option><option value="peso" ${p.qtyType==="peso"?"selected":""}>Peso</option></select>${includeNotes?`<label style="margin-top:10px">Nota opcional</label><input id="m8" value="${esc(x.notes||"")}">`:""}<details class="order-advanced-details"><summary>Configuración avanzada y aprendizaje</summary><div class="order-advanced-body"><label>Rotación normal</label><select id="m5"><option value="alta" ${p.rotation==="alta"?"selected":""}>Alta</option><option value="media" ${p.rotation==="media"?"selected":""}>Media</option><option value="baja" ${p.rotation==="baja"?"selected":""}>Baja</option></select><label style="margin-top:10px">Reacción a oferta</label><select id="m6"><option value="ninguna" ${p.offerReaction==="ninguna"?"selected":""}>Ninguna</option><option value="baja" ${p.offerReaction==="baja"?"selected":""}>Baja</option><option value="media" ${p.offerReaction==="media"?"selected":""}>Media</option><option value="alta" ${p.offerReaction==="alta"?"selected":""}>Alta</option></select><label style="margin-top:10px">Sensibilidad cuando está caro</label><select id="m7"><option value="ninguna" ${p.expensiveSensitivity==="ninguna"?"selected":""}>Ninguna</option><option value="baja" ${p.expensiveSensitivity==="baja"?"selected":""}>Baja</option><option value="media" ${p.expensiveSensitivity==="media"?"selected":""}>Media</option><option value="alta" ${p.expensiveSensitivity==="alta"?"selected":""}>Alta</option></select><div class="order-advanced-note">Aprendizaje por día. La base se ajusta con los resultados reales, no por cambiar manualmente el Pedido.</div><div class="order-learned-summary">${learn}</div><label>Reiniciar aprendizaje</label><select id="m9"><option value="">No reiniciar</option><option value="martes">Solo Martes</option><option value="jueves">Solo Jueves</option><option value="sabado">Solo Sábado</option><option value="todos">Todos los días</option></select></div></details>`}
 function openOrderEdit(id){const x=orders[activeOrderTab].find(y=>y.id===id);if(!x)return;openModal("Configurar producto del pedido",orderProfileEditHtml(x,true),{type:"order",id,day:activeOrderTab})}
 function openSavedOrderEdit(key){const x=savedProducts[key];if(!x)return;openModal("Editar producto guardado",orderProfileEditHtml(x,false),{type:"saved-order",key})}
 $("editSaveBtn").onclick=async()=>{
@@ -2504,6 +2593,7 @@ $("editSaveBtn").onclick=async()=>{
     if(ctx.type==="saved-expiry"){const old=ctx.key,name=$("m1").value.trim(),code=$("m2").value.trim(),wd=Number($("m3").value);if(!name)return showToast("Ingresá un producto.");delete savedExpiryProducts[old];savedExpiryProducts[norm(name)]={name,code,withdrawDays:wd};rememberProductName(expiryProductMemory,name);}
     if(ctx.type==="order"){const x=orders[ctx.day].find(y=>y.id===ctx.id),name=$("m1").value.trim();if(!x||!name)return showToast("Ingresá un producto.");const oldKey=norm(x.name),p=orderProfileFor(x.name,x.unitType);x.name=name;x.code=$("m2").value.trim();x.category=$("m3").value;x.unitType=orderQtyType($("m4").value,name);x.notes=$("m8")?$("m8").value.trim():"";p.name=name;p.qtyType=x.unitType;p.rotation=$("m5").value;p.offerReaction=$("m6").value;p.expensiveSensitivity=$("m7").value;if(oldKey!==norm(name)){delete orderProfiles[oldKey];orderProfiles[norm(name)]=p}const reset=$("m9")?.value||"";if(reset&&await askConfirm("Se eliminará la referencia aprendida seleccionada. Los pedidos guardados no se borrarán.","Reiniciar aprendizaje",true)){if(reset==="todos")["martes","jueves","sabado"].forEach(d=>p.learning[d]=blankOrderLearning());else p.learning[reset]=blankOrderLearning()}rememberProductName(orderProductMemory,x.name);}
     if(ctx.type==="saved-order"){const old=ctx.key,name=$("m1").value.trim(),code=$("m2").value.trim(),cat=$("m3").value,type=orderQtyType($("m4").value,name);if(!name)return showToast("Ingresá un producto.");const p=orderProfileFor(savedProducts[old]?.name||name,type);p.name=name;p.qtyType=type;p.rotation=$("m5").value;p.offerReaction=$("m6").value;p.expensiveSensitivity=$("m7").value;const reset=$("m9")?.value||"";if(reset&&await askConfirm("Se eliminará la referencia aprendida seleccionada. Los pedidos guardados no se borrarán.","Reiniciar aprendizaje",true)){if(reset==="todos")["martes","jueves","sabado"].forEach(d=>p.learning[d]=blankOrderLearning());else p.learning[reset]=blankOrderLearning()}delete savedProducts[old];savedProducts[norm(name)]={name,code,category:cat,unitType:type};if(old!==norm(name)){delete orderProfiles[old];orderProfiles[norm(name)]=p}rememberProductName(orderProductMemory,name);}
+    if(ctx.type==="learning"){const x=learningCatalog.find(y=>y.id===ctx.id),name=$("m1").value.trim(),months=[...$("modalMonthsGrid").querySelectorAll("input:checked")].map(i=>Number(i.value));if(!x||!name)return showToast("Ingresá un producto.");if(!months.length)return showToast("Seleccioná al menos un mes.");const old=norm(x.name);x.name=name;x.category=$("m3").value;x.months=months;x.origin=x.origin||"Editado manualmente";Object.values(orders).flat().filter(y=>norm(y.name)===old).forEach(y=>{y.name=name;y.category=x.category;y.seasonGroup=x.category});if(savedProducts[old]){const sp=savedProducts[old];delete savedProducts[old];sp.name=name;sp.category=x.category;savedProducts[norm(name)]=sp}if(orderProfiles[old]&&old!==norm(name)){orderProfiles[norm(name)]=orderProfiles[old];orderProfiles[norm(name)].name=name;delete orderProfiles[old]}}
     saveAll();
     closeModal();
     renderAll();
@@ -2612,6 +2702,41 @@ function renderCvHistory(){
   });
 }
 
+function learningCategoryClass(cat){return cat==="Frutas"?"cat-frutas":cat==="Vegetales"?"cat-vegetales":"cat-hortalizas-pesadas"}
+let learningViewMode="month";
+function learningCellClass(cat){return cat==="Frutas"?"learn-fruit":cat==="Vegetales"?"learn-veg":"learn-heavy"}
+function renderLearningMonthly(visible){
+  const groups=cats.map(cat=>({cat,items:visible.filter(x=>x.category===cat).sort((a,b)=>a.name.localeCompare(b.name,"es"))}));
+  const max=Math.max(0,...groups.map(g=>g.items.length));
+  if(!max)return "<div class='empty'>No hay productos con esos filtros.</div>";
+  let rows="";
+  for(let i=0;i<max;i++)rows+=`<tr>${groups.map(g=>{const x=g.items[i];return x?`<td><button class="learning-sheet-product ${learningCellClass(g.cat)}" data-learning-id="${x.id}" type="button">${esc(x.name)}</button></td>`:"<td class='learning-empty-cell'></td>"}).join("")}</tr>`;
+  return `<div class="learning-month-table-wrap"><table class="learning-month-table"><thead><tr>${groups.map(g=>`<th class="${learningCellClass(g.cat)}"><span>${esc(g.cat)}</span><small>${g.items.length}</small></th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+function renderLearningAnnual(visible){
+  const rows=visible.sort((a,b)=>cats.indexOf(a.category)-cats.indexOf(b.category)||a.name.localeCompare(b.name,"es")).map(x=>`<tr><th><button class="learning-annual-name ${learningCellClass(x.category)}" data-learning-id="${x.id}" type="button">${esc(x.name)}</button></th>${MONTH_SHORT.map((m,i)=>`<td class="${x.months?.includes(i+1)?"month-on":"month-off"}" title="${esc(x.name)} · ${m}">${x.months?.includes(i+1)?"●":""}</td>`).join("")}</tr>`).join("");
+  return rows?`<div class="learning-annual-wrap"><table class="learning-annual-table"><thead><tr><th>Producto</th>${MONTH_SHORT.map(m=>`<th>${m}</th>`).join("")}</tr></thead><tbody>${rows}</tbody></table></div>`:"<div class='empty'>No hay productos con esos filtros.</div>";
+}
+function renderLearningBase(){
+  seedLearningCatalog();
+  const mf=$("learningMonthFilter");
+  if(mf&&!mf.options.length){mf.innerHTML=ORDER_MONTH_NAMES.map((m,i)=>`<option value="${i+1}">${capitalizeFirstUserLetter(m)}</option>`).join("");mf.value=String(new Date().getMonth()+1)}
+  const month=Number(mf?.value||new Date().getMonth()+1),cat=$("learningCategoryFilter")?.value||"",q=norm($("learningSearch")?.value||"");
+  const active=learningCatalog.filter(x=>x.months?.includes(month));
+  const filteredAll=learningCatalog.filter(x=>(!cat||x.category===cat)&&(!q||norm(x.name).includes(q)));
+  const visible=active.filter(x=>(!cat||x.category===cat)&&(!q||norm(x.name).includes(q)));
+  $("learningMonthName").textContent=capitalizeFirstUserLetter(ORDER_MONTH_NAMES[month-1]);
+  $("learningMonthCount").textContent=active.length;
+  $("learningAllYearCount").textContent=learningCatalog.filter(x=>x.months?.length===12).length;
+  const next=month===12?1:month+1,curSet=new Set(active.map(x=>norm(x.name))),nextSet=new Set(learningCatalog.filter(x=>x.months?.includes(next)).map(x=>norm(x.name))),enter=learningCatalog.filter(x=>nextSet.has(norm(x.name))&&!curSet.has(norm(x.name))).length,leave=learningCatalog.filter(x=>curSet.has(norm(x.name))&&!nextSet.has(norm(x.name))).length;
+  $("learningTransitions").textContent=learningViewMode==="month"?`Próximo mes: entran ${enter} · salen ${leave}. Vista compacta del mes completo.`:"Matriz anual: cada punto indica que el producto está disponible ese mes.";
+  $("learningMonthlyViewBtn")?.classList.toggle("active",learningViewMode==="month");
+  $("learningAnnualViewBtn")?.classList.toggle("active",learningViewMode==="year");
+  if($("learningMonthFilter"))$("learningMonthFilter").disabled=learningViewMode==="year";
+  $("learningProductList").innerHTML=learningViewMode==="month"?renderLearningMonthly(visible):renderLearningAnnual(filteredAll);
+  document.querySelectorAll("[data-learning-id]").forEach(el=>el.onclick=()=>openLearningEdit(el.dataset.learningId));
+}
+function openLearningEdit(id){const x=learningCatalog.find(y=>y.id===id);if(!x)return;openModal("Editar producto de temporada",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Categoría</label><select id="m3">${cats.map(c=>`<option ${x.category===c?"selected":""}>${c}</option>`).join("")}</select><div class="month-picker"><div class="month-picker-head"><label style="margin:0">Meses disponibles</label><button class="month-toggle-all" id="modalMonthsToggle" type="button">Seleccionar todos</button></div><div class="month-grid" id="modalMonthsGrid">${monthPickerHtml(x.months)}</div><div class="month-count-note" id="modalMonthsCount"></div></div><div class="footer-note">Origen: ${esc(x.origin||"Dato guardado")}</div>`,{type:"learning",id});const upd=()=>{const n=[...$("modalMonthsGrid").querySelectorAll("input:checked")].length;$("modalMonthsCount").textContent=`${n} de 12 meses seleccionados`;$("modalMonthsToggle").textContent=n===12?"Deseleccionar todos":"Seleccionar todos"};$("modalMonthsGrid").querySelectorAll("input").forEach(i=>i.onchange=upd);$("modalMonthsToggle").onclick=()=>{const all=[...$("modalMonthsGrid").querySelectorAll("input:checked")].length===12;$("modalMonthsGrid").querySelectorAll("input").forEach(i=>i.checked=!all);upd()};upd()}
 function openMainTab(tab){
   const prev=getActiveMainTab();
   document.querySelectorAll(".main-tab").forEach(x=>x.classList.toggle("active",x.dataset.mainTab===tab));
@@ -2647,9 +2772,11 @@ $("homePedidosBtn").onclick=()=>openMainTab("pedidos");
 $("homeMuestrasBtn").onclick=()=>openMainTab("muestras");
 $("homeNotesBtn").onclick=()=>openMainTab("notas");
 $("homePlantillaBtn").onclick=()=>{openMainTab("plantilla");renderCvDraft();renderCvHistory()};
+$("homeLearningBtn").onclick=()=>{openMainTab("aprendizaje");renderLearningBase()};
 $("homeProductSearchBtn").onclick=()=>{const q=$("homeProductSearchInput").value.trim();openMainTab("consultor");$("consultorSearch").value=q;renderConsultor();$("consultorSearch").focus()};
 $("homeProductSearchInput").onkeydown=e=>{if(e.key==="Enter")$("homeProductSearchBtn").click()};
 $("consultorSearch").oninput=renderConsultor;
+if($("learningSearch"))$("learningSearch").oninput=renderLearningBase;if($("learningMonthFilter"))$("learningMonthFilter").onchange=renderLearningBase;if($("learningCategoryFilter"))$("learningCategoryFilter").onchange=renderLearningBase;if($("learningMonthlyViewBtn"))$("learningMonthlyViewBtn").onclick=()=>{learningViewMode="month";renderLearningBase()};if($("learningAnnualViewBtn"))$("learningAnnualViewBtn").onclick=()=>{learningViewMode="year";renderLearningBase()};
 
 if($("orderHistorySearch"))$("orderHistorySearch").oninput=renderOrderHistory;
 if($("sampleHistorySearch"))$("sampleHistorySearch").oninput=renderSampleHistory;
@@ -2819,13 +2946,6 @@ $("notificationRepeatSetting").onchange=()=>{
   const r=appSettings.notificationRepeat;
   showToast(r===0.5?"Repetición: cada 30 minutos":r?`Repetición: cada ${r} hora${r===1?"":"s"}`:"Repetición desactivada");
 };
-$("testNotificationBtn").onclick=()=>{
-  if(window.AndroidNative&&AndroidNative.testNotification){
-    try{AndroidNative.testNotification();showToast("Enviando notificación de prueba…")}catch(e){showToast("No se pudo probar la notificación")}
-  }else{
-    showToast("La prueba de notificación funciona en la app Android")
-  }
-};
 document.querySelectorAll("[data-sample-view]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-sample-view]").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("sample-current-view").classList.toggle("hidden",b.dataset.sampleView!=="current");$("sample-history-view").classList.toggle("hidden",b.dataset.sampleView!=="history");if(b.dataset.sampleView==="history")renderSampleHistory()});
 
 
@@ -2860,7 +2980,7 @@ function backupSummaryText(d,includeTitle=true){
   return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos guardados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}`;
 }
 function currentBackupObject(){
-  return {version:11,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:15,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;
@@ -2902,6 +3022,7 @@ function applyBackupObject(d,silent=false){
   consultantProducts=Array.isArray(d.consultantProducts)?d.consultantProducts:[];
   carnesVegetalesHistory=Array.isArray(d.carnesVegetalesHistory)?d.carnesVegetalesHistory:[];
   carnesVegetalesDraft=d.carnesVegetalesDraft&&Array.isArray(d.carnesVegetalesDraft.items)?d.carnesVegetalesDraft:null;
+  learningCatalog=Array.isArray(d.learningCatalog)?d.learningCatalog:learningCatalog;seedLearningCatalog();
   backupMetaState=d.backupMetaState&&typeof d.backupMetaState==="object"?d.backupMetaState:backupMetaState;
   expiryProductMemory=Array.isArray(d.expiryProductMemory)?d.expiryProductMemory:expiryProductMemory;
   orderProductMemory=Array.isArray(d.orderProductMemory)?d.orderProductMemory:orderProductMemory;
@@ -2984,8 +3105,37 @@ function restoreNativeStateIfAvailable(){
   }catch(e){}
 }
 
+
+function findDeleteTrigger(el){return el?.querySelector?.('[data-del-order],[data-del-expiry],[data-del-exp-h],[data-del-oh],[data-del-exp-s],[data-del-os],[data-del-sample-row],[data-del-sample-history],[data-del-consultant],[data-del-cv-item],[data-del-cv],.history-delete,.sample-stock-remove,.cv-product-delete,.cv-history-delete')||null}
+function refreshSwipeDelete(){
+  const selectors=['[data-order-item-id]','.item[data-expiry-id]','.saved-product-row','.consultor-product-row','.sample-stock-row','.cv-product-module','.history-order-card','.history-card','.sample-history-card','.cv-history-item'];
+  document.querySelectorAll(selectors.join(',')).forEach(el=>{
+    if(el.dataset.swipeDeleteReady==='1')return;const trigger=findDeleteTrigger(el);if(!trigger)return;
+    el.dataset.swipeDeleteReady='1';el.classList.add('swipe-delete-ready');trigger.classList.add('swipe-delete-source');
+    const hint=document.createElement('span');hint.className='swipe-delete-hint';hint.textContent='Eliminar';el.appendChild(hint);
+    let sx=0,sy=0,dx=0,active=false,moved=false;
+    el.addEventListener('touchstart',e=>{if(e.touches.length!==1||e.target.closest('input,select,button'))return;sx=e.touches[0].clientX;sy=e.touches[0].clientY;dx=0;active=true;moved=false;el.classList.remove('swipe-armed')},{passive:true});
+    el.addEventListener('touchmove',e=>{if(!active)return;const t=e.touches[0],dy=t.clientY-sy;dx=t.clientX-sx;if(Math.abs(dx)>18&&Math.abs(dx)>Math.abs(dy)*1.25){moved=true;el.classList.add('swipe-moving');const shift=Math.max(-42,Math.min(42,dx*.28));el.style.transform=`translateX(${shift}px)`;el.classList.toggle('swipe-armed',Math.abs(dx)>55);if(e.cancelable)e.preventDefault()}},{passive:false});
+    el.addEventListener('touchend',()=>{if(!active)return;active=false;el.classList.remove('swipe-moving');el.style.transform='';const armed=moved&&Math.abs(dx)>72;el.classList.remove('swipe-armed');if(moved)el.dataset.gestureConsumed='1';if(armed)setTimeout(()=>trigger.click(),20)},{passive:true});
+    el.addEventListener('touchcancel',()=>{active=false;el.classList.remove('swipe-moving','swipe-armed');el.style.transform=''},{passive:true});
+  })
+}
+let swipeRefreshQueued=false;
+const swipeDeleteObserver=new MutationObserver(()=>{if(swipeRefreshQueued)return;swipeRefreshQueued=true;requestAnimationFrame(()=>{swipeRefreshQueued=false;try{refreshSwipeDelete()}catch(e){console.error(e)}})});
+swipeDeleteObserver.observe(document.body,{childList:true,subtree:true});
+function initOrderLongPressReorder(){
+  const cards=[...document.querySelectorAll('[data-order-item-id]')];cards.forEach(card=>{
+    if(card.dataset.longReorderReady==='1')return;card.dataset.longReorderReady='1';let timer=null,active=false,sx=0,sy=0,lastTarget=null;
+    const clear=()=>{if(timer){clearTimeout(timer);timer=null}};
+    card.addEventListener('touchstart',e=>{if(e.touches.length!==1||e.target.closest('input,select,button'))return;sx=e.touches[0].clientX;sy=e.touches[0].clientY;clear();timer=setTimeout(()=>{active=true;card.dataset.gestureConsumed='1';card.classList.add('order-drag-state');if(navigator.vibrate)try{navigator.vibrate(25)}catch(_){ }},430)},{passive:true});
+    card.addEventListener('touchmove',e=>{if(!timer&&!active)return;const t=e.touches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(!active&&(Math.abs(dx)>12||Math.abs(dy)>12)){clear();return}if(!active)return;if(e.cancelable)e.preventDefault();const target=document.elementFromPoint(t.clientX,t.clientY)?.closest?.('[data-order-item-id]');cards.forEach(c=>c.classList.remove('order-drop-target'));if(target&&target!==card){target.classList.add('order-drop-target');lastTarget=target}}, {passive:false});
+    const finish=()=>{clear();if(active){active=false;card.classList.remove('order-drag-state');cards.forEach(c=>c.classList.remove('order-drop-target'));if(lastTarget&&lastTarget!==card){const arr=orders[activeOrderTab],from=arr.findIndex(x=>x.id===card.dataset.orderItemId),to=arr.findIndex(x=>x.id===lastTarget.dataset.orderItemId);if(from>=0&&to>=0){const [m]=arr.splice(from,1);arr.splice(to,0,m);saveAll();renderOrders();showToast('Orden actualizado')}}lastTarget=null}};
+    card.addEventListener('touchend',finish,{passive:true});card.addEventListener('touchcancel',finish,{passive:true});
+  })
+}
 function renderAll(){
-  const jobs=[cleanExpiryHistory,cleanCompletion,renderProductMemories,renderExpiryDatalist,renderOrderDatalist,renderExpiry,renderExpiryHistory,renderOrders,renderOrderHistory,renderCompletion,renderSamples,renderSampleHistory,renderNotes,renderNoteHistory,renderConsultor,renderCvDraft,renderCvHistory,updateNextOrder,renderDashboard,updateHomeClock,renderBackupStatus,applySettings,refreshNotificationPermissionStatus,loadNativeVersion];
+  seedLearningCatalog();migrateOrderCategoriesV215();
+  const jobs=[cleanExpiryHistory,cleanCompletion,renderProductMemories,renderExpiryDatalist,renderOrderDatalist,renderExpiry,renderExpiryHistory,renderOrders,renderOrderHistory,renderCompletion,renderSamples,renderSampleHistory,renderNotes,renderNoteHistory,renderConsultor,renderLearningBase,renderCvDraft,renderCvHistory,updateNextOrder,renderDashboard,updateHomeClock,renderBackupStatus,applySettings,refreshNotificationPermissionStatus,loadNativeVersion];
   jobs.forEach(fn=>{try{fn()}catch(e){console.error("Render:",fn&&fn.name,e)}});
   try{saveAll()}catch(e){console.error("Save",e)}
 }
@@ -2994,6 +3144,18 @@ window.addEventListener("scroll",()=>{
   $("backToTopBtn").classList.toggle("show",window.scrollY>700);
 },{passive:true});
 $("backToTopBtn").onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+
+let lastAutomaticMonthKey=orderMonthKey();
+function refreshAutomaticMonthIfNeeded(){
+  const nowKey=orderMonthKey();
+  if(nowKey===lastAutomaticMonthKey)return;
+  lastAutomaticMonthKey=nowKey;
+  if($("learningMonthFilter"))$("learningMonthFilter").value=String(new Date().getMonth()+1);
+  ["martes","jueves","sabado"].forEach(day=>ensureOrderTemplateForDay(day));
+  renderOrders();renderLearningBase();updateNextOrder();renderDashboard();
+}
+setInterval(refreshAutomaticMonthIfNeeded,60000);
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)refreshAutomaticMonthIfNeeded()});
 
 
 async function handleDeleteAction(target){const expiryBtn=target.closest("[data-del-expiry]");if(expiryBtn){if(!await askConfirm("¿Eliminar este producto?","Eliminar producto",true))return true;items=items.filter(x=>x.id!==expiryBtn.dataset.delExpiry);saveAll();renderAll();return true}const expiryHistoryBtn=target.closest("[data-del-exp-h]");if(expiryHistoryBtn){if(!await askConfirm("¿Eliminar este registro del historial?","Eliminar registro",true))return true;expiryHistory=expiryHistory.filter(x=>x.id!==expiryHistoryBtn.dataset.delExpH);saveAll();renderExpiryHistory();renderDashboard();return true}const orderBtn=target.closest("[data-del-order]");if(orderBtn){if(!await askConfirm("¿Eliminar este producto?","Eliminar producto",true))return true;orders[activeOrderTab]=orders[activeOrderTab].filter(x=>x.id!==orderBtn.dataset.delOrder);saveAll();renderAll();return true}const orderHistoryBtn=target.closest("[data-del-oh]");if(orderHistoryBtn){if(!await askConfirm("¿Eliminar este pedido del historial?","Eliminar pedido",true))return true;orderHistory[activeOrderTab]=orderHistory[activeOrderTab].filter(x=>x.id!==orderHistoryBtn.dataset.delOh);saveAll();renderOrderHistory();renderDashboard();return true}const savedExpiryBtn=target.closest("[data-del-exp-s]");if(savedExpiryBtn){if(!await askConfirm("¿Eliminar este producto frecuente?","Eliminar producto frecuente",true))return true;delete savedExpiryProducts[savedExpiryBtn.dataset.delExpS];saveAll();renderExpiryDatalist();renderExpirySavedManager();return true}const savedOrderBtn=target.closest("[data-del-os]");if(savedOrderBtn){if(!await askConfirm("¿Eliminar este producto guardado?","Eliminar producto guardado",true))return true;delete savedProducts[savedOrderBtn.dataset.delOs];saveAll();renderOrderDatalist();renderOrderSavedManager();return true}const sampleRowBtn=target.closest("[data-del-sample-row]");if(sampleRowBtn){if(!await askConfirm("¿Eliminar este producto de la muestra?","Eliminar producto",true))return true;sampleTemplates[activeSampleTemplate]=sampleTemplates[activeSampleTemplate].filter(x=>x.id!==sampleRowBtn.dataset.delSampleRow);if(editingSampleId===sampleRowBtn.dataset.delSampleRow)resetSampleForm();sampleLocked=sampleTemplates[activeSampleTemplate].length>0;saveAll();renderSamples();return true}const sampleHistoryBtn=target.closest("[data-del-sample-history]");if(sampleHistoryBtn){if(!await askConfirm("¿Eliminar esta muestra del historial?","Eliminar muestra",true))return true;sampleHistory=sampleHistory.filter(x=>x.id!==sampleHistoryBtn.dataset.delSampleHistory);saveAll();renderSampleHistory();return true}return false;}
