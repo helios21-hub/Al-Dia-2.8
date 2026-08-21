@@ -1,0 +1,9 @@
+Al Día v2.16
+
+- Base de aprendizaje: corregido el solapamiento de contenido al desplazar las vistas Mes y Año.
+- Las planillas de temporada ahora se recortan dentro de su contenedor y usan desplazamiento interno.
+- Pedidos: alta de producto simplificada.
+- Al añadir un producto solo se solicita Nombre, Tipo de cantidad, Meses disponibles, Cantidad del pedido y Nota opcional.
+- Categoría, rotación, reacción a oferta, sensibilidad al precio y aprendizaje quedan disponibles al tocar la ficha y editar el producto.
+- Los productos ya conocidos conservan su categoría y perfil existente. Los productos completamente nuevos reciben una categoría inicial automática cuando puede inferirse; la categoría puede corregirse desde la ficha.
+- Backup actualizado a formato v16.
