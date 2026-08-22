@@ -30,6 +30,9 @@ jobs:
         with:
           gradle-version: "8.13"
 
+      - name: Validar proyecto Android
+        run: gradle :app:lintDebug --stacktrace
+
       - name: Compilar APK debug
         run: gradle :app:assembleDebug --stacktrace
 

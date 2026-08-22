@@ -38,6 +38,9 @@ jobs:
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
           echo "tag=v$VERSION" >> "$GITHUB_OUTPUT"
 
+      - name: Validar proyecto Android
+        run: gradle :app:lintDebug --stacktrace
+
       - name: Compilar APK
         run: gradle :app:assembleDebug --stacktrace
 
