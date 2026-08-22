@@ -1,0 +1,12 @@
+Al Día v2.18
+
+Corrección de compilación:
+- Habilitado AndroidX en gradle.properties mediante android.useAndroidX=true.
+- Esta opción es necesaria para com.google.android.gms:play-services-code-scanner:16.1.0 y sus dependencias AndroidX.
+- Se mantiene la función de reposición por código de barras incorporada en v2.17.
+- No se cambia el formato de datos ni la lógica funcional de la app.
+
+Versión:
+- versionName 2.18
+- versionCode base 218000 + GITHUB_RUN_NUMBER
+- Formato de backup: v17 (sin cambios de esquema respecto de v2.17)

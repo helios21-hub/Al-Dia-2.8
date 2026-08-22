@@ -43,3 +43,6 @@ Después de hacer esto una vez, las futuras compilaciones de este proyecto usar�
 
 ## v2.17
 Incluye reposición por código de barras desde Inicio, biblioteca local de productos escaneados, creación automática de Nota rápida y corrección de solapamientos en Base de aprendizaje.
+
+## v2.18
+Corrección de compilación del escáner de códigos de barras: AndroidX queda habilitado en gradle.properties (`android.useAndroidX=true`). No cambia el esquema de datos respecto de v2.17.

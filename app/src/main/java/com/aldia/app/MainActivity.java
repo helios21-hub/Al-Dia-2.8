@@ -232,7 +232,7 @@ public class MainActivity extends Activity {
             try {
                 return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             } catch (Exception e) {
-                return "2.17";
+                return "2.18";
             }
         }
 
@@ -422,7 +422,7 @@ public class MainActivity extends Activity {
             c.setConnectTimeout(6000);
             c.setReadTimeout(6000);
             c.setRequestProperty("Accept", "application/json");
-            c.setRequestProperty("User-Agent", "AlDia/2.17 Android barcode lookup");
+            c.setRequestProperty("User-Agent", "AlDia/2.18 Android barcode lookup");
             int response = c.getResponseCode();
             if (response != 200) return result;
             String body;
