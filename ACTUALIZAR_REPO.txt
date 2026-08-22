@@ -1,11 +1,20 @@
-ACTUALIZAR AL DÍA v2.0
+ACTUALIZAR AL DÍA v2.19
 
-1. Descomprimí AlDia_Actualizacion_v2_0.zip.
-2. En GitHub abrí tu repositorio de Al Día.
-3. Add file > Upload files.
-4. Subí la carpeta app completa reemplazando los archivos existentes.
-5. Commit changes.
-6. Actions > Compilar APK Al Día > Run workflow.
+RECOMENDADO: usar GitHub Desktop o subir respetando la estructura de carpetas.
+No subir los archivos "aplanados" en la raíz.
+
+1. Descomprimí AlDia_Actualizacion_v2_19.zip.
+2. Reemplazá los archivos manteniendo exactamente sus rutas (app/, .github/, etc.).
+3. Verificá especialmente:
+   - /build.gradle
+   - /app/build.gradle
+   - /gradle.properties
+   - /app/src/main/assets/index.html
+   - /app/src/main/java/com/aldia/app/MainActivity.java
+   - /app/src/main/java/com/aldia/app/AppFileProvider.java
+4. Hacé Commit y Push.
+5. Actions > Compilar APK Al Día > Run workflow.
+6. Elegí la rama main y ejecutá el workflow manualmente.
 7. Al finalizar descargá Artifacts > Al-Dia-APK.
 
-Esta versión conserva las claves de almacenamiento existentes y agrega nuevos datos para Notas rápidas.
+v2.19 mantiene la misma applicationId y la misma clave de firma debug fija para permitir actualización sobre versiones anteriores.

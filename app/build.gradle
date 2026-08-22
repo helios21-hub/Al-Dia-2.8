@@ -14,8 +14,8 @@ android {
         minSdk 26
         targetSdk 36
         def runNumber = System.getenv("GITHUB_RUN_NUMBER")
-        versionCode runNumber != null ? 218000 + runNumber.toInteger() : 218000
-        versionName "2.18"
+        versionCode runNumber != null ? 219000 + runNumber.toInteger() : 219000
+        versionName "2.19"
     }
 
     signingConfigs {
@@ -44,4 +44,5 @@ android {
 
 dependencies {
     implementation 'com.google.android.gms:play-services-code-scanner:16.1.0'
+    implementation 'com.google.mlkit:text-recognition:16.0.1'
 }

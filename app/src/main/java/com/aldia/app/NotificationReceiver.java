@@ -16,6 +16,8 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.LinkedHashMap;
 
 public class NotificationReceiver extends BroadcastReceiver {
     @Override
@@ -47,25 +49,47 @@ public class NotificationReceiver extends BroadcastReceiver {
             JSONObject data=new JSONObject(prefs.getString("notification_data","{}"));
             JSONArray items=data.optJSONArray("items");LocalDate today=LocalDate.now();
             int overdue=0,upcoming=0,todayWithdraw=0;
+            Map<String,String> alertNames=new LinkedHashMap<>();
+            Map<String,List<String>> alertDates=new LinkedHashMap<>();
             if(items!=null)for(int i=0;i<items.length();i++){
                 JSONObject item=items.optJSONObject(i);if(item==null)continue;
                 String dateStr=item.optString("date","");if(dateStr.isEmpty())continue;
                 int withdrawDays=item.optInt("withdrawDays",0);
-                LocalDate withdrawal=LocalDate.parse(dateStr).minusDays(withdrawDays);
+                LocalDate expiry=LocalDate.parse(dateStr);
+                LocalDate withdrawal=expiry.minusDays(withdrawDays);
                 long diff=ChronoUnit.DAYS.between(today,withdrawal);
                 if(diff<0)overdue++; else if(diff==0)todayWithdraw++; else if(diff<=7)upcoming++;
+                if((!isRepeat && diff<=7) || (isRepeat && diff<=0)){
+                    String name=item.optString("name","Producto").trim();if(name.isEmpty())name="Producto";
+                    String code=item.optString("code","").trim();String type=item.optString("codeType","").trim();
+                    String key=!code.isEmpty()?(type+":"+code):name.toLowerCase();
+                    alertNames.putIfAbsent(key,name);
+                    List<String> dates=alertDates.computeIfAbsent(key,k->new ArrayList<>());
+                    String shown=String.format("%02d/%02d",expiry.getDayOfMonth(),expiry.getMonthValue());
+                    if(!dates.contains(shown))dates.add(shown);
+                }
             }
             List<String> parts=new ArrayList<>();
-            if(overdue>0)parts.add(overdue+(overdue==1?" producto con retiro atrasado":" productos con retiro atrasado"));
-            if(todayWithdraw>0)parts.add(todayWithdraw+(todayWithdraw==1?" producto para retirar hoy":" productos para retirar hoy"));
+            if(overdue>0)parts.add(overdue+(overdue==1?" vencimiento con retiro atrasado":" vencimientos con retiro atrasado"));
+            if(todayWithdraw>0)parts.add(todayWithdraw+(todayWithdraw==1?" vencimiento para retirar hoy":" vencimientos para retirar hoy"));
             if(!isRepeat&&upcoming>0)parts.add(upcoming+(upcoming==1?" vencimiento próximo":" vencimientos próximos"));
 
             if(parts.isEmpty()){
                 if(isTest)parts.add("No hay productos pendientes ni vencimientos próximos para probar");
                 else{if(isRepeat)NotificationScheduler.cancelRepeat(context);return;}
             }
+            StringBuilder message=new StringBuilder(String.join(" · ",parts));
+            if(!alertDates.isEmpty()){
+                List<String> details=new ArrayList<>();int shownGroups=0;
+                for(Map.Entry<String,List<String>> e:alertDates.entrySet()){
+                    if(shownGroups>=2)break;
+                    details.add(alertNames.get(e.getKey())+": "+String.join(", ",e.getValue()));shownGroups++;
+                }
+                if(alertDates.size()>2)details.add("+"+(alertDates.size()-2)+" producto"+(alertDates.size()-2==1?"":"s"));
+                if(!details.isEmpty())message.append(" · ").append(String.join(" · ",details));
+            }
             String title=isTest?"Al Día · Prueba real de productos":"Al Día";
-            notify(context,4301,title,String.join(" · ",parts));
+            notify(context,4301,title,message.toString());
 
             int repeat=prefs.getInt("notification_repeat_minutes",0);
             boolean pending=overdue>0||todayWithdraw>0;

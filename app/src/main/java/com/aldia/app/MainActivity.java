@@ -12,6 +12,7 @@ import android.content.ClipData;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
@@ -30,6 +31,10 @@ import org.json.JSONObject;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanner;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanning;
+import com.google.mlkit.vision.common.InputImage;
+import com.google.mlkit.vision.text.TextRecognition;
+import com.google.mlkit.vision.text.TextRecognizer;
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -46,6 +51,7 @@ public class MainActivity extends Activity {
     private static final int SAVE_BACKUP_REQUEST = 2002;
     private static final int NOTIFICATION_PERMISSION_REQUEST = 2003;
     private static final int SAVE_XLSX_REQUEST = 2004;
+    private static final int PHOTO_CAPTURE_REQUEST = 2005;
     public static final String CHANNEL_ID = "al_dia_alertas";
 
     private WebView webView;
@@ -53,6 +59,8 @@ public class MainActivity extends Activity {
     private String pendingBackupContent;
     private byte[] pendingXlsxBytes;
     private String pendingXlsxName;
+    private File pendingPhotoFile;
+    private String pendingPhotoPurpose = "";
     private boolean pendingTestNotification = false;
     private boolean pendingProductTestNotification = false;
 
@@ -61,6 +69,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         createNotificationChannel();
+        cleanupCaptureCache();
 
         webView = new WebView(this);
         setContentView(webView);
@@ -113,6 +122,16 @@ public class MainActivity extends Activity {
             NotificationScheduler.scheduleAll(this);
         }
         notifyPermissionStateToWeb();
+    }
+
+    private void cleanupCaptureCache() {
+        try {
+            File dir = new File(getCacheDir(), "capture");
+            File[] files = dir.listFiles();
+            if (files == null) return;
+            long cutoff = System.currentTimeMillis() - 24L * 60L * 60L * 1000L;
+            for (File f : files) if (f.isFile() && f.lastModified() < cutoff) try { f.delete(); } catch (Exception ignored) { }
+        } catch (Exception ignored) { }
     }
 
     private void createNotificationChannel() {
@@ -232,7 +251,7 @@ public class MainActivity extends Activity {
             try {
                 return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             } catch (Exception e) {
-                return "2.18";
+                return "2.19";
             }
         }
 
@@ -293,7 +312,19 @@ public class MainActivity extends Activity {
 
         @JavascriptInterface
         public void startBarcodeScan() {
-            runOnUiThread(MainActivity.this::launchBarcodeScanner);
+            runOnUiThread(() -> launchBarcodeScanner("replenishment"));
+        }
+
+        @JavascriptInterface
+        public void startBarcodeScanFor(String purpose) {
+            final String safePurpose = purpose == null || purpose.trim().isEmpty() ? "replenishment" : purpose.trim();
+            runOnUiThread(() -> launchBarcodeScanner(safePurpose));
+        }
+
+        @JavascriptInterface
+        public void captureTextPhoto(String purpose) {
+            final String safePurpose = purpose == null ? "" : purpose.trim();
+            runOnUiThread(() -> launchTextPhoto(safePurpose));
         }
 
         @JavascriptInterface
@@ -373,9 +404,10 @@ public class MainActivity extends Activity {
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
-    private void launchBarcodeScanner() {
+    private void launchBarcodeScanner(String purpose) {
+        final String scanPurpose = purpose == null || purpose.trim().isEmpty() ? "replenishment" : purpose.trim();
         try {
-            sendBarcodeScanStatus("opening", "Abriendo escáner…");
+            sendBarcodeScanStatus(scanPurpose, "opening", "Abriendo escáner…");
             GmsBarcodeScannerOptions options = new GmsBarcodeScannerOptions.Builder()
                     .enableAutoZoom()
                     .build();
@@ -384,18 +416,18 @@ public class MainActivity extends Activity {
                     .addOnSuccessListener(barcode -> {
                         String code = barcode == null ? "" : barcode.getRawValue();
                         if (code == null || code.trim().isEmpty()) {
-                            sendBarcodeScanStatus("error", "No se pudo leer el código. Intentá nuevamente.");
+                            sendBarcodeScanStatus(scanPurpose, "error", "No se pudo leer el código. Intentá nuevamente.");
                             return;
                         }
                         final String cleanCode = code.trim();
-                        sendBarcodeScanResult(cleanCode, "", "barcode");
-                        sendBarcodeScanStatus("looking_up", "Código leído. Buscando el nombre del producto…");
-                        new Thread(() -> lookupBarcodeAndReturn(cleanCode)).start();
+                        sendBarcodeScanResult(scanPurpose, cleanCode, "", "barcode");
+                        sendBarcodeScanStatus(scanPurpose, "looking_up", "Código leído. Buscando el nombre del producto…");
+                        new Thread(() -> lookupBarcodeAndReturn(cleanCode, scanPurpose)).start();
                     })
-                    .addOnCanceledListener(() -> sendBarcodeScanStatus("canceled", "Escaneo cancelado."))
-                    .addOnFailureListener(e -> sendBarcodeScanStatus("error", "No se pudo abrir el escáner. Verificá Google Play Services e intentá nuevamente."));
+                    .addOnCanceledListener(() -> sendBarcodeScanStatus(scanPurpose, "canceled", "Escaneo cancelado."))
+                    .addOnFailureListener(e -> sendBarcodeScanStatus(scanPurpose, "error", "No se pudo abrir el escáner. Verificá Google Play Services e intentá nuevamente."));
         } catch (Exception e) {
-            sendBarcodeScanStatus("error", "No se pudo iniciar el escáner de código de barras.");
+            sendBarcodeScanStatus(scanPurpose, "error", "No se pudo iniciar el escáner de código de barras.");
         }
     }
 
@@ -404,13 +436,13 @@ public class MainActivity extends Activity {
         String source = "barcode";
     }
 
-    private void lookupBarcodeAndReturn(String code) {
+    private void lookupBarcodeAndReturn(String code, String purpose) {
         BarcodeLookupResult result = lookupBarcodeDomain("https://world.openfoodfacts.org", code, "Open Food Facts");
         if (result.name.isEmpty()) {
             BarcodeLookupResult fallback = lookupBarcodeDomain("https://world.openproductsfacts.org", code, "Open Products Facts");
             if (!fallback.name.isEmpty()) result = fallback;
         }
-        sendBarcodeLookupResult(code, result.name, result.source);
+        sendBarcodeLookupResult(purpose, code, result.name, result.source);
     }
 
     private BarcodeLookupResult lookupBarcodeDomain(String domain, String code, String sourceName) {
@@ -422,7 +454,7 @@ public class MainActivity extends Activity {
             c.setConnectTimeout(6000);
             c.setReadTimeout(6000);
             c.setRequestProperty("Accept", "application/json");
-            c.setRequestProperty("User-Agent", "AlDia/2.18 Android barcode lookup");
+            c.setRequestProperty("User-Agent", "AlDia/2.19 Android barcode lookup");
             int response = c.getResponseCode();
             if (response != 200) return result;
             String body;
@@ -469,21 +501,94 @@ public class MainActivity extends Activity {
         return out.toString().replaceAll("\\s+", " ").trim();
     }
 
-    private void sendBarcodeScanStatus(String status, String message) {
+    private void launchTextPhoto(String purpose) {
+        try {
+            File dir = new File(getCacheDir(), "capture");
+            if (!dir.exists() && !dir.mkdirs()) throw new Exception("No se pudo preparar la cámara");
+            pendingPhotoFile = new File(dir, "capture_" + System.currentTimeMillis() + ".jpg");
+            pendingPhotoPurpose = purpose == null ? "" : purpose;
+            Uri uri = new Uri.Builder()
+                    .scheme("content")
+                    .authority(getPackageName() + ".files")
+                    .appendPath("capture")
+                    .appendPath(pendingPhotoFile.getName())
+                    .build();
+            Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            camera.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+            camera.setClipData(ClipData.newRawUri("Al Día", uri));
+            camera.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            sendPhotoScanStatus(pendingPhotoPurpose, "opening", "Abriendo cámara…");
+            startActivityForResult(camera, PHOTO_CAPTURE_REQUEST);
+        } catch (Exception e) {
+            pendingPhotoFile = null;
+            sendPhotoScanStatus(purpose, "error", "No se pudo abrir la cámara.");
+        }
+    }
+
+    private void processCapturedPhoto() {
+        final File file = pendingPhotoFile;
+        final String purpose = pendingPhotoPurpose;
+        pendingPhotoFile = null;
+        pendingPhotoPurpose = "";
+        if (file == null || !file.exists()) {
+            sendPhotoScanStatus(purpose, "error", "No se encontró la foto capturada.");
+            return;
+        }
+        try {
+            Uri captureUri = new Uri.Builder()
+                    .scheme("content")
+                    .authority(getPackageName() + ".files")
+                    .appendPath("capture")
+                    .appendPath(file.getName())
+                    .build();
+            InputImage image = InputImage.fromFilePath(this, captureUri);
+            TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
+            sendPhotoScanStatus(purpose, "reading", "Leyendo texto de la foto…");
+            recognizer.process(image)
+                    .addOnSuccessListener(text -> {
+                        sendPhotoTextResult(purpose, text == null ? "" : text.getText());
+                        sendPhotoScanStatus(purpose, "done", "Foto procesada.");
+                        recognizer.close();
+                        try { file.delete(); } catch (Exception ignored) { }
+                    })
+                    .addOnFailureListener(e -> {
+                        sendPhotoScanStatus(purpose, "error", "No se pudo leer el texto de la foto. Podés completar los datos manualmente.");
+                        recognizer.close();
+                        try { file.delete(); } catch (Exception ignored) { }
+                    });
+        } catch (Exception e) {
+            sendPhotoScanStatus(purpose, "error", "No se pudo procesar la foto.");
+            try { file.delete(); } catch (Exception ignored) { }
+        }
+    }
+
+    private void sendBarcodeScanStatus(String purpose, String status, String message) {
         if (webView == null) return;
-        String js = "window.onBarcodeScanStatus && window.onBarcodeScanStatus(" + JSONObject.quote(status) + "," + JSONObject.quote(message) + ");";
+        String js = "window.onBarcodeScanStatusFor && window.onBarcodeScanStatusFor(" + JSONObject.quote(purpose) + "," + JSONObject.quote(status) + "," + JSONObject.quote(message) + ");";
         webView.post(() -> webView.evaluateJavascript(js, null));
     }
 
-    private void sendBarcodeScanResult(String code, String name, String source) {
+    private void sendBarcodeScanResult(String purpose, String code, String name, String source) {
         if (webView == null) return;
-        String js = "window.onBarcodeScanResult && window.onBarcodeScanResult(" + JSONObject.quote(code) + "," + JSONObject.quote(name == null ? "" : name) + "," + JSONObject.quote(source == null ? "barcode" : source) + ");";
+        String js = "window.onBarcodeScanResultFor && window.onBarcodeScanResultFor(" + JSONObject.quote(purpose) + "," + JSONObject.quote(code) + "," + JSONObject.quote(name == null ? "" : name) + "," + JSONObject.quote(source == null ? "barcode" : source) + ");";
         webView.post(() -> webView.evaluateJavascript(js, null));
     }
 
-    private void sendBarcodeLookupResult(String code, String name, String source) {
+    private void sendBarcodeLookupResult(String purpose, String code, String name, String source) {
         if (webView == null) return;
-        String js = "window.onBarcodeLookupResult && window.onBarcodeLookupResult(" + JSONObject.quote(code) + "," + JSONObject.quote(name == null ? "" : name) + "," + JSONObject.quote(source == null ? "barcode" : source) + ");";
+        String js = "window.onBarcodeLookupResultFor && window.onBarcodeLookupResultFor(" + JSONObject.quote(purpose) + "," + JSONObject.quote(code) + "," + JSONObject.quote(name == null ? "" : name) + "," + JSONObject.quote(source == null ? "barcode" : source) + ");";
+        webView.post(() -> webView.evaluateJavascript(js, null));
+    }
+
+    private void sendPhotoScanStatus(String purpose, String status, String message) {
+        if (webView == null) return;
+        String js = "window.onPhotoScanStatus && window.onPhotoScanStatus(" + JSONObject.quote(purpose == null ? "" : purpose) + "," + JSONObject.quote(status) + "," + JSONObject.quote(message) + ");";
+        webView.post(() -> webView.evaluateJavascript(js, null));
+    }
+
+    private void sendPhotoTextResult(String purpose, String text) {
+        if (webView == null) return;
+        String js = "window.onPhotoTextResult && window.onPhotoTextResult(" + JSONObject.quote(purpose == null ? "" : purpose) + "," + JSONObject.quote(text == null ? "" : text) + ");";
         webView.post(() -> webView.evaluateJavascript(js, null));
     }
 
@@ -593,6 +698,16 @@ public class MainActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode,resultCode,data);
+        if (requestCode == PHOTO_CAPTURE_REQUEST) {
+            if (resultCode == RESULT_OK) processCapturedPhoto();
+            else {
+                String purpose = pendingPhotoPurpose;
+                if (pendingPhotoFile != null) try { pendingPhotoFile.delete(); } catch (Exception ignored) { }
+                pendingPhotoFile = null; pendingPhotoPurpose = "";
+                sendPhotoScanStatus(purpose, "canceled", "Foto cancelada.");
+            }
+            return;
+        }
         if (requestCode == 1001) {
             if (filePathCallback == null) return;
             Uri[] results = null;

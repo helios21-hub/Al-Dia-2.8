@@ -1,0 +1,22 @@
+Al Día v2.19
+
+Mejoras principales
+- Reposición por código de barras mejorada: normaliza nombre y presentación (ml/L, g/kg) y permite completar con foto del frente del producto.
+- Los nombres de reposición se simplifican para que la Nota rápida quede como “Producto + presentación”, por ejemplo “Coca-Cola Zero 1,5 L”.
+- La biblioteca local de códigos se comparte como referencia con Vencimientos cuando corresponde.
+- Nuevo escaneo rápido dentro de Vencimientos:
+  * Código / EAN para productos empaquetados.
+  * Foto del frente para intentar reconocer nombre/presentación y, solo si está claramente rotulada, la fecha de vencimiento.
+  * Ticket / etiqueta de balanza para extraer nombre, PLU y la fecha indicada junto a “Vence”.
+- En tickets de balanza se ignora el código de barras largo: el identificador guardado es el PLU.
+- Un mismo producto puede tener varias fechas de vencimiento en una única ficha visual. Cada fecha sigue siendo un lote independiente para editar, retirar o eliminar.
+- Las notificaciones agrupan de forma más clara las fechas de un mismo producto e incluyen las fechas próximas/urgentes.
+- La carga rápida reconoce productos ya conocidos por código a partir de Vencimientos activos, historial, productos frecuentes, Consultor y la biblioteca de reposición.
+- Cambio global visible de “Código / scanning” a “Código / EAN”.
+- Backup actualizado a formato v19 e incluye la biblioteca de reconocimiento de Vencimientos.
+- OCR local con ML Kit para leer texto de fotos/tickets; la foto temporal se elimina después de procesarla.
+
+Versión Android
+- versionName 2.19
+- versionCode base 219000 + GITHUB_RUN_NUMBER
+- AndroidX habilitado

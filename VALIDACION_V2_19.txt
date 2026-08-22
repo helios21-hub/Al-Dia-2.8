@@ -1,0 +1,30 @@
+AL DÍA v2.19 — VALIDACIÓN PREVIA
+
+Comprobaciones realizadas antes de empaquetar:
+- OK: XML app/src/main/AndroidManifest.xml — OK
+- OK: XML app/src/main/res/values/styles.xml — OK
+- OK: XML app/src/main/res/xml/network_security_config.xml — OK
+- OK: IDs HTML únicos — Sin duplicados
+- OK: versionName 2.19 — Encontrado
+- OK: versionCode base 219000 — Encontrado
+- OK: Android Gradle Plugin 8.13.2 — Encontrado
+- OK: AndroidX habilitado — Encontrado
+- OK: Dependencia Google Code Scanner — Encontrada
+- OK: Dependencia ML Kit OCR — Encontrada
+- OK: Backup v19 incluye biblioteca de vencimientos — Encontrado
+- OK: Etiquetas Código / EAN — Sin etiquetas antiguas
+- OK: YAML .github/workflows/publicar-actualizacion.yml — OK
+- OK: Workflow manual publicar-actualizacion.yml — workflow_dispatch solamente
+- OK: YAML .github/workflows/build-apk.yml — OK
+- OK: Workflow manual build-apk.yml — workflow_dispatch solamente
+- OK: Archivo app/src/main/java/com/aldia/app/MainActivity.java — Presente
+- OK: Archivo app/src/main/java/com/aldia/app/AppFileProvider.java — Presente
+- OK: Archivo app/src/main/java/com/aldia/app/NotificationReceiver.java — Presente
+- OK: Archivo app/src/main/assets/index.html — Presente
+- OK: Archivo app/keystore/al-dia-debug.keystore — Presente
+- OK: Prechequeo sintaxis Java — Sin errores de sintaxis detectados
+
+IMPORTANTE:
+- Este entorno no tiene Android SDK/Gradle con acceso a repositorios para ejecutar un assembleDebug completo localmente.
+- La compilación Android final debe realizarse con el workflow manual de GitHub Actions incluido en el proyecto.
+- Los chequeos anteriores detectan errores de sintaxis/configuración frecuentes, pero no sustituyen el build Android real.
