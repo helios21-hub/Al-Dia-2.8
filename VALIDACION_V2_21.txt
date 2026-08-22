@@ -1,0 +1,55 @@
+VALIDACIÓN AL DÍA v2.21
+
+Objetivo: revisar cambios del lector de tickets y riesgos detectables antes de compilar el APK.
+
+[OK] Sintaxis JavaScript de index.html (node --check).
+[OK] Pruebas del analizador de tickets: Zanahoria, Limón, PLU separado del rótulo, Vence/L-Etq separados, confusiones O/0-I/1, sólo L/Etq y coincidencia de nombres.
+    OK zanahoria real [ '94329', '2026-08-15', 'Zanahoria' ] expected [ '94329', '2026-08-15', 'Zanahoria' ]
+    OK limon real + PLU separado [ '20759', '2026-08-08', 'Limón' ] expected [ '20759', '2026-08-08', 'Limón' ]
+    OK labels separados [ '20759', '2026-08-08' ] expected [ '20759', '2026-08-08' ]
+    OK solo Etq debe quedar vacio  expected 
+    OK confusiones OCR [ '20759', '2026-08-08' ] expected [ '20759', '2026-08-08' ]
+    OK fuzzy primera letra Zanahoria expected Zanahoria
+    OK fuzzy pera Pera Packham expected Pera Packham
+[OK] XML válido: app/src/main/AndroidManifest.xml
+[OK] XML válido: app/src/main/res/values/styles.xml
+[OK] XML válido: app/src/main/res/xml/network_security_config.xml
+[OK] YAML válido: .github/workflows/build-apk.yml
+[OK] YAML válido: .github/workflows/publicar-actualizacion.yml
+[OK] IDs del DOM HTML estático sin duplicados (210 IDs). Los IDs de modales dinámicos m1..m5 se reutilizan deliberadamente porque sólo existe un modal a la vez.
+[OK] versionName = 2.21
+[OK] versionCode base = 221000 + GITHUB_RUN_NUMBER
+[OK] compileSdk 36
+[OK] targetSdk 36
+[OK] minSdk 26
+[OK] Java 17
+[OK] AGP 8.13.2
+[OK] AndroidX habilitado
+[OK] ML Kit Text Recognition 16.0.1
+[OK] ML Kit Document Scanner 16.0.0
+[OK] Google Code Scanner 16.1.0
+[OK] applicationId estable com.aldia.app
+[OK] backup formato v21
+[OK] build-apk.yml: ejecución manual-only
+[OK] publicar-actualizacion.yml: ejecución manual-only
+[OK] No quedan etiquetas legacy Código/scanning; se usa Código / EAN y PLU donde corresponde.
+[OK] Keystore fija válida y alias aldia accesible.
+[OK] Heurística javac: no se detectaron errores de sintaxis Java. Los errores restantes son únicamente por no disponer del Android SDK/dependencias en el classpath local.
+
+Revisión específica del reconocimiento de tickets
+- Ticket / etiqueta abre primero ML Kit Document Scanner en modo FULL, 1 página y JPEG. Esto permite recorte guiado/corrección de perspectiva antes del OCR.
+- Si Document Scanner no está disponible, se conserva fallback automático a la cámara normal.
+- Todos los tickets hacen dos lecturas OCR: normal + gris/alto contraste. El analizador fusiona ambas.
+- PLU se busca por rótulo y por proximidad geométrica si el OCR separa “PLU:” de los dígitos. Se rechazan códigos largos, peso, precio e importe como candidatos de PLU.
+- Vence prioriza el rótulo Vence si se lee; además usa la regla estructural conocida: entre fechas anteriores al PLU, la inferior gana. L/Etq recibe penalización fuerte.
+- Si sólo se reconoce una fecha compatible con L/Etq y no hay evidencia suficiente de Vence, el campo queda vacío en lugar de guardar una fecha dudosa.
+- El nombre es secundario: PLU aprendido > Base de aprendizaje/plantilla de temporada > otros catálogos. Coincidencias dudosas se sugieren o se dejan vacías.
+
+Base técnica consultada
+- Document Scanner oficial de ML Kit: dependencia play-services-mlkit-document-scanner:16.0.0 y modo SCANNER_MODE_FULL.
+- Text Recognition v2 oficial: dependencia empaquetada com.google.mlkit:text-recognition:16.0.1; Text.Line ofrece bounding box, ángulo y confianza.
+
+Limitación de esta validación
+Este entorno no contiene Android SDK ni una instalación local de Gradle. Por eso NO se ejecutó :app:assembleDebug aquí. La compilación definitiva debe ejecutarse con el workflow “Compilar APK Al Día” de GitHub Actions. La revisión anterior cubre los errores estáticos/detectables disponibles en este entorno y las firmas de API nuevas se contrastaron con la documentación oficial de Google.
+
+RESULTADO: APTO PARA SUBIR Y COMPILAR EN GITHUB ACTIONS.

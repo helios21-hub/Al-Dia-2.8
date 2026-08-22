@@ -975,7 +975,7 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
 .modal-backdrop{z-index:1300!important}.confirm-backdrop{z-index:1400!important}.toast{z-index:1500!important}
 @media(min-width:700px){.barcode-backdrop{align-items:center;justify-content:center;padding:24px}.barcode-sheet{max-width:560px;border-radius:20px;max-height:88%;padding-bottom:18px}}
 
-/* v2.20 - OCR de tickets reforzado, PLU/fecha prioritarios y nombres inteligentes */
+/* v2.21 - escáner documental, OCR por geometría/doble pasada y tickets robustos */
 .expiry-scan-tools{margin:10px 0 12px;padding:10px 11px}.expiry-scan-tools-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px}.expiry-scan-tools-title{font-weight:900;font-size:13px}.expiry-scan-tools-sub{font-size:10px;color:var(--muted);line-height:1.35;margin-top:2px}.expiry-scan-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.expiry-scan-actions button{min-height:42px;padding:7px 5px;font-size:10px;border-radius:10px}.expiry-scan-status{margin-top:8px;font-size:10px;color:var(--muted);min-height:14px}.expiry-scan-status.busy{color:var(--primary);font-weight:800}.expiry-group-card{padding:10px!important;display:block!important}.expiry-group-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:7px}.expiry-group-name{font-size:14px;font-weight:900}.expiry-group-code{font-size:10px;color:var(--muted);margin-top:2px}.expiry-group-count{font-size:9px;padding:3px 6px;border-radius:999px;background:var(--surface-strong);color:var(--muted);white-space:nowrap}.expiry-lots{display:flex;flex-direction:column;gap:6px}.expiry-lot-row{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:10px;background:var(--surface-soft);padding:8px 9px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}.expiry-lot-row.danger{border-left:4px solid #d9534f}.expiry-lot-row.warning{border-left:4px solid #d79a38}.expiry-lot-row.ok{border-left:4px solid #6b9b7f}.expiry-lot-date{font-size:12px;font-weight:900}.expiry-lot-meta{font-size:9.5px;color:var(--muted);margin-top:2px;line-height:1.3}.expiry-lot-actions{display:flex;align-items:center;gap:5px}.expiry-lot-actions button{min-height:32px;padding:5px 7px;font-size:9.5px;border-radius:8px}.expiry-lot-delete{display:none!important}.barcode-item-actions{display:flex;gap:5px;align-items:center}.barcode-photo{min-height:36px;padding:6px 8px;border-radius:9px;background:var(--surface-strong);color:var(--text);border:1px solid var(--border);font-size:11px}.scan-photo-help{margin-top:8px;padding:8px 9px;border-radius:9px;background:var(--surface-soft);color:var(--muted);font-size:10px;line-height:1.35}.scan-photo-btn{width:100%;margin-top:8px;min-height:40px}.scan-detected-badge{display:inline-flex;margin-top:6px;padding:3px 7px;border-radius:999px;background:var(--chip-bg);color:var(--chip-text);font-size:9px;font-weight:800}.scan-name-suggestion{margin-top:7px;padding:8px 9px;border:1px dashed var(--border);border-radius:10px;background:var(--surface-soft);font-size:10px;color:var(--muted);line-height:1.35}.scan-name-suggestion button{width:100%;margin-top:6px;min-height:36px;padding:6px 8px;font-size:11px}
 @media(max-width:420px){.expiry-scan-actions{grid-template-columns:1fr 1fr}.expiry-scan-actions button:last-child{grid-column:1/-1}}
 </style>
@@ -2857,7 +2857,7 @@ async function finishBarcodeSession(){
 
 
 
-/* ===== v2.20 · reconocimiento por código/foto y tickets de vencimiento ===== */
+/* ===== v2.21 · reconocimiento robusto por código/foto y tickets ===== */
 function scanCodeKey(code,type="EAN"){const c=String(code||"").trim();return c?`${String(type||"EAN").toUpperCase()}:${c}`:""}
 function findKnownExpiryByCode(code,type="EAN"){
   const key=scanCodeKey(code,type), direct=key?expiryScanLibrary[key]:null;if(direct?.name)return direct;
@@ -2902,39 +2902,105 @@ function extractExpiryDateFromText(text){
   const labeled=t.match(/(?:vence|vencimiento|vto\.?|consumir\s+antes\s+de)\s*[:\-]?\s*(\d{1,2}[\/.\-]\d{1,2}[\/.\-]\d{2,4})/i);
   return labeled?dateTextToIso(labeled[1]):"";
 }
-function extractScaleTicketExpiryDate(text){
-  const lines=String(text||"").split(/\r?\n/).map(x=>x.replace(/\s+/g," ").trim()).filter(Boolean);
-  if(!lines.length)return"";
 
-  // 1) Si OCR logró leer "Vence", buscar la fecha en esa línea o inmediatamente debajo.
-  for(let i=0;i<lines.length;i++){
-    if(!/(?:\bvence\b|\bvencimiento\b|\bvto\b)/i.test(lines[i]))continue;
-    for(let j=i;j<Math.min(lines.length,i+4);j++){
-      if(/\b(?:l\s*\/?\s*etq|etq|etiquet|elabor|envas)\b/i.test(lines[j]))continue;
-      const d=datesInText(lines[j])[0];if(d)return d.iso;
-      if(/\b(?:peso|plu)\b/i.test(lines[j])&&j>i)break;
+/* v2.21 · lector de tickets por estructura, geometría y doble OCR */
+function normalizeTicketDigits(value){return String(value||"").replace(/[OoQ]/g,"0").replace(/[Il|!]/g,"1")}
+function ticketDatesInText(text){
+  const out=[],re=/([0-9OoQIl|!]{1,2})\s*[\/.\-]\s*([0-9OoQIl|!]{1,2})\s*[\/.\-]\s*([0-9OoQIl|!]{2,4})/g;
+  let m;while((m=re.exec(String(text||"")))){
+    const raw=`${normalizeTicketDigits(m[1])}/${normalizeTicketDigits(m[2])}/${normalizeTicketDigits(m[3])}`,iso=dateTextToIso(raw);
+    if(iso)out.push({raw:m[0],normalized:raw,iso,index:m.index||0});
+  }
+  return out;
+}
+function ticketLabelComparable(text){return norm(String(text||"")).replace(/0/g,"o").replace(/[1|!]/g,"i").replace(/3/g,"e").replace(/5/g,"s").replace(/[^a-z]/g,"")}
+function lineLooksEtq(text){const c=ticketLabelComparable(text);return c.includes("etq")||c.includes("etiq")||c.includes("etiqu")||c.includes("elab")||c.includes("envas")}
+function lineLooksVence(text){const c=ticketLabelComparable(text);return c.includes("vence")||c.includes("venc")||c.includes("vto")}
+function lineLooksPlu(text){const c=String(text||"").toUpperCase().replace(/[^A-Z0-9|]/g,"");return /P(?:L|1|I|\|)?U/.test(c)}
+function normalizeOcrMeta(meta){if(!meta)return null;if(typeof meta==="string"){try{return JSON.parse(meta)}catch(e){return null}}return typeof meta==="object"?meta:null}
+function ticketOcrPasses(text,meta){
+  const m=normalizeOcrMeta(meta),passes=[];
+  if(m&&Array.isArray(m.passes))m.passes.forEach((p,pi)=>{
+    const rawLines=Array.isArray(p?.lines)?p.lines:[],lines=rawLines.map((l,i)=>({text:String(l?.text||"").replace(/\s+/g," ").trim(),cy:Number.isFinite(Number(l?.cy))?Number(l.cy):(i+.5)/Math.max(1,rawLines.length),confidence:Number(l?.confidence||0),angle:Number(l?.angle||0)})).filter(x=>x.text).sort((a,b)=>a.cy-b.cy);
+    if(lines.length)passes.push({label:String(p?.label||`pasada_${pi+1}`),text:String(p?.text||lines.map(x=>x.text).join("\n")),lines,averageConfidence:Number(p?.averageConfidence||0)});
+  });
+  if(!passes.length){const lines=String(text||"").split(/\r?\n/).map(x=>x.replace(/\s+/g," ").trim()).filter(Boolean);passes.push({label:"texto",text:String(text||""),lines:lines.map((x,i)=>({text:x,cy:(i+.5)/Math.max(1,lines.length),confidence:0,angle:0})),averageConfidence:0})}
+  return passes;
+}
+function extractPluDigitsFromLine(text){
+  const raw=String(text||"");
+  let m=raw.match(/P\s*[L1I|!]?\s*U\s*[:#\-]?\s*([0-9OoQIl|!]{3,8})/i);
+  if(!m&&lineLooksPlu(raw))m=raw.match(/([0-9OoQIl|!]{3,8})/);
+  if(!m)return"";const d=normalizeTicketDigits(m[1]).replace(/\D/g,"");return d.length>=3&&d.length<=8?d:"";
+}
+function numericPluFallbackFromPass(pass,dateYs=[]){
+  const lowerDate=dateYs.length?Math.max(...dateYs):-1,candidates=[];
+  const pluAnchors=pass.lines.filter(l=>lineLooksPlu(l.text)).map(l=>l.cy);
+  pass.lines.forEach(line=>{
+    if(/[\/.\-]/.test(line.text)||/(?:\$|kg|peso|importe|precio|total)/i.test(line.text))return;
+    for(const m of line.text.matchAll(/(?:^|\D)([0-9OoQIl|!]{4,8})(?=\D|$)/g)){
+      const code=normalizeTicketDigits(m[1]).replace(/\D/g,"");if(code.length<4||code.length>8)continue;
+      let score=25;
+      if(lowerDate>=0&&line.cy>lowerDate&&line.cy-lowerDate<.24)score+=40;
+      if(line.cy>.45)score+=10;
+      // Si el OCR separó "PLU:" y sus dígitos en dos líneas/bloques, la cercanía
+      // al rótulo PLU es una señal mucho más fuerte que cualquier otro número.
+      if(pluAnchors.length){const d=Math.min(...pluAnchors.map(y=>Math.abs(y-line.cy)));if(d<.025)score+=90;else if(d<.065)score+=65;else if(d<.11)score+=30}
+      candidates.push({code,cy:line.cy,score,line:line.text});
     }
+  });
+  return candidates.sort((a,b)=>b.score-a.score)[0]||null;
+}
+function extractScaleTicketPlu(passes){
+  const grouped=new Map();
+  const add=(code,score,cy,label)=>{if(!code)return;const prev=grouped.get(code)||{code,score:0,support:0,cy:[],labels:[]};prev.score+=score;prev.support++;prev.cy.push(cy);prev.labels.push(label);grouped.set(code,prev)};
+  passes.forEach(pass=>{
+    const dateYs=pass.lines.filter(l=>ticketDatesInText(l.text).length).map(l=>l.cy),labeled=[];
+    pass.lines.forEach(line=>{const code=extractPluDigitsFromLine(line.text);if(code){const strong=lineLooksPlu(line.text);add(code,strong?105:75,line.cy,pass.label);labeled.push(code)}});
+    if(!labeled.length){const f=numericPluFallbackFromPass(pass,dateYs);if(f&&f.score>=55)add(f.code,f.score,f.cy,pass.label)}
+  });
+  const best=[...grouped.values()].sort((a,b)=>(b.score+b.support*18)-(a.score+a.support*18))[0];if(!best)return{code:"",confidence:0,cyByPass:{}};
+  const cyByPass={};passes.forEach(pass=>{const line=pass.lines.find(l=>extractPluDigitsFromLine(l.text)===best.code);if(line)cyByPass[pass.label]=line.cy});
+  const confidence=best.score>=100||best.support>=2?1:best.score>=70?.75:.45;
+  return{code:best.code,confidence,cyByPass};
+}
+function ticketDateCandidateScore(line,date,pass,pluY,datesInPass){
+  let score=10;
+  const nearby=pass.lines.filter(l=>Math.abs(l.cy-line.cy)<.055).map(l=>l.text).join(" ");
+  const etq=lineLooksEtq(line.text)||lineLooksEtq(nearby),vence=lineLooksVence(line.text)||lineLooksVence(nearby);
+  if(vence)score+=150;if(etq)score-=180;
+  if(Number.isFinite(pluY)){
+    if(line.cy<pluY){const dist=pluY-line.cy;score+=Math.max(0,70-dist*155)}else score-=110;
   }
-
-  // 2) En estos tickets el vencimiento es la fecha inferior, arriba del PLU.
-  //    La fecha L/Etq está más arriba y se descarta explícitamente.
-  const pluIndex=lines.findIndex(x=>/\bP\s*[L1I]\s*U\b/i.test(x));
-  const upperBound=pluIndex>=0?pluIndex:lines.length;
-  let candidate="";
-  for(let i=0;i<upperBound;i++){
-    const line=lines[i];
-    if(/\b(?:l\s*\/?\s*etq|etq|etiquet|elabor|envas)\b/i.test(line))continue;
-    const ds=datesInText(line);
-    if(ds.length)candidate=ds[ds.length-1].iso;
+  if(datesInPass.length>=2){
+    // La regla física conocida del ticket: Vence es la fecha inferior. Si PLU está
+    // visible, sólo comparamos fechas que estén por encima de él para no tomar
+    // números/fechas ajenos de la parte inferior del ticket.
+    const eligible=Number.isFinite(pluY)?datesInPass.filter(x=>x.line.cy<pluY):datesInPass;
+    const pool=eligible.length?eligible:datesInPass,lower=Math.max(...pool.map(x=>x.line.cy));
+    if(Math.abs(line.cy-lower)<.018)score+=125;else score+=5;
   }
-  if(candidate)return candidate;
-
-  // 3) Último recurso: de todas las fechas, tomar la última que no esté marcada como etiquetado.
-  for(let i=0;i<lines.length;i++){
-    if(/\b(?:l\s*\/?\s*etq|etq|etiquet|elabor|envas)\b/i.test(lines[i]))continue;
-    const ds=datesInText(lines[i]);if(ds.length)candidate=ds[ds.length-1].iso;
-  }
-  return candidate;
+  // En estos tickets la fecha de vencimiento aparece antes de PESO/PLU. Una fecha
+  // posterior a esos marcadores se considera sospechosa.
+  const pesoYs=pass.lines.filter(l=>/\bpeso\b/i.test(norm(l.text))).map(l=>l.cy);
+  if(pesoYs.length&&line.cy>Math.min(...pesoYs)+.03)score-=70;
+  return score;
+}
+function extractScaleTicketExpiryDate(text,meta,pluInfo=null){
+  const passes=ticketOcrPasses(text,meta),plu=pluInfo||extractScaleTicketPlu(passes),grouped=new Map();
+  passes.forEach(pass=>{
+    const rows=[];pass.lines.forEach(line=>ticketDatesInText(line.text).forEach(d=>rows.push({line,date:d})));
+    const pluY=Number(plu?.cyByPass?.[pass.label]);
+    rows.forEach(row=>{
+      const score=ticketDateCandidateScore(row.line,row.date,pass,Number.isFinite(pluY)?pluY:NaN,rows),prev=grouped.get(row.date.iso)||{iso:row.date.iso,score:0,support:new Set(),bestScore:-999};
+      prev.score+=score;prev.bestScore=Math.max(prev.bestScore,score);prev.support.add(pass.label);grouped.set(row.date.iso,prev)
+    });
+  });
+  const ranked=[...grouped.values()].map(x=>({...x,supportCount:x.support.size})).sort((a,b)=>(b.score+b.supportCount*35)-(a.score+a.supportCount*35));
+  const best=ranked[0];if(!best)return{date:"",confidence:0,candidates:[]};
+  // Evitar aceptar silenciosamente una fecha que sólo parece L/Etq.
+  const confidence=best.bestScore>=130||best.supportCount>=2&&best.score>=80?1:best.score>=85?.8:best.score>=55?.6:.35;
+  return{date:confidence>=.6?best.iso:"",confidence,candidates:ranked};
 }
 function ocrComparable(value){
   return norm(value).replace(/[^a-z0-9]+/g," ").replace(/\b(?:x|kg|kgs|ks|k|gr|g|unidad|unidades|un)\b/g," ").replace(/\s+/g," ").trim();
@@ -2956,6 +3022,7 @@ function textSimilarity(a,b){
 function knownProductNamesForOcr(){
   const names=[];
   const add=v=>{const n=String(v?.name||v||"").replace(/\s+/g," ").trim();if(n)names.push(n)};
+  // La plantilla de temporada va primero porque contiene la mayor parte del catálogo real.
   (learningCatalog||[]).forEach(add);
   (items||[]).forEach(add);(expiryHistory||[]).forEach(add);
   Object.values(savedExpiryProducts||{}).forEach(add);
@@ -2968,49 +3035,41 @@ function knownProductNamesForOcr(){
 function fuzzyProductScore(candidate,observed){
   const c=ocrComparable(candidate),o=ocrComparable(observed);if(!c||!o)return 0;
   if(c===o)return 1;
-  if(o.includes(c)||c.includes(o))return Math.min(0.98,0.86+Math.min(c.length,o.length)/Math.max(c.length,o.length)*0.12);
+  if(o.includes(c)||c.includes(o))return Math.min(.99,.88+Math.min(c.length,o.length)/Math.max(c.length,o.length)*.11);
   const ct=c.split(" ").filter(x=>x.length>=3),ot=o.split(" ").filter(x=>x.length>=3);if(!ct.length||!ot.length)return textSimilarity(c,o);
-  const tokenAvg=ct.reduce((sum,t)=>sum+Math.max(...ot.map(x=>textSimilarity(t,x))),0)/ct.length;
+  // Errores/cortes muy comunes: primera letra perdida (anahoria→zanahoria, imon→limon).
+  for(const a of ct)for(const b of ot){if(a.length>=5&&b===a.slice(1))return .95;if(b.length>=5&&a===b.slice(1))return .93}
+  const tokenBest=ct.map(t=>Math.max(...ot.map(x=>textSimilarity(t,x)))),tokenAvg=tokenBest.reduce((a,b)=>a+b,0)/tokenBest.length;
   const charScore=textSimilarity(c,o),coverage=Math.min(1,ct.length/Math.max(1,ot.length));
-  return tokenAvg*.72+charScore*.18+coverage*.10;
+  return Math.max(...tokenBest)*.46+tokenAvg*.34+charScore*.12+coverage*.08;
 }
 function bestKnownProductMatch(observed){
   const raw=String(observed||"").trim();if(!raw)return null;
   let best=null;knownProductNamesForOcr().forEach(name=>{const score=fuzzyProductScore(name,raw);if(!best||score>best.score)best={name,score}});
   return best;
 }
-function ticketNameCandidateLines(text){
-  const lines=String(text||"").split(/\r?\n/).map(x=>x.replace(/\s+/g," ").trim()).filter(Boolean);
-  const stop=lines.findIndex(x=>/\b(?:l\s*\/?\s*etq|vence|vencimiento|vto|\$\/?kg|peso|importe|plu)\b/i.test(x));
-  return (stop>0?lines.slice(0,stop):lines.slice(0,Math.min(7,lines.length))).filter(x=>{
-    if(!/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/.test(x)||x.length>60)return false;
-    if(/industria|fraccion|cencosud|disco|jumbo|vea|supermerc|precio|importe|peso|total|fecha|ticket/i.test(x))return false;
-    return true;
-  }).slice(0,5);
+function ticketNameCandidateStrings(passes){
+  const out=[];
+  passes.forEach(pass=>{
+    const firstMarker=pass.lines.find(l=>lineLooksEtq(l.text)||lineLooksVence(l.text)||lineLooksPlu(l.text)||ticketDatesInText(l.text).length||/(?:\$\/?kg|peso|importe)/i.test(l.text));
+    const stopY=firstMarker?firstMarker.cy:.55,lines=pass.lines.filter(l=>l.cy<stopY).map(l=>l.text).filter(x=>{
+      if(!/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/.test(x)||x.length>70)return false;
+      if(/industria|fraccion|cencosud|disco|jumbo|vea|supermerc|precio|importe|peso|total|fecha|ticket|san martin/i.test(x))return false;
+      return true;
+    }).slice(0,7);
+    lines.forEach((line,i)=>{out.push(line);if(lines[i+1])out.push(`${line} ${lines[i+1]}`)});
+  });
+  return [...new Set(out.map(x=>x.replace(/\s+/g," ").trim()).filter(Boolean))];
 }
-function parseScaleTicket(text){
-  const t=String(text||""),compact=t.replace(/\s+/g," ");
-  const plu=(compact.match(/\bP\s*[L1I]\s*U\s*[:#\-]?\s*(\d{3,8})\b/i)||[])[1]||"";
-  const date=extractScaleTicketExpiryDate(t);
-  const known=findKnownExpiryByCode(plu,"PLU");
-  const nameLines=ticketNameCandidateLines(t);
-  let rawName=nameLines[0]||"",name=known?.name||"",nameSuggestion="",nameConfidence=known?.name?1:0;
-
-  if(!name&&nameLines.length){
-    let best=null;
-    nameLines.forEach(line=>{
-      const match=bestKnownProductMatch(line);
-      if(match&&(!best||match.score>best.score))best={...match,line};
-    });
-    if(best){
-      rawName=best.line;
-      if(best.score>=0.77){name=best.name;nameConfidence=best.score}
-      else if(best.score>=0.60){nameSuggestion=best.name;nameConfidence=best.score}
-    }
+function parseScaleTicket(text,meta){
+  const passes=ticketOcrPasses(text,meta),pluInfo=extractScaleTicketPlu(passes),plu=pluInfo.code,dateInfo=extractScaleTicketExpiryDate(text,meta,pluInfo),date=dateInfo.date;
+  const known=findKnownExpiryByCode(plu,"PLU"),nameCandidates=ticketNameCandidateStrings(passes);
+  let rawName=nameCandidates[0]||"",name=known?.name||"",nameSuggestion="",nameConfidence=known?.name?1:0;
+  if(!name&&nameCandidates.length){
+    let best=null;nameCandidates.forEach(line=>{const match=bestKnownProductMatch(line);if(match&&(!best||match.score>best.score))best={...match,line}});
+    if(best){rawName=best.line;if(best.score>=.80){name=best.name;nameConfidence=best.score}else if(best.score>=.58){nameSuggestion=best.name;nameConfidence=best.score}}
   }
-
-  // Si no hay coincidencia confiable con un producto conocido, dejar Producto vacío.
-  return{name,code:plu,codeType:"PLU",date,withdrawDays:Number(known?.withdrawDays||0),source:"ticket",nameSuggestion,nameConfidence,rawTicketName:rawName};
+  return{name,code:plu,codeType:"PLU",date,withdrawDays:Number(known?.withdrawDays||0),source:"ticket",nameSuggestion,nameConfidence,rawTicketName:rawName,pluConfidence:pluInfo.confidence,dateConfidence:dateInfo.confidence,optimizedDocument:!!normalizeOcrMeta(meta)?.optimizedDocument};
 }
 function setExpiryScanStatus(message,busy=false){if(!$('expiryScanStatus'))return;$('expiryScanStatus').textContent=String(message||"");$('expiryScanStatus').classList.toggle('busy',!!busy)}
 function openExpiryScanDraft(title="Revisar vencimiento detectado"){
@@ -3018,7 +3077,7 @@ function openExpiryScanDraft(title="Revisar vencimiento detectado"){
   const d=expiryScanDraft,label=d.codeType==="PLU"?"PLU":"Código / EAN",photoAllowed=d.source!=="ticket";
   const suggestion=String(d.nameSuggestion||"").trim();
   const suggestionHtml=!d.name&&suggestion?`<div class="scan-name-suggestion"><div>Posible producto según Base de aprendizaje:</div><button class="secondary-btn" id="useExpiryNameSuggestionBtn" type="button">${esc(suggestion)}</button></div>`:"";
-  const ticketInfo=d.source==="ticket"?`<div class="scan-detected-badge">Ticket: prioridad PLU + fecha inferior de “Vence”. El código de barras largo se ignora.</div>`:"";
+  const ticketInfo=d.source==="ticket"?`<div class="scan-detected-badge">Ticket: PLU + vencimiento por estructura. Se prioriza la fecha inferior sobre L/Etq y se ignora el código de barras largo.</div>`:"";
   openModal(title,`<label>Producto</label><input id="m1" value="${esc(d.name||"")}" placeholder="Nombre del producto">${suggestionHtml}<label style="margin-top:10px">${label}</label><input id="m2" data-no-autocap inputmode="numeric" value="${esc(d.code||"")}" ${d.code?"readonly":""}><label style="margin-top:10px">Fecha de vencimiento</label><input id="m3" type="date" value="${esc(d.date||"")}"><label style="margin-top:10px">Retiro</label><select id="m4"><option value="0" ${Number(d.withdrawDays||0)===0?"selected":""}>Retirar el día del vencimiento</option><option value="10" ${Number(d.withdrawDays||0)===10?"selected":""}>Retirar 10 días antes</option></select><label style="margin-top:10px">Nota opcional</label><input id="m5" value="${esc(d.notes||"")}">${photoAllowed?`<button class="secondary-btn scan-photo-btn" id="scanDraftPhotoBtn" type="button">📷 Completar nombre/presentación con foto</button><div class="scan-photo-help">Si la fecha aparece claramente en la foto, Al Día también intentará proponerla. Siempre revisala antes de guardar.</div>`:ticketInfo}` ,{type:"expiry-scan-new"});
   setTimeout(()=>{
     const b=$('scanDraftPhotoBtn');if(b)b.onclick=()=>{expiryScanDraft.name=$('m1').value.trim();expiryScanDraft.date=$('m3').value;expiryScanDraft.withdrawDays=Number($('m4').value);expiryScanDraft.notes=$('m5').value.trim();captureTextPhotoFor('expiry_product_front')};
@@ -3039,12 +3098,12 @@ window.onBarcodeLookupResultFor=function(purpose,code,name,source){
   if(purpose==="replenishment"){window.onBarcodeLookupResult?.(code,cleanProductName(name),source);return}
   if(purpose!=="expiry_packaged")return;const known=findKnownExpiryByCode(code,"EAN");if(!expiryScanDraft||expiryScanDraft.code!==String(code))return;const resolved=known?.name||cleanProductName(name);if(resolved&&resolved!=="Producto sin identificar")expiryScanDraft.name=resolved;if($('editModalBackdrop')?.classList.contains('open')&&editCtx?.type==="expiry-scan-new"&&$('m1'))$('m1').value=expiryScanDraft.name||"";setExpiryScanStatus(expiryScanDraft.name?"Producto reconocido. Revisá la fecha y guardá.":"No encontramos un nombre confiable. Usá la foto del frente o completalo manualmente.",false)
 }
-window.onPhotoScanStatus=function(purpose,status,message){const busy=status==="opening"||status==="reading";if(String(purpose).startsWith("replenishment:")){if($('barcodeStatus')){$('barcodeStatus').className=`barcode-status ${busy?'busy':''}`;$('barcodeStatus').textContent=message||''}}else setExpiryScanStatus(message||"",busy)}
-window.onPhotoTextResult=function(purpose,text){
+window.onPhotoScanStatus=function(purpose,status,message){const busy=status==="opening"||status==="reading"||status==="enhancing"||status==="fallback";if(String(purpose).startsWith("replenishment:")){if($('barcodeStatus')){$('barcodeStatus').className=`barcode-status ${busy?'busy':''}`;$('barcodeStatus').textContent=message||''}}else setExpiryScanStatus(message||"",busy)}
+window.onPhotoTextResult=function(purpose,text,meta){
   purpose=String(purpose||"");text=String(text||"");
   if(purpose.startsWith("replenishment:")){const id=purpose.split(":")[1],x=barcodeSession.items.find(y=>y.id===id);if(!x)return;const next=cleanProductName(x.name,text);if(next&&next!=="Producto sin identificar")x.name=next;if(x.code&&x.name)barcodeLibrary[x.code]={name:x.name,source:"foto_producto",updatedAt:new Date().toISOString()};saveAll();renderBarcodeSession();$('barcodeStatus').className='barcode-status';$('barcodeStatus').textContent='Foto procesada. Revisá el nombre y la presentación.';showToast('Nombre/presentación actualizados');return}
   if(purpose==="expiry_ticket"){
-    const parsed=parseScaleTicket(text);expiryScanDraft={...expiryScanDraft,...parsed};
+    const parsed=parseScaleTicket(text,meta);expiryScanDraft={...expiryScanDraft,...parsed};
     if(parsed.code&&parsed.name)rememberExpiryScanCode(parsed.name,parsed.code,"PLU",parsed.withdrawDays||0);
     const title=parsed.code&&parsed.date?(parsed.name?"Ticket reconocido":"PLU y vencimiento reconocidos"):"Revisar datos del ticket";
     openExpiryScanDraft(title);
@@ -3316,7 +3375,7 @@ function backupSummaryText(d,includeTitle=true){
   return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos guardados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}\nProductos aprendidos por código: ${c.barcodeKnown}`;
 }
 function currentBackupObject(){
-  return {version:20,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,barcodeLibrary,barcodeSession,expiryScanLibrary,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:21,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,barcodeLibrary,barcodeSession,expiryScanLibrary,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;

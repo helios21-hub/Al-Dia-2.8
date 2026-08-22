@@ -63,3 +63,11 @@ Corrección de compilación del escáner de códigos de barras: AndroidX queda h
 - Escaneo de Vencimientos por Código/EAN, foto o ticket de balanza (PLU + Vence).
 - Varias fechas de vencimiento agrupadas visualmente por producto.
 - OCR local ML Kit y backup v19.
+
+
+## v2.21
+- Ticket/etiqueta usa ML Kit Document Scanner con corrección de perspectiva y mejora de imagen.
+- OCR del ticket por geometría + doble lectura (normal y alto contraste) fusionada en todos los tickets.
+- Vence se determina por la fecha inferior más cercana al PLU, penalizando L/Etq.
+- Nombre asociado por PLU o similitud contra Base de aprendizaje y catálogos conocidos.
+- Backup v21 y versionName 2.21.

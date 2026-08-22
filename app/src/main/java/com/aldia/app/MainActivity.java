@@ -8,9 +8,16 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.ClipData;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -27,12 +34,17 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanner;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanning;
 import com.google.mlkit.vision.common.InputImage;
+import com.google.mlkit.vision.documentscanner.GmsDocumentScanner;
+import com.google.mlkit.vision.documentscanner.GmsDocumentScannerOptions;
+import com.google.mlkit.vision.documentscanner.GmsDocumentScanning;
+import com.google.mlkit.vision.documentscanner.GmsDocumentScanningResult;
 import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
@@ -57,6 +69,7 @@ public class MainActivity extends Activity {
     private static final int NOTIFICATION_PERMISSION_REQUEST = 2003;
     private static final int SAVE_XLSX_REQUEST = 2004;
     private static final int PHOTO_CAPTURE_REQUEST = 2005;
+    private static final int DOCUMENT_SCAN_REQUEST = 2006;
     public static final String CHANNEL_ID = "al_dia_alertas";
 
     private WebView webView;
@@ -256,7 +269,7 @@ public class MainActivity extends Activity {
             try {
                 return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             } catch (Exception e) {
-                return "2.20";
+                return "2.21";
             }
         }
 
@@ -459,7 +472,7 @@ public class MainActivity extends Activity {
             c.setConnectTimeout(6000);
             c.setReadTimeout(6000);
             c.setRequestProperty("Accept", "application/json");
-            c.setRequestProperty("User-Agent", "AlDia/2.20 Android barcode lookup");
+            c.setRequestProperty("User-Agent", "AlDia/2.21 Android barcode lookup");
             int response = c.getResponseCode();
             if (response != 200) return result;
             String body;
@@ -507,6 +520,48 @@ public class MainActivity extends Activity {
     }
 
     private void launchTextPhoto(String purpose) {
+        String safePurpose = purpose == null ? "" : purpose.trim();
+        if ("expiry_ticket".equals(safePurpose)) {
+            launchTicketDocumentScanner(safePurpose);
+            return;
+        }
+        launchBasicTextPhoto(safePurpose);
+    }
+
+    private void launchTicketDocumentScanner(String purpose) {
+        pendingPhotoPurpose = purpose == null ? "expiry_ticket" : purpose;
+        pendingPhotoFile = null;
+        try {
+            GmsDocumentScannerOptions options = new GmsDocumentScannerOptions.Builder()
+                    .setGalleryImportAllowed(false)
+                    .setPageLimit(1)
+                    .setResultFormats(GmsDocumentScannerOptions.RESULT_FORMAT_JPEG)
+                    .setScannerMode(GmsDocumentScannerOptions.SCANNER_MODE_FULL)
+                    .build();
+            GmsDocumentScanner scanner = GmsDocumentScanning.getClient(options);
+            sendPhotoScanStatus(pendingPhotoPurpose, "opening", "Abriendo escáner optimizado de ticket…");
+            scanner.getStartScanIntent(this)
+                    .addOnSuccessListener(intentSender -> {
+                        try {
+                            startIntentSenderForResult(intentSender, DOCUMENT_SCAN_REQUEST, null, 0, 0, 0);
+                        } catch (IntentSender.SendIntentException e) {
+                            sendPhotoScanStatus(pendingPhotoPurpose, "fallback", "No se pudo abrir el escáner optimizado. Usando cámara normal…");
+                            launchBasicTextPhoto(pendingPhotoPurpose);
+                        }
+                    })
+                    .addOnFailureListener(e -> {
+                        String fallbackPurpose = pendingPhotoPurpose;
+                        sendPhotoScanStatus(fallbackPurpose, "fallback", "Escáner optimizado no disponible. Usando cámara normal…");
+                        launchBasicTextPhoto(fallbackPurpose);
+                    });
+        } catch (Exception e) {
+            String fallbackPurpose = pendingPhotoPurpose;
+            sendPhotoScanStatus(fallbackPurpose, "fallback", "Escáner optimizado no disponible. Usando cámara normal…");
+            launchBasicTextPhoto(fallbackPurpose);
+        }
+    }
+
+    private void launchBasicTextPhoto(String purpose) {
         try {
             File dir = new File(getCacheDir(), "capture");
             if (!dir.exists() && !dir.mkdirs()) throw new Exception("No se pudo preparar la cámara");
@@ -546,26 +601,288 @@ public class MainActivity extends Activity {
                     .appendPath("capture")
                     .appendPath(file.getName())
                     .build();
-            InputImage image = InputImage.fromFilePath(this, captureUri);
-            TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
-            sendPhotoScanStatus(purpose, "reading", "Leyendo texto de la foto…");
-            recognizer.process(image)
-                    .addOnSuccessListener(text -> {
-                        String orderedText = orderedOcrText(text);
-                        sendPhotoTextResult(purpose, orderedText);
-                        sendPhotoScanStatus(purpose, "done", "Foto procesada.");
-                        recognizer.close();
-                        try { file.delete(); } catch (Exception ignored) { }
-                    })
-                    .addOnFailureListener(e -> {
-                        sendPhotoScanStatus(purpose, "error", "No se pudo leer el texto de la foto. Podés completar los datos manualmente.");
-                        recognizer.close();
-                        try { file.delete(); } catch (Exception ignored) { }
-                    });
+            processPhotoUri(captureUri, purpose, file, false);
         } catch (Exception e) {
             sendPhotoScanStatus(purpose, "error", "No se pudo procesar la foto.");
             try { file.delete(); } catch (Exception ignored) { }
         }
+    }
+
+    private static class OcrPassData {
+        String text = "";
+        JSONObject json = new JSONObject();
+        int dateLikeCount = 0;
+        boolean hasPlu = false;
+        float averageConfidence = 0f;
+    }
+
+    private void processPhotoUri(Uri imageUri, String purpose, File cleanupFile, boolean optimizedDocument) {
+        if (imageUri == null) {
+            sendPhotoScanStatus(purpose, "error", "No se encontró la imagen del ticket.");
+            cleanupPhotoFile(cleanupFile);
+            return;
+        }
+        try {
+            InputImage image = InputImage.fromFilePath(this, imageUri);
+            TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
+            sendPhotoScanStatus(purpose, "reading", optimizedDocument ? "Leyendo ticket corregido y mejorado…" : "Leyendo texto de la foto…");
+            recognizer.process(image)
+                    .addOnSuccessListener(text -> {
+                        OcrPassData first = buildOcrPass(text, "principal");
+                        recognizer.close();
+                        if ("expiry_ticket".equals(purpose)) {
+                            // En tickets hacemos siempre dos lecturas y luego fusionamos resultados.
+                            // La segunda pasada en gris/alto contraste ayuda cuando la primera lectura
+                            // parece válida pero confunde L/Etq, Vence o algún dígito del PLU.
+                            sendPhotoScanStatus(purpose, "enhancing", needsEnhancedTicketPass(first)
+                                    ? "Reforzando lectura de PLU y fechas con alto contraste…"
+                                    : "Verificando PLU y vencimiento con una segunda lectura…");
+                            runEnhancedTicketPass(imageUri, purpose, first, cleanupFile, optimizedDocument);
+                        } else {
+                            sendPhotoOcrResult(purpose, first, null, optimizedDocument);
+                            sendPhotoScanStatus(purpose, "done", optimizedDocument ? "Ticket procesado." : "Foto procesada.");
+                            cleanupPhotoFile(cleanupFile);
+                        }
+                    })
+                    .addOnFailureListener(e -> {
+                        recognizer.close();
+                        sendPhotoScanStatus(purpose, "error", "No se pudo leer el texto. Podés completar los datos manualmente.");
+                        cleanupPhotoFile(cleanupFile);
+                    });
+        } catch (Exception e) {
+            sendPhotoScanStatus(purpose, "error", "No se pudo procesar la imagen.");
+            cleanupPhotoFile(cleanupFile);
+        }
+    }
+
+    private void runEnhancedTicketPass(Uri imageUri, String purpose, OcrPassData first, File cleanupFile, boolean optimizedDocument) {
+        Bitmap source = null;
+        Bitmap enhanced = null;
+        TextRecognizer recognizer = null;
+        try {
+            source = decodeScaledBitmap(imageUri, 2200);
+            if (source == null) throw new Exception("No se pudo preparar la imagen");
+            enhanced = enhanceTicketBitmap(source);
+            final Bitmap sourceFinal = source;
+            final Bitmap enhancedFinal = enhanced;
+            recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
+            final TextRecognizer recognizerFinal = recognizer;
+            recognizer.process(InputImage.fromBitmap(enhanced, 0))
+                    .addOnSuccessListener(text -> {
+                        OcrPassData second = buildOcrPass(text, "alto_contraste");
+                        sendPhotoOcrResult(purpose, first, second, optimizedDocument);
+                        sendPhotoScanStatus(purpose, "done", "Ticket procesado con doble lectura.");
+                        recognizerFinal.close();
+                        recycleBitmap(enhancedFinal);
+                        recycleBitmap(sourceFinal);
+                        cleanupPhotoFile(cleanupFile);
+                    })
+                    .addOnFailureListener(e -> {
+                        sendPhotoOcrResult(purpose, first, null, optimizedDocument);
+                        sendPhotoScanStatus(purpose, "done", "Ticket procesado. La segunda lectura no fue necesaria para continuar.");
+                        recognizerFinal.close();
+                        recycleBitmap(enhancedFinal);
+                        recycleBitmap(sourceFinal);
+                        cleanupPhotoFile(cleanupFile);
+                    });
+        } catch (Exception e) {
+            if (recognizer != null) try { recognizer.close(); } catch (Exception ignored) { }
+            recycleBitmap(enhanced);
+            recycleBitmap(source);
+            sendPhotoOcrResult(purpose, first, null, optimizedDocument);
+            sendPhotoScanStatus(purpose, "done", "Ticket procesado.");
+            cleanupPhotoFile(cleanupFile);
+        }
+    }
+
+    private Bitmap decodeScaledBitmap(Uri uri, int maxSide) {
+        try {
+            BitmapFactory.Options bounds = new BitmapFactory.Options();
+            bounds.inJustDecodeBounds = true;
+            try (InputStream input = getContentResolver().openInputStream(uri)) {
+                BitmapFactory.decodeStream(input, null, bounds);
+            }
+            if (bounds.outWidth <= 0 || bounds.outHeight <= 0) return null;
+            int sample = 1;
+            int longest = Math.max(bounds.outWidth, bounds.outHeight);
+            while (longest / sample > maxSide * 2) sample *= 2;
+            BitmapFactory.Options opts = new BitmapFactory.Options();
+            opts.inSampleSize = Math.max(1, sample);
+            opts.inPreferredConfig = Bitmap.Config.ARGB_8888;
+            try (InputStream input = getContentResolver().openInputStream(uri)) {
+                Bitmap decoded = BitmapFactory.decodeStream(input, null, opts);
+                if (decoded == null) return null;
+                int currentMax = Math.max(decoded.getWidth(), decoded.getHeight());
+                if (currentMax <= maxSide) return decoded;
+                float scale = maxSide / (float) currentMax;
+                Bitmap scaled = Bitmap.createScaledBitmap(decoded,
+                        Math.max(1, Math.round(decoded.getWidth() * scale)),
+                        Math.max(1, Math.round(decoded.getHeight() * scale)), true);
+                if (scaled != decoded) decoded.recycle();
+                return scaled;
+            }
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private Bitmap enhanceTicketBitmap(Bitmap source) {
+        Bitmap out = Bitmap.createBitmap(source.getWidth(), source.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(out);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
+        ColorMatrix matrix = new ColorMatrix();
+        matrix.setSaturation(0f);
+        float contrast = 1.45f;
+        float translate = (-0.5f * contrast + 0.5f) * 255f + 8f;
+        ColorMatrix contrastMatrix = new ColorMatrix(new float[]{
+                contrast, 0, 0, 0, translate,
+                0, contrast, 0, 0, translate,
+                0, 0, contrast, 0, translate,
+                0, 0, 0, 1, 0
+        });
+        matrix.postConcat(contrastMatrix);
+        paint.setColorFilter(new ColorMatrixColorFilter(matrix));
+        canvas.drawBitmap(source, 0, 0, paint);
+        return out;
+    }
+
+    private void recycleBitmap(Bitmap bitmap) {
+        if (bitmap != null && !bitmap.isRecycled()) {
+            try { bitmap.recycle(); } catch (Exception ignored) { }
+        }
+    }
+
+    private void cleanupPhotoFile(File file) {
+        if (file != null) try { file.delete(); } catch (Exception ignored) { }
+    }
+
+    private boolean needsEnhancedTicketPass(OcrPassData pass) {
+        if (pass == null) return true;
+        if (!pass.hasPlu || pass.dateLikeCount < 2) return true;
+        return pass.averageConfidence > 0f && pass.averageConfidence < 0.66f;
+    }
+
+    private OcrPassData buildOcrPass(Text text, String label) {
+        OcrPassData out = new OcrPassData();
+        try {
+            List<Text.Line> lines = new ArrayList<>();
+            for (Text.TextBlock block : text.getTextBlocks()) {
+                if (block != null) lines.addAll(block.getLines());
+            }
+            lines.sort(new Comparator<Text.Line>() {
+                @Override
+                public int compare(Text.Line a, Text.Line b) {
+                    Rect ra = a == null ? null : a.getBoundingBox();
+                    Rect rb = b == null ? null : b.getBoundingBox();
+                    if (ra == null && rb == null) return 0;
+                    if (ra == null) return 1;
+                    if (rb == null) return -1;
+                    int centerAy = ra.centerY(), centerBy = rb.centerY();
+                    int tolerance = Math.max(6, Math.min(ra.height(), rb.height()) / 2);
+                    if (Math.abs(centerAy - centerBy) > tolerance) return Integer.compare(centerAy, centerBy);
+                    return Integer.compare(ra.left, rb.left);
+                }
+            });
+
+            int minLeft = Integer.MAX_VALUE, minTop = Integer.MAX_VALUE, maxRight = 0, maxBottom = 0;
+            for (Text.Line line : lines) {
+                Rect r = line == null ? null : line.getBoundingBox();
+                if (r == null) continue;
+                minLeft = Math.min(minLeft, r.left);
+                minTop = Math.min(minTop, r.top);
+                maxRight = Math.max(maxRight, r.right);
+                maxBottom = Math.max(maxBottom, r.bottom);
+            }
+            if (minLeft == Integer.MAX_VALUE) minLeft = 0;
+            if (minTop == Integer.MAX_VALUE) minTop = 0;
+            float spanX = Math.max(1f, maxRight - minLeft);
+            float spanY = Math.max(1f, maxBottom - minTop);
+
+            JSONArray jsonLines = new JSONArray();
+            StringBuilder ordered = new StringBuilder();
+            float confidenceSum = 0f;
+            int confidenceCount = 0;
+            for (Text.Line line : lines) {
+                if (line == null) continue;
+                String value = line.getText() == null ? "" : line.getText().trim();
+                if (value.isEmpty()) continue;
+                if (ordered.length() > 0) ordered.append("\n");
+                ordered.append(value);
+                Rect r = line.getBoundingBox();
+                float confidence = 0f;
+                try { confidence = line.getConfidence(); } catch (Exception ignored) { }
+                if (confidence > 0f) { confidenceSum += confidence; confidenceCount++; }
+                JSONObject item = new JSONObject();
+                item.put("text", value);
+                item.put("confidence", confidence);
+                item.put("angle", line.getAngle());
+                if (r != null) {
+                    item.put("x", (r.left - minLeft) / spanX);
+                    item.put("y", (r.top - minTop) / spanY);
+                    item.put("w", r.width() / spanX);
+                    item.put("h", r.height() / spanY);
+                    item.put("cx", (r.centerX() - minLeft) / spanX);
+                    item.put("cy", (r.centerY() - minTop) / spanY);
+                }
+                jsonLines.put(item);
+            }
+            out.text = ordered.length() > 0 ? ordered.toString() : (text == null || text.getText() == null ? "" : text.getText());
+            out.dateLikeCount = countDateLike(out.text);
+            out.hasPlu = hasPluLike(out.text);
+            out.averageConfidence = confidenceCount > 0 ? confidenceSum / confidenceCount : 0f;
+            JSONObject json = new JSONObject();
+            json.put("label", label == null ? "" : label);
+            json.put("text", out.text);
+            json.put("lineCount", jsonLines.length());
+            json.put("dateLikeCount", out.dateLikeCount);
+            json.put("hasPlu", out.hasPlu);
+            json.put("averageConfidence", out.averageConfidence);
+            json.put("lines", jsonLines);
+            out.json = json;
+        } catch (Exception e) {
+            out.text = orderedOcrText(text);
+        }
+        return out;
+    }
+
+    private int countDateLike(String text) {
+        if (text == null || text.isEmpty()) return 0;
+        java.util.regex.Matcher m = java.util.regex.Pattern
+                .compile("(?i)(?<![0-9A-Z])[0-9OQIL\\|]{1,2}[\\/\\.\\-][0-9OQIL\\|]{1,2}[\\/\\.\\-][0-9OQIL\\|]{2,4}(?![0-9A-Z])")
+                .matcher(text);
+        int count = 0;
+        while (m.find()) count++;
+        return count;
+    }
+
+    private boolean hasPluLike(String text) {
+        if (text == null) return false;
+        return java.util.regex.Pattern
+                .compile("(?i)P\\s*[L1I\\|]?\\s*U\\s*[:#\\-]?\\s*[0-9OQIL\\|]{3,8}")
+                .matcher(text)
+                .find();
+    }
+
+    private int criticalOcrScore(OcrPassData pass) {
+        if (pass == null) return -1;
+        int score = pass.dateLikeCount * 20 + (pass.hasPlu ? 35 : 0) + Math.min(20, pass.text.length() / 30);
+        if (pass.averageConfidence > 0f) score += Math.round(pass.averageConfidence * 10f);
+        return score;
+    }
+
+    private void sendPhotoOcrResult(String purpose, OcrPassData first, OcrPassData second, boolean optimizedDocument) {
+        if (webView == null) return;
+        OcrPassData primary = second != null && criticalOcrScore(second) > criticalOcrScore(first) ? second : first;
+        JSONObject meta = new JSONObject();
+        try {
+            JSONArray passes = new JSONArray();
+            if (first != null) passes.put(first.json);
+            if (second != null) passes.put(second.json);
+            meta.put("optimizedDocument", optimizedDocument);
+            meta.put("passes", passes);
+        } catch (Exception ignored) { }
+        String js = "window.onPhotoTextResult && window.onPhotoTextResult(" + JSONObject.quote(purpose == null ? "" : purpose) + "," + JSONObject.quote(primary == null ? "" : primary.text) + "," + meta.toString() + ");";
+        webView.post(() -> webView.evaluateJavascript(js, null));
     }
 
     private String orderedOcrText(Text text) {
@@ -623,12 +940,6 @@ public class MainActivity extends Activity {
     private void sendPhotoScanStatus(String purpose, String status, String message) {
         if (webView == null) return;
         String js = "window.onPhotoScanStatus && window.onPhotoScanStatus(" + JSONObject.quote(purpose == null ? "" : purpose) + "," + JSONObject.quote(status) + "," + JSONObject.quote(message) + ");";
-        webView.post(() -> webView.evaluateJavascript(js, null));
-    }
-
-    private void sendPhotoTextResult(String purpose, String text) {
-        if (webView == null) return;
-        String js = "window.onPhotoTextResult && window.onPhotoTextResult(" + JSONObject.quote(purpose == null ? "" : purpose) + "," + JSONObject.quote(text == null ? "" : text) + ");";
         webView.post(() -> webView.evaluateJavascript(js, null));
     }
 
@@ -738,6 +1049,26 @@ public class MainActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode,resultCode,data);
+        if (requestCode == DOCUMENT_SCAN_REQUEST) {
+            String purpose = pendingPhotoPurpose;
+            pendingPhotoPurpose = "";
+            if (resultCode == RESULT_OK) {
+                try {
+                    GmsDocumentScanningResult scanResult = GmsDocumentScanningResult.fromActivityResultIntent(data);
+                    List<GmsDocumentScanningResult.Page> pages = scanResult == null ? null : scanResult.getPages();
+                    if (pages == null || pages.isEmpty() || pages.get(0).getImageUri() == null) {
+                        sendPhotoScanStatus(purpose, "error", "El escáner no devolvió una imagen. Intentá nuevamente.");
+                    } else {
+                        processPhotoUri(pages.get(0).getImageUri(), purpose, null, true);
+                    }
+                } catch (Exception e) {
+                    sendPhotoScanStatus(purpose, "error", "No se pudo procesar el ticket escaneado.");
+                }
+            } else {
+                sendPhotoScanStatus(purpose, "canceled", "Escaneo cancelado.");
+            }
+            return;
+        }
         if (requestCode == PHOTO_CAPTURE_REQUEST) {
             if (resultCode == RESULT_OK) processCapturedPhoto();
             else {

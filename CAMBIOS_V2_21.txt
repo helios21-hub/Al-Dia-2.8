@@ -1,0 +1,25 @@
+Al Día v2.21
+
+Mejoras principales
+- El escaneo de Ticket / etiqueta en Vencimientos usa ahora ML Kit Document Scanner en modo completo: recorte guiado, corrección de perspectiva y mejoras del documento antes del OCR.
+- Si el escáner documental no está disponible, la app vuelve automáticamente a la cámara normal para no bloquear el flujo.
+- OCR del ticket reforzado con datos geométricos de cada línea (posición, ángulo y confianza) en lugar de depender sólo del texto leído en orden.
+- Doble lectura en todos los tickets: pasada principal + segunda pasada automática en gris/alto contraste; los resultados se fusionan para maximizar la estabilidad del PLU y la fecha.
+- La fecha de vencimiento se decide por estructura: se prioriza la fecha inferior y más cercana al PLU, sólo entre fechas anteriores al PLU cuando éste es visible; L/Etq se penaliza y no debe elegirse como Vence. También se usan rótulos cercanos si OCR separa la fecha de la palabra Vence.
+- Fechas tolerantes a errores típicos de OCR: O/Q->0 e I/l/|->1 dentro de patrones de fecha.
+- PLU tolerante a errores comunes de lectura del rótulo y de dígitos.
+- Recuperación prudente de PLU por posición/número cuando la palabra PLU sale mal o queda separada del número, dando peso extra a los dígitos cercanos al rótulo PLU y evitando peso, precio, importe y códigos largos.
+- El nombre sigue siendo secundario: PLU conocido recupera el nombre; PLU nuevo compara el OCR con Base de aprendizaje/plantilla de temporada y demás catálogos.
+- Mejora para nombres con primera letra perdida, por ejemplo anahoria -> Zanahoria e imon -> Limón, siempre mediante coincidencia con productos conocidos.
+- Si el nombre no es confiable, el campo queda vacío o se ofrece una sugerencia; no se guarda texto basura automáticamente.
+- Las fotos/escaneos siguen sin guardarse como dato permanente de Vencimientos.
+
+Compatibilidad y datos
+- Backup actualizado a formato v21.
+- Se conserva compatibilidad de datos con versiones anteriores.
+- versionName 2.21
+- versionCode base 221000 + GITHUB_RUN_NUMBER
+
+Compilación
+- Nueva dependencia oficial: com.google.android.gms:play-services-mlkit-document-scanner:16.0.0
+- Se mantiene com.google.mlkit:text-recognition:16.0.1 y play-services-code-scanner:16.1.0.
