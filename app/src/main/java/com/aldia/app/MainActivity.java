@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.ClipData;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.os.Build;
@@ -32,6 +33,7 @@ import com.google.mlkit.vision.codescanner.GmsBarcodeScanner;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions;
 import com.google.mlkit.vision.codescanner.GmsBarcodeScanning;
 import com.google.mlkit.vision.common.InputImage;
+import com.google.mlkit.vision.text.Text;
 import com.google.mlkit.vision.text.TextRecognition;
 import com.google.mlkit.vision.text.TextRecognizer;
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
@@ -45,6 +47,9 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class MainActivity extends Activity {
     private static final int PICK_BACKUP_REQUEST = 2001;
@@ -251,7 +256,7 @@ public class MainActivity extends Activity {
             try {
                 return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             } catch (Exception e) {
-                return "2.19";
+                return "2.20";
             }
         }
 
@@ -454,7 +459,7 @@ public class MainActivity extends Activity {
             c.setConnectTimeout(6000);
             c.setReadTimeout(6000);
             c.setRequestProperty("Accept", "application/json");
-            c.setRequestProperty("User-Agent", "AlDia/2.19 Android barcode lookup");
+            c.setRequestProperty("User-Agent", "AlDia/2.20 Android barcode lookup");
             int response = c.getResponseCode();
             if (response != 200) return result;
             String body;
@@ -546,7 +551,8 @@ public class MainActivity extends Activity {
             sendPhotoScanStatus(purpose, "reading", "Leyendo texto de la foto…");
             recognizer.process(image)
                     .addOnSuccessListener(text -> {
-                        sendPhotoTextResult(purpose, text == null ? "" : text.getText());
+                        String orderedText = orderedOcrText(text);
+                        sendPhotoTextResult(purpose, orderedText);
                         sendPhotoScanStatus(purpose, "done", "Foto procesada.");
                         recognizer.close();
                         try { file.delete(); } catch (Exception ignored) { }
@@ -559,6 +565,40 @@ public class MainActivity extends Activity {
         } catch (Exception e) {
             sendPhotoScanStatus(purpose, "error", "No se pudo procesar la foto.");
             try { file.delete(); } catch (Exception ignored) { }
+        }
+    }
+
+    private String orderedOcrText(Text text) {
+        if (text == null) return "";
+        try {
+            List<Text.Line> lines = new ArrayList<>();
+            for (Text.TextBlock block : text.getTextBlocks()) {
+                if (block != null) lines.addAll(block.getLines());
+            }
+            lines.sort(new Comparator<Text.Line>() {
+                @Override
+                public int compare(Text.Line a, Text.Line b) {
+                    Rect ra = a == null ? null : a.getBoundingBox();
+                    Rect rb = b == null ? null : b.getBoundingBox();
+                    if (ra == null && rb == null) return 0;
+                    if (ra == null) return 1;
+                    if (rb == null) return -1;
+                    if (ra.top != rb.top) return Integer.compare(ra.top, rb.top);
+                    return Integer.compare(ra.left, rb.left);
+                }
+            });
+            StringBuilder out = new StringBuilder();
+            for (Text.Line line : lines) {
+                if (line == null) continue;
+                String value = line.getText() == null ? "" : line.getText().trim();
+                if (value.isEmpty()) continue;
+                if (out.length() > 0) out.append("\n");
+                out.append(value);
+            }
+            String result = out.toString().trim();
+            return result.isEmpty() ? text.getText() : result;
+        } catch (Exception ignored) {
+            return text.getText() == null ? "" : text.getText();
         }
     }
 

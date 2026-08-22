@@ -1,9 +1,9 @@
-ACTUALIZAR AL DÍA v2.19
+ACTUALIZAR AL DÍA v2.20
 
 RECOMENDADO: usar GitHub Desktop o subir respetando la estructura de carpetas.
 No subir los archivos "aplanados" en la raíz.
 
-1. Descomprimí AlDia_Actualizacion_v2_19.zip.
+1. Descomprimí AlDia_Actualizacion_v2_20.zip.
 2. Reemplazá los archivos manteniendo exactamente sus rutas (app/, .github/, etc.).
 3. Verificá especialmente:
    - /build.gradle
@@ -17,4 +17,4 @@ No subir los archivos "aplanados" en la raíz.
 6. Elegí la rama main y ejecutá el workflow manualmente.
 7. Al finalizar descargá Artifacts > Al-Dia-APK.
 
-v2.19 mantiene la misma applicationId y la misma clave de firma debug fija para permitir actualización sobre versiones anteriores.
+v2.20 mantiene la misma applicationId y la misma clave de firma debug fija para permitir actualización sobre versiones anteriores.

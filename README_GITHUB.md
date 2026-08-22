@@ -13,7 +13,7 @@ Proyecto Android de **Al Día**, una app personal para control de vencimientos y
 7. Descargar **Al-Dia-APK**.
 8. Dentro del ZIP del artefacto estará `Al-Dia-debug.apk`.
 
-El workflow también se ejecuta automáticamente al hacer `push` a `main` o `master`.
+Los workflows están configurados en modo **manual**. Después de cada actualización, entrá en **Actions** y ejecutá **Run workflow** cuando quieras compilar.
 
 ## Instalar en Android
 
@@ -46,3 +46,20 @@ Incluye reposición por código de barras desde Inicio, biblioteca local de prod
 
 ## v2.18
 Corrección de compilación del escáner de códigos de barras: AndroidX queda habilitado en gradle.properties (`android.useAndroidX=true`). No cambia el esquema de datos respecto de v2.17.
+
+
+
+## v2.20
+- Escáner de tickets de Vencimientos reforzado para priorizar PLU y fecha de vencimiento.
+- La fecha del ticket se busca por estructura: línea de Vence / fecha inferior antes del PLU; se ignora L/Etq.
+- El nombre OCR ya no se carga si es dudoso: primero se consulta PLU conocido y luego coincidencia inteligente contra Base de aprendizaje y catálogos internos.
+- Sugerencias de nombre de confianza media se muestran para confirmar en vez de completar texto incorrecto.
+- OCR nativo ordena las líneas según su posición visual antes de procesar tickets.
+- Agrupación de vencimientos prioriza Código/EAN o PLU para mantener varias fechas en una misma ficha.
+- Backup v20 y versionName 2.20.
+
+## v2.19
+- Escaneo de reposición mejorado con nombre/presentación y foto opcional.
+- Escaneo de Vencimientos por Código/EAN, foto o ticket de balanza (PLU + Vence).
+- Varias fechas de vencimiento agrupadas visualmente por producto.
+- OCR local ML Kit y backup v19.

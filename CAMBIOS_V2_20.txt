@@ -1,0 +1,18 @@
+Al Día v2.20
+
+Correcciones y mejoras principales
+- Tickets de balanza: PLU y fecha de vencimiento pasan a ser los datos prioritarios.
+- La fecha de vencimiento se detecta por la estructura real del ticket: fecha asociada a Vence y, como respaldo, la fecha inferior ubicada antes del PLU.
+- La fecha L/Etq / etiquetado se descarta explícitamente.
+- El código de barras largo del ticket se sigue ignorando.
+- El nombre OCR no se completa automáticamente cuando es dudoso.
+- Si el PLU ya está aprendido, se usa directamente el nombre guardado.
+- Para PLU nuevos, el OCR se compara con Base de aprendizaje / plantilla de temporada, Vencimientos, Consultor, Pedidos y bibliotecas de códigos.
+- Coincidencia alta: completa el nombre. Coincidencia media: ofrece una sugerencia para confirmar. Coincidencia baja: deja el campo vacío.
+- OCR de cámara ordenado por posición visual de las líneas para mejorar lectura de etiquetas.
+- Vencimientos con mismo PLU/EAN se agrupan por código antes que por nombre, manteniendo múltiples fechas en una sola ficha.
+- Backup actualizado a formato v20.
+
+Versión
+- versionName 2.20
+- versionCode base 220000 + GITHUB_RUN_NUMBER

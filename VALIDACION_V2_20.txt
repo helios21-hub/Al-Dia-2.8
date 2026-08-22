@@ -1,0 +1,37 @@
+VALIDACIÓN PREVIA · AL DÍA v2.20
+
+Objetivo de esta revisión
+- Detectar errores previsibles antes de subir el proyecto a GitHub y ejecutar :app:assembleDebug.
+- Revisar especialmente los cambios de OCR/tickets y los problemas de compilación ocurridos en versiones anteriores.
+
+COMPROBACIONES REALIZADAS
+[OK] JavaScript completo de index.html: node --check sin errores.
+[OK] AndroidManifest.xml y XML de recursos: parseo correcto.
+[OK] Workflows YAML: parseo correcto.
+[OK] No hay IDs HTML duplicados.
+[OK] build.gradle raíz: plugin com.android.application 8.13.2.
+[OK] app/build.gradle: versionName 2.20 y versionCode base 220000 + GITHUB_RUN_NUMBER.
+[OK] Java 17, compileSdk/targetSdk 36 y minSdk 26 se mantienen.
+[OK] gradle.properties contiene android.useAndroidX=true.
+[OK] Dependencias de escaneo presentes: play-services-code-scanner 16.1.0 y ML Kit text-recognition 16.0.1.
+[OK] MainActivity informa versión 2.20.
+[OK] Backup interno actualizado a formato 20 e incluye expiryScanLibrary.
+[OK] Workflows siguen siendo manuales (workflow_dispatch; sin trigger push).
+[OK] No quedan textos visibles "Código / scanning" o "Scanning / Código".
+[OK] Revisión heurística de sintaxis Java: no se detectaron errores de parseo; los errores de javac local son únicamente por no disponer del Android SDK/clases Android en este entorno.
+
+PRUEBAS DEL NUEVO LECTOR DE TICKETS
+[OK] OCR degradado "anahoria eleta x ks" + PLU 94329 + Vence 15/08/26 -> Zanahoria / 94329 / 15/08/26.
+[OK] Si la palabra "Vence" no se reconoce, la fecha inferior antes del PLU se usa como respaldo y L/Etq se descarta.
+[OK] "pera pacam" se asocia con Pera Packham usando el catálogo conocido.
+[OK] Texto de nombre sin coincidencia confiable deja Producto vacío; no rellena basura automáticamente.
+[OK] El código de barras largo del ticket no participa de la identificación.
+[OK] Los vencimientos con el mismo PLU/EAN se agrupan por código para conservar varias fechas en una sola ficha.
+
+MEJORAS NATIVAS OCR
+[OK] Las líneas reconocidas por ML Kit se ordenan por su posición visual antes de enviarlas al WebView, para conservar mejor la estructura vertical del ticket.
+
+LIMITACIÓN DE ESTA VALIDACIÓN
+No se generó un APK local porque el entorno actual no tiene Android SDK ni Gradle instalado para resolver/compilar el proyecto Android completo. La compilación final debe realizarse con el workflow manual de GitHub Actions, que instala Android SDK 36 y Gradle 8.13.
+
+Si GitHub Actions falla, revisar primero el primer bloque de "What went wrong" del log; no asumir que los avisos de deprecación son la causa del fallo.

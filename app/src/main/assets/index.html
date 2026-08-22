@@ -975,8 +975,8 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
 .modal-backdrop{z-index:1300!important}.confirm-backdrop{z-index:1400!important}.toast{z-index:1500!important}
 @media(min-width:700px){.barcode-backdrop{align-items:center;justify-content:center;padding:24px}.barcode-sheet{max-width:560px;border-radius:20px;max-height:88%;padding-bottom:18px}}
 
-/* v2.19 - escaneo mejorado de reposición y vencimientos */
-.expiry-scan-tools{margin:10px 0 12px;padding:10px 11px}.expiry-scan-tools-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px}.expiry-scan-tools-title{font-weight:900;font-size:13px}.expiry-scan-tools-sub{font-size:10px;color:var(--muted);line-height:1.35;margin-top:2px}.expiry-scan-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.expiry-scan-actions button{min-height:42px;padding:7px 5px;font-size:10px;border-radius:10px}.expiry-scan-status{margin-top:8px;font-size:10px;color:var(--muted);min-height:14px}.expiry-scan-status.busy{color:var(--primary);font-weight:800}.expiry-group-card{padding:10px!important;display:block!important}.expiry-group-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:7px}.expiry-group-name{font-size:14px;font-weight:900}.expiry-group-code{font-size:10px;color:var(--muted);margin-top:2px}.expiry-group-count{font-size:9px;padding:3px 6px;border-radius:999px;background:var(--surface-strong);color:var(--muted);white-space:nowrap}.expiry-lots{display:flex;flex-direction:column;gap:6px}.expiry-lot-row{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:10px;background:var(--surface-soft);padding:8px 9px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}.expiry-lot-row.danger{border-left:4px solid #d9534f}.expiry-lot-row.warning{border-left:4px solid #d79a38}.expiry-lot-row.ok{border-left:4px solid #6b9b7f}.expiry-lot-date{font-size:12px;font-weight:900}.expiry-lot-meta{font-size:9.5px;color:var(--muted);margin-top:2px;line-height:1.3}.expiry-lot-actions{display:flex;align-items:center;gap:5px}.expiry-lot-actions button{min-height:32px;padding:5px 7px;font-size:9.5px;border-radius:8px}.expiry-lot-delete{display:none!important}.barcode-item-actions{display:flex;gap:5px;align-items:center}.barcode-photo{min-height:36px;padding:6px 8px;border-radius:9px;background:var(--surface-strong);color:var(--text);border:1px solid var(--border);font-size:11px}.scan-photo-help{margin-top:8px;padding:8px 9px;border-radius:9px;background:var(--surface-soft);color:var(--muted);font-size:10px;line-height:1.35}.scan-photo-btn{width:100%;margin-top:8px;min-height:40px}.scan-detected-badge{display:inline-flex;margin-top:6px;padding:3px 7px;border-radius:999px;background:var(--chip-bg);color:var(--chip-text);font-size:9px;font-weight:800}
+/* v2.20 - OCR de tickets reforzado, PLU/fecha prioritarios y nombres inteligentes */
+.expiry-scan-tools{margin:10px 0 12px;padding:10px 11px}.expiry-scan-tools-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px}.expiry-scan-tools-title{font-weight:900;font-size:13px}.expiry-scan-tools-sub{font-size:10px;color:var(--muted);line-height:1.35;margin-top:2px}.expiry-scan-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.expiry-scan-actions button{min-height:42px;padding:7px 5px;font-size:10px;border-radius:10px}.expiry-scan-status{margin-top:8px;font-size:10px;color:var(--muted);min-height:14px}.expiry-scan-status.busy{color:var(--primary);font-weight:800}.expiry-group-card{padding:10px!important;display:block!important}.expiry-group-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:7px}.expiry-group-name{font-size:14px;font-weight:900}.expiry-group-code{font-size:10px;color:var(--muted);margin-top:2px}.expiry-group-count{font-size:9px;padding:3px 6px;border-radius:999px;background:var(--surface-strong);color:var(--muted);white-space:nowrap}.expiry-lots{display:flex;flex-direction:column;gap:6px}.expiry-lot-row{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:10px;background:var(--surface-soft);padding:8px 9px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}.expiry-lot-row.danger{border-left:4px solid #d9534f}.expiry-lot-row.warning{border-left:4px solid #d79a38}.expiry-lot-row.ok{border-left:4px solid #6b9b7f}.expiry-lot-date{font-size:12px;font-weight:900}.expiry-lot-meta{font-size:9.5px;color:var(--muted);margin-top:2px;line-height:1.3}.expiry-lot-actions{display:flex;align-items:center;gap:5px}.expiry-lot-actions button{min-height:32px;padding:5px 7px;font-size:9.5px;border-radius:8px}.expiry-lot-delete{display:none!important}.barcode-item-actions{display:flex;gap:5px;align-items:center}.barcode-photo{min-height:36px;padding:6px 8px;border-radius:9px;background:var(--surface-strong);color:var(--text);border:1px solid var(--border);font-size:11px}.scan-photo-help{margin-top:8px;padding:8px 9px;border-radius:9px;background:var(--surface-soft);color:var(--muted);font-size:10px;line-height:1.35}.scan-photo-btn{width:100%;margin-top:8px;min-height:40px}.scan-detected-badge{display:inline-flex;margin-top:6px;padding:3px 7px;border-radius:999px;background:var(--chip-bg);color:var(--chip-text);font-size:9px;font-weight:800}.scan-name-suggestion{margin-top:7px;padding:8px 9px;border:1px dashed var(--border);border-radius:10px;background:var(--surface-soft);font-size:10px;color:var(--muted);line-height:1.35}.scan-name-suggestion button{width:100%;margin-top:6px;min-height:36px;padding:6px 8px;font-size:11px}
 @media(max-width:420px){.expiry-scan-actions{grid-template-columns:1fr 1fr}.expiry-scan-actions button:last-child{grid-column:1/-1}}
 </style>
 </head>
@@ -2857,7 +2857,7 @@ async function finishBarcodeSession(){
 
 
 
-/* ===== v2.19 · reconocimiento por código/foto y tickets de vencimiento ===== */
+/* ===== v2.20 · reconocimiento por código/foto y tickets de vencimiento ===== */
 function scanCodeKey(code,type="EAN"){const c=String(code||"").trim();return c?`${String(type||"EAN").toUpperCase()}:${c}`:""}
 function findKnownExpiryByCode(code,type="EAN"){
   const key=scanCodeKey(code,type), direct=key?expiryScanLibrary[key]:null;if(direct?.name)return direct;
@@ -2887,22 +2887,143 @@ function deriveProductNameFromPhoto(text){
   let chosen=lines[0]||"";if(lines[1]&&chosen.length<26&&lines[1].length<24&&!/^\d/.test(lines[1]))chosen+=` ${lines[1]}`;
   chosen=stripQuantity(chosen);return `${chosen}${qty?` ${qty}`:""}`.trim();
 }
-function dateTextToIso(raw){const m=String(raw||"").match(/(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{2,4})/);if(!m)return"";let y=Number(m[3]);if(y<100)y+=2000;const mo=Number(m[2]),d=Number(m[1]);if(mo<1||mo>12||d<1||d>31)return"";return `${y}-${String(mo).padStart(2,"0")}-${String(d).padStart(2,"0")}`}
-function extractExpiryDateFromText(text){const t=String(text||"");const labeled=t.match(/(?:vence|vencimiento|vto\.?|consumir\s+antes\s+de)\s*[:\-]?\s*(\d{1,2}[\/.\-]\d{1,2}[\/.\-]\d{2,4})/i);return labeled?dateTextToIso(labeled[1]):""}
+function dateTextToIso(raw){
+  const m=String(raw||"").match(/(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{2,4})/);if(!m)return"";
+  let y=Number(m[3]);if(y<100)y+=2000;const mo=Number(m[2]),d=Number(m[1]);if(mo<1||mo>12||d<1||d>31)return"";
+  const dt=new Date(Date.UTC(y,mo-1,d));if(dt.getUTCFullYear()!==y||dt.getUTCMonth()!==mo-1||dt.getUTCDate()!==d)return"";
+  return `${y}-${String(mo).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
+}
+function datesInText(text){
+  return [...String(text||"").matchAll(/\b(\d{1,2}[\/.\-]\d{1,2}[\/.\-]\d{2,4})\b/g)]
+    .map(m=>({raw:m[1],iso:dateTextToIso(m[1]),index:m.index||0})).filter(x=>x.iso);
+}
+function extractExpiryDateFromText(text){
+  const t=String(text||"");
+  const labeled=t.match(/(?:vence|vencimiento|vto\.?|consumir\s+antes\s+de)\s*[:\-]?\s*(\d{1,2}[\/.\-]\d{1,2}[\/.\-]\d{2,4})/i);
+  return labeled?dateTextToIso(labeled[1]):"";
+}
+function extractScaleTicketExpiryDate(text){
+  const lines=String(text||"").split(/\r?\n/).map(x=>x.replace(/\s+/g," ").trim()).filter(Boolean);
+  if(!lines.length)return"";
+
+  // 1) Si OCR logró leer "Vence", buscar la fecha en esa línea o inmediatamente debajo.
+  for(let i=0;i<lines.length;i++){
+    if(!/(?:\bvence\b|\bvencimiento\b|\bvto\b)/i.test(lines[i]))continue;
+    for(let j=i;j<Math.min(lines.length,i+4);j++){
+      if(/\b(?:l\s*\/?\s*etq|etq|etiquet|elabor|envas)\b/i.test(lines[j]))continue;
+      const d=datesInText(lines[j])[0];if(d)return d.iso;
+      if(/\b(?:peso|plu)\b/i.test(lines[j])&&j>i)break;
+    }
+  }
+
+  // 2) En estos tickets el vencimiento es la fecha inferior, arriba del PLU.
+  //    La fecha L/Etq está más arriba y se descarta explícitamente.
+  const pluIndex=lines.findIndex(x=>/\bP\s*[L1I]\s*U\b/i.test(x));
+  const upperBound=pluIndex>=0?pluIndex:lines.length;
+  let candidate="";
+  for(let i=0;i<upperBound;i++){
+    const line=lines[i];
+    if(/\b(?:l\s*\/?\s*etq|etq|etiquet|elabor|envas)\b/i.test(line))continue;
+    const ds=datesInText(line);
+    if(ds.length)candidate=ds[ds.length-1].iso;
+  }
+  if(candidate)return candidate;
+
+  // 3) Último recurso: de todas las fechas, tomar la última que no esté marcada como etiquetado.
+  for(let i=0;i<lines.length;i++){
+    if(/\b(?:l\s*\/?\s*etq|etq|etiquet|elabor|envas)\b/i.test(lines[i]))continue;
+    const ds=datesInText(lines[i]);if(ds.length)candidate=ds[ds.length-1].iso;
+  }
+  return candidate;
+}
+function ocrComparable(value){
+  return norm(value).replace(/[^a-z0-9]+/g," ").replace(/\b(?:x|kg|kgs|ks|k|gr|g|unidad|unidades|un)\b/g," ").replace(/\s+/g," ").trim();
+}
+function levenshteinDistance(a,b){
+  a=String(a||"");b=String(b||"");if(a===b)return 0;if(!a)return b.length;if(!b)return a.length;
+  const prev=Array.from({length:b.length+1},(_,i)=>i);
+  for(let i=1;i<=a.length;i++){
+    const cur=[i];
+    for(let j=1;j<=b.length;j++)cur[j]=Math.min(cur[j-1]+1,prev[j]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
+    for(let j=0;j<cur.length;j++)prev[j]=cur[j];
+  }
+  return prev[b.length];
+}
+function textSimilarity(a,b){
+  a=ocrComparable(a);b=ocrComparable(b);if(!a||!b)return 0;
+  return 1-(levenshteinDistance(a,b)/Math.max(a.length,b.length,1));
+}
+function knownProductNamesForOcr(){
+  const names=[];
+  const add=v=>{const n=String(v?.name||v||"").replace(/\s+/g," ").trim();if(n)names.push(n)};
+  (learningCatalog||[]).forEach(add);
+  (items||[]).forEach(add);(expiryHistory||[]).forEach(add);
+  Object.values(savedExpiryProducts||{}).forEach(add);
+  (consultantProducts||[]).forEach(add);
+  Object.values(savedProducts||{}).forEach(add);
+  Object.values(barcodeLibrary||{}).forEach(add);
+  Object.values(expiryScanLibrary||{}).forEach(add);
+  return [...new Map(names.map(n=>[norm(n),n])).values()];
+}
+function fuzzyProductScore(candidate,observed){
+  const c=ocrComparable(candidate),o=ocrComparable(observed);if(!c||!o)return 0;
+  if(c===o)return 1;
+  if(o.includes(c)||c.includes(o))return Math.min(0.98,0.86+Math.min(c.length,o.length)/Math.max(c.length,o.length)*0.12);
+  const ct=c.split(" ").filter(x=>x.length>=3),ot=o.split(" ").filter(x=>x.length>=3);if(!ct.length||!ot.length)return textSimilarity(c,o);
+  const tokenAvg=ct.reduce((sum,t)=>sum+Math.max(...ot.map(x=>textSimilarity(t,x))),0)/ct.length;
+  const charScore=textSimilarity(c,o),coverage=Math.min(1,ct.length/Math.max(1,ot.length));
+  return tokenAvg*.72+charScore*.18+coverage*.10;
+}
+function bestKnownProductMatch(observed){
+  const raw=String(observed||"").trim();if(!raw)return null;
+  let best=null;knownProductNamesForOcr().forEach(name=>{const score=fuzzyProductScore(name,raw);if(!best||score>best.score)best={name,score}});
+  return best;
+}
+function ticketNameCandidateLines(text){
+  const lines=String(text||"").split(/\r?\n/).map(x=>x.replace(/\s+/g," ").trim()).filter(Boolean);
+  const stop=lines.findIndex(x=>/\b(?:l\s*\/?\s*etq|vence|vencimiento|vto|\$\/?kg|peso|importe|plu)\b/i.test(x));
+  return (stop>0?lines.slice(0,stop):lines.slice(0,Math.min(7,lines.length))).filter(x=>{
+    if(!/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/.test(x)||x.length>60)return false;
+    if(/industria|fraccion|cencosud|disco|jumbo|vea|supermerc|precio|importe|peso|total|fecha|ticket/i.test(x))return false;
+    return true;
+  }).slice(0,5);
+}
 function parseScaleTicket(text){
-  const t=String(text||""),lines=t.split(/\r?\n/).map(x=>x.replace(/\s+/g," ").trim()).filter(Boolean);
-  const plu=(t.match(/\bPLU\s*[:#\-]?\s*(\d{3,8})\b/i)||[])[1]||"";const date=extractExpiryDateFromText(t);
-  const ignore=/industria|fraccion|cencosud|disco|jumbo|vea|L\/Etq|vence|PLU|\$\/kg|peso|importe|san martin|vendado|vuelto|\bsa\b/i;
-  let name=lines.find(x=>/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/.test(x)&&!ignore.test(x)&&x.length<55)||"";
-  name=name.replace(/\s+x\s*kg\s*$/i,"").trim();const known=findKnownExpiryByCode(plu,"PLU");if(known?.name)name=known.name;
-  return{name,code:plu,codeType:"PLU",date,withdrawDays:Number(known?.withdrawDays||0),source:"ticket"};
+  const t=String(text||""),compact=t.replace(/\s+/g," ");
+  const plu=(compact.match(/\bP\s*[L1I]\s*U\s*[:#\-]?\s*(\d{3,8})\b/i)||[])[1]||"";
+  const date=extractScaleTicketExpiryDate(t);
+  const known=findKnownExpiryByCode(plu,"PLU");
+  const nameLines=ticketNameCandidateLines(t);
+  let rawName=nameLines[0]||"",name=known?.name||"",nameSuggestion="",nameConfidence=known?.name?1:0;
+
+  if(!name&&nameLines.length){
+    let best=null;
+    nameLines.forEach(line=>{
+      const match=bestKnownProductMatch(line);
+      if(match&&(!best||match.score>best.score))best={...match,line};
+    });
+    if(best){
+      rawName=best.line;
+      if(best.score>=0.77){name=best.name;nameConfidence=best.score}
+      else if(best.score>=0.60){nameSuggestion=best.name;nameConfidence=best.score}
+    }
+  }
+
+  // Si no hay coincidencia confiable con un producto conocido, dejar Producto vacío.
+  return{name,code:plu,codeType:"PLU",date,withdrawDays:Number(known?.withdrawDays||0),source:"ticket",nameSuggestion,nameConfidence,rawTicketName:rawName};
 }
 function setExpiryScanStatus(message,busy=false){if(!$('expiryScanStatus'))return;$('expiryScanStatus').textContent=String(message||"");$('expiryScanStatus').classList.toggle('busy',!!busy)}
 function openExpiryScanDraft(title="Revisar vencimiento detectado"){
   if(!expiryScanDraft)expiryScanDraft={name:"",code:"",codeType:"EAN",date:"",withdrawDays:0,notes:"",source:"scanner"};
   const d=expiryScanDraft,label=d.codeType==="PLU"?"PLU":"Código / EAN",photoAllowed=d.source!=="ticket";
-  openModal(title,`<label>Producto</label><input id="m1" value="${esc(d.name||"")}" placeholder="Nombre del producto"><label style="margin-top:10px">${label}</label><input id="m2" data-no-autocap inputmode="numeric" value="${esc(d.code||"")}" ${d.code?"readonly":""}><label style="margin-top:10px">Fecha de vencimiento</label><input id="m3" type="date" value="${esc(d.date||"")}"><label style="margin-top:10px">Retiro</label><select id="m4"><option value="0" ${Number(d.withdrawDays||0)===0?"selected":""}>Retirar el día del vencimiento</option><option value="10" ${Number(d.withdrawDays||0)===10?"selected":""}>Retirar 10 días antes</option></select><label style="margin-top:10px">Nota opcional</label><input id="m5" value="${esc(d.notes||"")}">${photoAllowed?`<button class="secondary-btn scan-photo-btn" id="scanDraftPhotoBtn" type="button">📷 Completar nombre/presentación con foto</button><div class="scan-photo-help">Si la fecha aparece claramente en la foto, Al Día también intentará proponerla. Siempre revisala antes de guardar.</div>`:`<div class="scan-detected-badge">Ticket: se usa PLU, no el código largo del código de barras.</div>`}` ,{type:"expiry-scan-new"});
-  setTimeout(()=>{const b=$('scanDraftPhotoBtn');if(b)b.onclick=()=>{expiryScanDraft.name=$('m1').value.trim();expiryScanDraft.date=$('m3').value;expiryScanDraft.withdrawDays=Number($('m4').value);expiryScanDraft.notes=$('m5').value.trim();captureTextPhotoFor('expiry_product_front')}} ,0)
+  const suggestion=String(d.nameSuggestion||"").trim();
+  const suggestionHtml=!d.name&&suggestion?`<div class="scan-name-suggestion"><div>Posible producto según Base de aprendizaje:</div><button class="secondary-btn" id="useExpiryNameSuggestionBtn" type="button">${esc(suggestion)}</button></div>`:"";
+  const ticketInfo=d.source==="ticket"?`<div class="scan-detected-badge">Ticket: prioridad PLU + fecha inferior de “Vence”. El código de barras largo se ignora.</div>`:"";
+  openModal(title,`<label>Producto</label><input id="m1" value="${esc(d.name||"")}" placeholder="Nombre del producto">${suggestionHtml}<label style="margin-top:10px">${label}</label><input id="m2" data-no-autocap inputmode="numeric" value="${esc(d.code||"")}" ${d.code?"readonly":""}><label style="margin-top:10px">Fecha de vencimiento</label><input id="m3" type="date" value="${esc(d.date||"")}"><label style="margin-top:10px">Retiro</label><select id="m4"><option value="0" ${Number(d.withdrawDays||0)===0?"selected":""}>Retirar el día del vencimiento</option><option value="10" ${Number(d.withdrawDays||0)===10?"selected":""}>Retirar 10 días antes</option></select><label style="margin-top:10px">Nota opcional</label><input id="m5" value="${esc(d.notes||"")}">${photoAllowed?`<button class="secondary-btn scan-photo-btn" id="scanDraftPhotoBtn" type="button">📷 Completar nombre/presentación con foto</button><div class="scan-photo-help">Si la fecha aparece claramente en la foto, Al Día también intentará proponerla. Siempre revisala antes de guardar.</div>`:ticketInfo}` ,{type:"expiry-scan-new"});
+  setTimeout(()=>{
+    const b=$('scanDraftPhotoBtn');if(b)b.onclick=()=>{expiryScanDraft.name=$('m1').value.trim();expiryScanDraft.date=$('m3').value;expiryScanDraft.withdrawDays=Number($('m4').value);expiryScanDraft.notes=$('m5').value.trim();captureTextPhotoFor('expiry_product_front')};
+    const suggest=$('useExpiryNameSuggestionBtn');if(suggest)suggest.onclick=()=>{$('m1').value=suggestion;expiryScanDraft.name=suggestion;expiryScanDraft.nameSuggestion="";showToast("Nombre sugerido aplicado")};
+  },0)
 }
 function captureTextPhotoFor(purpose){if(window.AndroidNative&&AndroidNative.captureTextPhoto){setExpiryScanStatus("Abriendo cámara…",true);try{AndroidNative.captureTextPhoto(purpose);return}catch(e){console.error(e)}}showToast("La cámara está disponible en la app Android")}
 function startExpiryBarcodeScan(){expiryScanDraft={name:"",code:"",codeType:"EAN",date:"",withdrawDays:0,notes:"",source:"barcode"};setExpiryScanStatus("Abriendo escáner de código / EAN…",true);if(window.AndroidNative&&AndroidNative.startBarcodeScanFor){try{AndroidNative.startBarcodeScanFor("expiry_packaged");return}catch(e){console.error(e)}}showToast("Escáner disponible en Android")}
@@ -2922,10 +3043,18 @@ window.onPhotoScanStatus=function(purpose,status,message){const busy=status==="o
 window.onPhotoTextResult=function(purpose,text){
   purpose=String(purpose||"");text=String(text||"");
   if(purpose.startsWith("replenishment:")){const id=purpose.split(":")[1],x=barcodeSession.items.find(y=>y.id===id);if(!x)return;const next=cleanProductName(x.name,text);if(next&&next!=="Producto sin identificar")x.name=next;if(x.code&&x.name)barcodeLibrary[x.code]={name:x.name,source:"foto_producto",updatedAt:new Date().toISOString()};saveAll();renderBarcodeSession();$('barcodeStatus').className='barcode-status';$('barcodeStatus').textContent='Foto procesada. Revisá el nombre y la presentación.';showToast('Nombre/presentación actualizados');return}
-  if(purpose==="expiry_ticket"){const parsed=parseScaleTicket(text);expiryScanDraft={...expiryScanDraft,...parsed};if(parsed.code&&parsed.name)rememberExpiryScanCode(parsed.name,parsed.code,"PLU",parsed.withdrawDays||0);openExpiryScanDraft(parsed.name&&parsed.code&&parsed.date?"Ticket reconocido":"Revisar datos del ticket");setExpiryScanStatus(parsed.code?`PLU ${parsed.code} detectado${parsed.date?" · vencimiento detectado":""}.`:"No pude detectar el PLU con seguridad. Revisá los datos.",false);return}
+  if(purpose==="expiry_ticket"){
+    const parsed=parseScaleTicket(text);expiryScanDraft={...expiryScanDraft,...parsed};
+    if(parsed.code&&parsed.name)rememberExpiryScanCode(parsed.name,parsed.code,"PLU",parsed.withdrawDays||0);
+    const title=parsed.code&&parsed.date?(parsed.name?"Ticket reconocido":"PLU y vencimiento reconocidos"):"Revisar datos del ticket";
+    openExpiryScanDraft(title);
+    const bits=[];if(parsed.code)bits.push(`PLU ${parsed.code}`);if(parsed.date)bits.push(`Vence ${fmt(parsed.date)}`);if(parsed.name)bits.push(`Producto: ${parsed.name}`);else if(parsed.nameSuggestion)bits.push("Nombre sugerido disponible");
+    setExpiryScanStatus(bits.length?`${bits.join(" · ")}.`:"No pude detectar PLU ni vencimiento con seguridad. Revisá la foto o completá manualmente.",false);
+    return
+  }
   if(purpose==="expiry_product_front"){if(!expiryScanDraft)expiryScanDraft={name:"",code:"",codeType:"EAN",date:"",withdrawDays:0,notes:"",source:"photo"};const candidate=cleanProductName(expiryScanDraft.name,text),date=extractExpiryDateFromText(text);if(candidate&&candidate!=="Producto sin identificar")expiryScanDraft.name=candidate;if(date)expiryScanDraft.date=date;openExpiryScanDraft(date?"Foto reconocida · revisar vencimiento":"Foto reconocida · completar vencimiento");setExpiryScanStatus(date?"Nombre/presentación y una fecha etiquetada fueron detectados. Revisalos antes de guardar.":"Nombre/presentación actualizados. Completá la fecha de vencimiento.",false)}
 }
-function expiryIdentity(x){const n=norm(x.name);return n?`N:${n}`:(x.code?`${x.codeType||"EAN"}:${String(x.code).trim()}`:`I:${x.id}`)}
+function expiryIdentity(x){const c=String(x.code||"").trim(),n=norm(x.name);return c?`${x.codeType||"EAN"}:${c}`:(n?`N:${n}`:`I:${x.id}`)}
 function expiryGroupsFor(list){const map=new Map();list.forEach(x=>{const k=expiryIdentity(x);if(!map.has(k))map.set(k,[]);map.get(k).push(x)});return [...map.values()].map(g=>g.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)))).sort((a,b)=>parseDate(withdrawalDate(a[0]))-parseDate(withdrawalDate(b[0])))}
 function renderExpiry(){
   items.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)));const filtered=items.filter(x=>{const status=expiryStatus(x);return expiryFilter==="all"||status.cls===expiryFilter}),groups=expiryGroupsFor(filtered);$('emptyState').style.display=groups.length?'none':'block';$('list').innerHTML='';
@@ -3187,7 +3316,7 @@ function backupSummaryText(d,includeTitle=true){
   return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos guardados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}\nProductos aprendidos por código: ${c.barcodeKnown}`;
 }
 function currentBackupObject(){
-  return {version:19,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,barcodeLibrary,barcodeSession,expiryScanLibrary,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:20,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,barcodeLibrary,barcodeSession,expiryScanLibrary,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;
