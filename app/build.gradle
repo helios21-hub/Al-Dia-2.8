@@ -14,8 +14,8 @@ android {
         minSdk 26
         targetSdk 36
         def runNumber = System.getenv("GITHUB_RUN_NUMBER")
-        versionCode runNumber != null ? 216000 + runNumber.toInteger() : 216000
-        versionName "2.16"
+        versionCode runNumber != null ? 217000 + runNumber.toInteger() : 217000
+        versionName "2.17"
     }
 
     signingConfigs {
@@ -40,4 +40,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+}
+
+dependencies {
+    implementation 'com.google.android.gms:play-services-code-scanner:16.1.0'
 }

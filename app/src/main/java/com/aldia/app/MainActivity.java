@@ -14,6 +14,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.provider.Settings;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
@@ -24,6 +26,10 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import org.json.JSONObject;
+
+import com.google.mlkit.vision.codescanner.GmsBarcodeScanner;
+import com.google.mlkit.vision.codescanner.GmsBarcodeScannerOptions;
+import com.google.mlkit.vision.codescanner.GmsBarcodeScanning;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -226,7 +232,7 @@ public class MainActivity extends Activity {
             try {
                 return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             } catch (Exception e) {
-                return "2.12";
+                return "2.17";
             }
         }
 
@@ -282,6 +288,27 @@ public class MainActivity extends Activity {
                 } catch (Exception e) {
                     Toast.makeText(MainActivity.this, "No se pudo compartir el XLSX", Toast.LENGTH_LONG).show();
                 }
+            });
+        }
+
+        @JavascriptInterface
+        public void startBarcodeScan() {
+            runOnUiThread(MainActivity.this::launchBarcodeScanner);
+        }
+
+        @JavascriptInterface
+        public void vibrate(int milliseconds) {
+            int duration = Math.max(10, Math.min(300, milliseconds));
+            runOnUiThread(() -> {
+                try {
+                    Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+                    if (vibrator == null || !vibrator.hasVibrator()) return;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        vibrator.vibrate(VibrationEffect.createOneShot(duration, VibrationEffect.DEFAULT_AMPLITUDE));
+                    } else {
+                        vibrator.vibrate(duration);
+                    }
+                } catch (Exception ignored) { }
             });
         }
 
@@ -344,6 +371,120 @@ public class MainActivity extends Activity {
         Intent open = getPackageManager().getLaunchIntentForPackage(getPackageName());
         return open == null ? null : PendingIntent.getActivity(this, code, open,
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+    }
+
+    private void launchBarcodeScanner() {
+        try {
+            sendBarcodeScanStatus("opening", "Abriendo escáner…");
+            GmsBarcodeScannerOptions options = new GmsBarcodeScannerOptions.Builder()
+                    .enableAutoZoom()
+                    .build();
+            GmsBarcodeScanner scanner = GmsBarcodeScanning.getClient(this, options);
+            scanner.startScan()
+                    .addOnSuccessListener(barcode -> {
+                        String code = barcode == null ? "" : barcode.getRawValue();
+                        if (code == null || code.trim().isEmpty()) {
+                            sendBarcodeScanStatus("error", "No se pudo leer el código. Intentá nuevamente.");
+                            return;
+                        }
+                        final String cleanCode = code.trim();
+                        sendBarcodeScanResult(cleanCode, "", "barcode");
+                        sendBarcodeScanStatus("looking_up", "Código leído. Buscando el nombre del producto…");
+                        new Thread(() -> lookupBarcodeAndReturn(cleanCode)).start();
+                    })
+                    .addOnCanceledListener(() -> sendBarcodeScanStatus("canceled", "Escaneo cancelado."))
+                    .addOnFailureListener(e -> sendBarcodeScanStatus("error", "No se pudo abrir el escáner. Verificá Google Play Services e intentá nuevamente."));
+        } catch (Exception e) {
+            sendBarcodeScanStatus("error", "No se pudo iniciar el escáner de código de barras.");
+        }
+    }
+
+    private static class BarcodeLookupResult {
+        String name = "";
+        String source = "barcode";
+    }
+
+    private void lookupBarcodeAndReturn(String code) {
+        BarcodeLookupResult result = lookupBarcodeDomain("https://world.openfoodfacts.org", code, "Open Food Facts");
+        if (result.name.isEmpty()) {
+            BarcodeLookupResult fallback = lookupBarcodeDomain("https://world.openproductsfacts.org", code, "Open Products Facts");
+            if (!fallback.name.isEmpty()) result = fallback;
+        }
+        sendBarcodeLookupResult(code, result.name, result.source);
+    }
+
+    private BarcodeLookupResult lookupBarcodeDomain(String domain, String code, String sourceName) {
+        BarcodeLookupResult result = new BarcodeLookupResult();
+        HttpURLConnection c = null;
+        try {
+            URL url = new URL(domain + "/api/v2/product/" + code + ".json?fields=product_name,product_name_es,brands,quantity");
+            c = (HttpURLConnection) url.openConnection();
+            c.setConnectTimeout(6000);
+            c.setReadTimeout(6000);
+            c.setRequestProperty("Accept", "application/json");
+            c.setRequestProperty("User-Agent", "AlDia/2.17 Android barcode lookup");
+            int response = c.getResponseCode();
+            if (response != 200) return result;
+            String body;
+            try (BufferedReader r = new BufferedReader(new InputStreamReader(c.getInputStream(), StandardCharsets.UTF_8))) {
+                StringBuilder sb = new StringBuilder();
+                String line;
+                while ((line = r.readLine()) != null) sb.append(line);
+                body = sb.toString();
+            }
+            JSONObject root = new JSONObject(body);
+            if (root.optInt("status", 0) != 1) return result;
+            JSONObject product = root.optJSONObject("product");
+            if (product == null) return result;
+            String productName = product.optString("product_name_es", "").trim();
+            if (productName.isEmpty()) productName = product.optString("product_name", "").trim();
+            String brands = product.optString("brands", "").trim();
+            String quantity = product.optString("quantity", "").trim();
+            result.name = composeBarcodeProductName(productName, brands, quantity);
+            if (!result.name.isEmpty()) result.source = sourceName;
+        } catch (Exception ignored) {
+        } finally {
+            if (c != null) c.disconnect();
+        }
+        return result;
+    }
+
+    private String composeBarcodeProductName(String productName, String brands, String quantity) {
+        String name = productName == null ? "" : productName.trim();
+        String brand = brands == null ? "" : brands.split(",")[0].trim();
+        String qty = quantity == null ? "" : quantity.trim();
+        StringBuilder out = new StringBuilder();
+        String lowerName = name.toLowerCase();
+        String lowerBrand = brand.toLowerCase();
+        if (!brand.isEmpty() && (name.isEmpty() || !lowerName.contains(lowerBrand))) out.append(brand);
+        if (!name.isEmpty()) {
+            if (out.length() > 0) out.append(" ");
+            out.append(name);
+        }
+        String current = out.toString().toLowerCase();
+        if (!qty.isEmpty() && !current.contains(qty.toLowerCase())) {
+            if (out.length() > 0) out.append(" ");
+            out.append(qty);
+        }
+        return out.toString().replaceAll("\\s+", " ").trim();
+    }
+
+    private void sendBarcodeScanStatus(String status, String message) {
+        if (webView == null) return;
+        String js = "window.onBarcodeScanStatus && window.onBarcodeScanStatus(" + JSONObject.quote(status) + "," + JSONObject.quote(message) + ");";
+        webView.post(() -> webView.evaluateJavascript(js, null));
+    }
+
+    private void sendBarcodeScanResult(String code, String name, String source) {
+        if (webView == null) return;
+        String js = "window.onBarcodeScanResult && window.onBarcodeScanResult(" + JSONObject.quote(code) + "," + JSONObject.quote(name == null ? "" : name) + "," + JSONObject.quote(source == null ? "barcode" : source) + ");";
+        webView.post(() -> webView.evaluateJavascript(js, null));
+    }
+
+    private void sendBarcodeLookupResult(String code, String name, String source) {
+        if (webView == null) return;
+        String js = "window.onBarcodeLookupResult && window.onBarcodeLookupResult(" + JSONObject.quote(code) + "," + JSONObject.quote(name == null ? "" : name) + "," + JSONObject.quote(source == null ? "barcode" : source) + ");";
+        webView.post(() -> webView.evaluateJavascript(js, null));
     }
 
     private void performUpdateCheck() {

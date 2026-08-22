@@ -40,3 +40,6 @@ Si el APK que ya tenés instalado fue generado con la versión anterior del work
 4. Importá la copia de seguridad.
 
 Después de hacer esto una vez, las futuras compilaciones de este proyecto usarán la misma firma debug.
+
+## v2.17
+Incluye reposición por código de barras desde Inicio, biblioteca local de productos escaneados, creación automática de Nota rápida y corrección de solapamientos en Base de aprendizaje.

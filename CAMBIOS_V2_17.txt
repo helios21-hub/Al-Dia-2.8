@@ -1,0 +1,20 @@
+Al Día v2.17
+
+Cambios principales
+- Base de aprendizaje: corrección profunda de la vista Mes y Año para evitar solapamientos al desplazar la planilla.
+- Se eliminaron encabezados/columnas sticky dentro de la planilla de aprendizaje y el desplazamiento queda contenido en su propio bloque.
+- Inicio: la lupa lateral del buscador se reemplazó por un acceso rápido de código de barras.
+- Nueva sesión de Reposición por escaneo: permite escanear varios productos, editar nombres, quitar productos y finalizar creando una Nota rápida.
+- Al finalizar una sesión se crea una nota titulada “Reposición · fecha” con un checklist, una línea por producto.
+- Los escaneos repetidos no se convierten en una cantidad recomendada: se muestran solo como “Escaneado N veces” y el producto aparece una sola vez en la nota final.
+- Biblioteca local código de barras -> nombre de producto. Las correcciones manuales quedan recordadas para próximos escaneos.
+- Para códigos desconocidos se intenta consultar Open Food Facts y, como respaldo, Open Products Facts; si no hay nombre se solicita corregirlo una sola vez.
+- La sesión de escaneo queda guardada automáticamente y puede retomarse si se cierra la pantalla o la app.
+- Se agregó vibración corta como confirmación al incorporar un producto.
+- Se ajustaron los umbrales de gestos para reducir conflictos entre tocar, deslizar para eliminar y mantener pulsado para reordenar.
+- Se reforzó la persistencia nativa del estado de la app.
+- Backup v17: incluye biblioteca de códigos y sesión de reposición pendiente.
+
+Versión Android
+- versionName 2.17
+- versionCode base 217000 + GITHUB_RUN_NUMBER
