@@ -968,16 +968,12 @@ body.dark .clear-history-btn,body.theme-petrol .clear-history-btn,body.theme-for
 body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backToTopBtn,body.theme-graphite #backToTopBtn{background:rgba(30,41,59,.92)!important;color:#fff!important;border:1px solid rgba(255,255,255,.18)}
 
 
-/* v2.18 - AndroidX habilitado para compilación del escáner de códigos */
+/* Ajustes de contención para la Base de aprendizaje */
 .learning-sheet-card{overflow:hidden!important;min-width:0}.learning-sheet-wrap{min-width:0;max-width:100%;overflow:hidden!important}.learning-month-table-wrap,.learning-annual-wrap{display:block!important;position:relative!important;z-index:0!important;isolation:isolate!important;contain:layout paint!important;overflow:auto!important;max-width:100%!important;max-height:none!important;clip-path:none!important;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;overscroll-behavior-y:auto;border-radius:12px}.learning-month-table th,.learning-month-table td,.learning-annual-table th,.learning-annual-table td,.learning-annual-table thead th,.learning-annual-table thead th:first-child,.learning-annual-table tbody th{position:static!important;left:auto!important;top:auto!important;z-index:auto!important;transform:none!important}.learning-annual-table{min-width:760px}.learning-toolbar,.learning-sheet-head,#learningTransitions{position:relative;z-index:1;background:var(--card)}
-.home-barcode-btn{position:relative;display:flex!important;align-items:center;justify-content:center;font-size:24px!important;line-height:1;background:var(--surface-strong)!important;color:var(--text)!important;border:1px solid var(--border)!important}.home-barcode-symbol{transform:scaleX(1.18);font-weight:900}.home-barcode-badge{position:absolute;top:-5px;right:-5px;display:none;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#dc2626;color:#fff;font-size:9px;font-weight:900;border:2px solid var(--bg)}
-.barcode-backdrop{position:fixed;inset:0;z-index:1200;display:none;align-items:flex-end;background:rgba(15,23,42,.46);padding-top:max(10px,env(safe-area-inset-top));}.barcode-backdrop.open{display:flex}.barcode-sheet{width:100%;max-height:92%;overflow:auto;background:var(--bg);color:var(--text);border-radius:20px 20px 0 0;padding:16px 14px calc(18px + env(safe-area-inset-bottom));box-shadow:0 -8px 32px rgba(15,23,42,.2)}.barcode-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.barcode-head h2{margin:0;font-size:20px}.barcode-subtitle{margin-top:4px;color:var(--muted);font-size:12px;line-height:1.35}.barcode-close{flex:0 0 42px;width:42px;height:42px;min-height:42px;padding:0;border-radius:12px;background:var(--surface-strong);color:var(--text);border:1px solid var(--border);font-size:24px}.barcode-status{margin:12px 0 8px;padding:9px 10px;border:1px solid var(--border);border-radius:11px;background:var(--surface-soft);font-size:11px;color:var(--muted);line-height:1.35}.barcode-status.busy{color:var(--primary);font-weight:800}.barcode-count-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:10px 1px 7px;font-size:12px}.barcode-count-row span{color:var(--muted);font-size:10px}.barcode-list{display:flex;flex-direction:column;gap:7px;min-height:70px}.barcode-empty{padding:20px 12px;text-align:center;border:1px dashed var(--border);border-radius:12px;color:var(--muted);font-size:12px}.barcode-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:9px 10px;border:1px solid var(--border);border-radius:12px;background:var(--card);box-shadow:0 1px 3px rgba(15,23,42,.05)}.barcode-item-main{min-width:0}.barcode-item-name{font-weight:850;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.barcode-item-meta{margin-top:3px;color:var(--muted);font-size:10px}.barcode-repeat{display:inline-flex;margin-left:5px;padding:2px 5px;border-radius:999px;background:var(--chip-bg);color:var(--chip-text);font-weight:800}.barcode-edit{min-height:36px;padding:6px 9px;border-radius:9px;background:var(--surface-strong);color:var(--text);border:1px solid var(--border);font-size:11px}.barcode-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.barcode-actions button{min-height:44px}.barcode-scan-main,.barcode-finish{grid-column:1/-1}.barcode-discard{grid-column:1/-1;background:transparent;color:#b42318;border:1px solid rgba(220,38,38,.28)}body.dark .barcode-discard,body.theme-petrol .barcode-discard,body.theme-forest .barcode-discard,body.theme-graphite .barcode-discard{color:#fecaca}.barcode-sheet .btn-primary{color:#fff!important}
 .modal-backdrop{z-index:1300!important}.confirm-backdrop{z-index:1400!important}.toast{z-index:1500!important}
-@media(min-width:700px){.barcode-backdrop{align-items:center;justify-content:center;padding:24px}.barcode-sheet{max-width:560px;border-radius:20px;max-height:88%;padding-bottom:18px}}
 
-/* v2.21 - escáner documental, OCR por geometría/doble pasada y tickets robustos */
-.expiry-scan-tools{margin:10px 0 12px;padding:10px 11px}.expiry-scan-tools-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px}.expiry-scan-tools-title{font-weight:900;font-size:13px}.expiry-scan-tools-sub{font-size:10px;color:var(--muted);line-height:1.35;margin-top:2px}.expiry-scan-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.expiry-scan-actions button{min-height:42px;padding:7px 5px;font-size:10px;border-radius:10px}.expiry-scan-status{margin-top:8px;font-size:10px;color:var(--muted);min-height:14px}.expiry-scan-status.busy{color:var(--primary);font-weight:800}.expiry-group-card{padding:10px!important;display:block!important}.expiry-group-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:7px}.expiry-group-name{font-size:14px;font-weight:900}.expiry-group-code{font-size:10px;color:var(--muted);margin-top:2px}.expiry-group-count{font-size:9px;padding:3px 6px;border-radius:999px;background:var(--surface-strong);color:var(--muted);white-space:nowrap}.expiry-lots{display:flex;flex-direction:column;gap:6px}.expiry-lot-row{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:10px;background:var(--surface-soft);padding:8px 9px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}.expiry-lot-row.danger{border-left:4px solid #d9534f}.expiry-lot-row.warning{border-left:4px solid #d79a38}.expiry-lot-row.ok{border-left:4px solid #6b9b7f}.expiry-lot-date{font-size:12px;font-weight:900}.expiry-lot-meta{font-size:9.5px;color:var(--muted);margin-top:2px;line-height:1.3}.expiry-lot-actions{display:flex;align-items:center;gap:5px}.expiry-lot-actions button{min-height:32px;padding:5px 7px;font-size:9.5px;border-radius:8px}.expiry-lot-delete{display:none!important}.barcode-item-actions{display:flex;gap:5px;align-items:center}.barcode-photo{min-height:36px;padding:6px 8px;border-radius:9px;background:var(--surface-strong);color:var(--text);border:1px solid var(--border);font-size:11px}.scan-photo-help{margin-top:8px;padding:8px 9px;border-radius:9px;background:var(--surface-soft);color:var(--muted);font-size:10px;line-height:1.35}.scan-photo-btn{width:100%;margin-top:8px;min-height:40px}.scan-detected-badge{display:inline-flex;margin-top:6px;padding:3px 7px;border-radius:999px;background:var(--chip-bg);color:var(--chip-text);font-size:9px;font-weight:800}.scan-name-suggestion{margin-top:7px;padding:8px 9px;border:1px dashed var(--border);border-radius:10px;background:var(--surface-soft);font-size:10px;color:var(--muted);line-height:1.35}.scan-name-suggestion button{width:100%;margin-top:6px;min-height:36px;padding:6px 8px;font-size:11px}
-@media(max-width:420px){.expiry-scan-actions{grid-template-columns:1fr 1fr}.expiry-scan-actions button:last-child{grid-column:1/-1}}
+/* v2.22 - vencimientos manuales compactos, sin escáneres */
+.expiry-group-card{padding:10px!important;display:block!important}.expiry-group-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:7px}.expiry-group-name{font-size:14px;font-weight:900}.expiry-group-code{font-size:10px;color:var(--muted);margin-top:2px}.expiry-group-tools{display:flex;align-items:center;justify-content:flex-end;gap:5px;flex-wrap:wrap}.expiry-group-count{font-size:9px;padding:3px 6px;border-radius:999px;background:var(--surface-strong);color:var(--muted);white-space:nowrap}.expiry-add-lot-btn{min-height:30px!important;padding:4px 7px!important;border-radius:8px!important;background:var(--surface-strong)!important;color:var(--text)!important;border:1px solid var(--border)!important;font-size:9.5px!important;font-weight:850}.expiry-lots{display:flex;flex-direction:column;gap:6px}.expiry-lot-row{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:10px;background:var(--surface-soft);padding:8px 9px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}.expiry-lot-row.danger{border-left:4px solid #d9534f}.expiry-lot-row.warning{border-left:4px solid #d79a38}.expiry-lot-row.ok{border-left:4px solid #6b9b7f}.expiry-lot-date{font-size:12px;font-weight:900}.expiry-lot-meta{font-size:9.5px;color:var(--muted);margin-top:2px;line-height:1.3}.expiry-lot-actions{display:flex;align-items:center;gap:5px}.expiry-lot-actions button{min-height:32px;padding:5px 7px;font-size:9.5px;border-radius:8px}.expiry-lot-delete{display:none!important}.expiry-quick-product{padding:9px 10px;margin-bottom:10px;border:1px solid var(--border);border-radius:10px;background:var(--surface-soft)}.expiry-quick-product strong{display:block;font-size:13px}.expiry-quick-product small{display:block;margin-top:2px;color:var(--muted);font-size:10px}.expiry-optional-details{margin-top:9px;border:1px solid var(--border);border-radius:10px;background:var(--surface-soft);padding:0 9px}.expiry-optional-details summary{cursor:pointer;padding:9px 0;font-size:11px;font-weight:850;color:var(--muted)}.expiry-optional-body{padding:0 0 9px}.home-access-group-title{font-size:11px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:2px 1px 8px}.home-tools-card{margin-top:10px}.home-tools-card .home-section-btn{min-height:96px}.home-product-search{display:block!important}.home-product-search input{width:100%}.home-section-buttons{margin-top:0}
 </style>
 </head>
 <body>
@@ -1002,9 +998,6 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
 
     <div class="home-product-search">
       <input id="homeProductSearchInput" type="search" autocomplete="off" placeholder="Buscar producto, código o categoría · Enter">
-      <button id="homeBarcodeScanBtn" class="home-barcode-btn" type="button" aria-label="Escanear productos para reposición" title="Escanear productos">
-        <span class="home-barcode-symbol" aria-hidden="true">▥</span><span class="home-barcode-badge" id="homeBarcodeBadge">0</span>
-      </button>
     </div>
 
     <h1>Inicio</h1>
@@ -1018,15 +1011,20 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
     </div>
 
     <div class="card">
-      <strong>Accesos rápidos</strong>
+      <div class="home-access-group-title">Uso diario</div>
       <div class="home-section-buttons">
-      <button class="home-section-btn vencimientos" id="homeVencimientosBtn" type="button"><span class="home-alert-badge" id="homeExpiryBadge">0</span><span class="home-section-top"><span class="home-section-icon">⏰</span><strong>Vencimientos</strong></span><small id="homeExpirySummary">Sin vencimientos</small></button>
-      <button class="home-section-btn pedidos" id="homePedidosBtn" type="button"><span class="home-alert-badge" id="homeOrderBadge">0</span><span class="home-section-top"><span class="home-section-icon">🧾</span><strong>Pedidos</strong></span><small id="homeOrderSummary">Próximo pedido</small></button>
-      <button class="home-section-btn muestras" id="homeMuestrasBtn" type="button"><span class="home-alert-badge" id="homeSampleBadge">0</span><span class="home-section-top"><span class="home-section-icon">📦</span><strong>Muestras</strong></span><small id="homeSampleSummary">Sin muestra en curso</small></button>
-      <button class="home-section-btn notas" id="homeNotesBtn" type="button"><span class="home-alert-badge" id="homeNotesBadge">0</span><span class="home-section-top"><span class="home-section-icon">📝</span><strong>Notas rápidas</strong></span><small id="homeNotesSummary">No hay notas pendientes</small></button>
-      <button class="home-section-btn plantilla" id="homePlantillaBtn" type="button"><span class="home-section-top"><span class="home-section-icon">📊</span><strong>Carnes-Vegetales</strong></span><small>Generar plantilla XLSX</small></button>
-      <button class="home-section-btn aprendizaje" id="homeLearningBtn" type="button"><span class="home-section-top"><span class="home-section-icon">🧠</span><strong>Base de aprendizaje</strong></span><small>Temporadas y datos usados por la app</small></button>
+        <button class="home-section-btn vencimientos" id="homeVencimientosBtn" type="button"><span class="home-alert-badge" id="homeExpiryBadge">0</span><span class="home-section-top"><span class="home-section-icon">⏰</span><strong>Vencimientos</strong></span><small id="homeExpirySummary">Sin vencimientos</small></button>
+        <button class="home-section-btn pedidos" id="homePedidosBtn" type="button"><span class="home-alert-badge" id="homeOrderBadge">0</span><span class="home-section-top"><span class="home-section-icon">🧾</span><strong>Pedidos</strong></span><small id="homeOrderSummary">Próximo pedido</small></button>
+        <button class="home-section-btn muestras" id="homeMuestrasBtn" type="button"><span class="home-alert-badge" id="homeSampleBadge">0</span><span class="home-section-top"><span class="home-section-icon">📦</span><strong>Muestras</strong></span><small id="homeSampleSummary">Sin muestra en curso</small></button>
+        <button class="home-section-btn notas" id="homeNotesBtn" type="button"><span class="home-alert-badge" id="homeNotesBadge">0</span><span class="home-section-top"><span class="home-section-icon">📝</span><strong>Notas rápidas</strong></span><small id="homeNotesSummary">No hay notas pendientes</small></button>
+      </div>
     </div>
+    <div class="card home-tools-card">
+      <div class="home-access-group-title">Herramientas</div>
+      <div class="home-section-buttons">
+        <button class="home-section-btn plantilla" id="homePlantillaBtn" type="button"><span class="home-section-top"><span class="home-section-icon">📊</span><strong>Carnes-Vegetales</strong></span><small>Generar plantilla XLSX</small></button>
+        <button class="home-section-btn aprendizaje" id="homeLearningBtn" type="button"><span class="home-section-top"><span class="home-section-icon">🧠</span><strong>Base de aprendizaje</strong></span><small>Temporadas y datos usados por la app</small></button>
+      </div>
     </div>
   </section>
 
@@ -1036,30 +1034,19 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
         <h1>Control de Vencimientos</h1>
         <div class="subtitle">Recordatorio de productos y fechas de retiro.</div>
       </div>
-      <button class="section-settings-btn" data-open-settings type="button" aria-label="Ajustes"><span aria-hidden="true">⚙️</span></button>
     </div>
     <button class="back-home-btn vencimientos" data-back-home type="button">← Volver a Inicio</button>
 
-    <div class="card expiry-scan-tools">
-      <div class="expiry-scan-tools-head"><div><div class="expiry-scan-tools-title">Carga rápida por cámara</div><div class="expiry-scan-tools-sub">Producto empaquetado: código/EAN o foto. Ticket de balanza: nombre + PLU + vencimiento.</div></div></div>
-      <div class="expiry-scan-actions">
-        <button class="secondary-btn" id="expiryBarcodeScanBtn" type="button">▥ Código / EAN</button>
-        <button class="secondary-btn" id="expiryProductPhotoBtn" type="button">📷 Foto producto</button>
-        <button class="secondary-btn" id="expiryTicketScanBtn" type="button">🧾 Ticket / etiqueta</button>
-      </div>
-      <div class="expiry-scan-status" id="expiryScanStatus"></div>
-    </div>
 
     <div class="card add-product-panel">
-      <button class="add-product-toggle" type="button" data-add-panel="expiry"><span>＋ Añadir producto</span><span class="add-panel-arrow">⌄</span></button>
+      <button class="add-product-toggle" type="button" data-add-panel="expiry"><span>＋ Añadir vencimiento</span><span class="add-panel-arrow">⌄</span></button>
       <form id="expiryForm" class="add-product-form hidden">
-        <div><label>Nombre / concepto</label><input id="name" list="savedExpiryProducts" autocomplete="off" placeholder="Producto" required><datalist id="savedExpiryProducts"></datalist></div>
-        <div><label>Código / EAN</label><input id="code" autocomplete="off"></div>
+        <div><label>Producto</label><input id="name" list="savedExpiryProducts" autocomplete="off" placeholder="Nombre del producto" required><datalist id="savedExpiryProducts"></datalist></div>
         <div><label>Fecha de vencimiento</label><input id="date" type="date" required></div>
         <div><label>Retiro</label><select id="withdrawDays"><option value="0">Retirar el día del vencimiento</option><option value="10">Retirar 10 días antes</option></select></div>
-        <div><label>Nota opcional</label><input id="notes"></div>
+        <details class="expiry-optional-details"><summary>Código / EAN y nota · opcional</summary><div class="expiry-optional-body"><div><label>Código / EAN</label><input id="code" autocomplete="off" inputmode="numeric"></div><div style="margin-top:8px"><label>Nota</label><input id="notes"></div></div></details>
         <label class="frequent-check"><input id="saveAsFrequent" type="checkbox"> <span>Guardar como producto frecuente</span></label>
-        <button class="btn-primary" type="submit">Agregar</button>
+        <button class="btn-primary" type="submit">Agregar vencimiento</button>
       </form>
     </div>
     <div class="filter-row">
@@ -1096,7 +1083,6 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
         <h1>Pedidos</h1>
         <div class="subtitle">Planificador semanal para Martes, Jueves y Sábado.</div>
       </div>
-      <button class="section-settings-btn" data-open-settings type="button" aria-label="Ajustes"><span aria-hidden="true">⚙️</span></button>
     </div>
     <button class="back-home-btn pedidos" data-back-home type="button">← Volver a Inicio</button>
 
@@ -1176,7 +1162,6 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
         <h1>Muestras</h1>
         <div class="subtitle">Muestras para control de stock por peso o unidad en Depósito y Góndola.</div>
       </div>
-      <button class="section-settings-btn" data-open-settings type="button" aria-label="Ajustes"><span aria-hidden="true">⚙️</span></button>
     </div>
     <button class="back-home-btn muestras" data-back-home type="button">← Volver a Inicio</button>
 
@@ -1212,7 +1197,6 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
   <section id="tab-notas" class="main-section">
     <div class="notes-topline">
       <button class="back-home-btn notas" data-back-home type="button">← Volver a Inicio</button>
-      <button class="section-settings-btn" data-open-settings type="button" aria-label="Ajustes"><span aria-hidden="true">⚙️</span></button>
     </div>
     <div class="notes-board-head">
       <div><h1>Notas rápidas</h1><div class="subtitle">Tus recordatorios, como pequeñas hojas.</div></div>
@@ -1233,7 +1217,6 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
         <h1>Plantilla Carnes-Vegetales</h1>
         <div class="subtitle">Armá una planilla con todos los productos y generá un único archivo XLSX.</div>
       </div>
-      <button class="section-settings-btn" data-open-settings type="button" aria-label="Ajustes"><span aria-hidden="true">⚙️</span></button>
     </div>
     <button class="back-home-btn plantilla" data-back-home type="button">← Volver a Inicio</button>
 
@@ -1289,7 +1272,6 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
         <h1>Consultor de productos</h1>
         <div class="subtitle">Tu lista personal para encontrar rápidamente nombres, códigos y categorías.</div>
       </div>
-      <button class="section-settings-btn" data-open-settings type="button" aria-label="Ajustes"><span aria-hidden="true">⚙️</span></button>
     </div>
     <button class="back-home-btn settings" data-back-home type="button">← Volver a Inicio</button>
 
@@ -1387,7 +1369,7 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
       <strong>Acerca de Al Día</strong>
       <div class="settings-option app-version-row">
         <span>Versión instalada</span>
-        <strong id="appVersionText">2.7</strong>
+        <strong id="appVersionText">2.22</strong>
       </div>
       <button class="secondary-btn" id="checkUpdatesBtn" type="button" style="width:100%">Buscar actualizaciones</button>
       <div class="footer-note" id="updateCheckStatus">Comprueba la última versión publicada en GitHub Releases.</div>
@@ -1441,24 +1423,6 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
   </div>
 </div>
 
-<div class="barcode-backdrop" id="barcodeBackdrop" aria-hidden="true">
-  <div class="barcode-sheet" role="dialog" aria-modal="true" aria-labelledby="barcodeTitle">
-    <div class="barcode-head">
-      <div><h2 id="barcodeTitle">Reposición por escaneo</h2><div class="barcode-subtitle">Escaneá varios productos y, al finalizar, Al Día crea una Nota rápida con el listado.</div></div>
-      <button class="barcode-close" id="barcodeCloseBtn" type="button" aria-label="Cerrar">×</button>
-    </div>
-    <div class="barcode-status" id="barcodeStatus">La sesión se guarda automáticamente hasta que la finalices o la descartes.</div>
-    <div class="barcode-count-row"><strong id="barcodeSessionCount">0 productos</strong><span id="barcodeSessionStarted"></span></div>
-    <div class="barcode-list" id="barcodeSessionList"></div>
-    <div class="barcode-actions">
-      <button class="btn-primary barcode-scan-main" id="barcodeScanAnotherBtn" type="button">▥ Escanear producto</button>
-      <button class="secondary-btn" id="barcodeManualAddBtn" type="button">＋ Añadir manualmente</button>
-      <button class="btn-primary barcode-finish" id="barcodeFinishBtn" type="button">Finalizar y crear Nota rápida</button>
-      <button class="barcode-discard" id="barcodeDiscardBtn" type="button">Descartar sesión</button>
-    </div>
-  </div>
-</div>
-
 <div class="modal-backdrop" id="editModalBackdrop">
   <div class="modal">
     <h3 id="editModalTitle">Editar</h3>
@@ -1496,12 +1460,11 @@ const K={
   carnesVegetales:"al_dia_plantilla_carnes_vegetales_v1",
   carnesVegetalesDraft:"al_dia_plantilla_carnes_vegetales_borrador_v1",
   learningCatalog:"al_dia_base_aprendizaje_productos_v1",
-  barcodeLibrary:"al_dia_codigos_productos_v1",
-  barcodeSession:"al_dia_reposicion_escaneo_sesion_v1",
-  expiryScanLibrary:"al_dia_vencimientos_codigos_v1",
   settings:"dia_a_dia_ajustes_v1"
 };
 const cats=["Frutas","Vegetales","Hortalizas"];
+// v2.22: se retiraron los escáneres; limpiar únicamente sus datos técnicos heredados.
+["al_dia_codigos_productos_v1","al_dia_reposicion_escaneo_sesion_v1","al_dia_vencimientos_codigos_v1"].forEach(k=>{try{localStorage.removeItem(k)}catch(e){}});
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
 const uid=()=>crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random());
@@ -1521,13 +1484,6 @@ if(!orderProfiles||typeof orderProfiles!=="object"||Array.isArray(orderProfiles)
 let savedProducts=JSON.parse(localStorage.getItem(K.orderSaved)||"{}");
 let learningCatalog=JSON.parse(localStorage.getItem(K.learningCatalog)||"[]");
 if(!Array.isArray(learningCatalog))learningCatalog=[];
-let barcodeLibrary=JSON.parse(localStorage.getItem(K.barcodeLibrary)||"{}");
-if(!barcodeLibrary||typeof barcodeLibrary!=="object"||Array.isArray(barcodeLibrary))barcodeLibrary={};
-let barcodeSession=JSON.parse(localStorage.getItem(K.barcodeSession)||'{"items":[],"startedAt":""}');
-if(!barcodeSession||typeof barcodeSession!=="object"||!Array.isArray(barcodeSession.items))barcodeSession={items:[],startedAt:""};
-let expiryScanLibrary=JSON.parse(localStorage.getItem(K.expiryScanLibrary)||"{}");
-if(!expiryScanLibrary||typeof expiryScanLibrary!=="object"||Array.isArray(expiryScanLibrary))expiryScanLibrary={};
-let expiryScanDraft=null;
 const sampleCats=["Hortalizas","Especias","Frutas secas","Vegetales","Frutas","Carbón"];
 let sampleTemplates=JSON.parse(localStorage.getItem(K.samples)||"{}");
 let sampleHistory=JSON.parse(localStorage.getItem(K.sampleHistory)||"[]");
@@ -1580,37 +1536,46 @@ if(appSettings.notifications==null)appSettings.notifications=true;
 if(!appSettings.notificationTime)appSettings.notificationTime="06:00";
 if(appSettings.notificationRepeat==null)appSettings.notificationRepeat=0;
 
+const savedJsonCache=new Map();
+function saveJsonIfChanged(key,value){
+  const json=JSON.stringify(value);
+  if(savedJsonCache.get(key)===json)return;
+  if(localStorage.getItem(key)!==json)localStorage.setItem(key,json);
+  savedJsonCache.set(key,json);
+}
+let nativePersistTimer=null;
+function scheduleNativeStatePersist(){
+  clearTimeout(nativePersistTimer);
+  nativePersistTimer=setTimeout(()=>{try{if(window.AndroidNative&&AndroidNative.persistAppState)AndroidNative.persistAppState(JSON.stringify(currentBackupObject()))}catch(e){}},180);
+}
 const saveAll=()=>{
-  localStorage.setItem(K.expiry,JSON.stringify(items));
-  localStorage.setItem(K.expiryHistory,JSON.stringify(expiryHistory));
-  localStorage.setItem(K.expirySaved,JSON.stringify(savedExpiryProducts));
-  localStorage.setItem(K.orders,JSON.stringify(orders));
-  localStorage.setItem(K.orderHistory,JSON.stringify(orderHistory));
-  localStorage.setItem(K.orderCompletion,JSON.stringify(orderCompletion));
-  localStorage.setItem(K.orderSuggestedQty,JSON.stringify(orderSuggestedQty));
-  localStorage.setItem(K.orderTemplateState,JSON.stringify(orderTemplateState));
-  localStorage.setItem(K.orderProfiles,JSON.stringify(orderProfiles));
-  localStorage.setItem(K.orderSaved,JSON.stringify(savedProducts));
-  localStorage.setItem(K.samples,JSON.stringify(sampleTemplates));
-  localStorage.setItem(K.sampleHistory,JSON.stringify(sampleHistory));
-  localStorage.setItem(K.notes,JSON.stringify(notes));
-  localStorage.setItem(K.noteHistory,JSON.stringify(noteHistory));
-  localStorage.setItem(K.consultant,JSON.stringify(consultantProducts));
-  localStorage.setItem(K.carnesVegetales,JSON.stringify(carnesVegetalesHistory));
-  localStorage.setItem(K.carnesVegetalesDraft,JSON.stringify(carnesVegetalesDraft));
-  localStorage.setItem(K.learningCatalog,JSON.stringify(learningCatalog));
-  localStorage.setItem(K.barcodeLibrary,JSON.stringify(barcodeLibrary));
-  localStorage.setItem(K.barcodeSession,JSON.stringify(barcodeSession));
-  localStorage.setItem(K.expiryScanLibrary,JSON.stringify(expiryScanLibrary));
-  localStorage.setItem(K.backupMeta,JSON.stringify(backupMetaState));
-  localStorage.setItem(K.expiryProductMemory,JSON.stringify(expiryProductMemory));
-  localStorage.setItem(K.orderProductMemory,JSON.stringify(orderProductMemory));
-  localStorage.setItem(K.sampleProductMemory,JSON.stringify(sampleProductMemory));
+  saveJsonIfChanged(K.expiry,items);
+  saveJsonIfChanged(K.expiryHistory,expiryHistory);
+  saveJsonIfChanged(K.expirySaved,savedExpiryProducts);
+  saveJsonIfChanged(K.orders,orders);
+  saveJsonIfChanged(K.orderHistory,orderHistory);
+  saveJsonIfChanged(K.orderCompletion,orderCompletion);
+  saveJsonIfChanged(K.orderSuggestedQty,orderSuggestedQty);
+  saveJsonIfChanged(K.orderTemplateState,orderTemplateState);
+  saveJsonIfChanged(K.orderProfiles,orderProfiles);
+  saveJsonIfChanged(K.orderSaved,savedProducts);
+  saveJsonIfChanged(K.samples,sampleTemplates);
+  saveJsonIfChanged(K.sampleHistory,sampleHistory);
+  saveJsonIfChanged(K.notes,notes);
+  saveJsonIfChanged(K.noteHistory,noteHistory);
+  saveJsonIfChanged(K.consultant,consultantProducts);
+  saveJsonIfChanged(K.carnesVegetales,carnesVegetalesHistory);
+  saveJsonIfChanged(K.carnesVegetalesDraft,carnesVegetalesDraft);
+  saveJsonIfChanged(K.learningCatalog,learningCatalog);
+  saveJsonIfChanged(K.backupMeta,backupMetaState);
+  saveJsonIfChanged(K.expiryProductMemory,expiryProductMemory);
+  saveJsonIfChanged(K.orderProductMemory,orderProductMemory);
+  saveJsonIfChanged(K.sampleProductMemory,sampleProductMemory);
   sampleSessionState={activeTemplate:activeSampleTemplate||""};
-  localStorage.setItem(K.sampleSession,JSON.stringify(sampleSessionState));
-  localStorage.setItem(K.settings,JSON.stringify(appSettings));
+  saveJsonIfChanged(K.sampleSession,sampleSessionState);
+  saveJsonIfChanged(K.settings,appSettings);
   syncNativeNotificationData();
-  try{if(window.AndroidNative&&AndroidNative.persistAppState)AndroidNative.persistAppState(JSON.stringify(currentBackupObject()))}catch(e){}
+  scheduleNativeStatePersist();
 };
 const localDate=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
 const parseDate=s=>{const[y,m,d]=s.split("-").map(Number);return new Date(y,m-1,d)};
@@ -1631,7 +1596,7 @@ function updateHomeClock(){
   if($("homeCurrentTime")) $("homeCurrentTime").textContent=now.toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit"});
 }
 updateHomeClock();
-setInterval(updateHomeClock,1000);
+setInterval(updateHomeClock,30000);
 
 let consultantEditId=null;
 function consultantCategories(){
@@ -1818,7 +1783,8 @@ function nextOrderLabel(){
 }
 
 
-let confirmResolver=null;function askConfirm(message,title="Confirmar",danger=false){return new Promise(resolve=>{confirmResolver=resolve;$("confirmTitle").textContent=title;$("confirmMessage").textContent=message;$("confirmOkBtn").classList.toggle("danger",!!danger);$("confirmBackdrop").classList.add("open")})}function closeConfirm(result){$("confirmBackdrop").classList.remove("open");if(confirmResolver){const r=confirmResolver;confirmResolver=null;r(!!result)}}$("confirmCancelBtn").onclick=()=>closeConfirm(false);$("confirmOkBtn").onclick=()=>closeConfirm(true);$("confirmBackdrop").onclick=e=>{if(e.target===$("confirmBackdrop"))closeConfirm(false)};let toastTimer=null;function showToast(message){clearTimeout(toastTimer);$("toast").textContent=message;$("toast").classList.add("show");toastTimer=setTimeout(()=>$("toast").classList.remove("show"),2200)}function syncNativeNotificationData(){
+let confirmResolver=null;function askConfirm(message,title="Confirmar",danger=false){return new Promise(resolve=>{confirmResolver=resolve;$("confirmTitle").textContent=title;$("confirmMessage").textContent=message;$("confirmOkBtn").classList.toggle("danger",!!danger);$("confirmBackdrop").classList.add("open")})}function closeConfirm(result){$("confirmBackdrop").classList.remove("open");if(confirmResolver){const r=confirmResolver;confirmResolver=null;r(!!result)}}$("confirmCancelBtn").onclick=()=>closeConfirm(false);$("confirmOkBtn").onclick=()=>closeConfirm(true);$("confirmBackdrop").onclick=e=>{if(e.target===$("confirmBackdrop"))closeConfirm(false)};let toastTimer=null;function showToast(message){clearTimeout(toastTimer);$("toast").textContent=message;$("toast").classList.add("show");toastTimer=setTimeout(()=>$("toast").classList.remove("show"),2200)}let lastNativeNotificationSignature="";
+function syncNativeNotificationData(){
   if(!(window.AndroidNative&&AndroidNative.updateNotificationSettings))return;
   try{
     const parts=String(appSettings.notificationTime||"06:00").split(":");
@@ -1826,7 +1792,11 @@ let confirmResolver=null;function askConfirm(message,title="Confirmar",danger=fa
     const minute=Math.max(0,Math.min(59,Number(parts[1]||0)));
     const repeatValue=Number(appSettings.notificationRepeat||0);
     const repeatMinutes=repeatValue===0.5?30:repeatValue===1?60:repeatValue===2?120:0;
-    AndroidNative.updateNotificationSettings(!!appSettings.notifications,JSON.stringify({items,notes:notes.map(n=>({id:n.id,title:n.title,text:n.text,reminderDate:n.reminderDate||"",reminderTime:n.reminderTime||"09:00"}))}),hour,minute,repeatMinutes);
+    const dataJson=JSON.stringify({items,notes:notes.map(n=>({id:n.id,title:n.title,text:n.text,reminderDate:n.reminderDate||"",reminderTime:n.reminderTime||"09:00"}))});
+    const signature=JSON.stringify([!!appSettings.notifications,hour,minute,repeatMinutes,dataJson]);
+    if(signature===lastNativeNotificationSignature)return;
+    lastNativeNotificationSignature=signature;
+    AndroidNative.updateNotificationSettings(!!appSettings.notifications,dataJson,hour,minute,repeatMinutes);
   }catch(e){}
 }
 function shareText(title,text){
@@ -1892,33 +1862,6 @@ function renderExpiryDatalist(){
 }
 $("name").addEventListener("input",()=>{const p=savedExpiryProducts[norm($("name").value)];if(p){$("code").value=p.code||"";$("withdrawDays").value=String(p.withdrawDays||0)}});
 
-function renderExpiry(){
-  items.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)));
-  const filtered=items.filter(x=>{
-    const status=expiryStatus(x);
-    return expiryFilter==="all"||status.cls===expiryFilter;
-  });
-  $("emptyState").style.display=filtered.length?"none":"block";$("list").innerHTML="";
-  filtered.forEach(item=>{
-    const s=expiryStatus(item), rd=withdrawalDate(item), el=document.createElement("div");el.className=`item ${s.cls}`;el.dataset.expiryId=item.id;el.tabIndex=0;
-    el.innerHTML=`
-      <div><div class="name">${esc(item.name)}</div><div class="meta">${item.code?`Código: ${esc(item.code)} · `:""}Registrado el ${fmt(item.createdAt)}</div></div>
-      <div><div class="date">Vence: ${fmt(item.date)}</div><div class="meta">Retiro: ${fmt(rd)}</div><span class="status-badge ${s.cls}">${s.text}</span></div>
-      <div class="notes">${Number(item.withdrawDays||0)===10?"Retirar 10 días antes":"Retirar el día del vencimiento"}${item.notes?`<br>${esc(item.notes)}`:""}</div>
-      <div class="action-row">${s.days<=0?`<button class="btn-retired" data-retire="${item.id}">Retirar</button>`:""}<button class="share-btn" data-share-expiry="${item.id}">Compartir</button><button class="btn-danger" data-del-expiry="${item.id}">Eliminar</button></div>`;
-    $("list").appendChild(el);
-  });
-  const urgent=items.filter(x=>expiryStatus(x).days<=7).length;
-  $("totalCount").textContent=`${items.length} registro${items.length===1?"":"s"}`;$("urgentCount").textContent=`${urgent} para revisar`;
-  
-  document.querySelectorAll("[data-share-expiry]").forEach(b=>b.onclick=()=>{const x=items.find(y=>y.id===b.dataset.shareExpiry);if(!x)return;const s=expiryStatus(x);shareText("Vencimiento · "+x.name,`Al Día · Vencimiento\n${x.name}${x.code?`\nCódigo: ${x.code}`:""}\nVence: ${fmt(x.date)}\nRetiro: ${fmt(withdrawalDate(x))}\nEstado: ${s.text}${x.notes?`\nNota: ${x.notes}`:""}`)});
-  document.querySelectorAll("[data-retire]").forEach(b=>b.onclick=async()=>{const x=items.find(y=>y.id===b.dataset.retire);if(!x)return;if(!await askConfirm(`¿Retirar "${x.name}"?`,"Retirar producto"))return;expiryHistory.unshift({...x,removedAt:localDate(new Date()),withdrawalDate:withdrawalDate(x)});items=items.filter(y=>y.id!==x.id);cleanExpiryHistory();saveAll();renderAll();showToast("Producto retirado")});
-  document.querySelectorAll("[data-expiry-id]").forEach(card=>{
-    const open=()=>openExpiryEdit(card.dataset.expiryId);
-    card.onclick=e=>{if(e.target.closest("button,input,select,a"))return;open()};
-    card.onkeydown=e=>{if((e.key==="Enter"||e.key===" ")&&!e.target.closest("button,input,select,a")){e.preventDefault();open()}};
-  });
-}
 $("expiryForm").onsubmit=e=>{
   e.preventDefault();
   const n=localDate(new Date()),name=$("name").value.trim(),code=$("code").value.trim(),wd=Number($("withdrawDays").value),date=$("date").value;
@@ -1926,7 +1869,7 @@ $("expiryForm").onsubmit=e=>{
   if(items.some(x=>norm(x.name)===norm(name)&&x.date===date))return showToast("Ya existe un producto con ese nombre y esa fecha.");
   if($("saveAsFrequent").checked) rememberExpiry(name,code,wd);
   rememberProductName(expiryProductMemory,name);
-  items.push({id:uid(),name,code,date,withdrawDays:wd,notes:$("notes").value.trim(),createdAt:n,codeType:code?"EAN":""});if(code)rememberExpiryScanCode(name,code,"EAN",wd);
+  items.push({id:uid(),name,code,date,withdrawDays:wd,notes:$("notes").value.trim(),createdAt:n,codeType:code?"EAN":""});
   saveAll();e.target.reset();$("withdrawDays").value="0";$("saveAsFrequent").checked=false;collapseAddPanel("expiry");renderAll();showToast("Producto añadido")
 };
 
@@ -2627,6 +2570,7 @@ function openModal(title,html,ctx){editCtx=ctx;$("editModalTitle").textContent=t
 function closeModal(){editCtx=null;$("editModalBackdrop").classList.remove("open")}
 $("editCancelBtn").onclick=closeModal;$("editModalBackdrop").onclick=e=>{if(e.target===$("editModalBackdrop"))closeModal()};
 function openExpiryEdit(id){const x=items.find(y=>y.id===id);if(!x)return;const codeLabel=x.codeType==="PLU"?"PLU":"Código / EAN";openModal("Editar vencimiento",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">${codeLabel}</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Fecha</label><input id="m3" type="date" value="${x.date}"><label style="margin-top:10px">Retiro</label><select id="m4"><option value="0" ${Number(x.withdrawDays)===0?"selected":""}>Retirar el día</option><option value="10" ${Number(x.withdrawDays)===10?"selected":""}>Retirar 10 días antes</option></select><label style="margin-top:10px">Nota</label><input id="m5" value="${esc(x.notes||"")}">`,{type:"expiry",id})}
+function openExpiryQuickAdd(id){const seed=items.find(y=>y.id===id);if(!seed)return;const codeLabel=seed.codeType==="PLU"?"PLU":"Código / EAN";openModal("Añadir vencimiento",`<div class="expiry-quick-product"><strong>${esc(seed.name)}</strong><small>${seed.code?`${codeLabel}: ${esc(seed.code)}`:"Sin código guardado"}</small></div><label>Fecha de vencimiento</label><input id="m3" type="date"><label style="margin-top:10px">Retiro</label><select id="m4"><option value="0" ${Number(seed.withdrawDays)===0?"selected":""}>Retirar el día del vencimiento</option><option value="10" ${Number(seed.withdrawDays)===10?"selected":""}>Retirar 10 días antes</option></select><label style="margin-top:10px">Nota opcional</label><input id="m5" value="">`,{type:"expiry-add-lot",seedId:id});setTimeout(()=>$("m3")?.focus(),40)}
 function openSavedExpiryEdit(key){const x=savedExpiryProducts[key];openModal("Editar producto frecuente",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Retiro</label><select id="m3"><option value="0" ${Number(x.withdrawDays)===0?"selected":""}>Retirar el día</option><option value="10" ${Number(x.withdrawDays)===10?"selected":""}>Retirar 10 días antes</option></select>`,{type:"saved-expiry",key})}
 function orderProfileEditHtml(x,includeNotes=true){const p=orderProfileFor(x.name,x.unitType),learn=["martes","jueves","sabado"].map(d=>{const l=p.learning[d];return `<div>${dayLabel(d)}<strong>${l.base==null?"—":Math.round(l.base*10)/10}</strong><span>${l.cycles} ciclo${l.cycles===1?"":"s"}</span></div>`}).join("");return `<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Categoría</label><select id="m3">${cats.map(c=>`<option ${x.category===c?"selected":""}>${c}</option>`).join("")}</select><label style="margin-top:10px">Tipo de cantidad</label><select id="m4"><option value="bulto" ${p.qtyType!=="peso"?"selected":""}>Bulto</option><option value="peso" ${p.qtyType==="peso"?"selected":""}>Peso</option></select>${includeNotes?`<label style="margin-top:10px">Nota opcional</label><input id="m8" value="${esc(x.notes||"")}">`:""}<details class="order-advanced-details"><summary>Configuración avanzada y aprendizaje</summary><div class="order-advanced-body"><label>Rotación normal</label><select id="m5"><option value="alta" ${p.rotation==="alta"?"selected":""}>Alta</option><option value="media" ${p.rotation==="media"?"selected":""}>Media</option><option value="baja" ${p.rotation==="baja"?"selected":""}>Baja</option></select><label style="margin-top:10px">Reacción a oferta</label><select id="m6"><option value="ninguna" ${p.offerReaction==="ninguna"?"selected":""}>Ninguna</option><option value="baja" ${p.offerReaction==="baja"?"selected":""}>Baja</option><option value="media" ${p.offerReaction==="media"?"selected":""}>Media</option><option value="alta" ${p.offerReaction==="alta"?"selected":""}>Alta</option></select><label style="margin-top:10px">Sensibilidad cuando está caro</label><select id="m7"><option value="ninguna" ${p.expensiveSensitivity==="ninguna"?"selected":""}>Ninguna</option><option value="baja" ${p.expensiveSensitivity==="baja"?"selected":""}>Baja</option><option value="media" ${p.expensiveSensitivity==="media"?"selected":""}>Media</option><option value="alta" ${p.expensiveSensitivity==="alta"?"selected":""}>Alta</option></select><div class="order-advanced-note">Aprendizaje por día. La base se ajusta con los resultados reales, no por cambiar manualmente el Pedido.</div><div class="order-learned-summary">${learn}</div><label>Reiniciar aprendizaje</label><select id="m9"><option value="">No reiniciar</option><option value="martes">Solo Martes</option><option value="jueves">Solo Jueves</option><option value="sabado">Solo Sábado</option><option value="todos">Todos los días</option></select></div></details>`}
 function openOrderEdit(id){const x=orders[activeOrderTab].find(y=>y.id===id);if(!x)return;openModal("Configurar producto del pedido",orderProfileEditHtml(x,true),{type:"order",id,day:activeOrderTab})}
@@ -2635,20 +2579,17 @@ $("editSaveBtn").onclick=async()=>{
   if(!editCtx)return;
   const ctx={...editCtx};
   try{
-    if(ctx.type==="expiry"){const x=items.find(y=>y.id===ctx.id);if(!x)return;if(!$("m1").value.trim()||!$("m3").value)return showToast("Completá producto y fecha.");x.name=$("m1").value.trim();x.code=$("m2").value.trim();x.date=$("m3").value;x.withdrawDays=Number($("m4").value);x.notes=$("m5").value.trim();rememberProductName(expiryProductMemory,x.name);if(x.code)rememberExpiryScanCode(x.name,x.code,x.codeType||"EAN",x.withdrawDays);}
+    if(ctx.type==="expiry"){const x=items.find(y=>y.id===ctx.id);if(!x)return;if(!$("m1").value.trim()||!$("m3").value)return showToast("Completá producto y fecha.");x.name=$("m1").value.trim();x.code=$("m2").value.trim();x.date=$("m3").value;x.withdrawDays=Number($("m4").value);x.notes=$("m5").value.trim();rememberProductName(expiryProductMemory,x.name);}
+    if(ctx.type==="expiry-add-lot"){const seed=items.find(y=>y.id===ctx.seedId),date=$("m3").value;if(!seed)return;if(!date)return showToast("Seleccioná la fecha de vencimiento.");const identity=expiryIdentity(seed);if(items.some(x=>expiryIdentity(x)===identity&&x.date===date))return showToast("Ese vencimiento ya está cargado para este producto.");items.push({id:uid(),name:seed.name,code:seed.code||"",codeType:seed.codeType||((seed.code||"")?"EAN":""),date,withdrawDays:Number($("m4").value),notes:$("m5").value.trim(),createdAt:localDate(new Date())});rememberProductName(expiryProductMemory,seed.name);}
     if(ctx.type==="saved-expiry"){const old=ctx.key,name=$("m1").value.trim(),code=$("m2").value.trim(),wd=Number($("m3").value);if(!name)return showToast("Ingresá un producto.");delete savedExpiryProducts[old];savedExpiryProducts[norm(name)]={name,code,withdrawDays:wd};rememberProductName(expiryProductMemory,name);}
     if(ctx.type==="order"){const x=orders[ctx.day].find(y=>y.id===ctx.id),name=$("m1").value.trim();if(!x||!name)return showToast("Ingresá un producto.");const oldKey=norm(x.name),p=orderProfileFor(x.name,x.unitType);x.name=name;x.code=$("m2").value.trim();x.category=$("m3").value;x.unitType=orderQtyType($("m4").value,name);x.notes=$("m8")?$("m8").value.trim():"";p.name=name;p.qtyType=x.unitType;p.rotation=$("m5").value;p.offerReaction=$("m6").value;p.expensiveSensitivity=$("m7").value;if(oldKey!==norm(name)){delete orderProfiles[oldKey];orderProfiles[norm(name)]=p}const reset=$("m9")?.value||"";if(reset&&await askConfirm("Se eliminará la referencia aprendida seleccionada. Los pedidos guardados no se borrarán.","Reiniciar aprendizaje",true)){if(reset==="todos")["martes","jueves","sabado"].forEach(d=>p.learning[d]=blankOrderLearning());else p.learning[reset]=blankOrderLearning()}rememberProductName(orderProductMemory,x.name);}
     if(ctx.type==="saved-order"){const old=ctx.key,name=$("m1").value.trim(),code=$("m2").value.trim(),cat=$("m3").value,type=orderQtyType($("m4").value,name);if(!name)return showToast("Ingresá un producto.");const p=orderProfileFor(savedProducts[old]?.name||name,type);p.name=name;p.qtyType=type;p.rotation=$("m5").value;p.offerReaction=$("m6").value;p.expensiveSensitivity=$("m7").value;const reset=$("m9")?.value||"";if(reset&&await askConfirm("Se eliminará la referencia aprendida seleccionada. Los pedidos guardados no se borrarán.","Reiniciar aprendizaje",true)){if(reset==="todos")["martes","jueves","sabado"].forEach(d=>p.learning[d]=blankOrderLearning());else p.learning[reset]=blankOrderLearning()}delete savedProducts[old];savedProducts[norm(name)]={name,code,category:cat,unitType:type};if(old!==norm(name)){delete orderProfiles[old];orderProfiles[norm(name)]=p}rememberProductName(orderProductMemory,name);}
     if(ctx.type==="learning"){const x=learningCatalog.find(y=>y.id===ctx.id),name=$("m1").value.trim(),months=[...$("modalMonthsGrid").querySelectorAll("input:checked")].map(i=>Number(i.value));if(!x||!name)return showToast("Ingresá un producto.");if(!months.length)return showToast("Seleccioná al menos un mes.");const old=norm(x.name);x.name=name;x.category=$("m3").value;x.months=months;x.origin=x.origin||"Editado manualmente";Object.values(orders).flat().filter(y=>norm(y.name)===old).forEach(y=>{y.name=name;y.category=x.category;y.seasonGroup=x.category});if(savedProducts[old]){const sp=savedProducts[old];delete savedProducts[old];sp.name=name;sp.category=x.category;savedProducts[norm(name)]=sp}if(orderProfiles[old]&&old!==norm(name)){orderProfiles[norm(name)]=orderProfiles[old];orderProfiles[norm(name)].name=name;delete orderProfiles[old]}}
-    if(ctx.type==="barcode"){const x=barcodeSession.items.find(y=>y.id===ctx.id),name=$("m1").value.trim(),code=$("m2").value.trim();if(!x||!name)return showToast("Ingresá el nombre del producto.");x.name=name;x.code=code;if(code)barcodeLibrary[code]={name,source:"corregido_manual",updatedAt:new Date().toISOString()};}
-    if(ctx.type==="barcode-new"){const name=$("m1").value.trim(),code=$("m2").value.trim();if(!name)return showToast("Ingresá el nombre del producto.");normalizeBarcodeSession();if(!barcodeSession.startedAt)barcodeSession.startedAt=new Date().toISOString();const existing=code?barcodeSession.items.find(y=>y.code===code):null;if(existing){existing.scans=Math.max(1,Number(existing.scans)||1)+1;existing.name=name;}else barcodeSession.items.push({id:uid(),code,name,scans:1,source:"manual",addedAt:new Date().toISOString(),lastScannedAt:new Date().toISOString()});if(code)barcodeLibrary[code]={name,source:"manual",updatedAt:new Date().toISOString()};}
-    if(ctx.type==="expiry-scan-new"){const name=$("m1").value.trim(),code=$("m2").value.trim(),date=$("m3").value,wd=Number($("m4").value),notes=$("m5").value.trim(),codeType=expiryScanDraft?.codeType||"EAN";if(!name||!date)return showToast("Completá producto y fecha de vencimiento.");if(items.some(x=>x.date===date&&((code&&x.code===code)||(norm(x.name)===norm(name)))))return showToast("Ese vencimiento ya está cargado para este producto.");const n=localDate(new Date());items.push({id:uid(),name,code,date,withdrawDays:wd,notes,createdAt:n,codeType,scanSource:expiryScanDraft?.source||"scanner"});rememberProductName(expiryProductMemory,name);if(code)rememberExpiryScanCode(name,code,codeType,wd);expiryScanDraft=null;}
     saveAll();
     closeModal();
     renderAll();
     if(ctx.type==="saved-expiry")renderExpirySavedManager();
     if(ctx.type==="saved-order")renderOrderSavedManager();
-    if(ctx.type==="barcode"||ctx.type==="barcode-new")renderBarcodeSession();
     showToast("Cambios guardados");
   }catch(e){console.error(e);showToast("No se pudieron guardar los cambios")}
 };
@@ -2668,7 +2609,7 @@ function shouldAutoCapitalize(el){
   const type=(el.type||"text").toLowerCase();
   if(["search","number","date","time","email","url","password","checkbox","radio","file"].includes(type))return false;
   const id=String(el.id||"").toLowerCase();
-  if(id.includes("code")||id.includes("scanning"))return false;
+  if(id.includes("code"))return false;
   return true;
 }
 document.addEventListener("input",e=>{
@@ -2787,347 +2728,17 @@ function renderLearningBase(){
   document.querySelectorAll("[data-learning-id]").forEach(el=>el.onclick=()=>openLearningEdit(el.dataset.learningId));
 }
 
-function normalizeBarcodeSession(){
-  if(!barcodeSession||typeof barcodeSession!=="object"||!Array.isArray(barcodeSession.items))barcodeSession={items:[],startedAt:""};
-  barcodeSession.items=barcodeSession.items.filter(x=>x&&String(x.name||x.code||"").trim()).map(x=>({id:x.id||uid(),code:String(x.code||"").trim(),name:cleanProductName(String(x.name||"").trim())||"Producto sin identificar",scans:Math.max(1,Number(x.scans)||1),source:x.source||"manual",addedAt:x.addedAt||new Date().toISOString(),lastScannedAt:x.lastScannedAt||x.addedAt||new Date().toISOString()}));
-  if(barcodeSession.items.length&&!barcodeSession.startedAt)barcodeSession.startedAt=new Date().toISOString();
-  if(!barcodeSession.items.length)barcodeSession.startedAt="";
-}
-function barcodeSessionDateLabel(){
-  if(!barcodeSession.startedAt)return "";
-  const d=new Date(barcodeSession.startedAt);if(Number.isNaN(d.getTime()))return "";
-  return `Iniciada ${d.toLocaleString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})}`;
-}
-function renderBarcodeHomeBadge(){
-  normalizeBarcodeSession();const b=$("homeBarcodeBadge");if(!b)return;
-  const n=barcodeSession.items.length;b.textContent=String(n);b.style.display=n?"inline-flex":"none";
-}
-function renderBarcodeSession(){
-  normalizeBarcodeSession();renderBarcodeHomeBadge();
-  if(!$("barcodeSessionList"))return;
-  const n=barcodeSession.items.length;$("barcodeSessionCount").textContent=`${n} producto${n===1?"":"s"}`;$("barcodeSessionStarted").textContent=barcodeSessionDateLabel();
-  $("barcodeSessionList").innerHTML=n?barcodeSession.items.map(x=>`<article class="barcode-item" data-barcode-item-id="${x.id}"><div class="barcode-item-main"><div class="barcode-item-name">${esc(x.name)}</div><div class="barcode-item-meta">${x.code?`Código ${esc(x.code)}`:"Añadido manualmente"}${x.scans>1?`<span class="barcode-repeat">Escaneado ${x.scans} veces</span>`:""}</div></div><button class="barcode-edit" data-edit-barcode="${x.id}" type="button">Editar</button><button class="btn-danger swipe-delete-source" data-del-barcode="${x.id}" type="button" tabindex="-1" aria-hidden="true">Eliminar</button></article>`).join(""):`<div class="barcode-empty">Todavía no hay productos. Tocá <strong>Escanear producto</strong> para comenzar.</div>`;
-  $("barcodeFinishBtn").disabled=!n;
-  document.querySelectorAll("[data-edit-barcode]").forEach(b=>b.onclick=e=>{e.stopPropagation();openBarcodeEdit(b.dataset.editBarcode)});
-  document.querySelectorAll("[data-barcode-item-id]").forEach(card=>card.onclick=e=>{if(card.dataset.gestureConsumed==="1"){card.dataset.gestureConsumed="0";return}if(e.target.closest("button,input,select"))return;openBarcodeEdit(card.dataset.barcodeItemId)});
-  document.querySelectorAll("[data-del-barcode]").forEach(b=>b.onclick=async e=>{e.stopPropagation();const x=barcodeSession.items.find(y=>y.id===b.dataset.delBarcode);if(!x)return;if(!await askConfirm(`Se quitará “${x.name}” de esta sesión.`,"Quitar producto",true))return;barcodeSession.items=barcodeSession.items.filter(y=>y.id!==x.id);normalizeBarcodeSession();saveAll();renderBarcodeSession();showToast("Producto quitado")});
-  try{refreshSwipeDelete()}catch(e){}
-}
-function openBarcodeSession(){
-  normalizeBarcodeSession();renderBarcodeSession();$("barcodeBackdrop").classList.add("open");$("barcodeBackdrop").setAttribute("aria-hidden","false");
-  $("barcodeStatus").className="barcode-status";$("barcodeStatus").textContent=barcodeSession.items.length?"Sesión recuperada. Podés seguir escaneando o finalizarla cuando quieras.":"La sesión se guarda automáticamente hasta que la finalices o la descartes.";
-}
-function closeBarcodeSession(){$("barcodeBackdrop").classList.remove("open");$("barcodeBackdrop").setAttribute("aria-hidden","true");renderBarcodeHomeBadge()}
-function startBarcodeScan(){
-  openBarcodeSession();
-  if(window.AndroidNative&&AndroidNative.startBarcodeScan){$("barcodeStatus").className="barcode-status busy";$("barcodeStatus").textContent="Abriendo escáner…";try{AndroidNative.startBarcodeScan();return}catch(e){console.error(e)}}
-  $("barcodeStatus").className="barcode-status";$("barcodeStatus").textContent="El escáner de código de barras está disponible en la app Android.";showToast("Escáner disponible en Android");
-}
-function barcodeSuggestedName(code,remoteName){
-  const c=String(code||"").trim(),local=barcodeLibrary[c],expiryKnown=expiryScanLibrary[`EAN:${c}`],raw=String(local?.name||expiryKnown?.name||remoteName||"").trim();return raw?cleanProductName(raw):"";
-}
-function addBarcodeScan(code,remoteName="",source="barcode"){
-  normalizeBarcodeSession();code=String(code||"").trim();if(!code)return;
-  const known=barcodeLibrary[code],suggested=barcodeSuggestedName(code,remoteName),existing=barcodeSession.items.find(x=>x.code===code);
-  if(existing){existing.scans=Math.max(1,Number(existing.scans)||1)+1;existing.lastScannedAt=new Date().toISOString();if(suggested&&existing.name==="Producto sin identificar")existing.name=suggested;saveAll();renderBarcodeSession();showToast(`Ya estaba en la lista · escaneado ${existing.scans} veces`);try{AndroidNative.vibrate&&AndroidNative.vibrate(35)}catch(e){}return}
-  if(!barcodeSession.startedAt)barcodeSession.startedAt=new Date().toISOString();
-  const item={id:uid(),code,name:suggested||"Producto sin identificar",scans:1,source:known?"local":source||"barcode",addedAt:new Date().toISOString(),lastScannedAt:new Date().toISOString()};barcodeSession.items.push(item);
-  if(!known&&suggested)barcodeLibrary[code]={name:suggested,source:source||"consulta",updatedAt:new Date().toISOString()};
-  saveAll();renderBarcodeSession();try{AndroidNative.vibrate&&AndroidNative.vibrate(45)}catch(e){}
-  if(suggested)showToast("Producto añadido a reposición");
-}
-window.onBarcodeScanStatus=function(status,message){
-  if(!$("barcodeStatus"))return;const msg=String(message||"");$("barcodeStatus").className=`barcode-status ${status==="opening"||status==="looking_up"?"busy":""}`;
-  if(status==="opening")$("barcodeStatus").textContent=msg||"Abriendo escáner…";
-  else if(status==="looking_up")$("barcodeStatus").textContent=msg||"Código leído. Buscando el nombre del producto…";
-  else if(status==="canceled")$("barcodeStatus").textContent="Escaneo cancelado. La lista actual sigue guardada.";
-  else if(status==="error"){$("barcodeStatus").textContent=msg||"No se pudo abrir el escáner. Podés intentar nuevamente o añadir el producto manualmente.";showToast("No se pudo completar el escaneo")}
-  else $("barcodeStatus").textContent=msg||"Listo para escanear otro producto.";
-};
-window.onBarcodeScanResult=function(code,name,source){openBarcodeSession();addBarcodeScan(code,name,source);const local=barcodeLibrary[String(code||"").trim()];$("barcodeStatus").className=`barcode-status ${local?"":"busy"}`;$("barcodeStatus").textContent=local?"Producto reconocido desde tu biblioteca local. Podés seguir escaneando.":"Código leído. Buscando el nombre del producto…";};
-window.onBarcodeLookupResult=function(code,name,source){code=String(code||"").trim();const item=barcodeSession.items.find(x=>x.code===code);if(!item)return;const local=barcodeLibrary[code];if(local?.name){item.name=local.name;saveAll();renderBarcodeSession();$("barcodeStatus").className="barcode-status";$("barcodeStatus").textContent="Producto reconocido desde tu biblioteca local.";return}name=String(name||"").trim();if(name){item.name=name;item.source=source||"consulta";barcodeLibrary[code]={name,source:source||"consulta",updatedAt:new Date().toISOString()};saveAll();renderBarcodeSession();$("barcodeStatus").className="barcode-status";$("barcodeStatus").textContent="Producto reconocido. Podés seguir escaneando.";showToast("Producto reconocido")}else{$("barcodeStatus").className="barcode-status";$("barcodeStatus").textContent="No encontramos el nombre de este código. Completalo una vez y Al Día lo recordará.";if($("barcodeBackdrop").classList.contains("open"))setTimeout(()=>openBarcodeEdit(item.id),100)}};
-function openBarcodeEdit(id){const x=barcodeSession.items.find(y=>y.id===id);if(!x)return;openModal("Editar producto escaneado",`<label>Producto</label><input id="m1" value="${esc(x.name==="Producto sin identificar"?"":x.name)}" placeholder="Ej: Coca-Cola Zero 2,25 L"><label style="margin-top:10px">Código / EAN</label><input id="m2" data-no-autocap value="${esc(x.code||"")}" ${x.code?"readonly":""}><div class="footer-note">Al guardar, Al Día recordará este nombre para el mismo código en próximos escaneos.</div>`,{type:"barcode",id})}
-function openBarcodeManualAdd(){openModal("Añadir producto a reposición",`<label>Producto</label><input id="m1" placeholder="Ej: Coca-Cola Zero 2,25 L"><label style="margin-top:10px">Código / EAN</label><input id="m2" data-no-autocap inputmode="numeric" placeholder="Opcional"><div class="footer-note">Podés añadirlo sin código si solo querés incluirlo en esta lista.</div>`,{type:"barcode-new"})}
-async function finishBarcodeSession(){
-  normalizeBarcodeSession();if(!barcodeSession.items.length)return showToast("No hay productos para crear la nota");
-  const now=new Date(),title=`Reposición · ${now.toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",year:"2-digit"})}`,text=barcodeSession.items.map(x=>`[ ] ${x.name}`).join("\n"),id=uid();
-  notes.push({id,title,text,pinned:false,createdAt:new Date().toISOString(),updatedAt:null,colorIndex:notes.length%6,reminderDate:"",reminderTime:"09:00"});
-  barcodeSession={items:[],startedAt:""};saveAll();renderAll();closeBarcodeSession();openMainTab("notas");openNoteEditor(id);showToast("Nota de reposición creada");
-}
-
-
-
-/* ===== v2.21 · reconocimiento robusto por código/foto y tickets ===== */
-function scanCodeKey(code,type="EAN"){const c=String(code||"").trim();return c?`${String(type||"EAN").toUpperCase()}:${c}`:""}
-function findKnownExpiryByCode(code,type="EAN"){
-  const key=scanCodeKey(code,type), direct=key?expiryScanLibrary[key]:null;if(direct?.name)return direct;
-  const c=String(code||"").trim();if(!c)return null;
-  const fromRepos=barcodeLibrary[c];if(fromRepos?.name&&String(type||"EAN").toUpperCase()==="EAN")return{name:fromRepos.name,withdrawDays:0,codeType:"EAN"};
-  const inItems=items.find(x=>String(x.code||"").trim()===c);if(inItems)return{name:inItems.name,withdrawDays:Number(inItems.withdrawDays||0),codeType:inItems.codeType||type};
-  const inHistory=expiryHistory.find(x=>String(x.code||"").trim()===c);if(inHistory)return{name:inHistory.name,withdrawDays:Number(inHistory.withdrawDays||0),codeType:inHistory.codeType||type};
-  const frequent=Object.values(savedExpiryProducts||{}).find(x=>String(x?.code||"").trim()===c);if(frequent)return{name:frequent.name,withdrawDays:Number(frequent.withdrawDays||0),codeType:type};
-  const consultant=(consultantProducts||[]).find(x=>String(x?.code||"").trim()===c);if(consultant)return{name:consultant.name,withdrawDays:0,codeType:type};
-  return null;
-}
-function rememberExpiryScanCode(name,code,type="EAN",withdrawDays=0){const key=scanCodeKey(code,type);if(!key||!String(name||"").trim())return;expiryScanLibrary[key]={name:String(name).trim(),code:String(code).trim(),codeType:String(type||"EAN").toUpperCase(),withdrawDays:Number(withdrawDays||0),updatedAt:new Date().toISOString()}}
-function normalizedQtyNumber(v){const n=Number(String(v||"").replace(",","."));if(!Number.isFinite(n))return"";const rounded=Math.round(n*100)/100;return String(rounded).replace(".",",")}
-function normalizeQuantity(value,unit){let n=Number(String(value||"").replace(",","."));if(!Number.isFinite(n))return"";unit=String(unit||"").toLowerCase();if(unit==="ml"&&n>=1000){n=n/1000;unit="l"}else if((unit==="g"||unit==="gr")&&n>=1000){n=n/1000;unit="kg"}const num=String(Math.round(n*100)/100).replace(".",",");return `${num} ${unit==="l"||unit.startsWith("lit")?"L":unit==="ml"?"ml":unit==="kg"?"kg":"g"}`}
-function extractQuantity(text){const t=String(text||"");const matches=[...t.matchAll(/\b(\d{1,5}(?:[.,]\d{1,3})?)\s*(ml|m[lI]|litros?|lts?|l|kg|kilos?|gr|g)\b/gi)];if(!matches.length)return"";let best=matches[0];for(const m of matches){if(/ml|lit|lts|\bl\b/i.test(m[2])){best=m;break}}return normalizeQuantity(best[1],best[2])}
-function stripQuantity(name){return String(name||"").replace(/\b\d{1,5}(?:[.,]\d{1,3})?\s*(?:ml|litros?|lts?|l|kg|kilos?|gr|g)\b/gi,"").replace(/[·|_-]+\s*$/g,"").replace(/\s{2,}/g," ").trim()}
-function cleanProductName(name,photoText=""){
-  let base=String(name||"").replace(/\s+/g," ").trim();const qty=extractQuantity(photoText)||extractQuantity(base);base=stripQuantity(base);
-  base=base.replace(/\b(?:bebida\s+gaseosa|gaseosa|producto)\b/gi,m=>/producto/i.test(m)?"":m).replace(/\s{2,}/g," ").trim();
-  if(!base||/^producto sin identificar$/i.test(base))base=deriveProductNameFromPhoto(photoText);
-  if(qty&&!new RegExp(qty.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"i").test(base))base=`${base} ${qty}`.trim();
-  return base||"Producto sin identificar";
-}
-function deriveProductNameFromPhoto(text){
-  const qty=extractQuantity(text),skip=/ingred|nutri|calor|energia|sodio|carbo|prote|grasa|industria|elabor|envas|lote|vence|vencim|fecha|precio|importe|peso|contenido|neto|www\.|\.com|cencosud|disco|jumbo|vea|supermerc|conservar|mantener|servir|PLU|EAN|c[oó]digo/i;
-  const lines=String(text||"").split(/\r?\n/).map(x=>x.replace(/\s+/g," ").trim()).filter(x=>x&&/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/.test(x)&&!skip.test(x)&&x.length<=48);
-  let chosen=lines[0]||"";if(lines[1]&&chosen.length<26&&lines[1].length<24&&!/^\d/.test(lines[1]))chosen+=` ${lines[1]}`;
-  chosen=stripQuantity(chosen);return `${chosen}${qty?` ${qty}`:""}`.trim();
-}
-function dateTextToIso(raw){
-  const m=String(raw||"").match(/(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{2,4})/);if(!m)return"";
-  let y=Number(m[3]);if(y<100)y+=2000;const mo=Number(m[2]),d=Number(m[1]);if(mo<1||mo>12||d<1||d>31)return"";
-  const dt=new Date(Date.UTC(y,mo-1,d));if(dt.getUTCFullYear()!==y||dt.getUTCMonth()!==mo-1||dt.getUTCDate()!==d)return"";
-  return `${y}-${String(mo).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
-}
-function datesInText(text){
-  return [...String(text||"").matchAll(/\b(\d{1,2}[\/.\-]\d{1,2}[\/.\-]\d{2,4})\b/g)]
-    .map(m=>({raw:m[1],iso:dateTextToIso(m[1]),index:m.index||0})).filter(x=>x.iso);
-}
-function extractExpiryDateFromText(text){
-  const t=String(text||"");
-  const labeled=t.match(/(?:vence|vencimiento|vto\.?|consumir\s+antes\s+de)\s*[:\-]?\s*(\d{1,2}[\/.\-]\d{1,2}[\/.\-]\d{2,4})/i);
-  return labeled?dateTextToIso(labeled[1]):"";
-}
-
-/* v2.21 · lector de tickets por estructura, geometría y doble OCR */
-function normalizeTicketDigits(value){return String(value||"").replace(/[OoQ]/g,"0").replace(/[Il|!]/g,"1")}
-function ticketDatesInText(text){
-  const out=[],re=/([0-9OoQIl|!]{1,2})\s*[\/.\-]\s*([0-9OoQIl|!]{1,2})\s*[\/.\-]\s*([0-9OoQIl|!]{2,4})/g;
-  let m;while((m=re.exec(String(text||"")))){
-    const raw=`${normalizeTicketDigits(m[1])}/${normalizeTicketDigits(m[2])}/${normalizeTicketDigits(m[3])}`,iso=dateTextToIso(raw);
-    if(iso)out.push({raw:m[0],normalized:raw,iso,index:m.index||0});
-  }
-  return out;
-}
-function ticketLabelComparable(text){return norm(String(text||"")).replace(/0/g,"o").replace(/[1|!]/g,"i").replace(/3/g,"e").replace(/5/g,"s").replace(/[^a-z]/g,"")}
-function lineLooksEtq(text){const c=ticketLabelComparable(text);return c.includes("etq")||c.includes("etiq")||c.includes("etiqu")||c.includes("elab")||c.includes("envas")}
-function lineLooksVence(text){const c=ticketLabelComparable(text);return c.includes("vence")||c.includes("venc")||c.includes("vto")}
-function lineLooksPlu(text){const c=String(text||"").toUpperCase().replace(/[^A-Z0-9|]/g,"");return /P(?:L|1|I|\|)?U/.test(c)}
-function normalizeOcrMeta(meta){if(!meta)return null;if(typeof meta==="string"){try{return JSON.parse(meta)}catch(e){return null}}return typeof meta==="object"?meta:null}
-function ticketOcrPasses(text,meta){
-  const m=normalizeOcrMeta(meta),passes=[];
-  if(m&&Array.isArray(m.passes))m.passes.forEach((p,pi)=>{
-    const rawLines=Array.isArray(p?.lines)?p.lines:[],lines=rawLines.map((l,i)=>({text:String(l?.text||"").replace(/\s+/g," ").trim(),cy:Number.isFinite(Number(l?.cy))?Number(l.cy):(i+.5)/Math.max(1,rawLines.length),confidence:Number(l?.confidence||0),angle:Number(l?.angle||0)})).filter(x=>x.text).sort((a,b)=>a.cy-b.cy);
-    if(lines.length)passes.push({label:String(p?.label||`pasada_${pi+1}`),text:String(p?.text||lines.map(x=>x.text).join("\n")),lines,averageConfidence:Number(p?.averageConfidence||0)});
-  });
-  if(!passes.length){const lines=String(text||"").split(/\r?\n/).map(x=>x.replace(/\s+/g," ").trim()).filter(Boolean);passes.push({label:"texto",text:String(text||""),lines:lines.map((x,i)=>({text:x,cy:(i+.5)/Math.max(1,lines.length),confidence:0,angle:0})),averageConfidence:0})}
-  return passes;
-}
-function extractPluDigitsFromLine(text){
-  const raw=String(text||"");
-  let m=raw.match(/P\s*[L1I|!]?\s*U\s*[:#\-]?\s*([0-9OoQIl|!]{3,8})/i);
-  if(!m&&lineLooksPlu(raw))m=raw.match(/([0-9OoQIl|!]{3,8})/);
-  if(!m)return"";const d=normalizeTicketDigits(m[1]).replace(/\D/g,"");return d.length>=3&&d.length<=8?d:"";
-}
-function numericPluFallbackFromPass(pass,dateYs=[]){
-  const lowerDate=dateYs.length?Math.max(...dateYs):-1,candidates=[];
-  const pluAnchors=pass.lines.filter(l=>lineLooksPlu(l.text)).map(l=>l.cy);
-  pass.lines.forEach(line=>{
-    if(/[\/.\-]/.test(line.text)||/(?:\$|kg|peso|importe|precio|total)/i.test(line.text))return;
-    for(const m of line.text.matchAll(/(?:^|\D)([0-9OoQIl|!]{4,8})(?=\D|$)/g)){
-      const code=normalizeTicketDigits(m[1]).replace(/\D/g,"");if(code.length<4||code.length>8)continue;
-      let score=25;
-      if(lowerDate>=0&&line.cy>lowerDate&&line.cy-lowerDate<.24)score+=40;
-      if(line.cy>.45)score+=10;
-      // Si el OCR separó "PLU:" y sus dígitos en dos líneas/bloques, la cercanía
-      // al rótulo PLU es una señal mucho más fuerte que cualquier otro número.
-      if(pluAnchors.length){const d=Math.min(...pluAnchors.map(y=>Math.abs(y-line.cy)));if(d<.025)score+=90;else if(d<.065)score+=65;else if(d<.11)score+=30}
-      candidates.push({code,cy:line.cy,score,line:line.text});
-    }
-  });
-  return candidates.sort((a,b)=>b.score-a.score)[0]||null;
-}
-function extractScaleTicketPlu(passes){
-  const grouped=new Map();
-  const add=(code,score,cy,label)=>{if(!code)return;const prev=grouped.get(code)||{code,score:0,support:0,cy:[],labels:[]};prev.score+=score;prev.support++;prev.cy.push(cy);prev.labels.push(label);grouped.set(code,prev)};
-  passes.forEach(pass=>{
-    const dateYs=pass.lines.filter(l=>ticketDatesInText(l.text).length).map(l=>l.cy),labeled=[];
-    pass.lines.forEach(line=>{const code=extractPluDigitsFromLine(line.text);if(code){const strong=lineLooksPlu(line.text);add(code,strong?105:75,line.cy,pass.label);labeled.push(code)}});
-    if(!labeled.length){const f=numericPluFallbackFromPass(pass,dateYs);if(f&&f.score>=55)add(f.code,f.score,f.cy,pass.label)}
-  });
-  const best=[...grouped.values()].sort((a,b)=>(b.score+b.support*18)-(a.score+a.support*18))[0];if(!best)return{code:"",confidence:0,cyByPass:{}};
-  const cyByPass={};passes.forEach(pass=>{const line=pass.lines.find(l=>extractPluDigitsFromLine(l.text)===best.code);if(line)cyByPass[pass.label]=line.cy});
-  const confidence=best.score>=100||best.support>=2?1:best.score>=70?.75:.45;
-  return{code:best.code,confidence,cyByPass};
-}
-function ticketDateCandidateScore(line,date,pass,pluY,datesInPass){
-  let score=10;
-  const nearby=pass.lines.filter(l=>Math.abs(l.cy-line.cy)<.055).map(l=>l.text).join(" ");
-  const etq=lineLooksEtq(line.text)||lineLooksEtq(nearby),vence=lineLooksVence(line.text)||lineLooksVence(nearby);
-  if(vence)score+=150;if(etq)score-=180;
-  if(Number.isFinite(pluY)){
-    if(line.cy<pluY){const dist=pluY-line.cy;score+=Math.max(0,70-dist*155)}else score-=110;
-  }
-  if(datesInPass.length>=2){
-    // La regla física conocida del ticket: Vence es la fecha inferior. Si PLU está
-    // visible, sólo comparamos fechas que estén por encima de él para no tomar
-    // números/fechas ajenos de la parte inferior del ticket.
-    const eligible=Number.isFinite(pluY)?datesInPass.filter(x=>x.line.cy<pluY):datesInPass;
-    const pool=eligible.length?eligible:datesInPass,lower=Math.max(...pool.map(x=>x.line.cy));
-    if(Math.abs(line.cy-lower)<.018)score+=125;else score+=5;
-  }
-  // En estos tickets la fecha de vencimiento aparece antes de PESO/PLU. Una fecha
-  // posterior a esos marcadores se considera sospechosa.
-  const pesoYs=pass.lines.filter(l=>/\bpeso\b/i.test(norm(l.text))).map(l=>l.cy);
-  if(pesoYs.length&&line.cy>Math.min(...pesoYs)+.03)score-=70;
-  return score;
-}
-function extractScaleTicketExpiryDate(text,meta,pluInfo=null){
-  const passes=ticketOcrPasses(text,meta),plu=pluInfo||extractScaleTicketPlu(passes),grouped=new Map();
-  passes.forEach(pass=>{
-    const rows=[];pass.lines.forEach(line=>ticketDatesInText(line.text).forEach(d=>rows.push({line,date:d})));
-    const pluY=Number(plu?.cyByPass?.[pass.label]);
-    rows.forEach(row=>{
-      const score=ticketDateCandidateScore(row.line,row.date,pass,Number.isFinite(pluY)?pluY:NaN,rows),prev=grouped.get(row.date.iso)||{iso:row.date.iso,score:0,support:new Set(),bestScore:-999};
-      prev.score+=score;prev.bestScore=Math.max(prev.bestScore,score);prev.support.add(pass.label);grouped.set(row.date.iso,prev)
-    });
-  });
-  const ranked=[...grouped.values()].map(x=>({...x,supportCount:x.support.size})).sort((a,b)=>(b.score+b.supportCount*35)-(a.score+a.supportCount*35));
-  const best=ranked[0];if(!best)return{date:"",confidence:0,candidates:[]};
-  // Evitar aceptar silenciosamente una fecha que sólo parece L/Etq.
-  const confidence=best.bestScore>=130||best.supportCount>=2&&best.score>=80?1:best.score>=85?.8:best.score>=55?.6:.35;
-  return{date:confidence>=.6?best.iso:"",confidence,candidates:ranked};
-}
-function ocrComparable(value){
-  return norm(value).replace(/[^a-z0-9]+/g," ").replace(/\b(?:x|kg|kgs|ks|k|gr|g|unidad|unidades|un)\b/g," ").replace(/\s+/g," ").trim();
-}
-function levenshteinDistance(a,b){
-  a=String(a||"");b=String(b||"");if(a===b)return 0;if(!a)return b.length;if(!b)return a.length;
-  const prev=Array.from({length:b.length+1},(_,i)=>i);
-  for(let i=1;i<=a.length;i++){
-    const cur=[i];
-    for(let j=1;j<=b.length;j++)cur[j]=Math.min(cur[j-1]+1,prev[j]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
-    for(let j=0;j<cur.length;j++)prev[j]=cur[j];
-  }
-  return prev[b.length];
-}
-function textSimilarity(a,b){
-  a=ocrComparable(a);b=ocrComparable(b);if(!a||!b)return 0;
-  return 1-(levenshteinDistance(a,b)/Math.max(a.length,b.length,1));
-}
-function knownProductNamesForOcr(){
-  const names=[];
-  const add=v=>{const n=String(v?.name||v||"").replace(/\s+/g," ").trim();if(n)names.push(n)};
-  // La plantilla de temporada va primero porque contiene la mayor parte del catálogo real.
-  (learningCatalog||[]).forEach(add);
-  (items||[]).forEach(add);(expiryHistory||[]).forEach(add);
-  Object.values(savedExpiryProducts||{}).forEach(add);
-  (consultantProducts||[]).forEach(add);
-  Object.values(savedProducts||{}).forEach(add);
-  Object.values(barcodeLibrary||{}).forEach(add);
-  Object.values(expiryScanLibrary||{}).forEach(add);
-  return [...new Map(names.map(n=>[norm(n),n])).values()];
-}
-function fuzzyProductScore(candidate,observed){
-  const c=ocrComparable(candidate),o=ocrComparable(observed);if(!c||!o)return 0;
-  if(c===o)return 1;
-  if(o.includes(c)||c.includes(o))return Math.min(.99,.88+Math.min(c.length,o.length)/Math.max(c.length,o.length)*.11);
-  const ct=c.split(" ").filter(x=>x.length>=3),ot=o.split(" ").filter(x=>x.length>=3);if(!ct.length||!ot.length)return textSimilarity(c,o);
-  // Errores/cortes muy comunes: primera letra perdida (anahoria→zanahoria, imon→limon).
-  for(const a of ct)for(const b of ot){if(a.length>=5&&b===a.slice(1))return .95;if(b.length>=5&&a===b.slice(1))return .93}
-  const tokenBest=ct.map(t=>Math.max(...ot.map(x=>textSimilarity(t,x)))),tokenAvg=tokenBest.reduce((a,b)=>a+b,0)/tokenBest.length;
-  const charScore=textSimilarity(c,o),coverage=Math.min(1,ct.length/Math.max(1,ot.length));
-  return Math.max(...tokenBest)*.46+tokenAvg*.34+charScore*.12+coverage*.08;
-}
-function bestKnownProductMatch(observed){
-  const raw=String(observed||"").trim();if(!raw)return null;
-  let best=null;knownProductNamesForOcr().forEach(name=>{const score=fuzzyProductScore(name,raw);if(!best||score>best.score)best={name,score}});
-  return best;
-}
-function ticketNameCandidateStrings(passes){
-  const out=[];
-  passes.forEach(pass=>{
-    const firstMarker=pass.lines.find(l=>lineLooksEtq(l.text)||lineLooksVence(l.text)||lineLooksPlu(l.text)||ticketDatesInText(l.text).length||/(?:\$\/?kg|peso|importe)/i.test(l.text));
-    const stopY=firstMarker?firstMarker.cy:.55,lines=pass.lines.filter(l=>l.cy<stopY).map(l=>l.text).filter(x=>{
-      if(!/[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]/.test(x)||x.length>70)return false;
-      if(/industria|fraccion|cencosud|disco|jumbo|vea|supermerc|precio|importe|peso|total|fecha|ticket|san martin/i.test(x))return false;
-      return true;
-    }).slice(0,7);
-    lines.forEach((line,i)=>{out.push(line);if(lines[i+1])out.push(`${line} ${lines[i+1]}`)});
-  });
-  return [...new Set(out.map(x=>x.replace(/\s+/g," ").trim()).filter(Boolean))];
-}
-function parseScaleTicket(text,meta){
-  const passes=ticketOcrPasses(text,meta),pluInfo=extractScaleTicketPlu(passes),plu=pluInfo.code,dateInfo=extractScaleTicketExpiryDate(text,meta,pluInfo),date=dateInfo.date;
-  const known=findKnownExpiryByCode(plu,"PLU"),nameCandidates=ticketNameCandidateStrings(passes);
-  let rawName=nameCandidates[0]||"",name=known?.name||"",nameSuggestion="",nameConfidence=known?.name?1:0;
-  if(!name&&nameCandidates.length){
-    let best=null;nameCandidates.forEach(line=>{const match=bestKnownProductMatch(line);if(match&&(!best||match.score>best.score))best={...match,line}});
-    if(best){rawName=best.line;if(best.score>=.80){name=best.name;nameConfidence=best.score}else if(best.score>=.58){nameSuggestion=best.name;nameConfidence=best.score}}
-  }
-  return{name,code:plu,codeType:"PLU",date,withdrawDays:Number(known?.withdrawDays||0),source:"ticket",nameSuggestion,nameConfidence,rawTicketName:rawName,pluConfidence:pluInfo.confidence,dateConfidence:dateInfo.confidence,optimizedDocument:!!normalizeOcrMeta(meta)?.optimizedDocument};
-}
-function setExpiryScanStatus(message,busy=false){if(!$('expiryScanStatus'))return;$('expiryScanStatus').textContent=String(message||"");$('expiryScanStatus').classList.toggle('busy',!!busy)}
-function openExpiryScanDraft(title="Revisar vencimiento detectado"){
-  if(!expiryScanDraft)expiryScanDraft={name:"",code:"",codeType:"EAN",date:"",withdrawDays:0,notes:"",source:"scanner"};
-  const d=expiryScanDraft,label=d.codeType==="PLU"?"PLU":"Código / EAN",photoAllowed=d.source!=="ticket";
-  const suggestion=String(d.nameSuggestion||"").trim();
-  const suggestionHtml=!d.name&&suggestion?`<div class="scan-name-suggestion"><div>Posible producto según Base de aprendizaje:</div><button class="secondary-btn" id="useExpiryNameSuggestionBtn" type="button">${esc(suggestion)}</button></div>`:"";
-  const ticketInfo=d.source==="ticket"?`<div class="scan-detected-badge">Ticket: PLU + vencimiento por estructura. Se prioriza la fecha inferior sobre L/Etq y se ignora el código de barras largo.</div>`:"";
-  openModal(title,`<label>Producto</label><input id="m1" value="${esc(d.name||"")}" placeholder="Nombre del producto">${suggestionHtml}<label style="margin-top:10px">${label}</label><input id="m2" data-no-autocap inputmode="numeric" value="${esc(d.code||"")}" ${d.code?"readonly":""}><label style="margin-top:10px">Fecha de vencimiento</label><input id="m3" type="date" value="${esc(d.date||"")}"><label style="margin-top:10px">Retiro</label><select id="m4"><option value="0" ${Number(d.withdrawDays||0)===0?"selected":""}>Retirar el día del vencimiento</option><option value="10" ${Number(d.withdrawDays||0)===10?"selected":""}>Retirar 10 días antes</option></select><label style="margin-top:10px">Nota opcional</label><input id="m5" value="${esc(d.notes||"")}">${photoAllowed?`<button class="secondary-btn scan-photo-btn" id="scanDraftPhotoBtn" type="button">📷 Completar nombre/presentación con foto</button><div class="scan-photo-help">Si la fecha aparece claramente en la foto, Al Día también intentará proponerla. Siempre revisala antes de guardar.</div>`:ticketInfo}` ,{type:"expiry-scan-new"});
-  setTimeout(()=>{
-    const b=$('scanDraftPhotoBtn');if(b)b.onclick=()=>{expiryScanDraft.name=$('m1').value.trim();expiryScanDraft.date=$('m3').value;expiryScanDraft.withdrawDays=Number($('m4').value);expiryScanDraft.notes=$('m5').value.trim();captureTextPhotoFor('expiry_product_front')};
-    const suggest=$('useExpiryNameSuggestionBtn');if(suggest)suggest.onclick=()=>{$('m1').value=suggestion;expiryScanDraft.name=suggestion;expiryScanDraft.nameSuggestion="";showToast("Nombre sugerido aplicado")};
-  },0)
-}
-function captureTextPhotoFor(purpose){if(window.AndroidNative&&AndroidNative.captureTextPhoto){setExpiryScanStatus("Abriendo cámara…",true);try{AndroidNative.captureTextPhoto(purpose);return}catch(e){console.error(e)}}showToast("La cámara está disponible en la app Android")}
-function startExpiryBarcodeScan(){expiryScanDraft={name:"",code:"",codeType:"EAN",date:"",withdrawDays:0,notes:"",source:"barcode"};setExpiryScanStatus("Abriendo escáner de código / EAN…",true);if(window.AndroidNative&&AndroidNative.startBarcodeScanFor){try{AndroidNative.startBarcodeScanFor("expiry_packaged");return}catch(e){console.error(e)}}showToast("Escáner disponible en Android")}
-function startExpiryProductPhoto(){expiryScanDraft={name:"",code:"",codeType:"EAN",date:"",withdrawDays:0,notes:"",source:"photo"};captureTextPhotoFor("expiry_product_front")}
-function startExpiryTicketScan(){expiryScanDraft={name:"",code:"",codeType:"PLU",date:"",withdrawDays:0,notes:"",source:"ticket"};captureTextPhotoFor("expiry_ticket")}
-function captureReplenishmentPhoto(id){const x=barcodeSession.items.find(y=>y.id===id);if(!x)return;if(window.AndroidNative&&AndroidNative.captureTextPhoto){$('barcodeStatus').className='barcode-status busy';$('barcodeStatus').textContent='Sacá una foto clara del frente, incluyendo la presentación si es posible.';AndroidNative.captureTextPhoto(`replenishment:${id}`)}else showToast('Foto disponible en Android')}
-window.onBarcodeScanStatusFor=function(purpose,status,message){if(purpose==="replenishment"){window.onBarcodeScanStatus?.(status,message);return}setExpiryScanStatus(message||"",status==="opening"||status==="looking_up")}
-window.onBarcodeScanResultFor=function(purpose,code,name,source){
-  if(purpose==="replenishment"){window.onBarcodeScanResult?.(code,name,source);return}
-  if(purpose!=="expiry_packaged")return;code=String(code||"").trim();const known=findKnownExpiryByCode(code,"EAN");expiryScanDraft={name:known?.name||"",code,codeType:"EAN",date:"",withdrawDays:Number(known?.withdrawDays||0),notes:"",source:"barcode"};openExpiryScanDraft(known?.name?"Producto reconocido · completar vencimiento":"Código leído · revisar producto");setExpiryScanStatus(known?.name?"Producto reconocido desde Al Día.":"Buscando el nombre del producto…",!known?.name)
-}
-window.onBarcodeLookupResultFor=function(purpose,code,name,source){
-  if(purpose==="replenishment"){window.onBarcodeLookupResult?.(code,cleanProductName(name),source);return}
-  if(purpose!=="expiry_packaged")return;const known=findKnownExpiryByCode(code,"EAN");if(!expiryScanDraft||expiryScanDraft.code!==String(code))return;const resolved=known?.name||cleanProductName(name);if(resolved&&resolved!=="Producto sin identificar")expiryScanDraft.name=resolved;if($('editModalBackdrop')?.classList.contains('open')&&editCtx?.type==="expiry-scan-new"&&$('m1'))$('m1').value=expiryScanDraft.name||"";setExpiryScanStatus(expiryScanDraft.name?"Producto reconocido. Revisá la fecha y guardá.":"No encontramos un nombre confiable. Usá la foto del frente o completalo manualmente.",false)
-}
-window.onPhotoScanStatus=function(purpose,status,message){const busy=status==="opening"||status==="reading"||status==="enhancing"||status==="fallback";if(String(purpose).startsWith("replenishment:")){if($('barcodeStatus')){$('barcodeStatus').className=`barcode-status ${busy?'busy':''}`;$('barcodeStatus').textContent=message||''}}else setExpiryScanStatus(message||"",busy)}
-window.onPhotoTextResult=function(purpose,text,meta){
-  purpose=String(purpose||"");text=String(text||"");
-  if(purpose.startsWith("replenishment:")){const id=purpose.split(":")[1],x=barcodeSession.items.find(y=>y.id===id);if(!x)return;const next=cleanProductName(x.name,text);if(next&&next!=="Producto sin identificar")x.name=next;if(x.code&&x.name)barcodeLibrary[x.code]={name:x.name,source:"foto_producto",updatedAt:new Date().toISOString()};saveAll();renderBarcodeSession();$('barcodeStatus').className='barcode-status';$('barcodeStatus').textContent='Foto procesada. Revisá el nombre y la presentación.';showToast('Nombre/presentación actualizados');return}
-  if(purpose==="expiry_ticket"){
-    const parsed=parseScaleTicket(text,meta);expiryScanDraft={...expiryScanDraft,...parsed};
-    if(parsed.code&&parsed.name)rememberExpiryScanCode(parsed.name,parsed.code,"PLU",parsed.withdrawDays||0);
-    const title=parsed.code&&parsed.date?(parsed.name?"Ticket reconocido":"PLU y vencimiento reconocidos"):"Revisar datos del ticket";
-    openExpiryScanDraft(title);
-    const bits=[];if(parsed.code)bits.push(`PLU ${parsed.code}`);if(parsed.date)bits.push(`Vence ${fmt(parsed.date)}`);if(parsed.name)bits.push(`Producto: ${parsed.name}`);else if(parsed.nameSuggestion)bits.push("Nombre sugerido disponible");
-    setExpiryScanStatus(bits.length?`${bits.join(" · ")}.`:"No pude detectar PLU ni vencimiento con seguridad. Revisá la foto o completá manualmente.",false);
-    return
-  }
-  if(purpose==="expiry_product_front"){if(!expiryScanDraft)expiryScanDraft={name:"",code:"",codeType:"EAN",date:"",withdrawDays:0,notes:"",source:"photo"};const candidate=cleanProductName(expiryScanDraft.name,text),date=extractExpiryDateFromText(text);if(candidate&&candidate!=="Producto sin identificar")expiryScanDraft.name=candidate;if(date)expiryScanDraft.date=date;openExpiryScanDraft(date?"Foto reconocida · revisar vencimiento":"Foto reconocida · completar vencimiento");setExpiryScanStatus(date?"Nombre/presentación y una fecha etiquetada fueron detectados. Revisalos antes de guardar.":"Nombre/presentación actualizados. Completá la fecha de vencimiento.",false)}
-}
 function expiryIdentity(x){const c=String(x.code||"").trim(),n=norm(x.name);return c?`${x.codeType||"EAN"}:${c}`:(n?`N:${n}`:`I:${x.id}`)}
 function expiryGroupsFor(list){const map=new Map();list.forEach(x=>{const k=expiryIdentity(x);if(!map.has(k))map.set(k,[]);map.get(k).push(x)});return [...map.values()].map(g=>g.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)))).sort((a,b)=>parseDate(withdrawalDate(a[0]))-parseDate(withdrawalDate(b[0])))}
 function renderExpiry(){
   items.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)));const filtered=items.filter(x=>{const status=expiryStatus(x);return expiryFilter==="all"||status.cls===expiryFilter}),groups=expiryGroupsFor(filtered);$('emptyState').style.display=groups.length?'none':'block';$('list').innerHTML='';
-  groups.forEach(group=>{const first=group.find(x=>x.code)||group[0],el=document.createElement('div');el.className='item expiry-group-card';const codeLabel=first.codeType==='PLU'?'PLU':'Código / EAN';el.innerHTML=`<div class="expiry-group-head"><div><div class="expiry-group-name">${esc(first.name)}</div><div class="expiry-group-code">${first.code?`${codeLabel}: ${esc(first.code)}`:'Sin código guardado'}</div></div><div style="display:flex;align-items:center;gap:5px"><span class="expiry-group-count">${group.length} vencimiento${group.length===1?'':'s'}</span><button class="share-btn" data-share-expiry-group="${group[0].id}" type="button" title="Compartir">↗</button></div></div><div class="expiry-lots">${group.map(x=>{const st=expiryStatus(x),rd=withdrawalDate(x);return `<div class="expiry-lot-row ${st.cls}" data-expiry-id="${x.id}" tabindex="0"><div><div class="expiry-lot-date">Vence: ${fmt(x.date)}</div><div class="expiry-lot-meta">Retiro: ${fmt(rd)}${x.notes?` · ${esc(x.notes)}`:''}</div><span class="status-badge ${st.cls}">${st.text}</span></div><div class="expiry-lot-actions">${st.days<=0?`<button class="btn-retired" data-retire="${x.id}" type="button">Retirar</button>`:''}<button class="btn-danger expiry-lot-delete" data-del-expiry="${x.id}" type="button" tabindex="-1" aria-hidden="true">Eliminar</button></div></div>`}).join('')}</div>`;$('list').appendChild(el)});
+  groups.forEach(group=>{const first=group.find(x=>x.code)||group[0],el=document.createElement('div');el.className='item expiry-group-card';const codeLabel=first.codeType==='PLU'?'PLU':'Código / EAN';el.innerHTML=`<div class="expiry-group-head"><div><div class="expiry-group-name">${esc(first.name)}</div><div class="expiry-group-code">${first.code?`${codeLabel}: ${esc(first.code)}`:'Sin código guardado'}</div></div><div class="expiry-group-tools"><span class="expiry-group-count">${group.length} vencimiento${group.length===1?'':'s'}</span><button class="expiry-add-lot-btn" data-add-expiry-lot="${group[0].id}" type="button">＋ Fecha</button><button class="share-btn" data-share-expiry-group="${group[0].id}" type="button" title="Compartir">↗</button></div></div><div class="expiry-lots">${group.map(x=>{const st=expiryStatus(x),rd=withdrawalDate(x);return `<div class="expiry-lot-row ${st.cls}" data-expiry-id="${x.id}" tabindex="0"><div><div class="expiry-lot-date">Vence: ${fmt(x.date)}</div><div class="expiry-lot-meta">Retiro: ${fmt(rd)}${x.notes?` · ${esc(x.notes)}`:''}</div><span class="status-badge ${st.cls}">${st.text}</span></div><div class="expiry-lot-actions">${st.days<=0?`<button class="btn-retired" data-retire="${x.id}" type="button">Retirar</button>`:''}<button class="btn-danger expiry-lot-delete" data-del-expiry="${x.id}" type="button" tabindex="-1" aria-hidden="true">Eliminar</button></div></div>`}).join('')}</div>`;$('list').appendChild(el)});
   const urgent=items.filter(x=>expiryStatus(x).days<=7).length;$('totalCount').textContent=`${expiryGroupsFor(items).length} producto${expiryGroupsFor(items).length===1?'':'s'} · ${items.length} fecha${items.length===1?'':'s'}`;$('urgentCount').textContent=`${urgent} vencimiento${urgent===1?'':'s'} para revisar`;
   document.querySelectorAll('[data-retire]').forEach(b=>b.onclick=async e=>{e.stopPropagation();const x=items.find(y=>y.id===b.dataset.retire);if(!x)return;if(!await askConfirm(`¿Retirar el lote de “${x.name}” que vence ${fmt(x.date)}?`,'Retirar vencimiento'))return;expiryHistory.unshift({...x,removedAt:localDate(new Date()),withdrawalDate:withdrawalDate(x)});items=items.filter(y=>y.id!==x.id);cleanExpiryHistory();saveAll();renderAll();showToast('Vencimiento retirado')});
   document.querySelectorAll('[data-share-expiry-group]').forEach(b=>b.onclick=e=>{e.stopPropagation();const seed=items.find(x=>x.id===b.dataset.shareExpiryGroup);if(!seed)return;const group=expiryGroupsFor(items).find(g=>g.some(x=>x.id===seed.id))||[seed];const codeItem=group.find(x=>x.code)||seed,codeLabel=codeItem.codeType==='PLU'?'PLU':'Código / EAN';shareText('Vencimientos · '+seed.name,`Al Día · Vencimientos\n${seed.name}${codeItem.code?`\n${codeLabel}: ${codeItem.code}`:''}\n${group.map(x=>`Vence: ${fmt(x.date)} · Retiro: ${fmt(withdrawalDate(x))} · ${expiryStatus(x).text}${x.notes?` · ${x.notes}`:''}`).join('\n')}`)});
+  document.querySelectorAll('[data-add-expiry-lot]').forEach(b=>b.onclick=e=>{e.stopPropagation();openExpiryQuickAdd(b.dataset.addExpiryLot)});
   document.querySelectorAll('.expiry-lot-row[data-expiry-id]').forEach(row=>{const open=()=>openExpiryEdit(row.dataset.expiryId);row.onclick=e=>{if(row.dataset.gestureConsumed==='1'){row.dataset.gestureConsumed='0';return}if(e.target.closest('button,input,select,a'))return;open()};row.onkeydown=e=>{if((e.key==='Enter'||e.key===' ')&&!e.target.closest('button,input,select,a')){e.preventDefault();open()}}});try{refreshSwipeDelete()}catch(e){}
 }
-function renderBarcodeSession(){normalizeBarcodeSession();renderBarcodeHomeBadge();if(!$('barcodeSessionList'))return;const n=barcodeSession.items.length;$('barcodeSessionCount').textContent=`${n} producto${n===1?'':'s'}`;$('barcodeSessionStarted').textContent=barcodeSessionDateLabel();$('barcodeSessionList').innerHTML=n?barcodeSession.items.map(x=>`<article class="barcode-item" data-barcode-item-id="${x.id}"><div class="barcode-item-main"><div class="barcode-item-name">${esc(cleanProductName(x.name))}</div><div class="barcode-item-meta">${x.code?`Código / EAN ${esc(x.code)}`:'Añadido manualmente'}${x.scans>1?`<span class="barcode-repeat">Escaneado ${x.scans} veces</span>`:''}</div></div><div class="barcode-item-actions"><button class="barcode-photo" data-photo-barcode="${x.id}" type="button">📷 Foto</button><button class="barcode-edit" data-edit-barcode="${x.id}" type="button">Editar</button></div><button class="btn-danger swipe-delete-source" data-del-barcode="${x.id}" type="button" tabindex="-1" aria-hidden="true">Eliminar</button></article>`).join(''):`<div class="barcode-empty">Todavía no hay productos. Tocá <strong>Escanear producto</strong> para comenzar.</div>`;$('barcodeFinishBtn').disabled=!n;document.querySelectorAll('[data-photo-barcode]').forEach(b=>b.onclick=e=>{e.stopPropagation();captureReplenishmentPhoto(b.dataset.photoBarcode)});document.querySelectorAll('[data-edit-barcode]').forEach(b=>b.onclick=e=>{e.stopPropagation();openBarcodeEdit(b.dataset.editBarcode)});document.querySelectorAll('[data-barcode-item-id]').forEach(card=>card.onclick=e=>{if(card.dataset.gestureConsumed==='1'){card.dataset.gestureConsumed='0';return}if(e.target.closest('button,input,select'))return;openBarcodeEdit(card.dataset.barcodeItemId)});document.querySelectorAll('[data-del-barcode]').forEach(b=>b.onclick=async e=>{e.stopPropagation();const x=barcodeSession.items.find(y=>y.id===b.dataset.delBarcode);if(!x)return;if(!await askConfirm(`Se quitará “${x.name}” de esta sesión.`,'Quitar producto',true))return;barcodeSession.items=barcodeSession.items.filter(y=>y.id!==x.id);normalizeBarcodeSession();saveAll();renderBarcodeSession();showToast('Producto quitado')});try{refreshSwipeDelete()}catch(e){}}
-
-function seedExpiryScanLibraryFromExisting(){[...(items||[]),...(expiryHistory||[])].forEach(x=>{if(x?.name&&x?.code)rememberExpiryScanCode(x.name,x.code,x.codeType||"EAN",x.withdrawDays||0)});Object.values(savedExpiryProducts||{}).forEach(x=>{if(x?.name&&x?.code)rememberExpiryScanCode(x.name,x.code,"EAN",x.withdrawDays||0)});(consultantProducts||[]).forEach(x=>{if(x?.name&&x?.code&&!findKnownExpiryByCode(x.code,"EAN"))rememberExpiryScanCode(x.name,x.code,"EAN",0)})}
-seedExpiryScanLibraryFromExisting();
-$('expiryBarcodeScanBtn').onclick=startExpiryBarcodeScan;$('expiryProductPhotoBtn').onclick=startExpiryProductPhoto;$('expiryTicketScanBtn').onclick=startExpiryTicketScan;
 
 function openLearningEdit(id){const x=learningCatalog.find(y=>y.id===id);if(!x)return;openModal("Editar producto de temporada",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Categoría</label><select id="m3">${cats.map(c=>`<option ${x.category===c?"selected":""}>${c}</option>`).join("")}</select><div class="month-picker"><div class="month-picker-head"><label style="margin:0">Meses disponibles</label><button class="month-toggle-all" id="modalMonthsToggle" type="button">Seleccionar todos</button></div><div class="month-grid" id="modalMonthsGrid">${monthPickerHtml(x.months)}</div><div class="month-count-note" id="modalMonthsCount"></div></div><div class="footer-note">Origen: ${esc(x.origin||"Dato guardado")}</div>`,{type:"learning",id});const upd=()=>{const n=[...$("modalMonthsGrid").querySelectorAll("input:checked")].length;$("modalMonthsCount").textContent=`${n} de 12 meses seleccionados`;$("modalMonthsToggle").textContent=n===12?"Deseleccionar todos":"Seleccionar todos"};$("modalMonthsGrid").querySelectorAll("input").forEach(i=>i.onchange=upd);$("modalMonthsToggle").onclick=()=>{const all=[...$("modalMonthsGrid").querySelectorAll("input:checked")].length===12;$("modalMonthsGrid").querySelectorAll("input").forEach(i=>i.checked=!all);upd()};upd()}
 function openMainTab(tab){
@@ -3166,9 +2777,7 @@ $("homeMuestrasBtn").onclick=()=>openMainTab("muestras");
 $("homeNotesBtn").onclick=()=>openMainTab("notas");
 $("homePlantillaBtn").onclick=()=>{openMainTab("plantilla");renderCvDraft();renderCvHistory()};
 $("homeLearningBtn").onclick=()=>{openMainTab("aprendizaje");renderLearningBase()};
-$("homeBarcodeScanBtn").onclick=()=>openBarcodeSession();
 $("homeProductSearchInput").onkeydown=e=>{if(e.key!=="Enter")return;const q=$("homeProductSearchInput").value.trim();openMainTab("consultor");$("consultorSearch").value=q;renderConsultor();$("consultorSearch").focus()};
-$("barcodeCloseBtn").onclick=closeBarcodeSession;$("barcodeBackdrop").onclick=e=>{if(e.target===$("barcodeBackdrop"))closeBarcodeSession()};$("barcodeScanAnotherBtn").onclick=startBarcodeScan;$("barcodeManualAddBtn").onclick=openBarcodeManualAdd;$("barcodeFinishBtn").onclick=finishBarcodeSession;$("barcodeDiscardBtn").onclick=async()=>{normalizeBarcodeSession();if(!barcodeSession.items.length){closeBarcodeSession();return}if(!await askConfirm("Se eliminará la lista de reposición que está en preparación.","Descartar sesión",true))return;barcodeSession={items:[],startedAt:""};saveAll();renderBarcodeSession();closeBarcodeSession();showToast("Sesión descartada")};
 $("consultorSearch").oninput=renderConsultor;
 if($("learningSearch"))$("learningSearch").oninput=renderLearningBase;if($("learningMonthFilter"))$("learningMonthFilter").onchange=renderLearningBase;if($("learningCategoryFilter"))$("learningCategoryFilter").onchange=renderLearningBase;if($("learningMonthlyViewBtn"))$("learningMonthlyViewBtn").onclick=()=>{learningViewMode="month";renderLearningBase()};if($("learningAnnualViewBtn"))$("learningAnnualViewBtn").onclick=()=>{learningViewMode="year";renderLearningBase()};
 
@@ -3256,7 +2865,6 @@ $("notesOrganizeBtn").onclick=()=>{
   $("notesOrganizeBtn").textContent=active?"Listo":"Organizar";
 };
 document.querySelectorAll("[data-back-home]").forEach(b=>b.onclick=()=>openMainTab("inicio"));
-document.querySelectorAll("[data-open-settings]").forEach(b=>b.onclick=()=>openMainTab("ajustes"));
 
 const swipeTabs=["inicio"];
 let touchStartX=0;
@@ -3361,8 +2969,7 @@ function backupCounts(d){
     orderHistory:d.orderHistory?Object.values(d.orderHistory).reduce((n,a)=>n+(Array.isArray(a)?a.length:0),0):0,
     sampleActive,
     sampleHistory:Array.isArray(d.sampleHistory)?d.sampleHistory.length:0,
-    carnesVegetales:Array.isArray(d.carnesVegetalesHistory)?d.carnesVegetalesHistory.length:0,
-    barcodeKnown:d.barcodeLibrary&&typeof d.barcodeLibrary==="object"?Object.keys(d.barcodeLibrary).length:0
+    carnesVegetales:Array.isArray(d.carnesVegetalesHistory)?d.carnesVegetalesHistory.length:0
   };
 }
 function backupSummaryText(d,includeTitle=true){
@@ -3372,10 +2979,10 @@ function backupSummaryText(d,includeTitle=true){
     const dt=new Date(d.exportedAt);
     if(!Number.isNaN(dt.getTime()))when=dt.toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
   }
-  return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos guardados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}\nProductos aprendidos por código: ${c.barcodeKnown}`;
+  return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos guardados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}`;
 }
 function currentBackupObject(){
-  return {version:21,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,barcodeLibrary,barcodeSession,expiryScanLibrary,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:22,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;
@@ -3418,9 +3025,6 @@ function applyBackupObject(d,silent=false){
   carnesVegetalesHistory=Array.isArray(d.carnesVegetalesHistory)?d.carnesVegetalesHistory:[];
   carnesVegetalesDraft=d.carnesVegetalesDraft&&Array.isArray(d.carnesVegetalesDraft.items)?d.carnesVegetalesDraft:null;
   learningCatalog=Array.isArray(d.learningCatalog)?d.learningCatalog:learningCatalog;seedLearningCatalog();
-  barcodeLibrary=d.barcodeLibrary&&typeof d.barcodeLibrary==="object"&&!Array.isArray(d.barcodeLibrary)?d.barcodeLibrary:barcodeLibrary;
-  barcodeSession=d.barcodeSession&&typeof d.barcodeSession==="object"&&Array.isArray(d.barcodeSession.items)?d.barcodeSession:barcodeSession;
-  expiryScanLibrary=d.expiryScanLibrary&&typeof d.expiryScanLibrary==="object"&&!Array.isArray(d.expiryScanLibrary)?d.expiryScanLibrary:expiryScanLibrary;
   backupMetaState=d.backupMetaState&&typeof d.backupMetaState==="object"?d.backupMetaState:backupMetaState;
   expiryProductMemory=Array.isArray(d.expiryProductMemory)?d.expiryProductMemory:expiryProductMemory;
   orderProductMemory=Array.isArray(d.orderProductMemory)?d.orderProductMemory:orderProductMemory;
@@ -3494,7 +3098,7 @@ $("backupFileInput").onchange=async()=>{
 function restoreNativeStateIfAvailable(){
   try{
     if(!(window.AndroidNative&&AndroidNative.getPersistedAppState))return;
-    const localHasData=items.length||notes.length||consultantProducts.length||carnesVegetalesHistory.length||carnesVegetalesDraft||barcodeSession.items.length||Object.values(orders).some(a=>Array.isArray(a)&&a.length)||Object.values(orderHistory).some(a=>Array.isArray(a)&&a.length)||sampleHistory.length||Object.values(sampleTemplates).some(a=>Array.isArray(a)&&a.length);
+    const localHasData=items.length||notes.length||consultantProducts.length||carnesVegetalesHistory.length||carnesVegetalesDraft||Object.values(orders).some(a=>Array.isArray(a)&&a.length)||Object.values(orderHistory).some(a=>Array.isArray(a)&&a.length)||sampleHistory.length||Object.values(sampleTemplates).some(a=>Array.isArray(a)&&a.length);
     if(localHasData)return;
     const raw=String(AndroidNative.getPersistedAppState()||"");
     if(!raw)return;
@@ -3504,9 +3108,9 @@ function restoreNativeStateIfAvailable(){
 }
 
 
-function findDeleteTrigger(el){return el?.querySelector?.('[data-del-order],[data-del-expiry],[data-del-exp-h],[data-del-oh],[data-del-exp-s],[data-del-os],[data-del-sample-row],[data-del-sample-history],[data-del-consultant],[data-del-cv-item],[data-del-cv],[data-del-barcode],.history-delete,.sample-stock-remove,.cv-product-delete,.cv-history-delete')||null}
+function findDeleteTrigger(el){return el?.querySelector?.('[data-del-order],[data-del-expiry],[data-del-exp-h],[data-del-oh],[data-del-exp-s],[data-del-os],[data-del-sample-row],[data-del-sample-history],[data-del-consultant],[data-del-cv-item],[data-del-cv],.history-delete,.sample-stock-remove,.cv-product-delete,.cv-history-delete')||null}
 function refreshSwipeDelete(){
-  const selectors=['[data-order-item-id]','.item[data-expiry-id]','.expiry-lot-row[data-expiry-id]','.saved-product-row','.consultor-product-row','.sample-stock-row','.cv-product-module','.history-order-card','.history-card','.sample-history-card','.cv-history-item','.barcode-item'];
+  const selectors=['[data-order-item-id]','.item[data-expiry-id]','.expiry-lot-row[data-expiry-id]','.saved-product-row','.consultor-product-row','.sample-stock-row','.cv-product-module','.history-order-card','.history-card','.sample-history-card','.cv-history-item'];
   document.querySelectorAll(selectors.join(',')).forEach(el=>{
     if(el.dataset.swipeDeleteReady==='1')return;const trigger=findDeleteTrigger(el);if(!trigger)return;
     el.dataset.swipeDeleteReady='1';el.classList.add('swipe-delete-ready');trigger.classList.add('swipe-delete-source');
@@ -3533,7 +3137,7 @@ function initOrderLongPressReorder(){
 }
 function renderAll(){
   seedLearningCatalog();migrateOrderCategoriesV215();
-  const jobs=[cleanExpiryHistory,cleanCompletion,seedExpiryScanLibraryFromExisting,renderProductMemories,renderExpiryDatalist,renderOrderDatalist,renderExpiry,renderExpiryHistory,renderOrders,renderOrderHistory,renderCompletion,renderSamples,renderSampleHistory,renderNotes,renderNoteHistory,renderConsultor,renderLearningBase,renderCvDraft,renderCvHistory,renderBarcodeHomeBadge,renderBarcodeSession,updateNextOrder,renderDashboard,updateHomeClock,renderBackupStatus,applySettings,refreshNotificationPermissionStatus,loadNativeVersion];
+  const jobs=[cleanExpiryHistory,cleanCompletion,renderProductMemories,renderExpiryDatalist,renderOrderDatalist,renderExpiry,renderExpiryHistory,renderOrders,renderOrderHistory,renderCompletion,renderSamples,renderSampleHistory,renderNotes,renderNoteHistory,renderConsultor,renderLearningBase,renderCvDraft,renderCvHistory,updateNextOrder,renderDashboard,updateHomeClock,renderBackupStatus,applySettings,refreshNotificationPermissionStatus,loadNativeVersion];
   jobs.forEach(fn=>{try{fn()}catch(e){console.error("Render:",fn&&fn.name,e)}});
   try{saveAll()}catch(e){console.error("Save",e)}
 }

@@ -1,0 +1,28 @@
+Al Día v2.22 — limpieza, simplificación y rendimiento
+
+- Eliminados por completo los sistemas de escaneo:
+  - escáner de reposición desde Inicio,
+  - Código/EAN por cámara en Vencimientos,
+  - Foto producto,
+  - Ticket/etiqueta,
+  - OCR, reconocimiento documental y bibliotecas técnicas asociadas.
+- Eliminadas las dependencias Google Code Scanner / ML Kit OCR / ML Kit Document Scanner.
+- Eliminado el soporte de captura de imágenes del proveedor interno; se conserva solamente el necesario para compartir XLSX.
+- Vencimientos simplificado para carga manual rápida:
+  - Producto, fecha y retiro como datos principales,
+  - Código/EAN y nota dentro de opciones secundarias,
+  - botón “+ Fecha” en cada ficha para añadir otro vencimiento al mismo producto sin repetir datos.
+- Se mantiene el modelo de múltiples vencimientos dentro de una sola ficha de producto.
+- Inicio reorganizado en “Uso diario” y “Herramientas”.
+- Buscador de Inicio ocupa todo el ancho al eliminarse el botón de escaneo.
+- Ajustes quedan accesibles desde Inicio; se retiraron engranajes repetidos de las demás secciones.
+- Limpieza de JavaScript acumulado: se eliminaron implementaciones antiguas duplicadas de Vencimientos y todo el código muerto de escáneres.
+- Guardado optimizado: localStorage solo reescribe bloques cuyo contenido cambió.
+- Persistencia nativa agrupada con una pequeña espera para evitar escrituras repetidas consecutivas.
+- Sincronización de notificaciones evita enviar la misma configuración/datos repetidamente.
+- Reloj de Inicio (HH:MM) pasa de actualizarse cada segundo a cada 30 segundos.
+- Versión mostrada en HTML corregida a 2.22.
+- Backup actualizado a formato v22; copias antiguas siguen siendo importables y los campos antiguos de escáner simplemente se ignoran.
+- Workflows de GitHub siguen siendo manuales y ahora ejecutan lintDebug antes de assembleDebug.
+- versionName 2.22
+- versionCode base 222000 + GITHUB_RUN_NUMBER

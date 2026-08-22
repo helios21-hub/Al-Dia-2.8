@@ -1,0 +1,33 @@
+VALIDACIÓN PREVIA — AL DÍA v2.22
+
+Objetivo de esta revisión:
+Reducir el riesgo de errores antes de subir el proyecto a GitHub y ejecutar la compilación del APK.
+
+Comprobaciones realizadas:
+
+[OK] JavaScript de app/src/main/assets/index.html validado con `node --check`.
+[OK] No hay declaraciones de funciones JavaScript duplicadas detectadas.
+[OK] No hay IDs HTML estáticos duplicados detectados.
+[OK] AndroidManifest.xml es XML válido.
+[OK] styles.xml es XML válido.
+[OK] network_security_config.xml es XML válido.
+[OK] build-apk.yml y publicar-actualizacion.yml son YAML válidos.
+[OK] Ambos workflows conservan únicamente `workflow_dispatch` como disparador.
+[OK] Se añadió `:app:lintDebug` antes de `:app:assembleDebug` en ambos workflows.
+[OK] build.gradle raíz conserva Android Gradle Plugin 8.13.2.
+[OK] compileSdk/targetSdk 36, minSdk 26 y Java 17 se mantienen.
+[OK] versionName = 2.22.
+[OK] versionCode base = 222000.
+[OK] MainActivity usa 2.22 como versión de respaldo.
+[OK] Backup de la app usa version 22.
+[OK] Eliminadas dependencias de Google Code Scanner, ML Kit Text Recognition y ML Kit Document Scanner.
+[OK] No quedan referencias activas a APIs Java de escaneo/OCR/document scanner.
+[OK] No quedan botones ni callbacks activos de escáner en el HTML.
+[OK] AppFileProvider conserva únicamente el acceso de solo lectura necesario para compartir archivos XLSX.
+[OK] Llaves/braces de todos los archivos Java equilibradas.
+[OK] Revisión con javac no mostró errores de sintaxis Java; los símbolos Android no pueden resolverse localmente por falta del Android SDK.
+[OK] Keystore estable conservado en app/keystore/al-dia-debug.keystore.
+[OK] Estructura de carpetas del proyecto conservada.
+
+Limitación del entorno:
+No se pudo ejecutar `gradle :app:lintDebug` ni `gradle :app:assembleDebug` localmente porque este entorno no tiene instalado Gradle/Android SDK. Por eso no se afirma que el APK haya compilado aquí. La comprobación definitiva se ejecuta en GitHub Actions, donde el workflow instala Android SDK 36 y Gradle 8.13 antes de compilar.
