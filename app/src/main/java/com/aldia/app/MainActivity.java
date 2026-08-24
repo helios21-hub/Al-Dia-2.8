@@ -51,12 +51,17 @@ public class MainActivity extends Activity {
     private String pendingXlsxName;
     private boolean pendingTestNotification = false;
     private boolean pendingProductTestNotification = false;
+    private String pendingOpenTarget = "";
+    private String pendingOpenId = "";
+    private boolean pageReady = false;
+    private long lastBackPressAt = 0L;
 
     @SuppressLint({"SetJavaScriptEnabled", "JavascriptInterface"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         createNotificationChannel();
+        captureNavigationIntent(getIntent());
 
         webView = new WebView(this);
         setContentView(webView);
@@ -74,7 +79,9 @@ public class MainActivity extends Activity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
+                pageReady = true;
                 checkNotificationPermissionOnStart();
+                dispatchPendingOpenIntent();
             }
         });
         webView.setWebChromeClient(new WebChromeClient() {
@@ -97,9 +104,62 @@ public class MainActivity extends Activity {
         webView.addJavascriptInterface(new AndroidBridge(), "AndroidNative");
         webView.loadUrl("file:///android_asset/index.html");
 
+
         if (getSharedPreferences("al_dia", MODE_PRIVATE).getBoolean("notifications_enabled", true)) {
             NotificationScheduler.scheduleAll(this);
         }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+        captureNavigationIntent(intent);
+        dispatchPendingOpenIntent();
+    }
+
+    private void captureNavigationIntent(Intent intent) {
+        if (intent == null) return;
+        pendingOpenTarget = intent.getStringExtra("open_target");
+        pendingOpenId = intent.getStringExtra("open_id");
+        if (pendingOpenTarget == null) pendingOpenTarget = "";
+        if (pendingOpenId == null) pendingOpenId = "";
+    }
+
+    private void dispatchPendingOpenIntent() {
+        if (!pageReady || webView == null || pendingOpenTarget.isEmpty()) return;
+        final String target = pendingOpenTarget;
+        final String id = pendingOpenId;
+        pendingOpenTarget = "";
+        pendingOpenId = "";
+        String js = "window.openFromAndroidIntent && window.openFromAndroidIntent("
+                + JSONObject.quote(target) + "," + JSONObject.quote(id) + ");";
+        webView.post(() -> webView.evaluateJavascript(js, null));
+    }
+
+    private void handleSystemBack() {
+        if (webView == null || !pageReady) {
+            finish();
+            return;
+        }
+        webView.evaluateJavascript(
+                "(window.handleAndroidBack && window.handleAndroidBack()) ? true : false;",
+                value -> {
+                    if ("true".equals(value)) return;
+                    long now = System.currentTimeMillis();
+                    if (now - lastBackPressAt <= 1800L) {
+                        finish();
+                    } else {
+                        lastBackPressAt = now;
+                        Toast.makeText(MainActivity.this, "Volvé a pulsar Atrás para salir", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public void onBackPressed() {
+        handleSystemBack();
     }
 
     @Override
@@ -228,7 +288,7 @@ public class MainActivity extends Activity {
             try {
                 return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             } catch (Exception e) {
-                return "2.22";
+                return "2.23";
             }
         }
 

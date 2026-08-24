@@ -49,6 +49,8 @@ public class NotificationReceiver extends BroadcastReceiver {
             JSONObject data=new JSONObject(prefs.getString("notification_data","{}"));
             JSONArray items=data.optJSONArray("items");LocalDate today=LocalDate.now();
             int overdue=0,upcoming=0,todayWithdraw=0;
+            String bestExpiryId="";
+            long bestDiff=Long.MAX_VALUE;
             Map<String,String> alertNames=new LinkedHashMap<>();
             Map<String,List<String>> alertDates=new LinkedHashMap<>();
             if(items!=null)for(int i=0;i<items.length();i++){
@@ -60,9 +62,12 @@ public class NotificationReceiver extends BroadcastReceiver {
                 long diff=ChronoUnit.DAYS.between(today,withdrawal);
                 if(diff<0)overdue++; else if(diff==0)todayWithdraw++; else if(diff<=7)upcoming++;
                 if((!isRepeat && diff<=7) || (isRepeat && diff<=0)){
+                    String itemId=item.optString("id","").trim();
+                    if(!itemId.isEmpty()&&diff<bestDiff){bestDiff=diff;bestExpiryId=itemId;}
                     String name=item.optString("name","Producto").trim();if(name.isEmpty())name="Producto";
                     String code=item.optString("code","").trim();String type=item.optString("codeType","").trim();
-                    String key=!code.isEmpty()?(type+":"+code):name.toLowerCase();
+                    String productId=item.optString("productId","").trim();
+                    String key=!productId.isEmpty()?("P:"+productId):(!code.isEmpty()?(type+":"+code):name.toLowerCase());
                     alertNames.putIfAbsent(key,name);
                     List<String> dates=alertDates.computeIfAbsent(key,k->new ArrayList<>());
                     String shown=String.format("%02d/%02d",expiry.getDayOfMonth(),expiry.getMonthValue());
@@ -89,7 +94,7 @@ public class NotificationReceiver extends BroadcastReceiver {
                 if(!details.isEmpty())message.append(" · ").append(String.join(" · ",details));
             }
             String title=isTest?"Al Día · Prueba real de productos":"Al Día";
-            notify(context,4301,title,message.toString());
+            notify(context,4301,title,message.toString(),bestExpiryId.isEmpty()?"":"expiry",bestExpiryId);
 
             int repeat=prefs.getInt("notification_repeat_minutes",0);
             boolean pending=overdue>0||todayWithdraw>0;
@@ -109,15 +114,18 @@ public class NotificationReceiver extends BroadcastReceiver {
                 String text=n.optString("text","").trim().replace("\n"," ");
                 if(title.isEmpty())title="Recordatorio de nota";
                 if(text.isEmpty())text="Tenés una nota programada para hoy.";
-                notify(c,6000+Math.abs(id.hashCode()%1000000),"Al Día · "+title,text);
+                notify(c,6000+Math.abs(id.hashCode()%1000000),"Al Día · "+title,text,"note",id);
                 break;
             }
         }catch(Exception ignored){}
     }
 
-    private void notify(Context c,int id,String title,String message){
-        Intent open=c.getPackageManager().getLaunchIntentForPackage(c.getPackageName());
-        PendingIntent content=open==null?null:PendingIntent.getActivity(c,4201,open,PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
+    private void notify(Context c,int id,String title,String message,String target,String openId){
+        Intent open=new Intent(c,MainActivity.class)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        if(target!=null&&!target.isEmpty())open.putExtra("open_target",target);
+        if(openId!=null&&!openId.isEmpty())open.putExtra("open_id",openId);
+        PendingIntent content=PendingIntent.getActivity(c,id,open,PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
         Notification.Builder b=new Notification.Builder(c,MainActivity.CHANNEL_ID)
                 .setSmallIcon(R.mipmap.ic_launcher).setContentTitle(title).setContentText(message)
                 .setStyle(new Notification.BigTextStyle().bigText(message)).setAutoCancel(true);

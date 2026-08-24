@@ -974,6 +974,28 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
 
 /* v2.22 - vencimientos manuales compactos, sin escáneres */
 .expiry-group-card{padding:10px!important;display:block!important}.expiry-group-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:7px}.expiry-group-name{font-size:14px;font-weight:900}.expiry-group-code{font-size:10px;color:var(--muted);margin-top:2px}.expiry-group-tools{display:flex;align-items:center;justify-content:flex-end;gap:5px;flex-wrap:wrap}.expiry-group-count{font-size:9px;padding:3px 6px;border-radius:999px;background:var(--surface-strong);color:var(--muted);white-space:nowrap}.expiry-add-lot-btn{min-height:30px!important;padding:4px 7px!important;border-radius:8px!important;background:var(--surface-strong)!important;color:var(--text)!important;border:1px solid var(--border)!important;font-size:9.5px!important;font-weight:850}.expiry-lots{display:flex;flex-direction:column;gap:6px}.expiry-lot-row{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:10px;background:var(--surface-soft);padding:8px 9px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center}.expiry-lot-row.danger{border-left:4px solid #d9534f}.expiry-lot-row.warning{border-left:4px solid #d79a38}.expiry-lot-row.ok{border-left:4px solid #6b9b7f}.expiry-lot-date{font-size:12px;font-weight:900}.expiry-lot-meta{font-size:9.5px;color:var(--muted);margin-top:2px;line-height:1.3}.expiry-lot-actions{display:flex;align-items:center;gap:5px}.expiry-lot-actions button{min-height:32px;padding:5px 7px;font-size:9.5px;border-radius:8px}.expiry-lot-delete{display:none!important}.expiry-quick-product{padding:9px 10px;margin-bottom:10px;border:1px solid var(--border);border-radius:10px;background:var(--surface-soft)}.expiry-quick-product strong{display:block;font-size:13px}.expiry-quick-product small{display:block;margin-top:2px;color:var(--muted);font-size:10px}.expiry-optional-details{margin-top:9px;border:1px solid var(--border);border-radius:10px;background:var(--surface-soft);padding:0 9px}.expiry-optional-details summary{cursor:pointer;padding:9px 0;font-size:11px;font-weight:850;color:var(--muted)}.expiry-optional-body{padding:0 0 9px}.home-access-group-title{font-size:11px;font-weight:900;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:2px 1px 8px}.home-tools-card{margin-top:10px}.home-tools-card .home-section-btn{min-height:96px}.home-product-search{display:block!important}.home-product-search input{width:100%}.home-section-buttons{margin-top:0}
+
+/* v2.23 - carga rápida de Vencimientos, varias fechas y navegación Android */
+#expiryForm{scroll-margin-top:10px}
+.expiry-product-input-wrap{position:relative}
+.expiry-suggestions{display:grid;gap:5px;margin-top:6px;padding:6px;border:1px solid var(--border);border-radius:11px;background:var(--card);max-height:188px;overflow:auto;box-shadow:0 5px 16px rgba(15,23,42,.08)}
+.expiry-suggestion{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;min-height:38px;padding:7px 9px;border:1px solid var(--border);border-radius:9px;background:var(--surface-soft);color:var(--text);text-align:left}
+.expiry-suggestion-main{min-width:0}.expiry-suggestion-name{display:block;font-size:12px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.expiry-suggestion-meta{display:block;margin-top:2px;font-size:9.5px;color:var(--muted)}
+.expiry-suggestion-badge{flex:0 0 auto;padding:3px 6px;border-radius:999px;background:var(--chip-bg);color:var(--chip-text);font-size:9px;font-weight:850}
+.expiry-existing-hint{margin-top:7px;padding:9px 10px;border:1px solid rgba(37,99,235,.24);border-radius:10px;background:rgba(37,99,235,.055)}
+.expiry-existing-hint strong{display:block;font-size:11.5px}.expiry-existing-hint .meta{font-size:9.5px;line-height:1.35;margin-top:3px}.expiry-existing-actions{display:flex;gap:6px;margin-top:7px}.expiry-existing-actions button{min-height:31px;padding:4px 8px;font-size:9.5px}
+.expiry-date-builder{margin-top:8px}.expiry-date-builder-title{font-size:11px;font-weight:900;margin-bottom:5px}.expiry-date-rows{display:grid;gap:6px}.expiry-date-row{display:grid;grid-template-columns:minmax(0,1fr) 34px;gap:6px;align-items:end}.expiry-date-row:first-child{grid-template-columns:1fr}.expiry-date-row label{font-size:10px}.expiry-date-row input{min-height:40px}
+.expiry-date-remove{width:34px;height:40px;min-height:40px;padding:0;border-radius:9px;background:var(--surface-strong);border:1px solid var(--border);color:var(--muted);font-size:17px;font-weight:900}
+.expiry-add-another-date{width:100%;margin-top:7px;min-height:36px;padding:6px 9px;border-radius:9px;background:var(--surface-strong);border:1px dashed color-mix(in srgb,var(--border) 70%,#2563eb 30%);color:var(--text);font-size:10.5px;font-weight:850}
+.expiry-form-actions{margin-top:10px}.expiry-form-actions .btn-primary{width:100%}
+.expiry-last-card .empty{padding:18px 10px}
+.expiry-history-action{display:inline-flex;margin-bottom:5px;padding:3px 7px;border-radius:999px;background:var(--surface-strong);font-size:9px;font-weight:900;color:var(--muted)}
+.expiry-resolve-intro{font-size:11px;color:var(--muted);line-height:1.4;margin-bottom:9px}.expiry-resolve-actions{display:grid;gap:8px}.expiry-resolve-actions button{width:100%;min-height:44px}
+.expiry-resolve-newdate{background:var(--surface-strong);border:1px solid var(--border);color:var(--text)}
+.expiry-focus-product{animation:expiryFocusPulse 1.6s ease}
+@keyframes expiryFocusPulse{0%,100%{box-shadow:0 1px 3px rgba(15,23,42,.05)}35%{box-shadow:0 0 0 3px rgba(37,99,235,.18)}}
+@media(max-width:430px){.expiry-suggestions{max-height:160px}.expiry-date-row input{min-height:42px}}
+
 </style>
 </head>
 <body>
@@ -1041,12 +1063,21 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
     <div class="card add-product-panel">
       <button class="add-product-toggle" type="button" data-add-panel="expiry"><span>＋ Añadir vencimiento</span><span class="add-panel-arrow">⌄</span></button>
       <form id="expiryForm" class="add-product-form hidden">
-        <div><label>Producto</label><input id="name" list="savedExpiryProducts" autocomplete="off" placeholder="Nombre del producto" required><datalist id="savedExpiryProducts"></datalist></div>
-        <div><label>Fecha de vencimiento</label><input id="date" type="date" required></div>
+        <div class="expiry-product-input-wrap">
+          <label>Producto</label>
+          <input id="name" autocomplete="off" placeholder="Nombre del producto" required>
+          <div id="expirySuggestions" class="expiry-suggestions hidden" aria-label="Sugerencias de productos"></div>
+          <div id="expiryExistingHint" class="expiry-existing-hint hidden"></div>
+        </div>
+        <div class="expiry-date-builder">
+          <div class="expiry-date-builder-title">Fechas de vencimiento</div>
+          <div id="expiryDateRows" class="expiry-date-rows"></div>
+          <button id="addExpiryDateBtn" class="expiry-add-another-date" type="button">＋ Añadir otra fecha</button>
+        </div>
         <div><label>Retiro</label><select id="withdrawDays"><option value="0">Retirar el día del vencimiento</option><option value="10">Retirar 10 días antes</option></select></div>
         <details class="expiry-optional-details"><summary>Código / EAN y nota · opcional</summary><div class="expiry-optional-body"><div><label>Código / EAN</label><input id="code" autocomplete="off" inputmode="numeric"></div><div style="margin-top:8px"><label>Nota</label><input id="notes"></div></div></details>
         <label class="frequent-check"><input id="saveAsFrequent" type="checkbox"> <span>Guardar como producto frecuente</span></label>
-        <button class="btn-primary" type="submit">Agregar vencimiento</button>
+        <div class="expiry-form-actions"><button class="btn-primary" type="submit">Guardar producto</button></div>
       </form>
     </div>
     <div class="filter-row">
@@ -1060,7 +1091,8 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
 
     <div class="view-tabs">
       <button class="view-tab active" data-expiry-view="active">Activos</button>
-      <button class="view-tab" data-expiry-view="history">Historial retirados</button>
+      <button class="view-tab" data-expiry-view="last">Último añadido</button>
+      <button class="view-tab" data-expiry-view="history">Historial</button>
     </div>
 
     <div id="expiry-active-view" class="card">
@@ -1069,11 +1101,17 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
       <div id="list" class="list"></div>
     </div>
 
+    <div id="expiry-last-view" class="card expiry-last-card hidden">
+      <div class="topbar"><div class="history-toolbar"><strong>Último producto añadido</strong><div class="history-tools"><span class="pill" id="lastExpiryCount">—</span></div></div></div>
+      <div id="lastExpiryEmpty" class="empty">Todavía no hay un último producto añadido.</div>
+      <div id="lastExpiryList" class="list"></div>
+    </div>
+
     <div id="expiry-history-view" class="card hidden">
-      <div class="topbar"><div class="history-toolbar"><strong>Historial de retirados</strong><div class="history-tools"><span class="pill" id="historyCount">0 registros</span><button class="clear-history-btn" id="clearExpiryHistoryBtn" type="button">Limpiar historial</button></div></div></div>
-      <div id="historyEmpty" class="empty">Todavía no hay productos retirados.</div>
+      <div class="topbar"><div class="history-toolbar"><strong>Historial</strong><div class="history-tools"><span class="pill" id="historyCount">0 registros</span><button class="clear-history-btn" id="clearExpiryHistoryBtn" type="button">Limpiar historial</button></div></div></div>
+      <div id="historyEmpty" class="empty">Todavía no hay movimientos en el historial.</div>
       <div id="historyList" class="list"></div>
-      <div class="footer-note">Máximo 30 registros. Se borran automáticamente después de 15 días.</div>
+      <div class="footer-note">Incluye retiros y cambios a una nueva fecha. Máximo 30 registros; se borran automáticamente después de 15 días.</div>
     </div>
   </section>
 
@@ -1369,7 +1407,7 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
       <strong>Acerca de Al Día</strong>
       <div class="settings-option app-version-row">
         <span>Versión instalada</span>
-        <strong id="appVersionText">2.22</strong>
+        <strong id="appVersionText">2.23</strong>
       </div>
       <button class="secondary-btn" id="checkUpdatesBtn" type="button" style="width:100%">Buscar actualizaciones</button>
       <div class="footer-note" id="updateCheckStatus">Comprueba la última versión publicada en GitHub Releases.</div>
@@ -1440,6 +1478,7 @@ const K={
   expiry:"control_vencimientos_v1",
   expiryHistory:"control_vencimientos_historial_v1",
   expirySaved:"control_vencimientos_productos_guardados_v1",
+  expiryLastProduct:"al_dia_vencimientos_ultimo_producto_v1",
   orders:"control_pedidos_v1",
   orderHistory:"control_pedidos_historial_v1",
   orderCompletion:"control_pedidos_estado_realizado_v1",
@@ -1472,6 +1511,8 @@ const uid=()=>crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.rando
 let items=JSON.parse(localStorage.getItem(K.expiry)||"[]");
 let expiryHistory=JSON.parse(localStorage.getItem(K.expiryHistory)||"[]");
 let savedExpiryProducts=JSON.parse(localStorage.getItem(K.expirySaved)||"{}");
+let lastExpiryProductId=String(JSON.parse(localStorage.getItem(K.expiryLastProduct)||'""')||"");
+let expirySelectedProductId=null;
 let orders=JSON.parse(localStorage.getItem(K.orders)||'{"martes":[],"jueves":[],"sabado":[]}');
 let orderHistory=JSON.parse(localStorage.getItem(K.orderHistory)||'{"martes":[],"jueves":[],"sabado":[]}');
 let orderCompletion=JSON.parse(localStorage.getItem(K.orderCompletion)||'{"martes":null,"jueves":null,"sabado":null}');
@@ -1552,6 +1593,7 @@ const saveAll=()=>{
   saveJsonIfChanged(K.expiry,items);
   saveJsonIfChanged(K.expiryHistory,expiryHistory);
   saveJsonIfChanged(K.expirySaved,savedExpiryProducts);
+  saveJsonIfChanged(K.expiryLastProduct,lastExpiryProductId);
   saveJsonIfChanged(K.orders,orders);
   saveJsonIfChanged(K.orderHistory,orderHistory);
   saveJsonIfChanged(K.orderCompletion,orderCompletion);
@@ -1585,6 +1627,32 @@ const daysUntil=s=>Math.round((parseDate(s)-today())/86400000);
 const addDays=(s,n)=>{const d=parseDate(s);d.setDate(d.getDate()+n);return localDate(d)};
 const dayLabel=d=>d==="martes"?"Martes":d==="jueves"?"Jueves":"Sábado";
 const norm=s=>String(s||"").trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+function migrateExpiryProductIds(){
+  if(!Array.isArray(items))items=[];
+  const byName=new Map(),byCode=new Map();
+  items.forEach(x=>{
+    if(!x||typeof x!=="object")return;
+    const nameKey=norm(x.name),codeKey=String(x.code||"").trim().toLowerCase();
+    let productId=String(x.productId||"").trim();
+    if(!productId)productId=(codeKey&&byCode.get(codeKey))||(nameKey&&byName.get(nameKey))||uid();
+    x.productId=productId;
+    if(nameKey&&!byName.has(nameKey))byName.set(nameKey,productId);
+    if(codeKey&&!byCode.has(codeKey))byCode.set(codeKey,productId);
+    if(!x.createdAt)x.createdAt=localDate(new Date());
+    if(!Number.isFinite(Number(x.createdAtTs)))x.createdAtTs=0;
+  });
+  // Unificar IDs heredados cuando el nombre o código coincide.
+  const canonicalByName=new Map(),canonicalByCode=new Map();
+  items.forEach(x=>{
+    const nameKey=norm(x.name),codeKey=String(x.code||"").trim().toLowerCase();
+    let canonical=(codeKey&&canonicalByCode.get(codeKey))||(nameKey&&canonicalByName.get(nameKey))||x.productId;
+    x.productId=canonical;
+    if(nameKey)canonicalByName.set(nameKey,canonical);
+    if(codeKey)canonicalByCode.set(codeKey,canonical);
+  });
+  if(lastExpiryProductId&&!items.some(x=>x.productId===lastExpiryProductId))lastExpiryProductId="";
+}
+migrateExpiryProductIds();
 Object.values(savedProducts||{}).forEach(p=>orderProfileFor(p.name,p.unitType||"bulto"));
 ["martes","jueves","sabado"].forEach(d=>(orders[d]||[]).forEach(x=>{const p=orderProfileFor(x.name,x.unitType||"bulto");x.unitType=p.qtyType;x.stockCurrent=Math.max(0,Number(x.stockCurrent)||0);x.priceState=x.priceState||"normal";x.expectedMovement=x.expectedMovement||"normal";}));
 
@@ -1755,8 +1823,18 @@ function expiryStatus(item){
 }
 function cleanExpiryHistory(){
   const now=today();
-  expiryHistory=expiryHistory.filter(x=>Math.floor((now-parseDate(x.removedAt))/86400000)<15);
-  expiryHistory.sort((a,b)=>parseDate(b.removedAt)-parseDate(a.removedAt));
+  expiryHistory=(Array.isArray(expiryHistory)?expiryHistory:[]).filter(x=>{
+    const d=x?.removedAt||x?.changedAt||x?.eventDate||"";
+    if(!d)return true;
+    const age=Math.floor((now-parseDate(d))/86400000);
+    return Number.isFinite(age)&&age<15;
+  });
+  expiryHistory.sort((a,b)=>{
+    const ad=a?.eventTs||a?.changedAtTs||a?.removedAtTs||0,bd=b?.eventTs||b?.changedAtTs||b?.removedAtTs||0;
+    if(ad||bd)return bd-ad;
+    const as=a?.removedAt||a?.changedAt||"",bs=b?.removedAt||b?.changedAt||"";
+    return (bs?parseDate(bs).getTime():0)-(as?parseDate(as).getTime():0);
+  });
   expiryHistory=expiryHistory.slice(0,30);
 }
 function cleanCompletion(){
@@ -1852,31 +1930,149 @@ function renderDashboard(){
 function rememberExpiry(name,code,withdrawDays){
   if(!name.trim())return;
   savedExpiryProducts[norm(name)]={name:name.trim(),code:code.trim(),withdrawDays:Number(withdrawDays||0)};
-  renderExpiryDatalist();saveAll();
 }
-function renderExpiryDatalist(){
-  const frequent=Object.values(savedExpiryProducts).sort((a,b)=>a.name.localeCompare(b.name,"es"));
-  const seen=new Set(frequent.map(p=>norm(p.name)));
-  const extra=expiryProductMemory.filter(n=>!seen.has(norm(n)));
-  $("savedExpiryProducts").innerHTML=frequent.map(p=>`<option value="${esc(p.name)}" label="${esc(p.code||"Sin código")} · ${Number(p.withdrawDays)===10?"Retiro 10 días antes":"Retiro el día"}"></option>`).join("")+extra.map(n=>`<option value="${esc(n)}"></option>`).join("");
+function expiryProductGroup(productId){return items.filter(x=>x.productId===productId).sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)))}
+function expiryRepresentative(productId){
+  const group=expiryProductGroup(productId);
+  return group.find(x=>x.code)||group[0]||null;
 }
-$("name").addEventListener("input",()=>{const p=savedExpiryProducts[norm($("name").value)];if(p){$("code").value=p.code||"";$("withdrawDays").value=String(p.withdrawDays||0)}});
+function findExistingExpiryProduct(name,code="",excludeProductId=""){
+  const nk=norm(name),ck=String(code||"").trim().toLowerCase();
+  const groups=expiryGroupsFor(items);
+  for(const g of groups){
+    const rep=g.find(x=>x.code)||g[0];if(!rep||rep.productId===excludeProductId)continue;
+    const nameMatch=nk&&norm(rep.name)===nk;
+    const codeMatch=ck&&g.some(x=>String(x.code||"").trim().toLowerCase()===ck);
+    if(nameMatch||codeMatch)return rep;
+  }
+  return null;
+}
+function editDistance(a,b){
+  a=norm(a);b=norm(b);if(a===b)return 0;if(!a)return b.length;if(!b)return a.length;
+  const prev=Array.from({length:b.length+1},(_,i)=>i),cur=new Array(b.length+1);
+  for(let i=1;i<=a.length;i++){
+    cur[0]=i;
+    for(let j=1;j<=b.length;j++)cur[j]=Math.min(cur[j-1]+1,prev[j]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));
+    for(let j=0;j<=b.length;j++)prev[j]=cur[j];
+  }
+  return prev[b.length];
+}
+function expiryKnownProducts(){
+  const map=new Map();
+  expiryGroupsFor(items).forEach(g=>{
+    const rep=g.find(x=>x.code)||g[0];if(!rep)return;
+    map.set(norm(rep.name),{name:rep.name,code:rep.code||"",withdrawDays:Number(rep.withdrawDays||0),productId:rep.productId,active:true,dates:g.map(x=>x.date).filter(Boolean)});
+  });
+  Object.values(savedExpiryProducts||{}).forEach(p=>{const k=norm(p?.name);if(k&&!map.has(k))map.set(k,{name:p.name,code:p.code||"",withdrawDays:Number(p.withdrawDays||0),productId:"",active:false,dates:[]})});
+  (expiryProductMemory||[]).forEach(name=>{const k=norm(name);if(k&&!map.has(k))map.set(k,{name,code:"",withdrawDays:0,productId:"",active:false,dates:[]})});
+  return [...map.values()];
+}
+function expirySuggestionScore(c,q){
+  const nq=norm(q),nn=norm(c.name),nc=norm(c.code);
+  if(!nq)return 99;
+  if(nn===nq||nc===nq)return 0;
+  if(nn.startsWith(nq))return 1;
+  if(nn.split(/\s+/).some(w=>w.startsWith(nq)))return 2;
+  if(nn.includes(nq)||nc.includes(nq))return 3;
+  if(nq.length>=4&&editDistance(nn,nq)<=2)return 4;
+  const words=nn.split(/\s+/);if(nq.length>=4&&words.some(w=>editDistance(w,nq)<=1))return 5;
+  return 99;
+}
+function renderExpiryDatalist(){renderExpirySuggestions()}
+function renderExpirySuggestions(){
+  const box=$("expirySuggestions"),input=$("name");if(!box||!input)return;
+  const q=input.value.trim();if(!q){box.classList.add("hidden");box.innerHTML="";return}
+  const matches=expiryKnownProducts().map(c=>({...c,_score:expirySuggestionScore(c,q)})).filter(c=>c._score<99).sort((a,b)=>a._score-b._score||Number(b.active)-Number(a.active)||a.name.localeCompare(b.name,"es")).slice(0,5);
+  if(!matches.length){box.classList.add("hidden");box.innerHTML="";return}
+  box.innerHTML=matches.map(c=>`<button class="expiry-suggestion" type="button" data-expiry-suggestion-name="${esc(c.name)}" data-expiry-suggestion-pid="${esc(c.productId||"")}"><span class="expiry-suggestion-main"><span class="expiry-suggestion-name">${esc(c.name)}</span><span class="expiry-suggestion-meta">${c.active?`${c.dates.length} fecha${c.dates.length===1?"":"s"} cargada${c.dates.length===1?"":"s"}`:(c.code?`Código: ${esc(c.code)}`:"Producto guardado")}</span></span>${c.active?'<span class="expiry-suggestion-badge">Ya existe</span>':""}</button>`).join("");
+  box.classList.remove("hidden");
+}
+function syncExpiryExistingHint(){
+  const hint=$("expiryExistingHint"),name=$("name")?.value.trim()||"",code=$("code")?.value.trim()||"";if(!hint)return null;
+  let rep=null;
+  if(expirySelectedProductId)rep=expiryRepresentative(expirySelectedProductId);
+  if(!rep)rep=findExistingExpiryProduct(name,code);
+  if(!rep){expirySelectedProductId=null;hint.classList.add("hidden");hint.innerHTML="";return null}
+  if(norm(name)!==norm(rep.name)&&!(code&&String(rep.code||"").trim().toLowerCase()===code.toLowerCase())){expirySelectedProductId=null;hint.classList.add("hidden");hint.innerHTML="";return null}
+  expirySelectedProductId=rep.productId;
+  const group=expiryProductGroup(rep.productId),dates=group.map(x=>fmt(x.date)).join(" · ");
+  hint.innerHTML=`<strong>Ya existe en Vencimientos · ${group.length} fecha${group.length===1?"":"s"}</strong><div class="meta">${esc(dates)}<br>Las fechas nuevas se sumarán a esta misma ficha.</div><div class="expiry-existing-actions"><button class="secondary-btn" id="viewExistingExpiryBtn" type="button">Ver ficha</button></div>`;
+  hint.classList.remove("hidden");
+  return rep;
+}
+function chooseExpirySuggestion(name,productId){
+  const all=expiryKnownProducts();
+  const candidate=all.find(c=>norm(c.name)===norm(name)&&String(c.productId||"")===String(productId||""))||all.find(c=>norm(c.name)===norm(name));
+  $("name").value=candidate?.name||name;
+  expirySelectedProductId=candidate?.productId||null;
+  if(candidate?.code)$("code").value=candidate.code;
+  if(candidate)$("withdrawDays").value=String(Number(candidate.withdrawDays||0));
+  $("expirySuggestions").classList.add("hidden");
+  syncExpiryExistingHint();
+}
+function currentExpiryDraftDates(){return [...document.querySelectorAll(".expiry-date-input")].map(i=>i.value)}
+function renderExpiryDateRows(values=[""]){
+  const rows=$("expiryDateRows");if(!rows)return;
+  const vals=Array.isArray(values)&&values.length?values:[""];
+  rows.innerHTML=vals.map((v,i)=>`<div class="expiry-date-row"><div><label>${i===0?"Fecha de vencimiento":`Fecha ${i+1}`}</label><input class="expiry-date-input" type="date" value="${esc(v||"")}" ${i===0?"required":""}></div>${i===0?"":`<button class="expiry-date-remove" type="button" data-remove-expiry-date="${i}" aria-label="Quitar fecha">×</button>`}</div>`).join("");
+}
+function resetExpiryEntryForm(focus=false){
+  $("expiryForm").reset();$("withdrawDays").value="0";$("saveAsFrequent").checked=false;expirySelectedProductId=null;
+  renderExpiryDateRows([""]);$("expirySuggestions").classList.add("hidden");$("expirySuggestions").innerHTML="";$("expiryExistingHint").classList.add("hidden");$("expiryExistingHint").innerHTML="";
+  const details=$("expiryForm").querySelector("details");if(details)details.removeAttribute("open");
+  if(focus)setTimeout(()=>{try{$("name").focus({preventScroll:true});$("name").scrollIntoView({block:"center",behavior:"smooth"})}catch(_){$("name").focus()}},60);
+}
+$("addExpiryDateBtn").onclick=()=>{const vals=currentExpiryDraftDates();vals.push("");renderExpiryDateRows(vals);setTimeout(()=>{const all=document.querySelectorAll(".expiry-date-input");all[all.length-1]?.focus()},30)};
+$("expiryDateRows").onclick=e=>{const b=e.target.closest("[data-remove-expiry-date]");if(!b)return;const vals=currentExpiryDraftDates(),i=Number(b.dataset.removeExpiryDate);if(i>0&&i<vals.length){vals.splice(i,1);renderExpiryDateRows(vals)}};
+$("expirySuggestions").onclick=e=>{const b=e.target.closest("[data-expiry-suggestion-name]");if(!b)return;chooseExpirySuggestion(b.dataset.expirySuggestionName,b.dataset.expirySuggestionPid)};
+$("expiryExistingHint").onclick=e=>{if(!e.target.closest("#viewExistingExpiryBtn"))return;const rep=expiryRepresentative(expirySelectedProductId);if(rep)openExpiryProduct(rep.productId,rep.id,false)};
+$("name").addEventListener("input",()=>{
+  const typed=$("name").value.trim();
+  if(expirySelectedProductId){const rep=expiryRepresentative(expirySelectedProductId);if(!rep||norm(rep.name)!==norm(typed))expirySelectedProductId=null}
+  const p=savedExpiryProducts[norm(typed)];if(p&&!findExistingExpiryProduct(typed,$("code").value)){if(p.code)$("code").value=p.code||"";$("withdrawDays").value=String(p.withdrawDays||0)}
+  renderExpirySuggestions();syncExpiryExistingHint();
+});
+$("name").addEventListener("focus",()=>{renderExpirySuggestions();setTimeout(()=>{try{$("name").scrollIntoView({block:"center",behavior:"smooth"})}catch(_){}},180)});
+$("code").addEventListener("input",syncExpiryExistingHint);
+document.addEventListener("click",e=>{if(!e.target.closest(".expiry-product-input-wrap"))$("expirySuggestions")?.classList.add("hidden")});
+if(window.visualViewport)window.visualViewport.addEventListener("resize",()=>{const a=document.activeElement;if(a===$("name"))setTimeout(()=>{try{a.scrollIntoView({block:"center",behavior:"smooth"})}catch(_){}},80)});
 
 $("expiryForm").onsubmit=e=>{
   e.preventDefault();
-  const n=localDate(new Date()),name=$("name").value.trim(),code=$("code").value.trim(),wd=Number($("withdrawDays").value),date=$("date").value;
-  if(!name||!date)return showToast("Completá producto y fecha.");
-  if(items.some(x=>norm(x.name)===norm(name)&&x.date===date))return showToast("Ya existe un producto con ese nombre y esa fecha.");
-  if($("saveAsFrequent").checked) rememberExpiry(name,code,wd);
-  rememberProductName(expiryProductMemory,name);
-  items.push({id:uid(),name,code,date,withdrawDays:wd,notes:$("notes").value.trim(),createdAt:n,codeType:code?"EAN":""});
-  saveAll();e.target.reset();$("withdrawDays").value="0";$("saveAsFrequent").checked=false;collapseAddPanel("expiry");renderAll();showToast("Producto añadido")
+  const now=new Date(),name=$("name").value.trim(),code=$("code").value.trim(),wd=Number($("withdrawDays").value),notesValue=$("notes").value.trim();
+  const rawDates=currentExpiryDraftDates().filter(Boolean);
+  if(!name||!rawDates.length)return showToast("Completá producto y al menos una fecha.");
+  const dates=[...new Set(rawDates)];
+  if(dates.length!==rawDates.length)return showToast("Hay una fecha repetida en este producto.");
+  let rep=expirySelectedProductId?expiryRepresentative(expirySelectedProductId):null;
+  if(!rep)rep=findExistingExpiryProduct(name,code);
+  if(rep&&code&&rep.code&&String(rep.code).trim().toLowerCase()===code.toLowerCase()&&norm(rep.name)!==norm(name))return showToast(`Ese código ya está cargado como “${rep.name}”. Seleccionalo en las sugerencias.`);
+  const productId=rep?.productId||uid(),existingDates=new Set(expiryProductGroup(productId).map(x=>x.date));
+  const duplicate=dates.find(d=>existingDates.has(d));
+  if(duplicate)return showToast(`La fecha ${fmt(duplicate)} ya está cargada para este producto.`);
+  const canonicalName=rep?.name||name,canonicalCode=code||rep?.code||"",codeType=rep?.codeType||(canonicalCode?"EAN":"");
+  if(rep&&canonicalCode)expiryProductGroup(productId).forEach(x=>{x.code=canonicalCode;x.codeType=codeType;x.updatedAtTs=now.getTime()});
+  if($("saveAsFrequent").checked)rememberExpiry(canonicalName,canonicalCode,wd);
+  rememberProductName(expiryProductMemory,canonicalName);
+  dates.forEach(date=>items.push({id:uid(),productId,name:canonicalName,code:canonicalCode,date,withdrawDays:wd,notes:notesValue,createdAt:localDate(now),createdAtTs:now.getTime(),updatedAtTs:now.getTime(),codeType}));
+  lastExpiryProductId=productId;
+  saveAll();renderExpiry();renderExpiryHistory();renderDashboard();if(!$("expirySavedProductsPanel").classList.contains("hidden"))renderExpirySavedManager();
+  resetExpiryEntryForm(true);showToast(dates.length===1?"Producto añadido":`Producto añadido con ${dates.length} fechas`);
 };
+renderExpiryDateRows([""]);
 
 function renderExpiryHistory(){
   cleanExpiryHistory();$("historyList").innerHTML="";$("historyEmpty").style.display=expiryHistory.length?"none":"block";$("historyCount").textContent=`${expiryHistory.length} registro${expiryHistory.length===1?"":"s"}`;
-  expiryHistory.forEach(x=>{const el=document.createElement("div");el.className="history-card";el.innerHTML=`<button class="history-delete" data-del-exp-h="${x.id}"><span aria-hidden="true">×</span></button><div class="name">${esc(x.name)}</div><div class="meta">${x.code?`Código: ${esc(x.code)}`:"Sin código"}</div><div class="meta">Vence: ${fmt(x.date)}<br>Retiro previsto: ${fmt(x.withdrawalDate||withdrawalDate(x))}<br>Retirado: ${fmt(x.removedAt)}</div>`;$("historyList").appendChild(el)});
-  
+  expiryHistory.forEach(x=>{
+    const el=document.createElement("div");el.className="history-card";
+    const action=x.action||"retired";
+    if(action==="new_date"){
+      el.innerHTML=`<button class="history-delete" data-del-exp-h="${x.id}"><span aria-hidden="true">×</span></button><div class="expiry-history-action">Nueva fecha</div><div class="name">${esc(x.name)}</div><div class="meta">${x.code?`Código: ${esc(x.code)}`:"Sin código"}<br>Fecha anterior: ${fmt(x.oldDate)}<br>Nueva fecha: ${fmt(x.newDate)}<br>Actualizado: ${fmt(x.changedAt||x.eventDate||localDate(new Date()))}</div>`;
+    }else{
+      el.innerHTML=`<button class="history-delete" data-del-exp-h="${x.id}"><span aria-hidden="true">×</span></button><div class="expiry-history-action">Retirado</div><div class="name">${esc(x.name)}</div><div class="meta">${x.code?`Código: ${esc(x.code)}`:"Sin código"}<br>Vence: ${fmt(x.date)}<br>Retiro previsto: ${fmt(x.withdrawalDate||withdrawalDate(x))}<br>Retirado: ${fmt(x.removedAt||x.eventDate)}</div>`;
+    }
+    $("historyList").appendChild(el)
+  });
 }
 function renderExpirySavedManager(){
   const vals=Object.values(savedExpiryProducts).sort((a,b)=>a.name.localeCompare(b.name,"es"));
@@ -2107,11 +2303,6 @@ function productMemoryOptions(list){
   return [...new Set(list.filter(Boolean))].sort((a,b)=>a.localeCompare(b,"es")).map(x=>`<option value="${esc(x)}"></option>`).join("");
 }
 function renderProductMemories(){
-  const expiryList=$("savedExpiryProducts");
-  if(expiryList){
-    const frequent=Object.values(savedExpiryProducts||{}).map(x=>x&&x.name).filter(Boolean);
-    expiryList.innerHTML=productMemoryOptions([...expiryProductMemory,...frequent]);
-  }
   const orderList=$("savedProducts");
   if(orderList){
     const saved=Object.values(savedProducts||{}).map(x=>x&&x.name).filter(Boolean);
@@ -2566,11 +2757,14 @@ function updateNextOrder(){
 }
 $("nextOrderCard").onclick=()=>{const t=$("nextOrderCard").dataset.target;document.querySelectorAll(".subtab").forEach(b=>b.classList.toggle("active",b.dataset.orderTab===t));activeOrderTab=t;renderAll()};
 
-function openModal(title,html,ctx){editCtx=ctx;$("editModalTitle").textContent=title;$("editModalContent").innerHTML=html;$("editModalBackdrop").classList.add("open")}
-function closeModal(){editCtx=null;$("editModalBackdrop").classList.remove("open")}
+function openModal(title,html,ctx){editCtx=ctx;$("editModalTitle").textContent=title;$("editModalContent").innerHTML=html;$("editSaveBtn").classList.remove("hidden");$("editSaveBtn").textContent="Guardar cambios";$("editModalBackdrop").classList.add("open")}
+function closeModal(){editCtx=null;$("editModalBackdrop").classList.remove("open");$("editSaveBtn").classList.remove("hidden");$("editSaveBtn").textContent="Guardar cambios"}
 $("editCancelBtn").onclick=closeModal;$("editModalBackdrop").onclick=e=>{if(e.target===$("editModalBackdrop"))closeModal()};
 function openExpiryEdit(id){const x=items.find(y=>y.id===id);if(!x)return;const codeLabel=x.codeType==="PLU"?"PLU":"Código / EAN";openModal("Editar vencimiento",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">${codeLabel}</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Fecha</label><input id="m3" type="date" value="${x.date}"><label style="margin-top:10px">Retiro</label><select id="m4"><option value="0" ${Number(x.withdrawDays)===0?"selected":""}>Retirar el día</option><option value="10" ${Number(x.withdrawDays)===10?"selected":""}>Retirar 10 días antes</option></select><label style="margin-top:10px">Nota</label><input id="m5" value="${esc(x.notes||"")}">`,{type:"expiry",id})}
-function openExpiryQuickAdd(id){const seed=items.find(y=>y.id===id);if(!seed)return;const codeLabel=seed.codeType==="PLU"?"PLU":"Código / EAN";openModal("Añadir vencimiento",`<div class="expiry-quick-product"><strong>${esc(seed.name)}</strong><small>${seed.code?`${codeLabel}: ${esc(seed.code)}`:"Sin código guardado"}</small></div><label>Fecha de vencimiento</label><input id="m3" type="date"><label style="margin-top:10px">Retiro</label><select id="m4"><option value="0" ${Number(seed.withdrawDays)===0?"selected":""}>Retirar el día del vencimiento</option><option value="10" ${Number(seed.withdrawDays)===10?"selected":""}>Retirar 10 días antes</option></select><label style="margin-top:10px">Nota opcional</label><input id="m5" value="">`,{type:"expiry-add-lot",seedId:id});setTimeout(()=>$("m3")?.focus(),40)}
+function openExpiryQuickAdd(id){const seed=items.find(y=>y.id===id);if(!seed)return;const codeLabel=seed.codeType==="PLU"?"PLU":"Código / EAN";openModal("Añadir fecha",`<div class="expiry-quick-product"><strong>${esc(seed.name)}</strong><small>${seed.code?`${codeLabel}: ${esc(seed.code)}`:"Sin código guardado"}</small></div><label>Fecha de vencimiento</label><input id="m3" type="date"><label style="margin-top:10px">Retiro</label><select id="m4"><option value="0" ${Number(seed.withdrawDays)===0?"selected":""}>Retirar el día del vencimiento</option><option value="10" ${Number(seed.withdrawDays)===10?"selected":""}>Retirar 10 días antes</option></select><label style="margin-top:10px">Nota opcional</label><input id="m5" value="">`,{type:"expiry-add-lot",seedId:id});$("editSaveBtn").textContent="Añadir fecha";setTimeout(()=>$("m3")?.focus(),40)}
+function openExpiryNewDate(id){const x=items.find(y=>y.id===id);if(!x)return;openModal("Nueva fecha",`<div class="expiry-quick-product"><strong>${esc(x.name)}</strong><small>Fecha actual: ${fmt(x.date)}</small></div><label>Nueva fecha de vencimiento</label><input id="m3" type="date">`,{type:"expiry-new-date",id});$("editSaveBtn").textContent="Guardar nueva fecha";setTimeout(()=>$("m3")?.focus(),40)}
+async function retireExpiryLot(id){const x=items.find(y=>y.id===id);if(!x)return;if(!await askConfirm(`¿Retirar solamente la fecha ${fmt(x.date)} de “${x.name}”? Las demás fechas continuarán activas.`,"Retirar fecha"))return;const now=new Date();expiryHistory.unshift({...x,id:uid(),action:"retired",sourceExpiryId:x.id,removedAt:localDate(now),removedAtTs:now.getTime(),eventTs:now.getTime(),withdrawalDate:withdrawalDate(x)});items=items.filter(y=>y.id!==x.id);cleanExpiryHistory();saveAll();closeModal();renderExpiry();renderExpiryHistory();renderDashboard();showToast("Fecha retirada")}
+function openExpiryResolve(id){const x=items.find(y=>y.id===id);if(!x)return;openModal("Resolver vencimiento",`<div class="expiry-quick-product"><strong>${esc(x.name)}</strong><small>Vence: ${fmt(x.date)} · Retiro: ${fmt(withdrawalDate(x))}</small></div><div class="expiry-resolve-intro">Elegí qué hacer solamente con esta fecha. Si el producto tiene otras fechas, seguirán activas.</div><div class="expiry-resolve-actions"><button class="btn-retired" id="resolveExpiryRetireBtn" type="button">Retirar</button><button class="expiry-resolve-newdate" id="resolveExpiryNewDateBtn" type="button">Nueva fecha</button></div>`,{type:"expiry-resolve",id});$("editSaveBtn").classList.add("hidden");setTimeout(()=>{$("resolveExpiryRetireBtn").onclick=()=>retireExpiryLot(id);$("resolveExpiryNewDateBtn").onclick=()=>openExpiryNewDate(id)},0)}
 function openSavedExpiryEdit(key){const x=savedExpiryProducts[key];openModal("Editar producto frecuente",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Retiro</label><select id="m3"><option value="0" ${Number(x.withdrawDays)===0?"selected":""}>Retirar el día</option><option value="10" ${Number(x.withdrawDays)===10?"selected":""}>Retirar 10 días antes</option></select>`,{type:"saved-expiry",key})}
 function orderProfileEditHtml(x,includeNotes=true){const p=orderProfileFor(x.name,x.unitType),learn=["martes","jueves","sabado"].map(d=>{const l=p.learning[d];return `<div>${dayLabel(d)}<strong>${l.base==null?"—":Math.round(l.base*10)/10}</strong><span>${l.cycles} ciclo${l.cycles===1?"":"s"}</span></div>`}).join("");return `<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Categoría</label><select id="m3">${cats.map(c=>`<option ${x.category===c?"selected":""}>${c}</option>`).join("")}</select><label style="margin-top:10px">Tipo de cantidad</label><select id="m4"><option value="bulto" ${p.qtyType!=="peso"?"selected":""}>Bulto</option><option value="peso" ${p.qtyType==="peso"?"selected":""}>Peso</option></select>${includeNotes?`<label style="margin-top:10px">Nota opcional</label><input id="m8" value="${esc(x.notes||"")}">`:""}<details class="order-advanced-details"><summary>Configuración avanzada y aprendizaje</summary><div class="order-advanced-body"><label>Rotación normal</label><select id="m5"><option value="alta" ${p.rotation==="alta"?"selected":""}>Alta</option><option value="media" ${p.rotation==="media"?"selected":""}>Media</option><option value="baja" ${p.rotation==="baja"?"selected":""}>Baja</option></select><label style="margin-top:10px">Reacción a oferta</label><select id="m6"><option value="ninguna" ${p.offerReaction==="ninguna"?"selected":""}>Ninguna</option><option value="baja" ${p.offerReaction==="baja"?"selected":""}>Baja</option><option value="media" ${p.offerReaction==="media"?"selected":""}>Media</option><option value="alta" ${p.offerReaction==="alta"?"selected":""}>Alta</option></select><label style="margin-top:10px">Sensibilidad cuando está caro</label><select id="m7"><option value="ninguna" ${p.expensiveSensitivity==="ninguna"?"selected":""}>Ninguna</option><option value="baja" ${p.expensiveSensitivity==="baja"?"selected":""}>Baja</option><option value="media" ${p.expensiveSensitivity==="media"?"selected":""}>Media</option><option value="alta" ${p.expensiveSensitivity==="alta"?"selected":""}>Alta</option></select><div class="order-advanced-note">Aprendizaje por día. La base se ajusta con los resultados reales, no por cambiar manualmente el Pedido.</div><div class="order-learned-summary">${learn}</div><label>Reiniciar aprendizaje</label><select id="m9"><option value="">No reiniciar</option><option value="martes">Solo Martes</option><option value="jueves">Solo Jueves</option><option value="sabado">Solo Sábado</option><option value="todos">Todos los días</option></select></div></details>`}
 function openOrderEdit(id){const x=orders[activeOrderTab].find(y=>y.id===id);if(!x)return;openModal("Configurar producto del pedido",orderProfileEditHtml(x,true),{type:"order",id,day:activeOrderTab})}
@@ -2579,8 +2773,8 @@ $("editSaveBtn").onclick=async()=>{
   if(!editCtx)return;
   const ctx={...editCtx};
   try{
-    if(ctx.type==="expiry"){const x=items.find(y=>y.id===ctx.id);if(!x)return;if(!$("m1").value.trim()||!$("m3").value)return showToast("Completá producto y fecha.");x.name=$("m1").value.trim();x.code=$("m2").value.trim();x.date=$("m3").value;x.withdrawDays=Number($("m4").value);x.notes=$("m5").value.trim();rememberProductName(expiryProductMemory,x.name);}
-    if(ctx.type==="expiry-add-lot"){const seed=items.find(y=>y.id===ctx.seedId),date=$("m3").value;if(!seed)return;if(!date)return showToast("Seleccioná la fecha de vencimiento.");const identity=expiryIdentity(seed);if(items.some(x=>expiryIdentity(x)===identity&&x.date===date))return showToast("Ese vencimiento ya está cargado para este producto.");items.push({id:uid(),name:seed.name,code:seed.code||"",codeType:seed.codeType||((seed.code||"")?"EAN":""),date,withdrawDays:Number($("m4").value),notes:$("m5").value.trim(),createdAt:localDate(new Date())});rememberProductName(expiryProductMemory,seed.name);}
+    if(ctx.type==="expiry"){const x=items.find(y=>y.id===ctx.id);if(!x)return;const newName=$("m1").value.trim(),newCode=$("m2").value.trim(),newDate=$("m3").value;if(!newName||!newDate)return showToast("Completá producto y fecha.");const clash=findExistingExpiryProduct(newName,newCode,x.productId);if(clash)return showToast(`Ese producto ya existe como “${clash.name}”. Usá su ficha para añadir fechas.`);if(items.some(y=>y.id!==x.id&&y.productId===x.productId&&y.date===newDate))return showToast("Esa fecha ya está cargada para este producto.");items.filter(y=>y.productId===x.productId).forEach(y=>{y.name=newName;y.code=newCode;y.codeType=newCode?(y.codeType||"EAN"):"";y.updatedAtTs=Date.now()});x.date=newDate;x.withdrawDays=Number($("m4").value);x.notes=$("m5").value.trim();rememberProductName(expiryProductMemory,newName);}
+    if(ctx.type==="expiry-add-lot"){const seed=items.find(y=>y.id===ctx.seedId),date=$("m3").value;if(!seed)return;if(!date)return showToast("Seleccioná la fecha de vencimiento.");if(items.some(x=>x.productId===seed.productId&&x.date===date))return showToast("Esa fecha ya está cargada para este producto.");const now=new Date();items.push({id:uid(),productId:seed.productId,name:seed.name,code:seed.code||"",codeType:seed.codeType||((seed.code||"")?"EAN":""),date,withdrawDays:Number($("m4").value),notes:$("m5").value.trim(),createdAt:localDate(now),createdAtTs:now.getTime(),updatedAtTs:now.getTime()});lastExpiryProductId=seed.productId;rememberProductName(expiryProductMemory,seed.name);}if(ctx.type==="expiry-new-date"){const x=items.find(y=>y.id===ctx.id),date=$("m3").value;if(!x)return;if(!date)return showToast("Seleccioná la nueva fecha.");if(items.some(y=>y.id!==x.id&&y.productId===x.productId&&y.date===date))return showToast("Esa fecha ya está cargada para este producto.");const now=new Date(),oldDate=x.date;expiryHistory.unshift({id:uid(),action:"new_date",productId:x.productId,sourceExpiryId:x.id,name:x.name,code:x.code||"",codeType:x.codeType||"",oldDate,newDate:date,changedAt:localDate(now),changedAtTs:now.getTime(),eventTs:now.getTime()});x.date=date;x.updatedAtTs=now.getTime();cleanExpiryHistory();}
     if(ctx.type==="saved-expiry"){const old=ctx.key,name=$("m1").value.trim(),code=$("m2").value.trim(),wd=Number($("m3").value);if(!name)return showToast("Ingresá un producto.");delete savedExpiryProducts[old];savedExpiryProducts[norm(name)]={name,code,withdrawDays:wd};rememberProductName(expiryProductMemory,name);}
     if(ctx.type==="order"){const x=orders[ctx.day].find(y=>y.id===ctx.id),name=$("m1").value.trim();if(!x||!name)return showToast("Ingresá un producto.");const oldKey=norm(x.name),p=orderProfileFor(x.name,x.unitType);x.name=name;x.code=$("m2").value.trim();x.category=$("m3").value;x.unitType=orderQtyType($("m4").value,name);x.notes=$("m8")?$("m8").value.trim():"";p.name=name;p.qtyType=x.unitType;p.rotation=$("m5").value;p.offerReaction=$("m6").value;p.expensiveSensitivity=$("m7").value;if(oldKey!==norm(name)){delete orderProfiles[oldKey];orderProfiles[norm(name)]=p}const reset=$("m9")?.value||"";if(reset&&await askConfirm("Se eliminará la referencia aprendida seleccionada. Los pedidos guardados no se borrarán.","Reiniciar aprendizaje",true)){if(reset==="todos")["martes","jueves","sabado"].forEach(d=>p.learning[d]=blankOrderLearning());else p.learning[reset]=blankOrderLearning()}rememberProductName(orderProductMemory,x.name);}
     if(ctx.type==="saved-order"){const old=ctx.key,name=$("m1").value.trim(),code=$("m2").value.trim(),cat=$("m3").value,type=orderQtyType($("m4").value,name);if(!name)return showToast("Ingresá un producto.");const p=orderProfileFor(savedProducts[old]?.name||name,type);p.name=name;p.qtyType=type;p.rotation=$("m5").value;p.offerReaction=$("m6").value;p.expensiveSensitivity=$("m7").value;const reset=$("m9")?.value||"";if(reset&&await askConfirm("Se eliminará la referencia aprendida seleccionada. Los pedidos guardados no se borrarán.","Reiniciar aprendizaje",true)){if(reset==="todos")["martes","jueves","sabado"].forEach(d=>p.learning[d]=blankOrderLearning());else p.learning[reset]=blankOrderLearning()}delete savedProducts[old];savedProducts[norm(name)]={name,code,category:cat,unitType:type};if(old!==norm(name)){delete orderProfiles[old];orderProfiles[norm(name)]=p}rememberProductName(orderProductMemory,name);}
@@ -2590,7 +2784,7 @@ $("editSaveBtn").onclick=async()=>{
     renderAll();
     if(ctx.type==="saved-expiry")renderExpirySavedManager();
     if(ctx.type==="saved-order")renderOrderSavedManager();
-    showToast("Cambios guardados");
+    showToast(ctx.type==="expiry-new-date"?"Nueva fecha guardada":ctx.type==="expiry-add-lot"?"Fecha añadida":"Cambios guardados");
   }catch(e){console.error(e);showToast("No se pudieron guardar los cambios")}
 };
 
@@ -2728,16 +2922,47 @@ function renderLearningBase(){
   document.querySelectorAll("[data-learning-id]").forEach(el=>el.onclick=()=>openLearningEdit(el.dataset.learningId));
 }
 
-function expiryIdentity(x){const c=String(x.code||"").trim(),n=norm(x.name);return c?`${x.codeType||"EAN"}:${c}`:(n?`N:${n}`:`I:${x.id}`)}
-function expiryGroupsFor(list){const map=new Map();list.forEach(x=>{const k=expiryIdentity(x);if(!map.has(k))map.set(k,[]);map.get(k).push(x)});return [...map.values()].map(g=>g.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)))).sort((a,b)=>parseDate(withdrawalDate(a[0]))-parseDate(withdrawalDate(b[0])))}
+function expiryIdentity(x){const pid=String(x?.productId||"").trim();if(pid)return`P:${pid}`;const c=String(x?.code||"").trim(),n=norm(x?.name);return c?`${x.codeType||"EAN"}:${c}`:(n?`N:${n}`:`I:${x?.id||""}`)}
+function expiryGroupsFor(list){const map=new Map();(list||[]).forEach(x=>{const k=expiryIdentity(x);if(!map.has(k))map.set(k,[]);map.get(k).push(x)});return [...map.values()].map(g=>g.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)))).sort((a,b)=>parseDate(withdrawalDate(a[0]))-parseDate(withdrawalDate(b[0])))}
+function expiryGroupCardHtml(group){
+  const first=group.find(x=>x.code)||group[0],codeLabel=first.codeType==="PLU"?"PLU":"Código / EAN";
+  return `<div class="item expiry-group-card" data-expiry-product-id="${esc(first.productId||"")}"><div class="expiry-group-head"><div><div class="expiry-group-name">${esc(first.name)}</div><div class="expiry-group-code">${first.code?`${codeLabel}: ${esc(first.code)}`:"Sin código guardado"}</div></div><div class="expiry-group-tools"><span class="expiry-group-count">${group.length} vencimiento${group.length===1?"":"s"}</span><button class="expiry-add-lot-btn" data-add-expiry-lot="${group[0].id}" type="button">＋ Fecha</button><button class="share-btn" data-share-expiry-group="${group[0].id}" type="button" title="Compartir">↗</button></div></div><div class="expiry-lots">${group.map(x=>{const st=expiryStatus(x),rd=withdrawalDate(x);return `<div class="expiry-lot-row ${st.cls}" data-expiry-id="${x.id}" tabindex="0"><div><div class="expiry-lot-date">Vence: ${fmt(x.date)}</div><div class="expiry-lot-meta">Retiro: ${fmt(rd)}${x.notes?` · ${esc(x.notes)}`:""}</div><span class="status-badge ${st.cls}">${st.text}</span></div><div class="expiry-lot-actions">${st.days<=0?`<button class="btn-retired" data-resolve-expiry="${x.id}" type="button">Resolver</button>`:""}<button class="btn-danger expiry-lot-delete" data-del-expiry="${x.id}" type="button" tabindex="-1" aria-hidden="true">Eliminar</button></div></div>`}).join("")}</div></div>`;
+}
+function renderLastExpiryProduct(){
+  const list=$("lastExpiryList"),empty=$("lastExpiryEmpty"),count=$("lastExpiryCount");if(!list||!empty||!count)return;
+  const group=lastExpiryProductId?expiryProductGroup(lastExpiryProductId):[];
+  list.innerHTML=group.length?expiryGroupCardHtml(group):"";empty.style.display=group.length?"none":"block";
+  count.textContent=group.length?`${group.length} fecha${group.length===1?"":"s"}`:"—";
+}
+function bindExpiryInteractions(){
+  document.querySelectorAll("[data-resolve-expiry]").forEach(b=>b.onclick=e=>{e.stopPropagation();openExpiryResolve(b.dataset.resolveExpiry)});
+  document.querySelectorAll("[data-share-expiry-group]").forEach(b=>b.onclick=e=>{e.stopPropagation();const seed=items.find(x=>x.id===b.dataset.shareExpiryGroup);if(!seed)return;const group=expiryProductGroup(seed.productId);const codeItem=group.find(x=>x.code)||seed,codeLabel=codeItem.codeType==="PLU"?"PLU":"Código / EAN";shareText("Vencimientos · "+seed.name,`Al Día · Vencimientos\n${seed.name}${codeItem.code?`\n${codeLabel}: ${codeItem.code}`:""}\n${group.map(x=>`Vence: ${fmt(x.date)} · Retiro: ${fmt(withdrawalDate(x))} · ${expiryStatus(x).text}${x.notes?` · ${x.notes}`:""}`).join("\n")}`)});
+  document.querySelectorAll("[data-add-expiry-lot]").forEach(b=>b.onclick=e=>{e.stopPropagation();openExpiryQuickAdd(b.dataset.addExpiryLot)});
+  document.querySelectorAll(".expiry-lot-row[data-expiry-id]").forEach(row=>{const open=()=>openExpiryEdit(row.dataset.expiryId);row.onclick=e=>{if(row.dataset.gestureConsumed==="1"){row.dataset.gestureConsumed="0";return}if(e.target.closest("button,input,select,a"))return;open()};row.onkeydown=e=>{if((e.key==="Enter"||e.key===" ")&&!e.target.closest("button,input,select,a")){e.preventDefault();open()}}});
+  try{refreshSwipeDelete()}catch(e){}
+}
 function renderExpiry(){
-  items.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)));const filtered=items.filter(x=>{const status=expiryStatus(x);return expiryFilter==="all"||status.cls===expiryFilter}),groups=expiryGroupsFor(filtered);$('emptyState').style.display=groups.length?'none':'block';$('list').innerHTML='';
-  groups.forEach(group=>{const first=group.find(x=>x.code)||group[0],el=document.createElement('div');el.className='item expiry-group-card';const codeLabel=first.codeType==='PLU'?'PLU':'Código / EAN';el.innerHTML=`<div class="expiry-group-head"><div><div class="expiry-group-name">${esc(first.name)}</div><div class="expiry-group-code">${first.code?`${codeLabel}: ${esc(first.code)}`:'Sin código guardado'}</div></div><div class="expiry-group-tools"><span class="expiry-group-count">${group.length} vencimiento${group.length===1?'':'s'}</span><button class="expiry-add-lot-btn" data-add-expiry-lot="${group[0].id}" type="button">＋ Fecha</button><button class="share-btn" data-share-expiry-group="${group[0].id}" type="button" title="Compartir">↗</button></div></div><div class="expiry-lots">${group.map(x=>{const st=expiryStatus(x),rd=withdrawalDate(x);return `<div class="expiry-lot-row ${st.cls}" data-expiry-id="${x.id}" tabindex="0"><div><div class="expiry-lot-date">Vence: ${fmt(x.date)}</div><div class="expiry-lot-meta">Retiro: ${fmt(rd)}${x.notes?` · ${esc(x.notes)}`:''}</div><span class="status-badge ${st.cls}">${st.text}</span></div><div class="expiry-lot-actions">${st.days<=0?`<button class="btn-retired" data-retire="${x.id}" type="button">Retirar</button>`:''}<button class="btn-danger expiry-lot-delete" data-del-expiry="${x.id}" type="button" tabindex="-1" aria-hidden="true">Eliminar</button></div></div>`}).join('')}</div>`;$('list').appendChild(el)});
-  const urgent=items.filter(x=>expiryStatus(x).days<=7).length;$('totalCount').textContent=`${expiryGroupsFor(items).length} producto${expiryGroupsFor(items).length===1?'':'s'} · ${items.length} fecha${items.length===1?'':'s'}`;$('urgentCount').textContent=`${urgent} vencimiento${urgent===1?'':'s'} para revisar`;
-  document.querySelectorAll('[data-retire]').forEach(b=>b.onclick=async e=>{e.stopPropagation();const x=items.find(y=>y.id===b.dataset.retire);if(!x)return;if(!await askConfirm(`¿Retirar el lote de “${x.name}” que vence ${fmt(x.date)}?`,'Retirar vencimiento'))return;expiryHistory.unshift({...x,removedAt:localDate(new Date()),withdrawalDate:withdrawalDate(x)});items=items.filter(y=>y.id!==x.id);cleanExpiryHistory();saveAll();renderAll();showToast('Vencimiento retirado')});
-  document.querySelectorAll('[data-share-expiry-group]').forEach(b=>b.onclick=e=>{e.stopPropagation();const seed=items.find(x=>x.id===b.dataset.shareExpiryGroup);if(!seed)return;const group=expiryGroupsFor(items).find(g=>g.some(x=>x.id===seed.id))||[seed];const codeItem=group.find(x=>x.code)||seed,codeLabel=codeItem.codeType==='PLU'?'PLU':'Código / EAN';shareText('Vencimientos · '+seed.name,`Al Día · Vencimientos\n${seed.name}${codeItem.code?`\n${codeLabel}: ${codeItem.code}`:''}\n${group.map(x=>`Vence: ${fmt(x.date)} · Retiro: ${fmt(withdrawalDate(x))} · ${expiryStatus(x).text}${x.notes?` · ${x.notes}`:''}`).join('\n')}`)});
-  document.querySelectorAll('[data-add-expiry-lot]').forEach(b=>b.onclick=e=>{e.stopPropagation();openExpiryQuickAdd(b.dataset.addExpiryLot)});
-  document.querySelectorAll('.expiry-lot-row[data-expiry-id]').forEach(row=>{const open=()=>openExpiryEdit(row.dataset.expiryId);row.onclick=e=>{if(row.dataset.gestureConsumed==='1'){row.dataset.gestureConsumed='0';return}if(e.target.closest('button,input,select,a'))return;open()};row.onkeydown=e=>{if((e.key==='Enter'||e.key===' ')&&!e.target.closest('button,input,select,a')){e.preventDefault();open()}}});try{refreshSwipeDelete()}catch(e){}
+  migrateExpiryProductIds();
+  items.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)));
+  const filtered=items.filter(x=>{const status=expiryStatus(x);return expiryFilter==="all"||status.cls===expiryFilter}),groups=expiryGroupsFor(filtered);
+  $("emptyState").style.display=groups.length?"none":"block";$("list").innerHTML=groups.map(expiryGroupCardHtml).join("");
+  const urgent=items.filter(x=>expiryStatus(x).days<=7).length,allGroups=expiryGroupsFor(items);
+  $("totalCount").textContent=`${allGroups.length} producto${allGroups.length===1?"":"s"} · ${items.length} fecha${items.length===1?"":"s"}`;
+  $("urgentCount").textContent=`${urgent} vencimiento${urgent===1?"":"s"} para revisar`;
+  renderLastExpiryProduct();bindExpiryInteractions();
+}
+function setExpiryView(view){
+  const allowed=["active","last","history"];if(!allowed.includes(view))view="active";
+  document.querySelectorAll("[data-expiry-view]").forEach(x=>x.classList.toggle("active",x.dataset.expiryView===view));
+  $("expiry-active-view").classList.toggle("hidden",view!=="active");
+  $("expiry-last-view").classList.toggle("hidden",view!=="last");
+  $("expiry-history-view").classList.toggle("hidden",view!=="history");
+  if(view==="history")renderExpiryHistory();
+  if(view==="last"){renderLastExpiryProduct();bindExpiryInteractions()}
+}
+function openExpiryProduct(productId,lotId="",attention=true){
+  expiryFilter="all";document.querySelectorAll("[data-expiry-filter]").forEach(x=>x.classList.toggle("active",x.dataset.expiryFilter==="all"));setExpiryView("active");openMainTab("vencimientos");renderExpiry();
+  setTimeout(()=>{const target=lotId?document.querySelector(`#expiry-active-view [data-expiry-id="${lotId}"]`):document.querySelector(`#expiry-active-view [data-expiry-product-id="${productId}"]`);if(target){target.scrollIntoView({behavior:"smooth",block:"center"});target.classList.add(attention?"attention-focus":"expiry-focus-product");setTimeout(()=>target.classList.remove("attention-focus","expiry-focus-product"),1800)}},160);
 }
 
 function openLearningEdit(id){const x=learningCatalog.find(y=>y.id===id);if(!x)return;openModal("Editar producto de temporada",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Categoría</label><select id="m3">${cats.map(c=>`<option ${x.category===c?"selected":""}>${c}</option>`).join("")}</select><div class="month-picker"><div class="month-picker-head"><label style="margin:0">Meses disponibles</label><button class="month-toggle-all" id="modalMonthsToggle" type="button">Seleccionar todos</button></div><div class="month-grid" id="modalMonthsGrid">${monthPickerHtml(x.months)}</div><div class="month-count-note" id="modalMonthsCount"></div></div><div class="footer-note">Origen: ${esc(x.origin||"Dato guardado")}</div>`,{type:"learning",id});const upd=()=>{const n=[...$("modalMonthsGrid").querySelectorAll("input:checked")].length;$("modalMonthsCount").textContent=`${n} de 12 meses seleccionados`;$("modalMonthsToggle").textContent=n===12?"Deseleccionar todos":"Seleccionar todos"};$("modalMonthsGrid").querySelectorAll("input").forEach(i=>i.onchange=upd);$("modalMonthsToggle").onclick=()=>{const all=[...$("modalMonthsGrid").querySelectorAll("input:checked")].length===12;$("modalMonthsGrid").querySelectorAll("input").forEach(i=>i.checked=!all);upd()};upd()}
@@ -2759,21 +2984,21 @@ function openMainTab(tab){
 }
 
 
-function openExpiryAttention(){
+function openExpiryAttention(lotId=""){
   const sorted=[...items].sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)));
-  const target=sorted.find(x=>expiryStatus(x).days<=0)||sorted.find(x=>{const d=expiryStatus(x).days;return d>=1&&d<=7})||sorted[0];
+  const target=(lotId&&items.find(x=>x.id===lotId))||sorted.find(x=>expiryStatus(x).days<=0)||sorted.find(x=>{const d=expiryStatus(x).days;return d>=1&&d<=7})||sorted[0];
   const targetStatus=target?expiryStatus(target):null;
   expiryFilter=targetStatus?(targetStatus.days<=0?"danger":targetStatus.days<=7?"warning":"all"):"all";
   document.querySelectorAll("[data-expiry-filter]").forEach(x=>x.classList.toggle("active",x.dataset.expiryFilter===expiryFilter));
-  document.querySelectorAll("[data-expiry-view]").forEach(x=>x.classList.toggle("active",x.dataset.expiryView==="active"));
-  $("expiry-active-view").classList.remove("hidden");$("expiry-history-view").classList.add("hidden");
-  openMainTab("vencimientos");renderExpiry();
-  if(target)setTimeout(()=>{const card=document.querySelector(`[data-expiry-id="${target.id}"]`);if(card){card.scrollIntoView({behavior:"smooth",block:"center"});card.classList.add("attention-focus");setTimeout(()=>card.classList.remove("attention-focus"),1800)}},180);
+  setExpiryView("active");openMainTab("vencimientos");renderExpiry();
+  if(target)setTimeout(()=>{const card=document.querySelector(`#expiry-active-view [data-expiry-id="${target.id}"]`);if(card){card.scrollIntoView({behavior:"smooth",block:"center"});card.classList.add("attention-focus");setTimeout(()=>card.classList.remove("attention-focus"),1800)}},180);
 }
-
-$("homeVencimientosBtn").onclick=()=>openExpiryAttention();
-$("homePedidosBtn").onclick=()=>openMainTab("pedidos");
-$("homeMuestrasBtn").onclick=()=>openMainTab("muestras");
+function openExpiryFromHome(){expiryFilter="all";document.querySelectorAll("[data-expiry-filter]").forEach(x=>x.classList.toggle("active",x.dataset.expiryFilter==="all"));setExpiryView("active");collapseAddPanel("expiry");openMainTab("vencimientos");renderExpiry()}
+function openOrdersFromHome(){document.querySelectorAll("[data-order-view]").forEach(x=>x.classList.toggle("active",x.dataset.orderView==="current"));$("order-current-view").classList.remove("hidden");$("order-history-view").classList.add("hidden");collapseAddPanel("order");openMainTab("pedidos");renderOrders();updateNextOrder()}
+function openSamplesFromHome(){document.querySelectorAll("[data-sample-view]").forEach(x=>x.classList.toggle("active",x.dataset.sampleView==="current"));$("sample-current-view").classList.remove("hidden");$("sample-history-view").classList.add("hidden");collapseAddPanel("sample");openMainTab("muestras");renderSamples()}
+$("homeVencimientosBtn").onclick=()=>openExpiryFromHome();
+$("homePedidosBtn").onclick=()=>openOrdersFromHome();
+$("homeMuestrasBtn").onclick=()=>openSamplesFromHome();
 $("homeNotesBtn").onclick=()=>openMainTab("notas");
 $("homePlantillaBtn").onclick=()=>{openMainTab("plantilla");renderCvDraft();renderCvHistory()};
 $("homeLearningBtn").onclick=()=>{openMainTab("aprendizaje");renderLearningBase()};
@@ -2919,9 +3144,9 @@ function handleHorizontalSwipe(){
 document.querySelectorAll(".main-tab").forEach(b=>b.onclick=()=>openMainTab(b.dataset.mainTab));
 $("settingsBtn").onclick=()=>openMainTab("ajustes");
 if(document.querySelector("[data-settings-back-home]")) document.querySelector("[data-settings-back-home]").onclick=()=>openMainTab("inicio");
-if($("goVencimientosBtn")) $("goVencimientosBtn").onclick=()=>{expiryFilter="danger";document.querySelectorAll("[data-expiry-filter]").forEach(x=>x.classList.toggle("active",x.dataset.expiryFilter==="danger"));document.querySelectorAll("[data-expiry-view]").forEach(x=>x.classList.toggle("active",x.dataset.expiryView==="active"));$("expiry-active-view").classList.remove("hidden");$("expiry-history-view").classList.add("hidden");openMainTab("vencimientos");renderExpiry()};
+if($("goVencimientosBtn")) $("goVencimientosBtn").onclick=()=>{expiryFilter="danger";document.querySelectorAll("[data-expiry-filter]").forEach(x=>x.classList.toggle("active",x.dataset.expiryFilter==="danger"));setExpiryView("active");openMainTab("vencimientos");renderExpiry()};
 if($("goPedidosBtn")) $("goPedidosBtn").onclick=()=>{const t=keyFromDow(nextOrderDay());document.querySelectorAll(".subtab").forEach(b=>b.classList.toggle("active",b.dataset.orderTab===t));activeOrderTab=t;openMainTab("pedidos");renderAll()};
-document.querySelectorAll("[data-expiry-view]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-expiry-view]").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("expiry-active-view").classList.toggle("hidden",b.dataset.expiryView!=="active");$("expiry-history-view").classList.toggle("hidden",b.dataset.expiryView!=="history");if(b.dataset.expiryView==="history")renderExpiryHistory()});
+document.querySelectorAll("[data-expiry-view]").forEach(b=>b.onclick=()=>setExpiryView(b.dataset.expiryView));
 document.querySelectorAll("[data-order-view]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-order-view]").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("order-current-view").classList.toggle("hidden",b.dataset.orderView!=="current");$("order-history-view").classList.toggle("hidden",b.dataset.orderView!=="history");if(b.dataset.orderView==="history")renderOrderHistory()});
 document.querySelectorAll(".subtab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".subtab").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeOrderTab=b.dataset.orderTab;renderAll()});
 document.querySelectorAll("[data-expiry-filter]").forEach(b=>b.onclick=()=>{
@@ -2952,7 +3177,7 @@ document.querySelectorAll("[data-sample-view]").forEach(b=>b.onclick=()=>{docume
 
 
 
-$("clearExpiryHistoryBtn").onclick=async()=>{if(!expiryHistory.length)return showToast("El historial ya está vacío");if(!await askConfirm("Se eliminará todo el historial de productos retirados.","¿Limpiar historial?",true))return;expiryHistory=[];saveAll();renderExpiryHistory();showToast("Historial eliminado")};
+$("clearExpiryHistoryBtn").onclick=async()=>{if(!expiryHistory.length)return showToast("El historial ya está vacío");if(!await askConfirm("Se eliminará todo el historial de Vencimientos.","¿Limpiar historial?",true))return;expiryHistory=[];saveAll();renderExpiryHistory();showToast("Historial eliminado")};
 $("clearOrderHistoryBtn").onclick=async()=>{const h=orderHistory[activeOrderTab];if(!h.length)return showToast("El historial ya está vacío");if(!await askConfirm(`Se eliminará todo el historial de ${dayLabel(activeOrderTab)}.`,"¿Limpiar historial?",true))return;orderHistory[activeOrderTab]=[];saveAll();renderOrderHistory();showToast("Historial eliminado")};
 $("clearSampleHistoryBtn").onclick=async()=>{if(!sampleHistory.length)return showToast("El historial ya está vacío");if(!await askConfirm("Se eliminarán todas las muestras realizadas guardadas.","¿Limpiar historial?",true))return;sampleHistory=[];saveAll();renderSampleHistory();showToast("Historial eliminado")};
 $("shareExpiryListBtn").onclick=()=>{if(!items.length)return showToast("No hay vencimientos para compartir");const ordered=[...items].sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)));shareText("Vencimientos",`Al Día · Vencimientos\\n\\n${ordered.map(x=>`${x.name} · Vence: ${fmt(x.date)} · Retiro: ${fmt(withdrawalDate(x))} · ${expiryStatus(x).text}`).join("\\n")}`)};
@@ -2982,7 +3207,7 @@ function backupSummaryText(d,includeTitle=true){
   return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos guardados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}`;
 }
 function currentBackupObject(){
-  return {version:22,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:23,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;
@@ -3010,6 +3235,8 @@ function applyBackupObject(d,silent=false){
   items=d.expiryItems||[];
   expiryHistory=d.expiryHistory||[];
   savedExpiryProducts=d.savedExpiryProducts||{};
+  lastExpiryProductId=typeof d.lastExpiryProductId==="string"?d.lastExpiryProductId:"";
+  migrateExpiryProductIds();
   orders=d.orders||{martes:[],jueves:[],sabado:[]};
   orderHistory=d.orderHistory||{martes:[],jueves:[],sabado:[]};
   orderCompletion=d.orderCompletion||{martes:null,jueves:null,sabado:null};
@@ -3160,9 +3387,36 @@ setInterval(refreshAutomaticMonthIfNeeded,60000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)refreshAutomaticMonthIfNeeded()});
 
 
-async function handleDeleteAction(target){const expiryBtn=target.closest("[data-del-expiry]");if(expiryBtn){if(!await askConfirm("¿Eliminar este vencimiento?","Eliminar vencimiento",true))return true;items=items.filter(x=>x.id!==expiryBtn.dataset.delExpiry);saveAll();renderAll();return true}const expiryHistoryBtn=target.closest("[data-del-exp-h]");if(expiryHistoryBtn){if(!await askConfirm("¿Eliminar este registro del historial?","Eliminar registro",true))return true;expiryHistory=expiryHistory.filter(x=>x.id!==expiryHistoryBtn.dataset.delExpH);saveAll();renderExpiryHistory();renderDashboard();return true}const orderBtn=target.closest("[data-del-order]");if(orderBtn){if(!await askConfirm("¿Eliminar este producto?","Eliminar producto",true))return true;orders[activeOrderTab]=orders[activeOrderTab].filter(x=>x.id!==orderBtn.dataset.delOrder);saveAll();renderAll();return true}const orderHistoryBtn=target.closest("[data-del-oh]");if(orderHistoryBtn){if(!await askConfirm("¿Eliminar este pedido del historial?","Eliminar pedido",true))return true;orderHistory[activeOrderTab]=orderHistory[activeOrderTab].filter(x=>x.id!==orderHistoryBtn.dataset.delOh);saveAll();renderOrderHistory();renderDashboard();return true}const savedExpiryBtn=target.closest("[data-del-exp-s]");if(savedExpiryBtn){if(!await askConfirm("¿Eliminar este producto frecuente?","Eliminar producto frecuente",true))return true;delete savedExpiryProducts[savedExpiryBtn.dataset.delExpS];saveAll();renderExpiryDatalist();renderExpirySavedManager();return true}const savedOrderBtn=target.closest("[data-del-os]");if(savedOrderBtn){if(!await askConfirm("¿Eliminar este producto guardado?","Eliminar producto guardado",true))return true;delete savedProducts[savedOrderBtn.dataset.delOs];saveAll();renderOrderDatalist();renderOrderSavedManager();return true}const sampleRowBtn=target.closest("[data-del-sample-row]");if(sampleRowBtn){if(!await askConfirm("¿Eliminar este producto de la muestra?","Eliminar producto",true))return true;sampleTemplates[activeSampleTemplate]=sampleTemplates[activeSampleTemplate].filter(x=>x.id!==sampleRowBtn.dataset.delSampleRow);if(editingSampleId===sampleRowBtn.dataset.delSampleRow)resetSampleForm();sampleLocked=sampleTemplates[activeSampleTemplate].length>0;saveAll();renderSamples();return true}const sampleHistoryBtn=target.closest("[data-del-sample-history]");if(sampleHistoryBtn){if(!await askConfirm("¿Eliminar esta muestra del historial?","Eliminar muestra",true))return true;sampleHistory=sampleHistory.filter(x=>x.id!==sampleHistoryBtn.dataset.delSampleHistory);saveAll();renderSampleHistory();return true}return false;}
+async function handleDeleteAction(target){const expiryBtn=target.closest("[data-del-expiry]");if(expiryBtn){if(!await askConfirm("¿Eliminar este vencimiento?","Eliminar vencimiento",true))return true;const removed=items.find(x=>x.id===expiryBtn.dataset.delExpiry);items=items.filter(x=>x.id!==expiryBtn.dataset.delExpiry);if(removed&&lastExpiryProductId===removed.productId&&!items.some(x=>x.productId===removed.productId))lastExpiryProductId="";saveAll();renderExpiry();renderDashboard();return true}const expiryHistoryBtn=target.closest("[data-del-exp-h]");if(expiryHistoryBtn){if(!await askConfirm("¿Eliminar este registro del historial?","Eliminar registro",true))return true;expiryHistory=expiryHistory.filter(x=>x.id!==expiryHistoryBtn.dataset.delExpH);saveAll();renderExpiryHistory();renderDashboard();return true}const orderBtn=target.closest("[data-del-order]");if(orderBtn){if(!await askConfirm("¿Eliminar este producto?","Eliminar producto",true))return true;orders[activeOrderTab]=orders[activeOrderTab].filter(x=>x.id!==orderBtn.dataset.delOrder);saveAll();renderAll();return true}const orderHistoryBtn=target.closest("[data-del-oh]");if(orderHistoryBtn){if(!await askConfirm("¿Eliminar este pedido del historial?","Eliminar pedido",true))return true;orderHistory[activeOrderTab]=orderHistory[activeOrderTab].filter(x=>x.id!==orderHistoryBtn.dataset.delOh);saveAll();renderOrderHistory();renderDashboard();return true}const savedExpiryBtn=target.closest("[data-del-exp-s]");if(savedExpiryBtn){if(!await askConfirm("¿Eliminar este producto frecuente?","Eliminar producto frecuente",true))return true;delete savedExpiryProducts[savedExpiryBtn.dataset.delExpS];saveAll();renderExpiryDatalist();renderExpirySavedManager();return true}const savedOrderBtn=target.closest("[data-del-os]");if(savedOrderBtn){if(!await askConfirm("¿Eliminar este producto guardado?","Eliminar producto guardado",true))return true;delete savedProducts[savedOrderBtn.dataset.delOs];saveAll();renderOrderDatalist();renderOrderSavedManager();return true}const sampleRowBtn=target.closest("[data-del-sample-row]");if(sampleRowBtn){if(!await askConfirm("¿Eliminar este producto de la muestra?","Eliminar producto",true))return true;sampleTemplates[activeSampleTemplate]=sampleTemplates[activeSampleTemplate].filter(x=>x.id!==sampleRowBtn.dataset.delSampleRow);if(editingSampleId===sampleRowBtn.dataset.delSampleRow)resetSampleForm();sampleLocked=sampleTemplates[activeSampleTemplate].length>0;saveAll();renderSamples();return true}const sampleHistoryBtn=target.closest("[data-del-sample-history]");if(sampleHistoryBtn){if(!await askConfirm("¿Eliminar esta muestra del historial?","Eliminar muestra",true))return true;sampleHistory=sampleHistory.filter(x=>x.id!==sampleHistoryBtn.dataset.delSampleHistory);saveAll();renderSampleHistory();return true}return false;}
 
 document.addEventListener("click",e=>{if(e.target.closest("[data-del-expiry],[data-del-exp-h],[data-del-order],[data-del-oh],[data-del-exp-s],[data-del-os],[data-del-sample-row],[data-del-sample-history]")){e.preventDefault();e.stopImmediatePropagation();handleDeleteAction(e.target)}},true);
+
+
+window.openFromAndroidIntent=function(target,id){
+  if(target==="expiry"){openExpiryAttention(id||"");return true}
+  if(target==="note"){openMainTab("notas");return true}
+  return false;
+};
+window.handleAndroidBack=function(){
+  if($("confirmBackdrop")?.classList.contains("open")){closeConfirm(false);return true}
+  if($("editModalBackdrop")?.classList.contains("open")){closeModal();return true}
+  if($("noteEditorBackdrop")?.classList.contains("open")){closeNoteEditor();return true}
+  const tab=getActiveMainTab();
+  if(tab==="vencimientos"){
+    if(!$("expiry-history-view").classList.contains("hidden")||!$("expiry-last-view").classList.contains("hidden")){setExpiryView("active");window.scrollTo({top:0,behavior:"smooth"});return true}
+    if(!$("expiryForm").classList.contains("hidden")){collapseAddPanel("expiry");window.scrollTo({top:0,behavior:"smooth"});return true}
+  }
+  if(tab==="pedidos"){
+    if(!$("order-history-view").classList.contains("hidden")){document.querySelectorAll("[data-order-view]").forEach(x=>x.classList.toggle("active",x.dataset.orderView==="current"));$("order-current-view").classList.remove("hidden");$("order-history-view").classList.add("hidden");window.scrollTo({top:0,behavior:"smooth"});return true}
+    if(!$("orderForm").classList.contains("hidden")){collapseAddPanel("order");window.scrollTo({top:0,behavior:"smooth"});return true}
+  }
+  if(tab==="muestras"){
+    if(!$("sample-history-view").classList.contains("hidden")){document.querySelectorAll("[data-sample-view]").forEach(x=>x.classList.toggle("active",x.dataset.sampleView==="current"));$("sample-current-view").classList.remove("hidden");$("sample-history-view").classList.add("hidden");window.scrollTo({top:0,behavior:"smooth"});return true}
+    if(!$("sampleAddBody").classList.contains("hidden")){collapseAddPanel("sample");window.scrollTo({top:0,behavior:"smooth"});return true}
+  }
+  if(tab!=="inicio"){openMainTab("inicio");return true}
+  return false;
+};
 
 
 restoreNativeStateIfAvailable();toggleQtyInput();applySettings();renderAll();openMainTab("inicio");refreshNotificationPermissionStatus();loadNativeVersion();setInterval(()=>{updateNextOrder();renderCompletion();renderDashboard()},60000);

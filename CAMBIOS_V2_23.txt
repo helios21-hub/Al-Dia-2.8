@@ -1,0 +1,44 @@
+Al Día v2.23 — Vencimientos y navegación más rápidos
+
+VENCIMIENTOS
+- El alta de un producto empieza con una sola fecha obligatoria.
+- Botón “＋ Añadir otra fecha” sin límite artificial: cada pulsación agrega otra fecha y vuelve a dejar el botón disponible debajo.
+- Las fechas extra pueden quitarse antes de guardar; una fecha extra vacía no obliga a completarla.
+- Un solo “Guardar producto” crea todas las fechas dentro de la misma ficha.
+- El formulario queda abierto y limpio después de guardar para continuar cargando el siguiente producto sin volver a abrirlo.
+- Se reemplazó el datalist nativo de Android/WebView por un autocompletado propio, compacto y limitado a 5 sugerencias para no tapar el teclado.
+- Si el producto ya existe, Al Día lo avisa, muestra las fechas ya cargadas y permite ir a su ficha.
+- Coincidencias exactas por nombre o código se agregan a la misma ficha; coincidencias aproximadas se sugieren pero no se unen automáticamente.
+- Cada producto de Vencimientos tiene un productId estable para que nombre/código/fechas no generen fichas duplicadas por accidente.
+- Migración automática de vencimientos anteriores al nuevo productId, conservando los datos existentes.
+- Nueva pestaña “Último añadido”, persistente, con acceso rápido a la última ficha trabajada y su botón “＋ Fecha”.
+- El botón “＋ Fecha” de las fichas existentes se mantiene.
+- Una fecha duplicada del mismo producto no se puede guardar dos veces.
+
+RESOLVER VENCIMIENTOS
+- Cuando corresponde actuar sobre una fecha aparece “Resolver”.
+- Resolver ofrece solamente “Retirar” o “Nueva fecha”.
+- “Retirar” elimina únicamente la fecha/lote seleccionado; las demás fechas del mismo producto continúan activas.
+- Si se retira la fecha más próxima, la siguiente fecha activa pasa a ser automáticamente la más urgente de esa ficha.
+- “Nueva fecha” reemplaza la fecha seleccionada y conserva el lote/producto activo.
+- El historial registra retiros y cambios a nueva fecha. No se usa el concepto ni la palabra “reetiquetar”.
+
+NAVEGACIÓN
+- Desde la cuadrícula de Inicio, Vencimientos abre arriba, en Activos y con el filtro Todos.
+- Desde la cuadrícula de Inicio, Pedidos abre arriba en la vista actual, no directamente en la lista/historial.
+- Desde la cuadrícula de Inicio, Muestras abre arriba en la vista actual, no en historial.
+- Las alertas/resumen y notificaciones sí pueden abrir directamente el vencimiento importante.
+- Las notificaciones nativas llevan el ID del vencimiento para enfocar el lote concreto al tocar el aviso.
+- La flecha/gesto Atrás de Android navega por la app: cierra modal/subvista/formulario, vuelve al módulo anterior/Inicio y solo permite salir desde Inicio.
+- En Inicio se requiere una segunda pulsación de Atrás para salir, reduciendo cierres accidentales.
+- `adjustResize` activado para que el teclado redimensione la pantalla y no tape el formulario.
+
+COMPILACIÓN Y MANTENIMIENTO
+- versionName 2.23.
+- versionCode base 223000 + GITHUB_RUN_NUMBER.
+- Backup v23, incluyendo el último producto de Vencimientos.
+- Se mantiene compatibilidad de importación con copias anteriores; campos antiguos no utilizados se ignoran.
+- Los escáneres/OCR continúan eliminados.
+- Los workflows siguen siendo manuales (`workflow_dispatch`).
+- Los workflows ejecutan `lintDebug` antes de `assembleDebug`.
+- Durante la revisión se detectó que el paquete histórico no incluye `gradle-wrapper.jar`; por eso los workflows configuran Gradle 8.13 directamente y no dependen del script `./gradlew` informativo.

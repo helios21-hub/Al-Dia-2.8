@@ -15,6 +15,20 @@ Proyecto Android de **Al Día**, una app personal para control de vencimientos y
 
 Los workflows están configurados en modo **manual**. Después de cada actualización, entrá en **Actions** y ejecutá **Run workflow** cuando quieras compilar.
 
+
+## Estado actual — v2.23
+
+- Vencimientos permite cargar una o varias fechas en una sola alta.
+- Se reemplazó el desplegable nativo de productos por sugerencias compactas para no tapar el teclado.
+- Se agregó la vista **Último añadido**, detección de productos ya existentes y acciones **Retirar / Nueva fecha** por cada fecha.
+- Entrar desde Inicio abre Vencimientos, Pedidos y Muestras desde arriba; las alertas pueden abrir el dato concreto.
+- La flecha/gesto Atrás de Android navega dentro de Al Día y en Inicio requiere una segunda pulsación para salir.
+- Los escáneres/OCR continúan eliminados.
+- Backup v23.
+- Los workflows ejecutan `lintDebug` antes de compilar y configuran Gradle 8.13 directamente.
+
+> Nota: el paquete histórico contiene un script `gradlew` informativo pero no `gradle-wrapper.jar`; GitHub Actions no depende de ese wrapper.
+
 ## Instalar en Android
 
 Copiar `Al-Dia-debug.apk` al teléfono y abrirlo. Android puede pedir habilitar **Instalar apps desconocidas** para el navegador o gestor de archivos que uses.

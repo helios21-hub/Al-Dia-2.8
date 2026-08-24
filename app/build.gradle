@@ -14,8 +14,8 @@ android {
         minSdk 26
         targetSdk 36
         def runNumber = System.getenv("GITHUB_RUN_NUMBER")
-        versionCode runNumber != null ? 222000 + runNumber.toInteger() : 222000
-        versionName "2.22"
+        versionCode runNumber != null ? 223000 + runNumber.toInteger() : 223000
+        versionName "2.23"
     }
 
     signingConfigs {

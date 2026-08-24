@@ -1,26 +1,25 @@
-AL DÍA v2.3.1 — PROYECTO COMPLETO PARA RESUBIR A GITHUB
+AL DÍA v2.23 — PROYECTO COMPLETO PARA RESUBIR A GITHUB
 
-Este ZIP contiene el proyecto completo y la corrección de Gradle incluida.
+Este ZIP conserva la estructura Android completa.
 
 RECOMENDADO:
-1. Descomprimí el ZIP.
-2. Entrá en tu repositorio de GitHub > Code.
-3. Si querés evitar mezclar archivos viejos, eliminá primero los archivos/carpetas antiguos del proyecto o usá un repositorio limpio.
-4. Subí TODO el contenido que está dentro de la carpeta AlDia_Android:
+1. Usá GitHub Desktop para evitar que GitHub Web coloque los archivos de las carpetas en la raíz.
+2. Cloná el repositorio.
+3. Reemplazá localmente su contenido por TODO el contenido del ZIP completo.
+4. Confirmá que en la raíz existan:
    - app/
    - gradle/
+   - .github/
    - build.gradle
    - settings.gradle
    - gradle.properties
-   - gradlew
-   - gradlew.bat
-   - .gitignore
-   - README y demás archivos
-5. Conservá también tu carpeta .github/workflows/build-apk.yml si ya existe en el repositorio.
-6. Hacé Commit changes.
-7. Entrá en Actions y ejecutá “Compilar APK Al Día” si no arranca automáticamente.
+5. Confirmá que NO aparezcan MainActivity.java, index.html o AndroidManifest.xml sueltos en la raíz.
+6. Hacé Commit y Push.
+7. Entrá en Actions > Compilar APK Al Día > Run workflow.
 
 IMPORTANTE:
-- El build.gradle raíz ya incluye:
-  id 'com.android.application' version '8.13.2' apply false
-- settings.gradle ya incluye los repositorios de plugins necesarios.
+- Los workflows son manuales (workflow_dispatch), no se ejecutan por cada push.
+- /build.gradle usa Android Gradle Plugin 8.13.2.
+- GitHub Actions configura Gradle 8.13 directamente.
+- /app/build.gradle corresponde a versionName 2.23.
+- El workflow ejecuta lintDebug antes de assembleDebug.

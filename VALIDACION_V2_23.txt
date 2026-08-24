@@ -1,0 +1,41 @@
+VALIDACIÓN PREVIA — AL DÍA v2.23
+Fecha de revisión: 23-08-2026
+
+RESULTADO ESTÁTICO
+[OK] JavaScript extraído de index.html validado con `node --check`.
+[OK] HTML parseado correctamente; no hay IDs HTML duplicados.
+[OK] No hay funciones JavaScript declaradas dos veces.
+[OK] El campo Producto de Vencimientos ya no usa `datalist` nativo.
+[OK] Estructura XML de AndroidManifest.xml y recursos XML parseada correctamente.
+[OK] Ambos workflows YAML parseados y mantienen `workflow_dispatch` manual.
+[OK] Root build.gradle conserva Android Gradle Plugin 8.13.2.
+[OK] app/build.gradle: compileSdk/targetSdk 36, minSdk 26, Java 17.
+[OK] versionName = 2.23.
+[OK] versionCode base = 223000 + GITHUB_RUN_NUMBER.
+[OK] Backup = v23 e incluye lastExpiryProductId.
+[OK] No quedan dependencias/metadata de los escáneres ML Kit retirados.
+[OK] No aparece “reetiquetar/reetiquetado” en la implementación de Vencimientos.
+[OK] Manifest usa `windowSoftInputMode="adjustResize"`.
+[OK] Navegación Atrás implementada en Java + JavaScript con doble pulsación para salir desde Inicio.
+[OK] Notificaciones de vencimientos transportan `open_target` y `open_id` para abrir el lote concreto.
+[OK] Retirar actúa sobre un único ID de fecha/lote y mantiene las demás fechas activas.
+[OK] Nueva fecha modifica el mismo lote y registra el cambio en historial.
+[OK] Detección/migración a productId estable incluida para Vencimientos existentes.
+[OK] Autocompletado compacto, múltiples fechas y Último añadido presentes.
+
+REVISIÓN DE JAVA
+[OK] `javac -proc:none` no detectó errores sintácticos de Java.
+[INFO] La comprobación completa de Java no puede resolverse localmente porque este entorno no contiene las clases del Android SDK (`android.jar`). Los errores restantes de javac son únicamente referencias a paquetes Android ausentes.
+
+REVISIÓN DE GRADLE / GITHUB ACTIONS
+[CORREGIDO] La revisión previa detectó que el `gradlew` histórico es solo un script informativo y que no existe `gradle-wrapper.jar` en el proyecto. Usarlo en GitHub habría hecho fallar la compilación antes de empezar.
+[OK] Los workflows finales instalan/configuran Gradle 8.13 mediante `gradle/actions/setup-gradle@v4`.
+[OK] Orden del pipeline: SDK 36 -> Gradle 8.13 -> `:app:lintDebug` -> `:app:assembleDebug`.
+
+LIMITACIONES DE ESTA VALIDACIÓN
+[INFO] No se compiló un APK localmente porque el entorno no dispone de Android SDK/Gradle instalados.
+[INFO] La prueba visual automatizada en navegador no pudo ejecutarse por una restricción de navegación del entorno; se validaron en su lugar estructura HTML, JavaScript y reglas de comportamiento en el código.
+[PENDIENTE EXTERNO] La validación definitiva de Android es ejecutar en GitHub Actions “Compilar APK Al Día”. Si `lintDebug` pasa, el workflow continúa con `assembleDebug`.
+
+CONCLUSIÓN
+No se detectaron otros cambios obligatorios que deban resolverse antes de intentar compilar v2.23. El problema de workflow detectado durante esta auditoría quedó corregido antes de empaquetar.
