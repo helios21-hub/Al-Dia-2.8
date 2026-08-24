@@ -42,3 +42,12 @@ COMPILACIÓN Y MANTENIMIENTO
 - Los workflows siguen siendo manuales (`workflow_dispatch`).
 - Los workflows ejecutan `lintDebug` antes de `assembleDebug`.
 - Durante la revisión se detectó que el paquete histórico no incluye `gradle-wrapper.jar`; por eso los workflows configuran Gradle 8.13 directamente y no dependen del script `./gradlew` informativo.
+
+CORRECCIÓN DE COMPILACIÓN / ATRÁS DE ANDROID
+- El primer lint real de GitHub detectó que Activity.onBackPressed() ya no es válido para el gesto Atrás con targetSdk 36.
+- MainActivity migra a androidx.activity.ComponentActivity.
+- Atrás se gestiona mediante OnBackPressedDispatcher y OnBackPressedCallback.
+- Se elimina el override heredado onBackPressed().
+- Se elimina el opt-out android:enableOnBackInvokedCallback="false" del Manifest.
+- Se agrega dependencia estable androidx.activity:activity:1.10.1.
+- Se mantiene la lógica interna de Al Día: navegar dentro de la app y doble Atrás para salir desde Inicio.

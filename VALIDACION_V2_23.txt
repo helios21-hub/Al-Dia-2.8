@@ -39,3 +39,14 @@ LIMITACIONES DE ESTA VALIDACIÓN
 
 CONCLUSIÓN
 No se detectaron otros cambios obligatorios que deban resolverse antes de intentar compilar v2.23. El problema de workflow detectado durante esta auditoría quedó corregido antes de empaquetar.
+
+CORRECCIÓN POSTERIOR A PRIMER INTENTO EN GITHUB ACTIONS
+[DETECTADO POR LINT] GitHub Actions rechazó la implementación basada en Activity.onBackPressed() con el error GestureBackNavigation al apuntar a API 36.
+[CORREGIDO] MainActivity ahora extiende androidx.activity.ComponentActivity.
+[CORREGIDO] La navegación Atrás usa OnBackPressedDispatcher + OnBackPressedCallback, compatible con gesto Atrás moderno y versiones anteriores mediante AndroidX.
+[CORREGIDO] Se eliminó el override de Activity.onBackPressed().
+[CORREGIDO] Se eliminó android:enableOnBackInvokedCallback="false" del Manifest para no desactivar el manejo moderno de Atrás.
+[CORREGIDO] app/build.gradle incorpora androidx.activity:activity:1.10.1.
+[OK] JavaScript volvió a pasar node --check después de la corrección.
+[OK] La revisión javac no muestra diagnósticos de sintaxis; los errores locales restantes corresponden a clases Android/AndroidX no disponibles en este entorno.
+[PENDIENTE EXTERNO] Debe ejecutarse nuevamente GitHub Actions para confirmar que lintDebug pasa y que luego assembleDebug genera el APK.

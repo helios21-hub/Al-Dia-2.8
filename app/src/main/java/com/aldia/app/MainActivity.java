@@ -2,7 +2,6 @@ package com.aldia.app;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -25,6 +24,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import androidx.activity.ComponentActivity;
+import androidx.activity.OnBackPressedCallback;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -37,7 +39,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-public class MainActivity extends Activity {
+public class MainActivity extends ComponentActivity {
     private static final int PICK_BACKUP_REQUEST = 2001;
     private static final int SAVE_BACKUP_REQUEST = 2002;
     private static final int NOTIFICATION_PERMISSION_REQUEST = 2003;
@@ -65,6 +67,13 @@ public class MainActivity extends Activity {
 
         webView = new WebView(this);
         setContentView(webView);
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                handleSystemBack();
+            }
+        });
 
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
@@ -154,12 +163,6 @@ public class MainActivity extends Activity {
                         Toast.makeText(MainActivity.this, "Volvé a pulsar Atrás para salir", Toast.LENGTH_SHORT).show();
                     }
                 });
-    }
-
-    @SuppressWarnings("deprecation")
-    @Override
-    public void onBackPressed() {
-        handleSystemBack();
     }
 
     @Override
