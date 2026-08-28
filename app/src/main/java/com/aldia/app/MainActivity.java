@@ -44,7 +44,9 @@ public class MainActivity extends ComponentActivity {
     private static final int SAVE_BACKUP_REQUEST = 2002;
     private static final int NOTIFICATION_PERMISSION_REQUEST = 2003;
     private static final int SAVE_XLSX_REQUEST = 2004;
-    public static final String CHANNEL_ID = "al_dia_alertas";
+    // Canal nuevo en v2.24: Android no permite elevar la importancia de un canal ya creado,
+    // por eso se usa un identificador nuevo para aplicar IMPORTANCE_HIGH a instalaciones existentes.
+    public static final String CHANNEL_ID = "al_dia_alertas_v2";
 
     private WebView webView;
     private ValueCallback<Uri[]> filePathCallback;
@@ -177,8 +179,12 @@ public class MainActivity extends ComponentActivity {
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
-                    CHANNEL_ID, "Alertas de Al Día", NotificationManager.IMPORTANCE_DEFAULT);
-            channel.setDescription("Avisos de vencimientos y recordatorios");
+                    CHANNEL_ID, "Alertas importantes de Al Día", NotificationManager.IMPORTANCE_HIGH);
+            channel.setDescription("Avisos de vencimientos y recordatorios importantes");
+            channel.enableVibration(true);
+            channel.setVibrationPattern(new long[]{0, 250, 150, 250});
+            channel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+            channel.setShowBadge(true);
             getSystemService(NotificationManager.class).createNotificationChannel(channel);
         }
     }
@@ -291,7 +297,7 @@ public class MainActivity extends ComponentActivity {
             try {
                 return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             } catch (Exception e) {
-                return "2.23";
+                return "2.25";
             }
         }
 
@@ -416,7 +422,11 @@ public class MainActivity extends ComponentActivity {
                 .setContentTitle("Al Día · Notificación de prueba")
                 .setContentText(message)
                 .setStyle(new Notification.BigTextStyle().bigText(message))
-                .setAutoCancel(true);
+                .setAutoCancel(true)
+                .setPriority(Notification.PRIORITY_HIGH)
+                .setCategory(Notification.CATEGORY_REMINDER)
+                .setVisibility(Notification.VISIBILITY_PUBLIC)
+                .setDefaults(Notification.DEFAULT_ALL);
         if (contentIntent != null) b.setContentIntent(contentIntent);
         ((NotificationManager)getSystemService(NOTIFICATION_SERVICE)).notify(4402, b.build());
     }

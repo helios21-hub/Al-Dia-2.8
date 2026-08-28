@@ -44,6 +44,10 @@ public class NotificationReceiver extends BroadcastReceiver {
         boolean isRepeat=NotificationScheduler.ACTION_REPEAT.equals(action);
         boolean isTest=NotificationScheduler.ACTION_TEST_PRODUCTS.equals(action);
         if(!(isDaily||isRepeat||isTest))return;
+        // La alarma diaria es de una sola ejecución para mejorar su comportamiento en Doze.
+        // Reprogramarla antes de procesar los datos garantiza que exista la del día siguiente
+        // incluso si no hay vencimientos para mostrar hoy.
+        if(isDaily)NotificationScheduler.scheduleDaily(context);
 
         try{
             JSONObject data=new JSONObject(prefs.getString("notification_data","{}"));
@@ -128,7 +132,11 @@ public class NotificationReceiver extends BroadcastReceiver {
         PendingIntent content=PendingIntent.getActivity(c,id,open,PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
         Notification.Builder b=new Notification.Builder(c,MainActivity.CHANNEL_ID)
                 .setSmallIcon(R.mipmap.ic_launcher).setContentTitle(title).setContentText(message)
-                .setStyle(new Notification.BigTextStyle().bigText(message)).setAutoCancel(true);
+                .setStyle(new Notification.BigTextStyle().bigText(message)).setAutoCancel(true)
+                .setPriority(Notification.PRIORITY_HIGH)
+                .setCategory(Notification.CATEGORY_REMINDER)
+                .setVisibility(Notification.VISIBILITY_PUBLIC)
+                .setDefaults(Notification.DEFAULT_ALL);
         if(content!=null)b.setContentIntent(content);
         ((NotificationManager)c.getSystemService(Context.NOTIFICATION_SERVICE)).notify(id,b.build());
     }

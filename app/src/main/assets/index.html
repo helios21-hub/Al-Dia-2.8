@@ -996,6 +996,98 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
 @keyframes expiryFocusPulse{0%,100%{box-shadow:0 1px 3px rgba(15,23,42,.05)}35%{box-shadow:0 0 0 3px rgba(37,99,235,.18)}}
 @media(max-width:430px){.expiry-suggestions{max-height:160px}.expiry-date-row input{min-height:42px}}
 
+
+
+/* v2.24 - Biblioteca visual y Recetas LOCALES */
+.library-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.library-tab{min-height:42px;border:1px solid var(--border);border-radius:11px;background:var(--surface-strong);color:var(--text);font-weight:900;padding:8px}.library-tab.active{background:#334155;color:#fff;border-color:#334155}.library-pane.hidden{display:none!important}
+.library-intro{border-left:4px solid #64748b}.recipe-toolbar{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;margin:10px 0}.recipe-toolbar input{min-width:0}.recipe-category-tabs{display:flex;gap:6px;flex-wrap:wrap}.recipe-filter-btn{min-height:34px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:var(--surface-strong);color:var(--text);font-size:11px;font-weight:900}.recipe-filter-btn.active{background:#334155;color:#fff;border-color:#334155}.recipe-summary{font-size:11px;color:var(--muted);margin:6px 0 10px}.recipe-list{display:grid;gap:12px}.recipe-sheet-block{border:1px solid #111827;border-radius:6px;overflow:hidden;background:#fff}.recipe-sheet-table{width:100%;border-collapse:collapse;table-layout:fixed;color:#111827;background:#fff}.recipe-sheet-table th,.recipe-sheet-table td{border:1px solid #111827;padding:5px 7px;font-size:12px;line-height:1.2}.recipe-sheet-table .recipe-title{background:#050505;color:#fff;text-align:left;font-size:13px;font-weight:900}.recipe-sheet-table .recipe-rec-label{background:#050505;color:#fff;text-align:center;width:64px;font-weight:900}.recipe-sheet-table .recipe-code{text-align:center;font-variant-numeric:tabular-nums}.recipe-sheet-table .recipe-scan{text-align:right;font-variant-numeric:tabular-nums}.recipe-sheet-table .recipe-number{background:#d9ead3;text-align:right;font-variant-numeric:tabular-nums}.recipe-sheet-table .recipe-ingredients{background:#bfbfbf;color:#fff;text-align:left;font-weight:900}.recipe-sheet-table .ingredient-code{text-align:right;font-variant-numeric:tabular-nums;width:34%}.recipe-sheet-table .ingredient-name{text-align:left}.recipe-sheet-table .ingredient-qty{text-align:right;font-variant-numeric:tabular-nums;width:22%}.recipe-source-note{padding:6px 8px;background:#f8fafc;border-top:1px solid #d1d5db;font-size:10px;color:#475569}.recipe-empty{padding:18px;text-align:center;color:var(--muted);border:1px dashed var(--border);border-radius:10px}
+body.dark .recipe-sheet-block,body.theme-petrol .recipe-sheet-block,body.theme-forest .recipe-sheet-block,body.theme-graphite .recipe-sheet-block{box-shadow:0 2px 10px rgba(0,0,0,.18)}
+@media(max-width:520px){.recipe-toolbar{grid-template-columns:1fr}.recipe-sheet-table th,.recipe-sheet-table td{padding:5px 4px;font-size:11px}.recipe-sheet-table .recipe-title{font-size:12px}.recipe-sheet-table .recipe-rec-label{width:48px}.recipe-sheet-table .ingredient-code{width:38%}.recipe-sheet-table .ingredient-qty{width:20%}}
+
+
+
+/* v2.25 - Pedidos: foco estable, arrastre guiado e historial simplificado */
+.order-drag-origin{display:none!important}
+.order-drag-ghost{
+  position:fixed!important;
+  z-index:9999!important;
+  pointer-events:none!important;
+  margin:0!important;
+  opacity:.98!important;
+  transform:scale(1.025) rotate(.25deg);
+  box-shadow:0 16px 34px rgba(15,23,42,.28),0 0 0 2px rgba(37,99,235,.28)!important;
+  transition:transform .12s ease,box-shadow .12s ease,opacity .12s ease;
+  will-change:top,left,transform;
+}
+.order-drag-ghost .swipe-delete-hint{display:none!important}
+.order-drag-placeholder{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  border:2px dashed #2563eb;
+  border-radius:11px;
+  background:rgba(37,99,235,.08);
+  color:#2563eb;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.01em;
+  box-sizing:border-box;
+  margin:7px 0 0;
+}
+.order-category.order-drag-category-active{
+  outline:2px solid rgba(37,99,235,.24);
+  outline-offset:3px;
+  border-radius:12px;
+}
+.order-category.order-drag-category-locked{opacity:.55}
+.order-category.order-drag-category-locked .category-body{pointer-events:none}
+.order-suggested-value{display:block;line-height:1.1}
+.order-warning-chip.hidden{display:none!important}
+
+.order-history-simple-category{margin-top:9px}
+.order-history-simple-category>strong{display:block;margin:0 0 5px;font-size:11px}
+.order-history-simple-head,.order-history-simple-row{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 64px 70px;
+  gap:6px;
+  align-items:center;
+}
+.order-history-simple-head{
+  padding:5px 7px;
+  border-bottom:1px solid var(--border);
+  color:var(--muted);
+  font-size:9px;
+  font-weight:900;
+}
+.order-history-simple-row{
+  min-height:38px;
+  padding:6px 7px;
+  border-bottom:1px solid color-mix(in srgb,var(--border) 70%,transparent);
+  font-size:11px;
+}
+.order-history-simple-row:last-child{border-bottom:0}
+.order-history-simple-name{font-weight:850;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.order-history-simple-stock,.order-history-simple-order{text-align:center;font-variant-numeric:tabular-nums}
+.order-history-simple-order{
+  justify-self:stretch;
+  border-radius:8px;
+  padding:5px 4px;
+  font-weight:900;
+}
+.order-history-simple-order.positive{
+  background:rgba(37,99,235,.14);
+  color:#1d4ed8;
+  box-shadow:inset 0 0 0 1px rgba(37,99,235,.22);
+}
+body.dark .order-history-simple-order.positive,
+body.theme-petrol .order-history-simple-order.positive,
+body.theme-forest .order-history-simple-order.positive,
+body.theme-graphite .order-history-simple-order.positive{color:#bfdbfe}
+@media(max-width:430px){
+  .order-history-simple-head,.order-history-simple-row{grid-template-columns:minmax(0,1fr) 54px 62px;gap:4px}
+  .order-drag-placeholder{font-size:9px}
+}
 </style>
 </head>
 <body>
@@ -1045,7 +1137,7 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
       <div class="home-access-group-title">Herramientas</div>
       <div class="home-section-buttons">
         <button class="home-section-btn plantilla" id="homePlantillaBtn" type="button"><span class="home-section-top"><span class="home-section-icon">📊</span><strong>Carnes-Vegetales</strong></span><small>Generar plantilla XLSX</small></button>
-        <button class="home-section-btn aprendizaje" id="homeLearningBtn" type="button"><span class="home-section-top"><span class="home-section-icon">🧠</span><strong>Base de aprendizaje</strong></span><small>Temporadas y datos usados por la app</small></button>
+        <button class="home-section-btn aprendizaje" id="homeLearningBtn" type="button"><span class="home-section-top"><span class="home-section-icon">📚</span><strong>Biblioteca</strong></span><small>Recetas, temporadas y material de referencia</small></button>
       </div>
     </div>
   </section>
@@ -1161,6 +1253,7 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
         <button class="add-product-toggle" type="button" data-add-panel="order"><span>＋ Añadir producto</span><span class="add-panel-arrow">⌄</span></button>
         <form id="orderForm" class="add-product-form hidden">
           <div><label>Nombre</label><input id="orderName" list="savedProducts" autocomplete="off" required><datalist id="savedProducts"></datalist></div>
+          <div><label>Categoría</label><select id="orderCategory"><option value="Frutas">Frutas</option><option value="Vegetales" selected>Vegetales</option><option value="Hortalizas">Hortalizas</option></select></div>
           <div><label>Tipo de cantidad</label><select id="orderUnitType"><option value="bulto">Bulto</option><option value="peso">Peso</option></select></div>
           <div class="month-picker" id="orderMonthPicker"><div class="month-picker-head"><label style="margin:0">Meses disponibles</label><button class="month-toggle-all" id="orderMonthsToggleAll" type="button">Seleccionar todos</button></div><div class="month-grid" id="orderMonthsGrid"></div><div class="month-count-note" id="orderMonthsCount">0 de 12 meses seleccionados</div></div>
           <div><label>Cantidad del pedido</label><input id="orderQtyInput" type="number" inputmode="decimal" step="1" min="0" value="0"></div>
@@ -1182,15 +1275,29 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
 
 
   <section id="tab-aprendizaje" class="main-section">
-    <div class="section-title-row"><div><h1>Base de aprendizaje</h1><div class="subtitle">Información que Al Día utiliza como referencia para Pedidos y futuras funciones.</div></div></div>
+    <div class="section-title-row"><div><h1>Biblioteca</h1><div class="subtitle">Consulta visual de recetas, temporadas y material de referencia de Al Día.</div></div></div>
     <button class="back-home-btn" data-back-home type="button">← Volver a Inicio</button>
-    <div class="card learning-source"><div class="learning-source-name">📄 Productos de temporada</div><div class="learning-source-meta">Fuente inicial: DISCO - FRUTAS Y VERDURAS DE ESTACIÓN.xlsx · complementada con tus variedades y ajustes manuales.</div></div>
-    <div class="learning-summary-grid"><div class="learning-kpi"><strong id="learningMonthName">—</strong><span>Mes seleccionado</span></div><div class="learning-kpi"><strong id="learningMonthCount">0</strong><span>Productos activos</span></div><div class="learning-kpi"><strong id="learningAllYearCount">0</strong><span>Todo el año</span></div></div>
-    <div class="card learning-sheet-card">
-      <div class="learning-sheet-head"><div><strong>Productos de temporada</strong><div class="footer-note">Vista general de la disponibilidad mensual. Tocá un producto para editarlo.</div></div><div class="learning-view-tabs"><button id="learningMonthlyViewBtn" class="learning-view-btn active" type="button">Mes</button><button id="learningAnnualViewBtn" class="learning-view-btn" type="button">Año</button></div></div>
-      <div class="learning-toolbar"><input id="learningSearch" type="search" placeholder="Buscar producto"><select id="learningMonthFilter"></select><select id="learningCategoryFilter"><option value="">Todas las categorías</option><option>Frutas</option><option>Vegetales</option><option>Hortalizas</option></select></div>
-      <div class="footer-note" id="learningTransitions"></div>
-      <div id="learningProductList" class="learning-sheet-wrap"></div>
+    <div class="library-tabs" role="tablist" aria-label="Secciones de Biblioteca"><button id="libraryRecipesBtn" class="library-tab active" type="button">🍍 Recetas locales</button><button id="librarySeasonsBtn" class="library-tab" type="button">🌿 Temporadas</button></div>
+
+    <div id="library-recipes-pane" class="library-pane">
+      <div class="card library-intro"><div class="learning-source-name">📊 Recetas LOCALES.xlsx</div><div class="learning-source-meta">Reconstrucción visual dentro de Al Día. Se mantienen códigos, número de receta, ingredientes y cantidades con una disposición similar a la planilla original.</div></div>
+      <div class="card">
+        <div class="topbar"><div><strong>Recetas locales</strong><div class="footer-note">FRUTA y VERDURA · datos incorporados desde la planilla original.</div></div><span class="pill" id="recipeLibraryCount">0 recetas</span></div>
+        <div class="recipe-toolbar"><input id="recipeLibrarySearch" type="search" autocomplete="off" placeholder="Buscar receta, ingrediente o código"><div class="recipe-category-tabs"><button class="recipe-filter-btn active" data-recipe-category="" type="button">Todas</button><button class="recipe-filter-btn" data-recipe-category="FRUTA" type="button">FRUTA</button><button class="recipe-filter-btn" data-recipe-category="VERDURA" type="button">VERDURA</button></div></div>
+        <div class="recipe-summary" id="recipeLibrarySummary"></div>
+        <div id="recipeLibraryList" class="recipe-list"></div>
+      </div>
+    </div>
+
+    <div id="library-seasons-pane" class="library-pane hidden">
+      <div class="card learning-source"><div class="learning-source-name">📄 Productos de temporada</div><div class="learning-source-meta">Fuente inicial: DISCO - FRUTAS Y VERDURAS DE ESTACIÓN.xlsx · complementada con tus variedades y ajustes manuales.</div></div>
+      <div class="learning-summary-grid"><div class="learning-kpi"><strong id="learningMonthName">—</strong><span>Mes seleccionado</span></div><div class="learning-kpi"><strong id="learningMonthCount">0</strong><span>Productos activos</span></div><div class="learning-kpi"><strong id="learningAllYearCount">0</strong><span>Todo el año</span></div></div>
+      <div class="card learning-sheet-card">
+        <div class="learning-sheet-head"><div><strong>Productos de temporada</strong><div class="footer-note">Vista general de la disponibilidad mensual. Tocá un producto para editarlo.</div></div><div class="learning-view-tabs"><button id="learningMonthlyViewBtn" class="learning-view-btn active" type="button">Mes</button><button id="learningAnnualViewBtn" class="learning-view-btn" type="button">Año</button></div></div>
+        <div class="learning-toolbar"><input id="learningSearch" type="search" placeholder="Buscar producto"><select id="learningMonthFilter"></select><select id="learningCategoryFilter"><option value="">Todas las categorías</option><option>Frutas</option><option>Vegetales</option><option>Hortalizas</option></select></div>
+        <div class="footer-note" id="learningTransitions"></div>
+        <div id="learningProductList" class="learning-sheet-wrap"></div>
+      </div>
     </div>
   </section>
 
@@ -1407,7 +1514,7 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
       <strong>Acerca de Al Día</strong>
       <div class="settings-option app-version-row">
         <span>Versión instalada</span>
-        <strong id="appVersionText">2.23</strong>
+        <strong id="appVersionText">2.25</strong>
       </div>
       <button class="secondary-btn" id="checkUpdatesBtn" type="button" style="width:100%">Buscar actualizaciones</button>
       <div class="footer-note" id="updateCheckStatus">Comprueba la última versión publicada en GitHub Releases.</div>
@@ -1473,6 +1580,10 @@ body.dark #backToTopBtn,body.theme-petrol #backToTopBtn,body.theme-forest #backT
 </div>
 
 <div class="confirm-backdrop" id="confirmBackdrop"><div class="confirm-box" role="dialog" aria-modal="true" aria-labelledby="confirmTitle"><h3 id="confirmTitle">Confirmar</h3><p id="confirmMessage"></p><div class="confirm-actions"><button class="secondary-btn" id="confirmCancelBtn" type="button">Cancelar</button><button class="confirm-ok" id="confirmOkBtn" type="button">Confirmar</button></div></div></div><div class="toast" id="toast"></div>
+<script>
+/* v2.25 - Recetas locales integradas para funcionamiento autónomo del HTML/WebView */
+window.ALDIA_RECETAS_LOCALES = {"source":"Recetas LOCALES.xlsx","recipeIndex":[{"recipe":"18","artref":"23120709001","scanning":"454483","description":"Sandia trozada","presentation":"BJA-1-Kg"},{"recipe":"20","artref":"23120128001","scanning":"454506","description":"Snack de frutas x 1kg","presentation":"BJA-1-Kg"},{"recipe":"551","artref":"23160101001","scanning":"214254","description":"Jugo de Naranjas exprimidas x 1lt","presentation":"PVC-1-lt."},{"recipe":"728","artref":"23120707002","scanning":"846271","description":"Piña pelada","presentation":"BJA-1-Kg"},{"recipe":"771","artref":"23120509003","scanning":"713696","description":"Snack de melones","presentation":"BJA-1-Kg"},{"recipe":"1036","artref":"23160101004","scanning":"831529","description":"Jugo de Naranjas exprimidas x 500ml","presentation":"BOT-500-cc."},{"recipe":"1215","artref":"23120725001","scanning":"784726","description":"Snack de frutas x 250grs","presentation":"S/E-1-un."},{"recipe":"1216","artref":"23120724001","scanning":"784719","description":"Snack de frutas x 400grs","presentation":"S/E-1-un."},{"recipe":"2128","artref":"23210542002","scanning":"951395","description":"Zapallo coreano rodajas","presentation":"BJA-1-Kg"},{"recipe":"2548","artref":"23230675001","scanning":"229883","description":"Carbonada","presentation":"BJA-1-Kg"},{"recipe":"3665","artref":"23120516001","scanning":"919944","description":"Citricos en gajos","presentation":"BJA-1-Kg"},{"recipe":"3666","artref":"23210108001","scanning":"957441","description":"Apio","presentation":"S/E-1-Kg"},{"recipe":"3667","artref":"23220337001","scanning":"149136","description":"Ensalada hojas verdes y cherry","presentation":"BJA-1-Kg"},{"recipe":"3668","artref":"23220535001","scanning":"373371","description":"Puchero","presentation":"GRA-1-Kg"},{"recipe":"3669","artref":"23210464001","scanning":"732239","description":"Vegetales para horno","presentation":"BJA-1-Kg"},{"recipe":"3670","artref":"23220390001","scanning":"373524","description":"Vegetales parrilleros","presentation":"BJA-1-Kg"},{"recipe":"3672","artref":"23220391001","scanning":"891738","description":"Brochette","presentation":"BJA-2-un."},{"recipe":"3673","artref":"23220395001","scanning":"732628","description":"Mix de pimientos y cebolla","presentation":"BJA-1-un."},{"recipe":"3674","artref":"23210512023","scanning":"789998","description":"Verduras fraccionadas","presentation":"BSA-1-Kg"},{"recipe":"3675","artref":"23220381001","scanning":"747066","description":"Verdurita para sopa","presentation":"BJA-1-Kg"},{"recipe":"3677","artref":"23220536001","scanning":"891745","description":"Cebolla pelada","presentation":"BJA-1-Kg"},{"recipe":"3678","artref":"23220539001","scanning":"725569","description":"Cebolla en aros","presentation":"BJA-1-un."},{"recipe":"4110","artref":"23230675003","scanning":"670470","description":"Carbonada con champiñones","presentation":"BJA-1-Kg"},{"recipe":"4156","artref":"23120732003","scanning":"803816","description":"Mix de uvas","presentation":"BJA-1-Kg"},{"recipe":"4157","artref":"23120732001","scanning":"671354","description":"Mix de melones con sandia","presentation":"BJA-1-Kg"},{"recipe":"4158","artref":"23120732004","scanning":"803793","description":"Trozos de papaya","presentation":"BJA-1-Kg"},{"recipe":"4159","artref":"23120732005","scanning":"803823","description":"Snack tropical","presentation":"BJA-1-Kg"},{"recipe":"4160","artref":"23120732002","scanning":"803809","description":"Mix arandanos, frutillas y sandia","presentation":"BJA-1-un"}],"recipes":[{"category":"FRUTA","name":"Snack de frutas x 1kg","productCode":"23120128001","scanning":"454506","recipe":"20","ingredients":[{"code":"23110722001","name":"Piña gold","qty":0.5},{"code":"23110708001","name":"Melón amarillo","qty":0.5},{"code":"23110101001","name":"Frutilla","qty":0.25},{"code":"23110704005","name":"Kiwi","qty":0.3}]},{"category":"FRUTA","name":"Snack de frutas x 400grs","productCode":"23120724001","scanning":"784719","recipe":"1216","ingredients":[{"code":"23110722001","name":"Piña gold","qty":0.2},{"code":"23110708001","name":"Melón amarillo","qty":0.2},{"code":"23110101001","name":"Frutilla","qty":0.15},{"code":"23110704005","name":"Kiwi","qty":0.12}]},{"category":"FRUTA","name":"Snack de frutas x 250grs","productCode":"23120725001","scanning":"784726","recipe":"1215","ingredients":[{"code":"23110722001","name":"Piña gold","qty":0.125},{"code":"23110708001","name":"Melón amarillo","qty":0.2},{"code":"23110101001","name":"Frutilla","qty":0.09},{"code":"23110704005","name":"Kiwi","qty":0.08}]},{"category":"FRUTA","name":"Snack de melones","productCode":"23120509003","scanning":"713696","recipe":"771","ingredients":[{"code":"23110708010","name":"Melón blanco","qty":0.9},{"code":"23110708001","name":"Melón amarillo","qty":1.15}]},{"category":"FRUTA","name":"Citricos en gajos","productCode":"23120516001","scanning":"919944","recipe":"3665","ingredients":[{"code":"23110562010","name":"Naranja jugo","qty":0.8},{"code":"23110541018","name":"Pomelo ruby star","qty":0.61}]},{"category":"FRUTA","name":"Jugo de naranja x 1lt","productCode":"23160101001","scanning":"214254","recipe":"551","ingredients":[{"code":"23110562001","name":"Naranja insumo","qty":2.5}]},{"category":"FRUTA","name":"Jugo de naranja x 500ml","productCode":"23160101004","scanning":"831529","recipe":"1036","ingredients":[{"code":"23110562001","name":"Naranja insumo","qty":1.25}]},{"category":"FRUTA","name":"Piña gold pelada","productCode":"23120707002","scanning":"846271","recipe":"728","ingredients":[{"code":"23110722001","name":"Piña gold","qty":2.2}]},{"category":"FRUTA","name":"Sandia trozada","productCode":"23120709001","scanning":"454483","recipe":"18","ingredients":[{"code":"23110715001","name":"Sandia","qty":2.1}]},{"category":"FRUTA","name":"Mix de uvas","productCode":"23120732003","scanning":"803816","recipe":"4156","ingredients":[{"code":"23110115001","name":"Uva Red Globe","qty":0.39},{"code":"23110115002","name":"Uva blanca","qty":0.39},{"code":"23110115022","name":"Uva negra","qty":0.39}]},{"category":"FRUTA","name":"Mix melones y sandias","productCode":"23120732001","scanning":"671354","recipe":"4157","ingredients":[{"code":"23110708001","name":"Melón Amarillo","qty":0.5},{"code":"23110708006","name":"Melon Escrito","qty":0.5},{"code":"23110708010","name":"Melón Blanco Elegido","qty":0.5},{"code":"23110715001","name":"Sandía","qty":0.5}]},{"category":"FRUTA","name":"Papaya en trozo","productCode":"23120732004","scanning":"803793","recipe":"4158","ingredients":[{"code":"23110721001","name":"Mamón","qty":1.5}]},{"category":"FRUTA","name":"Snack frutas tropicales","productCode":"23120732005","scanning":"803823","recipe":"4159","ingredients":[{"code":"23110706011","name":"Mango","qty":1},{"code":"23110721001","name":"Mamón","qty":0.7},{"code":"23110722001","name":"Piña Gold","qty":1}]},{"category":"FRUTA","name":"Mix berries y sandia","productCode":"23120732002","scanning":"803809","recipe":"4160","ingredients":[{"code":"23110101001","name":"Frutilla","qty":0.35},{"code":"23110715001","name":"Sandía","qty":0.75},{"code":"23130750002","name":"Arandano cub 125 gr","qty":1.5}]},{"category":"VERDURA","name":"Apio","productCode":"23210108001","scanning":"957441","recipe":"3666","ingredients":[{"code":"23210108016","name":"Apio planta","qty":2.3}]},{"category":"VERDURA","name":"Vegetales para horno","productCode":"23210464001","scanning":"732239","recipe":"3669","ingredients":[{"code":"23210510003","name":"Papa","qty":0.396},{"code":"23210504001","name":"Anco","qty":0.264},{"code":"23210319001","name":"Zapallito largo","qty":0.198},{"code":"23210507006","name":"Cebolla","qty":0.132},{"code":"23210308004","name":"Pimiento rojo","qty":0.132},{"code":"23210506001","name":"Batata","qty":0.198}]},{"category":"VERDURA","name":"Verduras fraccionadas","productCode":"23210512023","scanning":"789998","recipe":"3674","ingredients":[{"code":"23210113001","name":"Coliflor","qty":0.36},{"code":"23210512002","name":"Zanahoria","qty":0.36},{"code":"23210111001","name":"Brocoli","qty":0.36},{"code":"23210319001","name":"Zapallito largo","qty":0.36}]},{"category":"VERDURA","name":"Ensalada hojas verdes y cherry","productCode":"23220337001","scanning":"149136","recipe":"3667","ingredients":[{"code":"23210120004","name":"Lechuga francesa","qty":0.28},{"code":"23210120005","name":"Lechuga mantecosa","qty":0.28},{"code":"23210120007","name":"Lechuga morada","qty":0.28},{"code":"23210317001","name":"Tomate cherry","qty":0.28}]},{"category":"VERDURA","name":"Verdurita para sopa","productCode":"23220381001","scanning":"747066","recipe":"3675","ingredients":[{"code":"23210504001","name":"Anco","qty":0.25},{"code":"23210128016","name":"Puerro","qty":0.4},{"code":"23210512002","name":"Zanahoria","qty":0.25},{"code":"23210108016","name":"Apio","qty":0.4},{"code":"23210112014","name":"Verdeo","qty":0.4},{"code":"23210398001","name":"Choclo","qty":0.4},{"code":"23210102021","name":"Acelga","qty":0.4}]},{"category":"VERDURA","name":"Vegetales parrilleros","productCode":"23220390001","scanning":"373524","recipe":"3670","ingredients":[{"code":"23210375009","name":"Berenjena","qty":0.4},{"code":"23210308004","name":"Pimiento rojo","qty":0.26},{"code":"23210310001","name":"Pimiento verde","qty":0.26},{"code":"23210507006","name":"Cebolla","qty":0.4}]},{"category":"VERDURA","name":"Brochette","productCode":"23220391001","scanning":"891738","recipe":"3672","ingredients":[{"code":"23210308004","name":"Pimiento rojo","qty":0.22},{"code":"23210310001","name":"Pimiento verde","qty":0.22},{"code":"23210319001","name":"Zapallito largo","qty":0.22},{"code":"23210504001","name":"zapallo coreano","qty":0.22},{"code":"23210507006","name":"Cebolla","qty":0.22}]},{"category":"VERDURA","name":"Mix de pimientos y cebolla","productCode":"23220395001","scanning":"732628","recipe":"3673","ingredients":[{"code":"23210507006","name":"Cebolla","qty":0.16799999999999998},{"code":"23210308004","name":"Pimiento rojo","qty":0.147},{"code":"23210310001","name":"Pimiento verde","qty":0.147}]},{"category":"VERDURA","name":"Zapallo coreano rodajas","productCode":"23210542002","scanning":"951395","recipe":"2128","ingredients":[{"code":"23210504001","name":"zapallo coreano","qty":2.5}]},{"category":"VERDURA","name":"Carbonada","productCode":"23230675001","scanning":"951395","recipe":"2548","ingredients":[{"code":"23210535001","name":"Zapallo ingles","qty":0.925},{"code":"23210504001","name":"zapallo coreano","qty":0.065},{"code":"23210512002","name":"Zanahoria","qty":0.04},{"code":"23210507006","name":"Cebolla","qty":0.08},{"code":"23210398001","name":"Choclo","qty":0.25},{"code":"23210108016","name":"Apio","qty":0.13},{"code":"23210102021","name":"Acelga","qty":0.13}]},{"category":"VERDURA","name":"Carbonada con champiñones","productCode":"23230675003","scanning":"670470","recipe":"4110","ingredients":[{"code":"23210535001","name":"Zapallo ingles","qty":0.83},{"code":"23210504001","name":"zapallo coreano","qty":0.1},{"code":"23210403001","name":"Champiñon granel","qty":0.05},{"code":"23210310001","name":"Pimiento verde","qty":0.05},{"code":"23210308004","name":"Pimiento rojo","qty":0.05},{"code":"23210307001","name":"Pimiento amarillo","qty":0.05},{"code":"23210112014","name":"Verdeo","qty":0.2},{"code":"23210102021","name":"Acelga","qty":0.2}]},{"category":"VERDURA","name":"Puchero","productCode":"23220535001","scanning":"373371","recipe":"3668","ingredients":[{"code":"23210504001","name":"zapallo coreano","qty":0.27},{"code":"23210506001","name":"batata","qty":0.16},{"code":"23210512002","name":"Zanahoria","qty":0.19},{"code":"23210509005","name":"Papa negra","qty":0.23},{"code":"23210507006","name":"Cebolla","qty":0.19},{"code":"23210398001","name":"Choclo","qty":0.16},{"code":"23210102021","name":"Acelga","qty":0.1},{"code":"23210108016","name":"Apio planta","qty":0.1}]},{"category":"VERDURA","name":"Cebolla pelada","productCode":"23220536001","scanning":"891745","recipe":"3677","ingredients":[{"code":"23210507006","name":"Cebolla","qty":1.32}]},{"category":"VERDURA","name":"Cebolla en aros","productCode":"23220539001","scanning":"725569","recipe":"3678","ingredients":[{"code":"23210507006","name":"Cebolla","qty":0.5}]}]};
+</script>
 <script>
 const K={
   expiry:"control_vencimientos_v1",
@@ -2164,18 +2275,61 @@ const ORDER_NAME_CANON={
 };
 function orderMonthKey(date=new Date()){return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}`}
 function orderQtyType(value,name=""){if(value==="peso"||norm(name)==="sandia")return "peso";return "bulto"}
-function blankOrderLearning(){return {base:null,cycles:0,recent:[]}}
+function blankOrderMonthLearning(){return {base:null,cycles:0,recent:[],observations:[]}}
+function blankOrderLearning(){return {base:null,cycles:0,recent:[],observations:[],months:{}}}
+function normalizeOrderLearningBucket(l,withMonths=false){
+  l=l&&typeof l==="object"?l:(withMonths?blankOrderLearning():blankOrderMonthLearning());
+  l.base=Number.isFinite(Number(l.base))&&Number(l.base)>=0?Number(l.base):null;
+  l.cycles=Math.max(0,Number(l.cycles)||0);
+  l.recent=Array.isArray(l.recent)?l.recent.slice(0,8):[];
+  l.observations=Array.isArray(l.observations)?l.observations.map(Number).filter(Number.isFinite).filter(x=>x>=0).slice(0,12):[];
+  if(withMonths){
+    l.months=l.months&&typeof l.months==="object"&&!Array.isArray(l.months)?l.months:{};
+    Object.keys(l.months).forEach(k=>{l.months[k]=normalizeOrderLearningBucket(l.months[k],false)});
+  }
+  return l;
+}
 function orderProfileFor(name,unitHint="bulto",create=true){
   const key=norm(name);let p=orderProfiles[key];
   if(!p&&create){const legacy=Number(orderSuggestedQty[key]);p={name:String(name||""),qtyType:orderQtyType(unitHint,name),rotation:"media",offerReaction:"ninguna",expensiveSensitivity:"ninguna",learning:{martes:blankOrderLearning(),jueves:blankOrderLearning(),sabado:blankOrderLearning()},legacySuggested:Number.isFinite(legacy)&&legacy>0?legacy:0};orderProfiles[key]=p}
   if(!p)return null;
   p.name=String(name||p.name||"");p.qtyType=orderQtyType(p.qtyType||unitHint,name);p.rotation=["alta","media","baja"].includes(p.rotation)?p.rotation:"media";p.offerReaction=["ninguna","baja","media","alta"].includes(p.offerReaction)?p.offerReaction:"ninguna";p.expensiveSensitivity=["ninguna","baja","media","alta"].includes(p.expensiveSensitivity)?p.expensiveSensitivity:"ninguna";
-  p.learning=p.learning&&typeof p.learning==="object"?p.learning:{};["martes","jueves","sabado"].forEach(d=>{const l=p.learning[d]||blankOrderLearning();l.base=Number.isFinite(Number(l.base))&&Number(l.base)>=0?Number(l.base):null;l.cycles=Math.max(0,Number(l.cycles)||0);l.recent=Array.isArray(l.recent)?l.recent.slice(0,8):[];p.learning[d]=l});
+  p.learning=p.learning&&typeof p.learning==="object"?p.learning:{};["martes","jueves","sabado"].forEach(d=>{p.learning[d]=normalizeOrderLearningBucket(p.learning[d],true)});
   if(!Number.isFinite(Number(p.legacySuggested)))p.legacySuggested=Number(orderSuggestedQty[key])||0;
   return p;
 }
 function orderLearningFor(name,day=activeOrderTab){return orderProfileFor(name)?.learning?.[day]||blankOrderLearning()}
-function orderConfidence(cycles){cycles=Number(cycles)||0;return cycles===0?"Sin historial":cycles<3?"Baja":cycles<6?"Media":"Alta"}
+function orderMonthLearning(l,month=new Date().getMonth()+1,create=false){
+  const key=String(Math.max(1,Math.min(12,Number(month)||1)));
+  l=normalizeOrderLearningBucket(l,true);
+  if(!l.months[key]&&create)l.months[key]=blankOrderMonthLearning();
+  return l.months[key]?normalizeOrderLearningBucket(l.months[key],false):null;
+}
+function orderLearningBase(l,legacy=0,month=new Date().getMonth()+1){
+  l=normalizeOrderLearningBucket(l,true);
+  const general=l.base!=null?Number(l.base):Math.max(0,Number(legacy)||0),ml=orderMonthLearning(l,month,false);
+  if(!ml||ml.base==null||ml.cycles<2)return general;
+  if(general<=0)return Number(ml.base)||0;
+  const weight=Math.min(.55,.18*ml.cycles);
+  return general*(1-weight)+Number(ml.base)*weight;
+}
+function orderConfidence(value){
+  const l=value&&typeof value==="object"?normalizeOrderLearningBucket(value,true):{cycles:Math.max(0,Number(value)||0),observations:[]};
+  const cycles=Math.max(0,Number(l.cycles)||0);
+  if(cycles===0)return "Sin historial";
+  let level=cycles<3?"Baja":cycles<6?"Media":"Alta";
+  const obs=(l.observations||[]).map(Number).filter(Number.isFinite).filter(x=>x>=0).slice(0,8);
+  if(obs.length>=3){
+    const mean=obs.reduce((a,b)=>a+b,0)/obs.length;
+    if(mean>0){
+      const variance=obs.reduce((s,x)=>s+Math.pow(x-mean,2),0)/obs.length;
+      const cv=Math.sqrt(variance)/mean;
+      if(cv>.45)level="Baja";
+      else if(cv>.30&&level==="Alta")level="Media";
+    }
+  }
+  return level;
+}
 function orderUnitLabel(p){return p&&p.qtyType==="peso"?"kg":"bultos"}
 function orderRound(value,p,riskUp=false){value=Math.max(0,Number(value)||0);if(p.qtyType==="peso")return Math.round(value*10)/10;if(p.rotation==="baja"&&!riskUp)return Math.floor(value+0.15);if(p.rotation==="alta"||riskUp)return Math.ceil(value-0.01);return Math.round(value)}
 function orderDemandFactors(profile,priceState,movement){
@@ -2185,12 +2339,13 @@ function orderDemandFactors(profile,priceState,movement){
   return {price,movement:move[movement]||1,total:price*(move[movement]||1)};
 }
 function orderCalc(item,day=activeOrderTab){
-  const p=orderProfileFor(item.name,item.unitType||item.qtyType||"bulto"),l=p.learning[day],legacy=Math.max(0,Number(p.legacySuggested)||0);let base=l.base!=null?Number(l.base):legacy;
+  const p=orderProfileFor(item.name,item.unitType||item.qtyType||"bulto"),l=p.learning[day],legacy=Math.max(0,Number(p.legacySuggested)||0),month=new Date().getMonth()+1;let base=orderLearningBase(l,legacy,month);
   const noHistory=l.cycles===0&&base<=0,stock=Math.max(0,Number(item.stockCurrent)||0),price=item.priceState||"normal",movement=item.expectedMovement||"normal",f=orderDemandFactors(p,price,movement);
-  const safety=p.rotation==="alta"?1.05:p.rotation==="baja"?.98:1;let estimated=noHistory?0:Math.max(0,base*f.total*safety);const riskUp=p.rotation==="alta"||price==="oferta"&&["media","alta"].includes(p.offerReaction)||movement==="mucho";let suggested=orderRound(Math.max(0,estimated-stock),p,riskUp);estimated=p.qtyType==="peso"?Math.round(estimated*10)/10:Math.round(estimated*10)/10;
+  const safety=p.rotation==="alta"?1.05:p.rotation==="baja"?.98:1;let estimated=noHistory?0:Math.max(0,base*f.total*safety);const riskUp=p.rotation==="alta"||price==="oferta"&&["media","alta"].includes(p.offerReaction)||movement==="mucho";let suggested=orderRound(Math.max(0,estimated-stock),p,riskUp);estimated=Math.round(estimated*10)/10;
   const warnings=[];if(noHistory)warnings.push("Todavía no hay suficiente historial para generar una sugerencia confiable.");if(!noHistory&&suggested===0&&stock>=estimated)warnings.push("Hay suficiente stock; no sería necesario pedir.");if(price==="oferta"&&p.offerReaction==="alta")warnings.push("Este producto suele aumentar mucho su salida cuando está en oferta.");if(price==="oferta"&&p.offerReaction==="ninguna")warnings.push("La oferta no aumenta automáticamente la sugerencia de este producto.");if(price==="caro"&&p.expensiveSensitivity==="alta")warnings.push("Al estar caro, la sugerencia se reduce por su sensibilidad histórica.");const recent=l.recent||[];if(recent.slice(0,3).filter(x=>String(x).startsWith("falta")).length>=2)warnings.push("En los últimos ciclos hubo faltantes; la referencia está subiendo gradualmente.");if(recent.slice(0,3).filter(x=>String(x).startsWith("sobra")).length>=2)warnings.push("En los últimos ciclos quedó sobrante; la referencia está bajando gradualmente.");if(p.rotation==="baja"&&stock>0&&!noHistory)warnings.push("Producto de baja rotación: conviene evitar exceso de reserva.");
-  return {profile:p,learning:l,base,stock,estimated,suggested,confidence:orderConfidence(l.cycles),factors:f,warnings};
+  return {profile:p,learning:l,base,stock,estimated,suggested,confidence:orderConfidence(l),factors:f,warnings,month};
 }
+
 function orderSuggestedFor(name,day=activeOrderTab,item=null){if(item)return orderCalc(item,day).suggested;const p=orderProfileFor(name);const l=p.learning[day],v=l.base!=null?l.base:Number(p.legacySuggested)||0;return orderRound(v,p,false)}
 function setOrderSuggested(name,value){const p=orderProfileFor(name),v=Number(value);p.legacySuggested=Number.isFinite(v)&&v>=0?v:0;orderSuggestedQty[norm(name)]=p.legacySuggested}
 function expandOrderSeasonNames(base,expander){const out=[];base.forEach(raw=>{const key=norm(raw),expanded=expander[key];if(expanded)expanded.forEach(n=>out.push(n));else out.push(ORDER_NAME_CANON[key]||capitalizeFirstUserLetter(String(raw)))});return [...new Map(out.map(n=>[norm(n),n])).values()]}
@@ -2241,34 +2396,106 @@ function rememberOrder(name,code,category,unitType,rotation="media",offerReactio
   if(!name.trim())return;const p=orderProfileFor(name,unitType);p.qtyType=orderQtyType(unitType,name);p.rotation=rotation;p.offerReaction=offerReaction;p.expensiveSensitivity=expensiveSensitivity;savedProducts[norm(name)]={name:name.trim(),code:code.trim(),category,unitType:p.qtyType};const k=knowledgeFor(name,true);k.name=name.trim();k.category=category;renderOrderDatalist();saveAll()
 }
 function renderOrderDatalist(){$("savedProducts").innerHTML=Object.values(savedProducts).sort((a,b)=>a.name.localeCompare(b.name,"es")).map(x=>`<option value="${esc(x.name)}"></option>`).join("")}
-$("orderName").addEventListener("input",()=>{const p=savedProducts[norm($("orderName").value)],profile=orderProfileFor($("orderName").value,p?.unitType||"bulto",false);if(p){const know=knowledgeFor(p.name,false);if(know)initOrderMonthPicker(know.months);$("orderUnitType").value=orderQtyType(profile?.qtyType||p.unitType,p.name);toggleQtyInput()}});
+$("orderName").addEventListener("input",()=>{
+  const name=$("orderName").value,p=savedProducts[norm(name)],know=knowledgeFor(name,false),profile=orderProfileFor(name,p?.unitType||"bulto",false);
+  if(p||know){
+    if(know)initOrderMonthPicker(know.months);
+    if($("orderCategory"))$("orderCategory").value=cats.includes(know?.category)?know.category:(cats.includes(p?.category)?p.category:"Vegetales");
+    if(p&&profile)$("orderUnitType").value=orderQtyType(profile.qtyType||p.unitType,p.name);
+    toggleQtyInput();
+  }
+});
 function toggleQtyInput(){const input=$("orderQtyInput");if(!input)return;const weight=$("orderUnitType").value==="peso";input.step=weight?"0.1":"1";input.inputMode=weight?"decimal":"numeric";if(input.value==="")input.value="0"}
 $("orderUnitType").onchange=toggleQtyInput;
 function orderItemCardHtml(x){
-  const c=orderCalc(x),p=c.profile,unit=orderUnitLabel(p),qty=Math.max(0,Number(x.qty)||0),warning=c.warnings[0]||"";x.unitType=p.qtyType;
-  return `<div class="order-item order-item-compact order-item-smart" data-order-item-id="${x.id}"><div class="order-compact-head"><div class="order-compact-product"><div class="name">${esc(x.name)}</div><div class="meta">${esc(x.code||"Sin código")}</div><div class="order-profile-summary">${p.qtyType==="peso"?"Peso (kg)":"Bulto"} · Rotación ${esc(p.rotation)}</div></div></div><div class="order-inline-cell"><label>Stock</label><input type="number" min="0" step="${p.qtyType==="peso"?"0.1":"1"}" inputmode="${p.qtyType==="peso"?"decimal":"numeric"}" value="${c.stock}" data-order-stock="${x.id}" aria-label="Stock actual de ${esc(x.name)}"></div><div class="order-inline-cell"><label>Sugerido</label><button class="order-suggested-tap" data-use-order-suggested="${x.id}" type="button" ${c.suggested<=0?"disabled":""}><small>usar</small>${c.suggested}</button></div><div class="order-inline-cell"><label>Pedido</label><input class="order-qty-input order-qty-input-v210" type="number" inputmode="${p.qtyType==="peso"?"decimal":"numeric"}" step="${p.qtyType==="peso"?"0.1":"1"}" min="0" value="${qty}" data-order-qty="${x.id}" aria-label="Pedido de ${esc(x.name)}"></div><div class="order-row-meta"><select class="order-mini-select" data-order-price="${x.id}" aria-label="Precio de ${esc(x.name)}"><option value="normal" ${x.priceState!=="oferta"&&x.priceState!=="caro"?"selected":""}>Precio normal</option><option value="oferta" ${x.priceState==="oferta"?"selected":""}>Oferta</option><option value="caro" ${x.priceState==="caro"?"selected":""}>Caro</option></select><select class="order-mini-select" data-order-movement="${x.id}" aria-label="Movimiento esperado de ${esc(x.name)}"><option value="poco" ${x.expectedMovement==="poco"?"selected":""}>Poco mov.</option><option value="normal" ${x.expectedMovement!=="poco"&&x.expectedMovement!=="mucho"?"selected":""}>Mov. normal</option><option value="mucho" ${x.expectedMovement==="mucho"?"selected":""}>Mucho mov.</option></select><span class="order-confidence-chip">Confianza: ${esc(c.confidence)}</span>${warning?`<span class="order-warning-chip" title="${esc(warning)}">${esc(warning)}</span>`:""}</div><button class="btn-danger swipe-delete-source" data-del-order="${x.id}" type="button" tabindex="-1" aria-hidden="true">Eliminar</button></div>`
+  const c=orderCalc(x),p=c.profile,qty=Math.max(0,Number(x.qty)||0),warning=c.warnings[0]||"";x.unitType=p.qtyType;
+  return `<div class="order-item order-item-compact order-item-smart" data-order-item-id="${x.id}" data-order-category-name="${esc(x.category||cats[0])}"><div class="order-compact-head"><div class="order-compact-product"><div class="name">${esc(x.name)}</div><div class="meta">${esc(x.code||"Sin código")}</div><div class="order-profile-summary">${p.qtyType==="peso"?"Peso (kg)":"Bulto"} · Rotación ${esc(p.rotation)}</div></div></div><div class="order-inline-cell"><label>Stock</label><input type="number" min="0" step="${p.qtyType==="peso"?"0.1":"1"}" inputmode="${p.qtyType==="peso"?"decimal":"numeric"}" value="${c.stock}" data-order-stock="${x.id}" aria-label="Stock actual de ${esc(x.name)}"></div><div class="order-inline-cell"><label>Sugerido</label><button class="order-suggested-tap" data-use-order-suggested="${x.id}" type="button" ${c.suggested<=0?"disabled":""}><small>usar</small><span class="order-suggested-value" data-order-suggested-value="${x.id}">${c.suggested}</span></button></div><div class="order-inline-cell"><label>Pedido</label><input class="order-qty-input order-qty-input-v210" type="number" inputmode="${p.qtyType==="peso"?"decimal":"numeric"}" step="${p.qtyType==="peso"?"0.1":"1"}" min="0" value="${qty}" data-order-qty="${x.id}" aria-label="Pedido de ${esc(x.name)}"></div><div class="order-row-meta"><select class="order-mini-select" data-order-price="${x.id}" aria-label="Precio de ${esc(x.name)}"><option value="normal" ${x.priceState!=="oferta"&&x.priceState!=="caro"?"selected":""}>Precio normal</option><option value="oferta" ${x.priceState==="oferta"?"selected":""}>Oferta</option><option value="caro" ${x.priceState==="caro"?"selected":""}>Caro</option></select><select class="order-mini-select" data-order-movement="${x.id}" aria-label="Movimiento esperado de ${esc(x.name)}"><option value="poco" ${x.expectedMovement==="poco"?"selected":""}>Poco mov.</option><option value="normal" ${x.expectedMovement!=="poco"&&x.expectedMovement!=="mucho"?"selected":""}>Mov. normal</option><option value="mucho" ${x.expectedMovement==="mucho"?"selected":""}>Mucho mov.</option></select><span class="order-confidence-chip" data-order-confidence="${x.id}">Confianza: ${esc(c.confidence)}</span><span class="order-warning-chip ${warning?"":"hidden"}" data-order-warning="${x.id}" title="${esc(warning)}">${esc(warning)}</span></div><button class="btn-danger swipe-delete-source" data-del-order="${x.id}" type="button" tabindex="-1" aria-hidden="true">Eliminar</button></div>`
+}
+function refreshOrderCardCalculation(id){
+  const x=(orders[activeOrderTab]||[]).find(y=>y.id===id);if(!x)return;
+  const sid=String(id),c=orderCalc(x),button=document.querySelector(`[data-use-order-suggested="${sid}"]`),value=document.querySelector(`[data-order-suggested-value="${sid}"]`),confidence=document.querySelector(`[data-order-confidence="${sid}"]`),warning=document.querySelector(`[data-order-warning="${sid}"]`);
+  if(value)value.textContent=String(c.suggested);
+  if(button)button.disabled=c.suggested<=0;
+  if(confidence)confidence.textContent=`Confianza: ${c.confidence}`;
+  if(warning){const msg=c.warnings[0]||"";warning.textContent=msg;warning.title=msg;warning.classList.toggle("hidden",!msg)}
+}
+function orderPendingReview(day=activeOrderTab){
+  const entry=(orderHistory[day]||[]).find(e=>!e.feedbackCompletedAt&&Array.isArray(e.items)&&e.items.length);
+  if(!entry)return null;
+  const reviewIndices=entry.items.map((it,i)=>({it,i})).filter(({it})=>Math.max(0,Number(it.qty)||0)>0||Math.max(0,Number(it.stockInitial??it.stockCurrent)||0)>0).map(x=>x.i);
+  return reviewIndices.length?{prev:day,entry,reviewIndices}:null;
+}
+function orderReviewResultOptions(value=""){
+  const opts=[["","Elegir resultado"],["sobra_mucho","Sobró mucho"],["sobra_poco","Sobró un poco"],["bien","Quedó bien"],["falta_poco","Faltó un poco"],["falta_mucho","Faltó mucho"]];
+  return opts.map(([v,t])=>`<option value="${v}" ${value===v?"selected":""}>${t}</option>`).join("");
+}
+function renderOrderReview(){
+  const pending=orderPendingReview(activeOrderTab),card=$("orderReviewCard"),list=$("orderReviewList"),count=$("orderReviewCount"),title=$("orderReviewTitle"),sub=$("orderReviewSub"),btn=$("confirmOrderReviewBtn");
+  if(!card||!list||!count||!btn)return;
+  if(!pending){card.classList.add("hidden");list.innerHTML="";btn.onclick=null;return}
+  const {entry,reviewIndices}=pending;card.classList.remove("hidden");title.textContent=`Revisar pedido anterior · ${dayLabel(activeOrderTab)}`;sub.textContent=`${entry.dateLabel||"Pedido guardado"} · indicá el stock restante y cómo terminó cada producto para mejorar la sugerencia.`;count.textContent=String(reviewIndices.length);
+  list.innerHTML=reviewIndices.map(i=>{const it=entry.items[i],available=Math.max(0,Number(it.stockInitial??it.stockCurrent)||0)+Math.max(0,Number(it.qty)||0),unit=orderQtyType(it.unitType,it.name)==="peso"?"kg":"bultos";return `<div class="order-review-item"><div class="order-review-item-head"><strong>${esc(it.name)}</strong><span class="order-review-prevmeta">Disponible inicial: ${available} ${unit}</span></div><div class="order-review-fields"><label>Stock restante<input data-review-stock="${i}" type="number" min="0" max="${available}" step="${orderQtyType(it.unitType,it.name)==="peso"?"0.1":"1"}" inputmode="decimal" value="${it.stockRemaining??""}" placeholder="0"></label><label>Resultado<select data-review-result="${i}">${orderReviewResultOptions(it.result||"")}</select></label></div></div>`}).join("");
+  btn.onclick=()=>confirmOrderReview(pending);
+}
+function orderEntryMonth(entry){
+  const direct=Number(entry?.month);if(direct>=1&&direct<=12)return direct;
+  const created=entry?.createdAt?new Date(entry.createdAt):null;if(created&&!Number.isNaN(created.getTime()))return created.getMonth()+1;
+  const m=String(entry?.dateLabel||"").match(/^\s*\d{1,2}\/(\d{1,2})\/\d{4}/);if(m){const n=Number(m[1]);if(n>=1&&n<=12)return n}
+  return new Date().getMonth()+1;
+}
+function updateOrderLearningBucket(bucket,observedBase,result,fallbackBase=null){
+  bucket=normalizeOrderLearningBucket(bucket,false);
+  let observed=Math.max(0,Number(observedBase)||0),old=bucket.base!=null?Number(bucket.base):(Number.isFinite(Number(fallbackBase))?Math.max(0,Number(fallbackBase)):null);
+  if(old!=null&&old>0){
+    const low=old*.55,high=Math.max(old*1.75,old+1);
+    observed=Math.max(low,Math.min(high,observed));
+  }
+  const alpha=old==null?1:bucket.cycles<3?.35:bucket.cycles<8?.25:.18;
+  const next=old==null?observed:old*(1-alpha)+observed*alpha;
+  bucket.base=Math.max(0,Math.round(next*100)/100);
+  bucket.cycles=(Number(bucket.cycles)||0)+1;
+  bucket.recent=[result,...(bucket.recent||[])].slice(0,8);
+  bucket.observations=[Math.round(observed*100)/100,...(bucket.observations||[])].slice(0,12);
+  return bucket;
 }
 async function confirmOrderReview(pending){
-  const {prev,entry}=pending,feedback=[];for(let i=0;i<entry.items.length;i++){const sv=Number(document.querySelector(`[data-review-stock="${i}"]`)?.value),result=document.querySelector(`[data-review-result="${i}"]`)?.value;if(!Number.isFinite(sv)||sv<0)return showToast("Completá el stock restante de todos los productos.");if(!result)return showToast("Indicá el resultado de todos los productos.");feedback.push({stockRemaining:sv,result})}
+  const {prev,entry,reviewIndices=[]}=pending,feedback=[];
+  for(const i of reviewIndices){
+    const it=entry.items[i],available=Math.max(0,Number(it.stockInitial??it.stockCurrent)||0)+Math.max(0,Number(it.qty)||0),sv=Number(document.querySelector(`[data-review-stock="${i}"]`)?.value),result=document.querySelector(`[data-review-result="${i}"]`)?.value;
+    if(!Number.isFinite(sv)||sv<0)return showToast("Completá el stock restante de todos los productos.");
+    if(sv>available+0.0001)return showToast(`El stock restante de ${it.name} no puede superar lo disponible (${available}).`);
+    if(!result)return showToast("Indicá el resultado de todos los productos.");
+    feedback.push({index:i,stockRemaining:sv,result});
+  }
+  if(!feedback.length)return;
   if(!await askConfirm(`Se actualizará gradualmente el aprendizaje del pedido de ${dayLabel(prev)} usando ${feedback.length} resultado${feedback.length===1?"":"s"}.`,"Confirmar aprendizaje"))return;
-  const resultFactor={sobra_mucho:.78,sobra_poco:.90,bien:1,falta_poco:1.12,falta_mucho:1.28};entry.items.forEach((it,i)=>{const fb=feedback[i],p=orderProfileFor(it.name,it.unitType),l=p.learning[prev],available=Math.max(0,Number(it.stockInitial)||0)+Math.max(0,Number(it.qty)||0),consumption=Math.max(0,available-fb.stockRemaining),factor=resultFactor[fb.result]||1,demand=Math.max(0,consumption*factor),temporary=Math.max(.45,Number(it.appliedDemandFactor)||1),observedBase=demand/temporary,old=l.base!=null?Number(l.base):(Number(p.legacySuggested)>0?Number(p.legacySuggested):null),alpha=old==null?1:l.cycles<3?.35:l.cycles<8?.25:.18,newBase=old==null?observedBase:old*(1-alpha)+observedBase*alpha;l.base=Math.max(0,Math.round(newBase*100)/100);l.cycles=(Number(l.cycles)||0)+1;l.recent=[fb.result,...(l.recent||[])].slice(0,8);it.stockRemaining=fb.stockRemaining;it.approxConsumption=Math.round(consumption*100)/100;it.result=fb.result;it.feedbackAt=new Date().toISOString()});entry.feedbackCompletedAt=new Date().toISOString();saveAll();renderOrders();renderOrderReview();renderOrderHistory();showToast("Aprendizaje actualizado")
+  const resultFactor={sobra_mucho:.78,sobra_poco:.90,bien:1,falta_poco:1.12,falta_mucho:1.28},month=orderEntryMonth(entry);
+  feedback.forEach(fb=>{
+    const it=entry.items[fb.index],p=orderProfileFor(it.name,it.unitType),l=normalizeOrderLearningBucket(p.learning[prev],true),available=Math.max(0,Number(it.stockInitial??it.stockCurrent)||0)+Math.max(0,Number(it.qty)||0),consumption=Math.max(0,available-fb.stockRemaining),factor=resultFactor[fb.result]||1,demand=Math.max(0,consumption*factor),temporary=Math.max(.45,Number(it.appliedDemandFactor)||1),observedBase=demand/temporary,legacy=Number(p.legacySuggested)||0,generalBefore=l.base!=null?Number(l.base):(legacy>0?legacy:null);
+    updateOrderLearningBucket(l,observedBase,fb.result,generalBefore);
+    const ml=orderMonthLearning(l,month,true);updateOrderLearningBucket(ml,observedBase,fb.result,generalBefore);
+    p.learning[prev]=l;
+    it.stockRemaining=fb.stockRemaining;it.approxConsumption=Math.round(consumption*100)/100;it.result=fb.result;it.feedbackAt=new Date().toISOString();
+  });
+  entry.feedbackCompletedAt=new Date().toISOString();saveAll();renderOrders();renderOrderReview();renderOrderHistory();showToast("Aprendizaje actualizado");
 }
 const orderCategoryExpanded={martes:{},jueves:{},sabado:{}};
 function renderOrders(){
   ensureOrderTemplateForDay(activeOrderTab);const current=orders[activeOrderTab],visible=current;current.forEach(x=>{x.stockCurrent=Math.max(0,Number(x.stockCurrent)||0);x.priceState=["oferta","normal","caro"].includes(x.priceState)?x.priceState:"normal";x.expectedMovement=["poco","normal","mucho"].includes(x.expectedMovement)?x.expectedMovement:"normal";const p=orderProfileFor(x.name,x.unitType);x.unitType=p.qtyType});
   $("orderTitle").textContent=`Pedido - ${dayLabel(activeOrderTab)}`;$("orderSeasonHint").textContent=`Temporada · ${capitalizeFirstUserLetter(ORDER_MONTH_NAMES[new Date().getMonth()])} · aprendizaje independiente para ${dayLabel(activeOrderTab)}`;$("orderCount").textContent=`${current.length} producto${current.length===1?"":"s"}`;$("orderEmpty").style.display=visible.length?"none":"block";$("orderCategories").innerHTML="";
-  cats.forEach(cat=>{const ps=visible.filter(x=>(x.category||cats[0])===cat);if(!ps.length)return;const wrap=document.createElement("div");wrap.className="order-category";const id="cat-"+activeOrderTab+"-"+cat.replace(/[^a-z0-9]/gi,"-");let body=ps.map(orderItemCardHtml).join("");const cls=cat==="Frutas"?"cat-frutas":cat==="Vegetales"?"cat-vegetales":"cat-hortalizas-pesadas";const open=!!orderCategoryExpanded[activeOrderTab]?.[cat];wrap.innerHTML=`<button class="category-header order-subgroup-title ${cls}" data-order-category="${esc(cat)}" data-toggle="${id}" aria-expanded="${open}"><span class="order-cat-label"><span class="order-cat-chevron">${open?"▾":"▸"}</span>${esc(cat)}</span><span class="category-count">${ps.length}</span></button><div class="category-body ${open?"":"collapsed"}" id="${id}">${body}</div>`;$("orderCategories").appendChild(wrap)});
+  cats.forEach(cat=>{const ps=visible.filter(x=>(x.category||cats[0])===cat);if(!ps.length)return;const wrap=document.createElement("div");wrap.className="order-category";wrap.dataset.orderCategoryWrap=cat;const id="cat-"+activeOrderTab+"-"+cat.replace(/[^a-z0-9]/gi,"-");let body=ps.map(orderItemCardHtml).join("");const cls=cat==="Frutas"?"cat-frutas":cat==="Vegetales"?"cat-vegetales":"cat-hortalizas-pesadas";const open=!!orderCategoryExpanded[activeOrderTab]?.[cat];wrap.innerHTML=`<button class="category-header order-subgroup-title ${cls}" data-order-category="${esc(cat)}" data-toggle="${id}" aria-expanded="${open}"><span class="order-cat-label"><span class="order-cat-chevron">${open?"▾":"▸"}</span>${esc(cat)}</span><span class="category-count">${ps.length}</span></button><div class="category-body ${open?"":"collapsed"}" id="${id}" data-order-category-body="${esc(cat)}">${body}</div>`;$("orderCategories").appendChild(wrap)});
   document.querySelectorAll("[data-order-category]").forEach(b=>b.onclick=()=>{const cat=b.dataset.orderCategory;orderCategoryExpanded[activeOrderTab][cat]=!orderCategoryExpanded[activeOrderTab][cat];const body=document.getElementById(b.dataset.toggle);body?.classList.toggle("collapsed",!orderCategoryExpanded[activeOrderTab][cat]);b.setAttribute("aria-expanded",String(!!orderCategoryExpanded[activeOrderTab][cat]));const ch=b.querySelector(".order-cat-chevron");if(ch)ch.textContent=orderCategoryExpanded[activeOrderTab][cat]?"▾":"▸"});
   document.querySelectorAll("[data-order-qty]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderQty);if(!x)return;const v=Number(i.value);x.qty=Number.isFinite(v)&&v>=0?v:0;i.value=String(x.qty);saveAll();renderCompletion()});
-  document.querySelectorAll("[data-order-stock]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderStock);if(!x)return;const v=Number(i.value);x.stockCurrent=Number.isFinite(v)&&v>=0?v:0;saveAll();renderOrders();renderCompletion()});
-  document.querySelectorAll("[data-order-price]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderPrice);if(!x)return;x.priceState=i.value;saveAll();renderOrders()});
-  document.querySelectorAll("[data-order-movement]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderMovement);if(!x)return;x.expectedMovement=i.value;saveAll();renderOrders()});
-  document.querySelectorAll("[data-use-order-suggested]").forEach(b=>b.onclick=e=>{e.stopPropagation();const x=current.find(y=>y.id===b.dataset.useOrderSuggested);if(!x)return;x.qty=orderCalc(x).suggested;saveAll();renderOrders();renderCompletion()});
+  document.querySelectorAll("[data-order-stock]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderStock);if(!x)return;const v=Number(i.value);x.stockCurrent=Number.isFinite(v)&&v>=0?v:0;i.value=String(x.stockCurrent);saveAll();refreshOrderCardCalculation(x.id);renderCompletion()});
+  document.querySelectorAll("[data-order-price]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderPrice);if(!x)return;x.priceState=i.value;saveAll();refreshOrderCardCalculation(x.id)});
+  document.querySelectorAll("[data-order-movement]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderMovement);if(!x)return;x.expectedMovement=i.value;saveAll();refreshOrderCardCalculation(x.id)});
+  document.querySelectorAll("[data-use-order-suggested]").forEach(b=>b.onclick=e=>{e.stopPropagation();const x=current.find(y=>y.id===b.dataset.useOrderSuggested);if(!x)return;x.qty=orderCalc(x).suggested;const input=document.querySelector(`[data-order-qty="${x.id}"]`);if(input)input.value=String(x.qty);saveAll();renderCompletion()});
   document.querySelectorAll("[data-order-item-id]").forEach(card=>{card.addEventListener("click",e=>{if(card.dataset.gestureConsumed==="1"){card.dataset.gestureConsumed="0";return}if(e.target.closest("button,input,select"))return;openOrderEdit(card.dataset.orderItemId)})});
   initOrderLongPressReorder();
   refreshSwipeDelete();
   renderOrderReview();
 }
+
 const MONTH_SHORT=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
 function monthPickerHtml(selected=[]){const set=new Set((selected||[]).map(Number));return MONTH_SHORT.map((m,i)=>`<label class="month-chip"><input type="checkbox" value="${i+1}" ${set.has(i+1)?"checked":""}><span>${m}</span></label>`).join("")}
 function initOrderMonthPicker(selected=[1,2,3,4,5,6,7,8,9,10,11,12]){const g=$("orderMonthsGrid");if(!g)return;g.innerHTML=monthPickerHtml(selected);g.querySelectorAll("input").forEach(x=>x.onchange=updateOrderMonthCount);updateOrderMonthCount()}
@@ -2276,13 +2503,61 @@ function selectedOrderMonths(){return [...($("orderMonthsGrid")?.querySelectorAl
 function updateOrderMonthCount(){const n=selectedOrderMonths().length;if($("orderMonthsCount"))$("orderMonthsCount").textContent=`${n} de 12 meses seleccionados`;if($("orderMonthsToggleAll"))$("orderMonthsToggleAll").textContent=n===12?"Deseleccionar todos":"Seleccionar todos"}
 if($("orderMonthsToggleAll"))$("orderMonthsToggleAll").onclick=()=>{const all=selectedOrderMonths().length===12;$("orderMonthsGrid").querySelectorAll("input").forEach(x=>x.checked=!all);updateOrderMonthCount()};
 initOrderMonthPicker();
-$("orderForm").onsubmit=e=>{e.preventDefault();const name=$("orderName").value.trim(),type=$("orderUnitType").value,qty=Number($("orderQtyInput").value||0),months=selectedOrderMonths(),existing=savedProducts[norm(name)]||null,existingKnow=knowledgeFor(name,false),cat=existingKnow?.category||existing?.category||defaultCategoryForProduct(name,"Vegetales"),code=existing?.code||"",profile=orderProfileFor(name,type,true);if(!name)return showToast("Ingresá un nombre.");if(!months.length)return showToast("Seleccioná al menos un mes de disponibilidad.");if(!Number.isFinite(qty)||qty<0)return showToast("Ingresá una cantidad válida.");if(orders[activeOrderTab].some(x=>norm(x.name)===norm(name)))return showToast("Ese producto ya está en este pedido.");rememberOrder(name,code,cat,type,profile?.rotation||"media",profile?.offerReaction||"ninguna",profile?.expensiveSensitivity||"ninguna");const know=knowledgeFor(name,true);know.name=name;know.category=cat;know.months=months;know.origin=know.origin||"Añadido manualmente";rememberProductName(orderProductMemory,name);orders[activeOrderTab].push({id:uid(),name,code,category:cat,unitType:orderQtyType(type,name),qty,stockCurrent:0,priceState:"normal",expectedMovement:"normal",notes:$("orderNotes").value.trim(),templateSeed:false,seasonGroup:cat});saveAll();e.target.reset();$("orderUnitType").value="bulto";$("orderQtyInput").value="0";initOrderMonthPicker();toggleQtyInput();collapseAddPanel("order");renderAll();showToast("Producto añadido. La categoría y configuración avanzada se pueden ajustar tocando su ficha.")};
-function renderCompletion(){const btn=$("completeOrderBtn"),note=$("orderStatusNote");if(!btn||!note)return;const active=(orders[activeOrderTab]||[]).filter(x=>Number(x.qty)>0).length;btn.disabled=active===0;btn.textContent="Guardar pedido en historial";note.textContent=active?`${active} producto${active===1?"":"s"} con pedido mayor a 0 · Se guardarán sugerido y pedido por separado`:`No es obligatorio guardar el pedido. La plantilla y el aprendizaje se mantienen igualmente.`;note.classList.remove("completed")}
-$("completeOrderBtn").onclick=async()=>{const current=orders[activeOrderTab]||[],selected=current.filter(x=>Number(x.qty)>0);if(!selected.length)return showToast("No hay cantidades cargadas para guardar.");if(!await askConfirm(`Se guardará una copia del pedido de ${dayLabel(activeOrderTab)} con ${selected.length} producto${selected.length===1?"":"s"}.`,`Guardar pedido`))return;const now=new Date(),dateLabel=now.toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});const itemsToSave=selected.map(x=>{const c=orderCalc(x);return {...x,unitType:c.profile.qtyType,stockInitial:c.stock,priceState:x.priceState||"normal",movementExpected:x.expectedMovement||"normal",rotation:c.profile.rotation,offerReaction:c.profile.offerReaction,expensiveSensitivity:c.profile.expensiveSensitivity,estimatedNeed:c.estimated,suggestedQty:c.suggested,qty:Number(x.qty),appliedDemandFactor:c.factors.total,confidence:c.confidence}});orderHistory[activeOrderTab].unshift({id:uid(),dateLabel,day:activeOrderTab,items:itemsToSave,feedbackCompletedAt:null});orderHistory[activeOrderTab]=orderHistory[activeOrderTab].slice(0,30);saveAll();renderOrderHistory();renderCompletion();renderOrderReview();showToast("Pedido guardado en el historial")};
+$("orderForm").onsubmit=e=>{
+  e.preventDefault();
+  const name=$("orderName").value.trim(),type=$("orderUnitType").value,qty=Number($("orderQtyInput").value||0),months=selectedOrderMonths(),existing=savedProducts[norm(name)]||null,cat=cats.includes($("orderCategory")?.value)?$("orderCategory").value:"Vegetales",code=existing?.code||"",profile=orderProfileFor(name,type,true);
+  if(!name)return showToast("Ingresá un nombre.");
+  if(!months.length)return showToast("Seleccioná al menos un mes de disponibilidad.");
+  if(!Number.isFinite(qty)||qty<0)return showToast("Ingresá una cantidad válida.");
+  if(orders[activeOrderTab].some(x=>norm(x.name)===norm(name)))return showToast("Ese producto ya está en este pedido.");
+  rememberOrder(name,code,cat,type,profile?.rotation||"media",profile?.offerReaction||"ninguna",profile?.expensiveSensitivity||"ninguna");
+  const know=knowledgeFor(name,true);know.name=name;know.category=cat;know.months=months;know.origin=know.origin||"Añadido manualmente";
+  rememberProductName(orderProductMemory,name);
+  orders[activeOrderTab].push({id:uid(),name,code,category:cat,unitType:orderQtyType(type,name),qty,stockCurrent:0,priceState:"normal",expectedMovement:"normal",notes:$("orderNotes").value.trim(),templateSeed:false,seasonGroup:cat});
+  orderCategoryExpanded[activeOrderTab][cat]=true;
+  saveAll();e.target.reset();$("orderCategory").value="Vegetales";$("orderUnitType").value="bulto";$("orderQtyInput").value="0";initOrderMonthPicker();toggleQtyInput();collapseAddPanel("order");renderAll();showToast(`Producto añadido en ${cat}.`);
+};
+function renderCompletion(){
+  const btn=$("completeOrderBtn"),note=$("orderStatusNote");if(!btn||!note)return;
+  const total=(orders[activeOrderTab]||[]).length,active=(orders[activeOrderTab]||[]).filter(x=>Number(x.qty)>0).length;
+  btn.disabled=active===0;btn.textContent="Guardar pedido en historial";
+  note.textContent=active?`${active} producto${active===1?"":"s"} con Pedido mayor a 0 · el historial guardará los ${total} productos del día`:`No es obligatorio guardar el pedido. Para crear un historial debe haber al menos un Pedido mayor a 0.`;
+  note.classList.remove("completed");
+}
+$("completeOrderBtn").onclick=async()=>{
+  const current=orders[activeOrderTab]||[],selected=current.filter(x=>Number(x.qty)>0);
+  if(!selected.length)return showToast("No hay cantidades cargadas para guardar.");
+  if(!await askConfirm(`Se guardará una copia completa del pedido de ${dayLabel(activeOrderTab)}. ${selected.length} producto${selected.length===1?" tiene":"s tienen"} Pedido mayor a 0 y los demás quedarán registrados con Pedido 0.`,`Guardar pedido`))return;
+  const now=new Date(),dateLabel=now.toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
+  const itemsToSave=current.map(x=>{const c=orderCalc(x);return {...x,unitType:c.profile.qtyType,stockInitial:c.stock,priceState:x.priceState||"normal",movementExpected:x.expectedMovement||"normal",rotation:c.profile.rotation,offerReaction:c.profile.offerReaction,expensiveSensitivity:c.profile.expensiveSensitivity,estimatedNeed:c.estimated,suggestedQty:c.suggested,qty:Math.max(0,Number(x.qty)||0),appliedDemandFactor:c.factors.total,confidence:c.confidence}});
+  orderHistory[activeOrderTab].unshift({id:uid(),createdAt:now.toISOString(),month:now.getMonth()+1,dateLabel,day:activeOrderTab,items:itemsToSave,feedbackCompletedAt:null});
+  orderHistory[activeOrderTab]=orderHistory[activeOrderTab].slice(0,30);saveAll();renderOrderHistory();renderCompletion();renderOrderReview();showToast("Pedido guardado en el historial");
+};
 let orderHistoryOpen={};
 function orderResultLabel(v){return ({sobra_mucho:"Sobró mucho",sobra_poco:"Sobró un poco",bien:"Quedó bien",falta_poco:"Faltó un poco",falta_mucho:"Faltó mucho"})[v]||"Pendiente"}
-function orderShareText(e){return `Al Día · Pedido guardado\n${dayLabel(e.day||activeOrderTab)} · ${e.dateLabel}\n\n${e.items.map(x=>`${x.name}: pedido ${x.qty}${orderQtyType(x.unitType,x.name)==="peso"?" kg":" bultos"} · sugerido ${Number(x.suggestedQty)||0}${x.result?` · ${orderResultLabel(x.result)}`:""}`).join("\n")}`}
-function renderOrderHistory(){const h=orderHistory[activeOrderTab],q=norm($("orderHistorySearch")?.value||""),visible=h.filter(e=>{if(!q)return true;const hay=[e.dateLabel,dayLabel(activeOrderTab),...(e.items||[]).flatMap(x=>[x.name,x.code,x.category,x.notes,x.result])].join(" ");return norm(hay).includes(q)});$("orderHistoryTitle").textContent=`Historial - ${dayLabel(activeOrderTab)}`;$("orderHistoryCount").textContent=q?`${visible.length} de ${h.length}`:`${h.length} pedido${h.length===1?"":"s"}`;$("orderHistoryEmpty").style.display=visible.length?"none":"block";$("orderHistoryEmpty").textContent=q?"No hay coincidencias en este historial.":"Todavía no hay pedidos guardados.";$("orderHistoryList").innerHTML="";visible.forEach(e=>{const open=!!orderHistoryOpen[e.id],card=document.createElement("div");card.className="history-order-card";card.innerHTML=`<button class="history-delete" data-del-oh="${e.id}"><span aria-hidden="true">×</span></button><button class="sample-history-header" data-toggle-order-history="${e.id}" type="button"><div class="sample-history-title"><span class="sample-history-chevron">${open?"▾":"▸"}</span><span>Pedido guardado${e.feedbackCompletedAt?" · Revisado":""}</span></div><span class="sample-history-date">${esc(e.dateLabel)}</span></button><div class="sample-history-body ${open?"":"hidden"}">${cats.map(c=>{const ps=e.items.filter(x=>(x.category||cats[0])===c);return ps.length?`<div class="history-order-item"><strong>${esc(c)}</strong>${ps.map(x=>`<div style="margin-top:7px"><b>${esc(x.name)}</b><br><span class="meta">Stock inicial: ${Number(x.stockInitial)||0} · Necesidad: ${Number(x.estimatedNeed)||0} · Sugerido: ${Number(x.suggestedQty)||0} · Pedido: ${Number(x.qty)||0}${x.stockRemaining!=null?` · Restante: ${Number(x.stockRemaining)} · Consumo aprox.: ${Number(x.approxConsumption)||0} · ${orderResultLabel(x.result)}`:""}</span></div>`).join("")}</div>`:""}).join("")}<button class="share-btn" data-share-order-history="${e.id}" type="button" style="width:100%;margin-top:8px">Compartir pedido</button></div>`;$("orderHistoryList").appendChild(card)});document.querySelectorAll("[data-toggle-order-history]").forEach(b=>b.onclick=()=>{orderHistoryOpen[b.dataset.toggleOrderHistory]=!orderHistoryOpen[b.dataset.toggleOrderHistory];renderOrderHistory()});document.querySelectorAll("[data-share-order-history]").forEach(b=>b.onclick=()=>{const e=h.find(x=>x.id===b.dataset.shareOrderHistory);if(e)shareText("Pedido guardado",orderShareText(e))})}
+function orderHistoryStockValue(x){return Math.max(0,Number(x?.stockInitial??x?.stockCurrent)||0)}
+function orderHistoryQtyValue(x){return Math.max(0,Number(x?.qty)||0)}
+function orderShareText(e){
+  const rows=(e.items||[]).map(x=>`${x.name} | Stock: ${orderHistoryStockValue(x)} | Pedido: ${orderHistoryQtyValue(x)}`).join("\n");
+  return `Al Día · Pedido guardado\n${dayLabel(e.day||activeOrderTab)} · ${e.dateLabel||""}\n\n${rows}`;
+}
+function orderHistorySimpleCategoryHtml(cat,items){
+  if(!items.length)return "";
+  return `<div class="order-history-simple-category"><strong>${esc(cat)}</strong><div class="order-history-simple-head"><span>Nombre</span><span>Stock</span><span>Pedido</span></div>${items.map(x=>{const qty=orderHistoryQtyValue(x);return `<div class="order-history-simple-row"><span class="order-history-simple-name">${esc(x.name)}</span><span class="order-history-simple-stock">${orderHistoryStockValue(x)}</span><span class="order-history-simple-order ${qty>0?"positive":""}">${qty}</span></div>`}).join("")}</div>`;
+}
+function renderOrderHistory(){
+  const h=orderHistory[activeOrderTab],q=norm($("orderHistorySearch")?.value||""),visible=h.filter(e=>{if(!q)return true;const hay=[e.dateLabel,dayLabel(activeOrderTab),...(e.items||[]).flatMap(x=>[x.name,x.category,orderHistoryStockValue(x),orderHistoryQtyValue(x)])].join(" ");return norm(hay).includes(q)});
+  $("orderHistoryTitle").textContent=`Historial - ${dayLabel(activeOrderTab)}`;$("orderHistoryCount").textContent=q?`${visible.length} de ${h.length}`:`${h.length} pedido${h.length===1?"":"s"}`;$("orderHistoryEmpty").style.display=visible.length?"none":"block";$("orderHistoryEmpty").textContent=q?"No hay coincidencias en este historial.":"Todavía no hay pedidos guardados.";$("orderHistoryList").innerHTML="";
+  visible.forEach(e=>{
+    const open=!!orderHistoryOpen[e.id],card=document.createElement("div");card.className="history-order-card";
+    const groups=cats.map(c=>orderHistorySimpleCategoryHtml(c,(e.items||[]).filter(x=>(x.category||cats[0])===c))).join("");
+    card.innerHTML=`<button class="history-delete" data-del-oh="${e.id}"><span aria-hidden="true">×</span></button><button class="sample-history-header" data-toggle-order-history="${e.id}" type="button"><div class="sample-history-title"><span class="sample-history-chevron">${open?"▾":"▸"}</span><span>Pedido guardado</span></div><span class="sample-history-date">${esc(e.dateLabel||"")}</span></button><div class="sample-history-body ${open?"":"hidden"}">${groups}<button class="share-btn" data-share-order-history="${e.id}" type="button" style="width:100%;margin-top:8px">Compartir pedido</button></div>`;
+    $("orderHistoryList").appendChild(card)
+  });
+  document.querySelectorAll("[data-toggle-order-history]").forEach(b=>b.onclick=()=>{orderHistoryOpen[b.dataset.toggleOrderHistory]=!orderHistoryOpen[b.dataset.toggleOrderHistory];renderOrderHistory()});
+  document.querySelectorAll("[data-share-order-history]").forEach(b=>b.onclick=()=>{const e=h.find(x=>x.id===b.dataset.shareOrderHistory);if(e)shareText("Pedido guardado",orderShareText(e))});
+}
+
 
 function renderOrderSavedManager(){
   const vals=Object.values(savedProducts).sort((a,b)=>a.name.localeCompare(b.name,"es"));$("orderSavedProductsPanel").innerHTML=vals.length?"":"<div class='empty'>No hay productos guardados.</div>";
@@ -2889,6 +3164,8 @@ function renderCvHistory(){
 
 function learningCategoryClass(cat){return cat==="Frutas"?"cat-frutas":cat==="Vegetales"?"cat-vegetales":"cat-hortalizas-pesadas"}
 let learningViewMode="month";
+let libraryViewMode="recipes";
+let recipeCategoryFilter="";
 function learningCellClass(cat){return cat==="Frutas"?"learn-fruit":cat==="Vegetales"?"learn-veg":"learn-heavy"}
 function renderLearningMonthly(visible){
   const groups=cats.map(cat=>({cat,items:visible.filter(x=>x.category===cat).sort((a,b)=>a.name.localeCompare(b.name,"es"))}));
@@ -2921,6 +3198,43 @@ function renderLearningBase(){
   $("learningProductList").innerHTML=learningViewMode==="month"?renderLearningMonthly(visible):renderLearningAnnual(filteredAll);
   document.querySelectorAll("[data-learning-id]").forEach(el=>el.onclick=()=>openLearningEdit(el.dataset.learningId));
 }
+
+
+function recipeQty(v){
+  const n=Number(v);return Number.isFinite(n)?n.toFixed(2):esc(v??"");
+}
+function recipeIndexMeta(recipeNo){
+  const idx=window.ALDIA_RECETAS_LOCALES?.recipeIndex||[];
+  return idx.find(x=>String(x.recipe)===String(recipeNo))||null;
+}
+function recipeTableHtml(r){
+  const meta=recipeIndexMeta(r.recipe),presentation=meta?.presentation?` · ${esc(meta.presentation)}`:"";
+  const rows=(r.ingredients||[]).map(i=>`<tr><td class="ingredient-code">${esc(i.code)}</td><td class="ingredient-name">${esc(i.name)}</td><td class="ingredient-qty">${recipeQty(i.qty)}</td></tr>`).join("");
+  return `<div class="recipe-sheet-block" data-recipe-category="${esc(r.category)}"><table class="recipe-sheet-table"><tbody><tr><th class="recipe-title" colspan="2">${esc(r.name)}</th><th class="recipe-rec-label">rec</th></tr><tr><td class="recipe-code">${esc(r.productCode)}</td><td class="recipe-scan">${esc(r.scanning)}</td><td class="recipe-number">${esc(r.recipe)}</td></tr><tr><th class="recipe-ingredients" colspan="3">Ingredientes</th></tr>${rows}</tbody></table><div class="recipe-source-note">${esc(r.category)}${presentation}</div></div>`;
+}
+function renderRecipeLibrary(){
+  const root=$('recipeLibraryList');if(!root)return;
+  const all=Array.isArray(window.ALDIA_RECETAS_LOCALES?.recipes)?window.ALDIA_RECETAS_LOCALES.recipes:[];
+  const q=norm($('recipeLibrarySearch')?.value||'');
+  const visible=all.filter(r=>{
+    if(recipeCategoryFilter&&r.category!==recipeCategoryFilter)return false;
+    if(!q)return true;
+    const hay=[r.name,r.productCode,r.scanning,r.recipe,...(r.ingredients||[]).flatMap(i=>[i.code,i.name])].map(norm).join(' ');
+    return hay.includes(q);
+  });
+  $('recipeLibraryCount').textContent=`${visible.length} receta${visible.length===1?'':'s'}`;
+  $('recipeLibrarySummary').textContent=all.length?`${all.filter(r=>r.category==='FRUTA').length} de FRUTA · ${all.filter(r=>r.category==='VERDURA').length} de VERDURA · Fuente: ${window.ALDIA_RECETAS_LOCALES?.source||'Recetas LOCALES.xlsx'}`:'No se pudieron cargar las recetas incorporadas.';
+  root.innerHTML=visible.length?visible.map(recipeTableHtml).join(''):`<div class="recipe-empty">No hay recetas que coincidan con la búsqueda.</div>`;
+}
+function setLibraryView(view){
+  libraryViewMode=view==='seasons'?'seasons':'recipes';
+  $('libraryRecipesBtn')?.classList.toggle('active',libraryViewMode==='recipes');
+  $('librarySeasonsBtn')?.classList.toggle('active',libraryViewMode==='seasons');
+  $('library-recipes-pane')?.classList.toggle('hidden',libraryViewMode!=='recipes');
+  $('library-seasons-pane')?.classList.toggle('hidden',libraryViewMode!=='seasons');
+  if(libraryViewMode==='recipes')renderRecipeLibrary();else renderLearningBase();
+}
+function renderLibrary(){setLibraryView(libraryViewMode)}
 
 function expiryIdentity(x){const pid=String(x?.productId||"").trim();if(pid)return`P:${pid}`;const c=String(x?.code||"").trim(),n=norm(x?.name);return c?`${x.codeType||"EAN"}:${c}`:(n?`N:${n}`:`I:${x?.id||""}`)}
 function expiryGroupsFor(list){const map=new Map();(list||[]).forEach(x=>{const k=expiryIdentity(x);if(!map.has(k))map.set(k,[]);map.get(k).push(x)});return [...map.values()].map(g=>g.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)))).sort((a,b)=>parseDate(withdrawalDate(a[0]))-parseDate(withdrawalDate(b[0])))}
@@ -3001,10 +3315,11 @@ $("homePedidosBtn").onclick=()=>openOrdersFromHome();
 $("homeMuestrasBtn").onclick=()=>openSamplesFromHome();
 $("homeNotesBtn").onclick=()=>openMainTab("notas");
 $("homePlantillaBtn").onclick=()=>{openMainTab("plantilla");renderCvDraft();renderCvHistory()};
-$("homeLearningBtn").onclick=()=>{openMainTab("aprendizaje");renderLearningBase()};
+$("homeLearningBtn").onclick=()=>{openMainTab("aprendizaje");renderLibrary()};
 $("homeProductSearchInput").onkeydown=e=>{if(e.key!=="Enter")return;const q=$("homeProductSearchInput").value.trim();openMainTab("consultor");$("consultorSearch").value=q;renderConsultor();$("consultorSearch").focus()};
 $("consultorSearch").oninput=renderConsultor;
 if($("learningSearch"))$("learningSearch").oninput=renderLearningBase;if($("learningMonthFilter"))$("learningMonthFilter").onchange=renderLearningBase;if($("learningCategoryFilter"))$("learningCategoryFilter").onchange=renderLearningBase;if($("learningMonthlyViewBtn"))$("learningMonthlyViewBtn").onclick=()=>{learningViewMode="month";renderLearningBase()};if($("learningAnnualViewBtn"))$("learningAnnualViewBtn").onclick=()=>{learningViewMode="year";renderLearningBase()};
+if($("libraryRecipesBtn"))$("libraryRecipesBtn").onclick=()=>setLibraryView("recipes");if($("librarySeasonsBtn"))$("librarySeasonsBtn").onclick=()=>setLibraryView("seasons");if($("recipeLibrarySearch"))$("recipeLibrarySearch").oninput=renderRecipeLibrary;document.querySelectorAll(".recipe-filter-btn[data-recipe-category]").forEach(b=>b.onclick=()=>{recipeCategoryFilter=b.dataset.recipeCategory||"";document.querySelectorAll(".recipe-filter-btn[data-recipe-category]").forEach(x=>x.classList.toggle("active",x===b));renderRecipeLibrary()});
 
 if($("orderHistorySearch"))$("orderHistorySearch").oninput=renderOrderHistory;
 if($("sampleHistorySearch"))$("sampleHistorySearch").oninput=renderSampleHistory;
@@ -3207,7 +3522,7 @@ function backupSummaryText(d,includeTitle=true){
   return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos guardados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}`;
 }
 function currentBackupObject(){
-  return {version:23,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:25,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;
@@ -3353,18 +3668,118 @@ let swipeRefreshQueued=false;
 const swipeDeleteObserver=new MutationObserver(()=>{if(swipeRefreshQueued)return;swipeRefreshQueued=true;requestAnimationFrame(()=>{swipeRefreshQueued=false;try{refreshSwipeDelete()}catch(e){console.error(e)}})});
 swipeDeleteObserver.observe(document.body,{childList:true,subtree:true});
 function initOrderLongPressReorder(){
-  const cards=[...document.querySelectorAll('[data-order-item-id]')];cards.forEach(card=>{
-    if(card.dataset.longReorderReady==='1')return;card.dataset.longReorderReady='1';let timer=null,active=false,sx=0,sy=0,lastTarget=null;
-    const clear=()=>{if(timer){clearTimeout(timer);timer=null}};
-    card.addEventListener('touchstart',e=>{if(e.touches.length!==1||e.target.closest('input,select,button'))return;sx=e.touches[0].clientX;sy=e.touches[0].clientY;card.dataset.longReorderActive='0';clear();timer=setTimeout(()=>{active=true;card.dataset.longReorderActive='1';card.dataset.gestureConsumed='1';card.classList.add('order-drag-state');try{if(window.AndroidNative&&AndroidNative.vibrate)AndroidNative.vibrate(25);else if(navigator.vibrate)navigator.vibrate(25)}catch(_){ }},520)},{passive:true});
-    card.addEventListener('touchmove',e=>{if(!timer&&!active)return;const t=e.touches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(!active&&(Math.abs(dx)>12||Math.abs(dy)>12)){clear();return}if(!active)return;if(e.cancelable)e.preventDefault();const target=document.elementFromPoint(t.clientX,t.clientY)?.closest?.('[data-order-item-id]');cards.forEach(c=>c.classList.remove('order-drop-target'));if(target&&target!==card){target.classList.add('order-drop-target');lastTarget=target}}, {passive:false});
-    const finish=()=>{clear();if(active){active=false;card.classList.remove('order-drag-state');cards.forEach(c=>c.classList.remove('order-drop-target'));if(lastTarget&&lastTarget!==card){const arr=orders[activeOrderTab],from=arr.findIndex(x=>x.id===card.dataset.orderItemId),to=arr.findIndex(x=>x.id===lastTarget.dataset.orderItemId);if(from>=0&&to>=0){const [m]=arr.splice(from,1);arr.splice(to,0,m);saveAll();renderOrders();showToast('Orden actualizado')}}lastTarget=null}setTimeout(()=>{card.dataset.longReorderActive='0'},40)};
-    card.addEventListener('touchend',finish,{passive:true});card.addEventListener('touchcancel',finish,{passive:true});
-  })
+  const cards=[...document.querySelectorAll('[data-order-item-id]')];
+  cards.forEach(card=>{
+    if(card.dataset.longReorderReady==='1')return;
+    card.dataset.longReorderReady='1';
+    let timer=null,active=false,sx=0,sy=0,lastY=0,ghost=null,placeholder=null,sourceBody=null,sourceWrap=null,sourceCategory="",ghostOffsetY=0,autoSpeed=0,autoFrame=0,startCategoryOrder=[];
+    const clearTimer=()=>{if(timer){clearTimeout(timer);timer=null}};
+    const categoryOf=x=>(x?.category||cats[0]);
+    const clearCategoryVisual=()=>document.querySelectorAll('[data-order-category-wrap]').forEach(w=>w.classList.remove('order-drag-category-active','order-drag-category-locked'));
+    const setCategoryVisual=()=>{
+      document.querySelectorAll('[data-order-category-wrap]').forEach(w=>{
+        const same=w.dataset.orderCategoryWrap===sourceCategory;
+        w.classList.toggle('order-drag-category-active',same);
+        w.classList.toggle('order-drag-category-locked',!same);
+      });
+    };
+    const updatePlaceholder=y=>{
+      if(!active||!sourceBody||!placeholder)return;
+      const siblings=[...sourceBody.querySelectorAll('[data-order-item-id]')].filter(c=>c!==card);
+      let before=null;
+      for(const s of siblings){
+        const r=s.getBoundingClientRect();
+        if(y<r.top+r.height/2){before=s;break}
+      }
+      if(before)sourceBody.insertBefore(placeholder,before);else sourceBody.appendChild(placeholder);
+    };
+    const updateGhost=y=>{
+      if(!ghost)return;
+      const h=ghost.getBoundingClientRect().height||card.getBoundingClientRect().height||60;
+      const top=Math.max(5,Math.min(window.innerHeight-h-5,y-ghostOffsetY));
+      ghost.style.top=`${top}px`;
+    };
+    const stopAutoScroll=()=>{autoSpeed=0;if(autoFrame){cancelAnimationFrame(autoFrame);autoFrame=0}};
+    const autoLoop=()=>{
+      if(!active||!autoSpeed){autoFrame=0;return}
+      window.scrollBy(0,autoSpeed);
+      updatePlaceholder(lastY);
+      autoFrame=requestAnimationFrame(autoLoop);
+    };
+    const updateAutoScroll=y=>{
+      const edge=Math.min(88,Math.max(58,window.innerHeight*.12));let speed=0;
+      if(y<edge)speed=-Math.ceil((edge-y)/edge*10);
+      else if(y>window.innerHeight-edge)speed=Math.ceil((y-(window.innerHeight-edge))/edge*10);
+      autoSpeed=Math.max(-10,Math.min(10,speed));
+      if(autoSpeed&&!autoFrame)autoFrame=requestAnimationFrame(autoLoop);
+      if(!autoSpeed&&autoFrame)stopAutoScroll();
+    };
+    const startDrag=t=>{
+      sourceBody=card.closest('[data-order-category-body]');sourceWrap=card.closest('[data-order-category-wrap]');
+      if(!sourceBody||!sourceWrap)return;
+      sourceCategory=card.dataset.orderCategoryName||sourceBody.dataset.orderCategoryBody||sourceWrap.dataset.orderCategoryWrap||cats[0];
+      const rect=card.getBoundingClientRect();
+      startCategoryOrder=(orders[activeOrderTab]||[]).filter(x=>categoryOf(x)===sourceCategory).map(x=>x.id);
+      placeholder=document.createElement('div');placeholder.className='order-drag-placeholder';placeholder.textContent='Soltar aquí';placeholder.style.height=`${Math.max(54,rect.height)}px`;
+      card.parentNode.insertBefore(placeholder,card);
+      ghost=card.cloneNode(true);ghost.removeAttribute('data-order-item-id');ghost.classList.remove('order-drag-state','order-drag-origin');ghost.classList.add('order-drag-ghost');ghost.style.width=`${rect.width}px`;ghost.style.left=`${rect.left}px`;ghost.style.top=`${rect.top}px`;
+      ghost.querySelectorAll('.swipe-delete-hint').forEach(x=>x.remove());ghost.querySelectorAll('input,select,button').forEach(x=>{x.tabIndex=-1;x.disabled=true});
+      document.body.appendChild(ghost);
+      ghostOffsetY=Math.max(0,Math.min(rect.height,t.clientY-rect.top));
+      card.classList.add('order-drag-origin');setCategoryVisual();active=true;card.dataset.longReorderActive='1';card.dataset.gestureConsumed='1';lastY=t.clientY;updatePlaceholder(lastY);updateGhost(lastY);
+      try{if(window.AndroidNative&&AndroidNative.vibrate)AndroidNative.vibrate(25);else if(navigator.vibrate)navigator.vibrate(25)}catch(_){}
+    };
+    const cleanup=()=>{
+      stopAutoScroll();ghost?.remove();placeholder?.remove();ghost=null;placeholder=null;card.classList.remove('order-drag-origin','order-drag-state');clearCategoryVisual();sourceBody=null;sourceWrap=null;sourceCategory="";
+    };
+    card.addEventListener('touchstart',e=>{
+      if(e.touches.length!==1||e.target.closest('input,select,button'))return;
+      const t=e.touches[0],startPoint={clientX:t.clientX,clientY:t.clientY};sx=t.clientX;sy=t.clientY;lastY=t.clientY;card.dataset.longReorderActive='0';clearTimer();
+      timer=setTimeout(()=>{timer=null;startDrag(startPoint)},520);
+    },{passive:true});
+    card.addEventListener('touchmove',e=>{
+      if(!timer&&!active)return;
+      const t=e.touches[0],dx=t.clientX-sx,dy=t.clientY-sy;
+      if(!active&&(Math.abs(dx)>12||Math.abs(dy)>12)){clearTimer();return}
+      if(!active)return;
+      if(e.cancelable)e.preventDefault();
+      lastY=t.clientY;updateGhost(lastY);updatePlaceholder(lastY);updateAutoScroll(lastY);
+    },{passive:false});
+    const finish=commit=>{
+      clearTimer();
+      if(active){
+        let changed=false;
+        if(commit&&sourceBody&&placeholder&&sourceCategory){
+          const children=[...sourceBody.children];let targetIndex=0;
+          for(const child of children){
+            if(child===placeholder)break;
+            if(child!==card&&child.matches?.('[data-order-item-id]'))targetIndex++;
+          }
+          const arr=orders[activeOrderTab]||[],categoryItems=arr.filter(x=>categoryOf(x)===sourceCategory),from=categoryItems.findIndex(x=>x.id===card.dataset.orderItemId);
+          if(from>=0&&categoryItems.length){
+            targetIndex=Math.max(0,Math.min(categoryItems.length-1,targetIndex));
+            const reordered=[...categoryItems],[moved]=reordered.splice(from,1);reordered.splice(targetIndex,0,moved);
+            changed=reordered.some((x,i)=>x.id!==startCategoryOrder[i]);
+            if(changed){
+              let k=0;
+              orders[activeOrderTab]=arr.map(x=>categoryOf(x)===sourceCategory?reordered[k++]:x);
+            }
+          }
+        }
+        const categoryLabel=sourceCategory;
+        active=false;cleanup();
+        if(changed){saveAll();renderOrders();showToast(`Orden actualizado dentro de ${categoryLabel||"la categoría"}`)}
+      }
+      setTimeout(()=>{card.dataset.longReorderActive='0'},60);
+    };
+    card.addEventListener('touchend',()=>finish(true),{passive:true});
+    card.addEventListener('touchcancel',()=>finish(false),{passive:true});
+  });
 }
+
 function renderAll(){
   seedLearningCatalog();migrateOrderCategoriesV215();
-  const jobs=[cleanExpiryHistory,cleanCompletion,renderProductMemories,renderExpiryDatalist,renderOrderDatalist,renderExpiry,renderExpiryHistory,renderOrders,renderOrderHistory,renderCompletion,renderSamples,renderSampleHistory,renderNotes,renderNoteHistory,renderConsultor,renderLearningBase,renderCvDraft,renderCvHistory,updateNextOrder,renderDashboard,updateHomeClock,renderBackupStatus,applySettings,refreshNotificationPermissionStatus,loadNativeVersion];
+  const jobs=[cleanExpiryHistory,cleanCompletion,renderProductMemories,renderExpiryDatalist,renderOrderDatalist,renderExpiry,renderExpiryHistory,renderOrders,renderOrderHistory,renderCompletion,renderSamples,renderSampleHistory,renderNotes,renderNoteHistory,renderConsultor,renderLibrary,renderCvDraft,renderCvHistory,updateNextOrder,renderDashboard,updateHomeClock,renderBackupStatus,applySettings,refreshNotificationPermissionStatus,loadNativeVersion];
   jobs.forEach(fn=>{try{fn()}catch(e){console.error("Render:",fn&&fn.name,e)}});
   try{saveAll()}catch(e){console.error("Save",e)}
 }
@@ -3381,7 +3796,7 @@ function refreshAutomaticMonthIfNeeded(){
   lastAutomaticMonthKey=nowKey;
   if($("learningMonthFilter"))$("learningMonthFilter").value=String(new Date().getMonth()+1);
   ["martes","jueves","sabado"].forEach(day=>ensureOrderTemplateForDay(day));
-  renderOrders();renderLearningBase();updateNextOrder();renderDashboard();
+  renderOrders();renderLibrary();updateNextOrder();renderDashboard();
 }
 setInterval(refreshAutomaticMonthIfNeeded,60000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)refreshAutomaticMonthIfNeeded()});

@@ -42,7 +42,9 @@ public final class NotificationScheduler {
         n.set(Calendar.MINUTE,Math.max(0,Math.min(59,minute)));n.set(Calendar.SECOND,0);n.set(Calendar.MILLISECOND,0);
         if(n.getTimeInMillis()<=System.currentTimeMillis())n.add(Calendar.DAY_OF_YEAR,1);
         PendingIntent p=pi(c,ACTION_DAILY,4101);a.cancel(p);
-        a.setInexactRepeating(AlarmManager.RTC_WAKEUP,n.getTimeInMillis(),AlarmManager.INTERVAL_DAY,p);
+        // Alarma diaria de una sola ejecución. setAndAllowWhileIdle permite que Android
+        // la entregue también durante Doze; el receiver programa inmediatamente el día siguiente.
+        a.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,n.getTimeInMillis(),p);
     }
     public static void scheduleNextRepeat(Context c,int mins){
         if(mins!=30&&mins!=60&&mins!=120)return;
