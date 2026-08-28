@@ -894,14 +894,6 @@ mark.search-hit{
 
 
 /* v2.12 - Pedidos compactos + gestos + jerarquía visual */
-.order-review-card{margin:10px 0;border-left:3px solid #b48d58}
-.order-review-card.hidden{display:none!important}
-.order-review-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px}
-.order-review-title{font-weight:900;font-size:14px}.order-review-sub{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.35}
-.order-review-list{display:grid;gap:7px}.order-review-item{border:1px solid var(--border);border-radius:11px;padding:9px;background:var(--card)}
-.order-review-item-head{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:6px}.order-review-item-head strong{font-size:12px}
-.order-review-prevmeta{font-size:10px;color:var(--muted);line-height:1.35}.order-review-fields{display:grid;grid-template-columns:1fr 1.35fr;gap:7px;margin-top:7px}
-.order-review-fields label{font-size:9px}.order-review-fields input,.order-review-fields select{min-height:34px;font-size:12px;padding:6px 8px}.order-review-confirm{width:100%;margin-top:9px}
 
 /* Cada producto es una fila compacta claramente separada */
 .order-item-smart{position:relative;display:grid;grid-template-columns:minmax(128px,1.6fr) 58px 66px 72px;gap:7px;align-items:center;padding:8px 10px!important;margin:0;background:var(--card);border:1px solid color-mix(in srgb,var(--border) 88%,#8b704c 12%);border-left:3px solid #c5a06b;border-radius:11px;box-shadow:0 1px 3px rgba(15,23,42,.06);touch-action:pan-y;user-select:none}
@@ -932,7 +924,7 @@ body.dark .order-warning-chip{color:#f4c66b}
 .card{box-shadow:0 2px 9px rgba(15,23,42,.055)}
 body.dark .card,body.dark .order-item-smart{box-shadow:0 2px 10px rgba(0,0,0,.22)}
 
-@media(max-width:430px){.order-item-smart{grid-template-columns:minmax(112px,1.55fr) 52px 61px 67px;gap:5px;padding:7px 8px!important}.order-compact-product .name{font-size:12px}.order-inline-cell input,.order-suggested-tap{height:31px;min-height:31px}.order-mini-select{min-width:78px;max-width:105px}.order-review-fields{grid-template-columns:1fr}}
+@media(max-width:430px){.order-item-smart{grid-template-columns:minmax(112px,1.55fr) 52px 61px 67px;gap:5px;padding:7px 8px!important}.order-compact-product .name{font-size:12px}.order-inline-cell input,.order-suggested-tap{height:31px;min-height:31px}.order-mini-select{min-width:78px;max-width:105px}}
 
 
 /* v2.13 - Base de aprendizaje, categorías y disponibilidad mensual */
@@ -1221,12 +1213,6 @@ body.theme-graphite .order-history-simple-order.positive{color:#bfdbfe}
       <div><div class="next-label">Próximo pedido</div><div class="next-day" id="nextOrderDay">—</div><div class="next-sub" id="nextOrderSub">Se actualiza automáticamente</div></div>
       <div class="next-order-arrow">›</div>
     </div>
-
-    <div class="card order-review-card hidden" id="orderReviewCard">
-      <div class="order-review-head"><div><div class="order-review-title" id="orderReviewTitle">Revisar pedido anterior</div><div class="order-review-sub" id="orderReviewSub">Confirmá cómo terminó el ciclo anterior para que la sugerencia aprenda.</div></div><span class="pill" id="orderReviewCount">0</span></div>
-      <div class="order-review-list" id="orderReviewList"></div>
-      <button class="btn-primary order-review-confirm" id="confirmOrderReviewBtn" type="button">Confirmar resultado y aprender</button>
-    </div>
     <button class="manage-toggle" id="toggleOrderSavedProducts">Productos guardados de Pedidos</button>
     <div id="orderSavedProductsPanel" class="saved-products-panel hidden"></div>
 
@@ -1514,7 +1500,7 @@ body.theme-graphite .order-history-simple-order.positive{color:#bfdbfe}
       <strong>Acerca de Al Día</strong>
       <div class="settings-option app-version-row">
         <span>Versión instalada</span>
-        <strong id="appVersionText">2.25</strong>
+        <strong id="appVersionText">2.26</strong>
       </div>
       <button class="secondary-btn" id="checkUpdatesBtn" type="button" style="width:100%">Buscar actualizaciones</button>
       <div class="footer-note" id="updateCheckStatus">Comprueba la última versión publicada en GitHub Releases.</div>
@@ -2419,66 +2405,6 @@ function refreshOrderCardCalculation(id){
   if(confidence)confidence.textContent=`Confianza: ${c.confidence}`;
   if(warning){const msg=c.warnings[0]||"";warning.textContent=msg;warning.title=msg;warning.classList.toggle("hidden",!msg)}
 }
-function orderPendingReview(day=activeOrderTab){
-  const entry=(orderHistory[day]||[]).find(e=>!e.feedbackCompletedAt&&Array.isArray(e.items)&&e.items.length);
-  if(!entry)return null;
-  const reviewIndices=entry.items.map((it,i)=>({it,i})).filter(({it})=>Math.max(0,Number(it.qty)||0)>0||Math.max(0,Number(it.stockInitial??it.stockCurrent)||0)>0).map(x=>x.i);
-  return reviewIndices.length?{prev:day,entry,reviewIndices}:null;
-}
-function orderReviewResultOptions(value=""){
-  const opts=[["","Elegir resultado"],["sobra_mucho","Sobró mucho"],["sobra_poco","Sobró un poco"],["bien","Quedó bien"],["falta_poco","Faltó un poco"],["falta_mucho","Faltó mucho"]];
-  return opts.map(([v,t])=>`<option value="${v}" ${value===v?"selected":""}>${t}</option>`).join("");
-}
-function renderOrderReview(){
-  const pending=orderPendingReview(activeOrderTab),card=$("orderReviewCard"),list=$("orderReviewList"),count=$("orderReviewCount"),title=$("orderReviewTitle"),sub=$("orderReviewSub"),btn=$("confirmOrderReviewBtn");
-  if(!card||!list||!count||!btn)return;
-  if(!pending){card.classList.add("hidden");list.innerHTML="";btn.onclick=null;return}
-  const {entry,reviewIndices}=pending;card.classList.remove("hidden");title.textContent=`Revisar pedido anterior · ${dayLabel(activeOrderTab)}`;sub.textContent=`${entry.dateLabel||"Pedido guardado"} · indicá el stock restante y cómo terminó cada producto para mejorar la sugerencia.`;count.textContent=String(reviewIndices.length);
-  list.innerHTML=reviewIndices.map(i=>{const it=entry.items[i],available=Math.max(0,Number(it.stockInitial??it.stockCurrent)||0)+Math.max(0,Number(it.qty)||0),unit=orderQtyType(it.unitType,it.name)==="peso"?"kg":"bultos";return `<div class="order-review-item"><div class="order-review-item-head"><strong>${esc(it.name)}</strong><span class="order-review-prevmeta">Disponible inicial: ${available} ${unit}</span></div><div class="order-review-fields"><label>Stock restante<input data-review-stock="${i}" type="number" min="0" max="${available}" step="${orderQtyType(it.unitType,it.name)==="peso"?"0.1":"1"}" inputmode="decimal" value="${it.stockRemaining??""}" placeholder="0"></label><label>Resultado<select data-review-result="${i}">${orderReviewResultOptions(it.result||"")}</select></label></div></div>`}).join("");
-  btn.onclick=()=>confirmOrderReview(pending);
-}
-function orderEntryMonth(entry){
-  const direct=Number(entry?.month);if(direct>=1&&direct<=12)return direct;
-  const created=entry?.createdAt?new Date(entry.createdAt):null;if(created&&!Number.isNaN(created.getTime()))return created.getMonth()+1;
-  const m=String(entry?.dateLabel||"").match(/^\s*\d{1,2}\/(\d{1,2})\/\d{4}/);if(m){const n=Number(m[1]);if(n>=1&&n<=12)return n}
-  return new Date().getMonth()+1;
-}
-function updateOrderLearningBucket(bucket,observedBase,result,fallbackBase=null){
-  bucket=normalizeOrderLearningBucket(bucket,false);
-  let observed=Math.max(0,Number(observedBase)||0),old=bucket.base!=null?Number(bucket.base):(Number.isFinite(Number(fallbackBase))?Math.max(0,Number(fallbackBase)):null);
-  if(old!=null&&old>0){
-    const low=old*.55,high=Math.max(old*1.75,old+1);
-    observed=Math.max(low,Math.min(high,observed));
-  }
-  const alpha=old==null?1:bucket.cycles<3?.35:bucket.cycles<8?.25:.18;
-  const next=old==null?observed:old*(1-alpha)+observed*alpha;
-  bucket.base=Math.max(0,Math.round(next*100)/100);
-  bucket.cycles=(Number(bucket.cycles)||0)+1;
-  bucket.recent=[result,...(bucket.recent||[])].slice(0,8);
-  bucket.observations=[Math.round(observed*100)/100,...(bucket.observations||[])].slice(0,12);
-  return bucket;
-}
-async function confirmOrderReview(pending){
-  const {prev,entry,reviewIndices=[]}=pending,feedback=[];
-  for(const i of reviewIndices){
-    const it=entry.items[i],available=Math.max(0,Number(it.stockInitial??it.stockCurrent)||0)+Math.max(0,Number(it.qty)||0),sv=Number(document.querySelector(`[data-review-stock="${i}"]`)?.value),result=document.querySelector(`[data-review-result="${i}"]`)?.value;
-    if(!Number.isFinite(sv)||sv<0)return showToast("Completá el stock restante de todos los productos.");
-    if(sv>available+0.0001)return showToast(`El stock restante de ${it.name} no puede superar lo disponible (${available}).`);
-    if(!result)return showToast("Indicá el resultado de todos los productos.");
-    feedback.push({index:i,stockRemaining:sv,result});
-  }
-  if(!feedback.length)return;
-  if(!await askConfirm(`Se actualizará gradualmente el aprendizaje del pedido de ${dayLabel(prev)} usando ${feedback.length} resultado${feedback.length===1?"":"s"}.`,"Confirmar aprendizaje"))return;
-  const resultFactor={sobra_mucho:.78,sobra_poco:.90,bien:1,falta_poco:1.12,falta_mucho:1.28},month=orderEntryMonth(entry);
-  feedback.forEach(fb=>{
-    const it=entry.items[fb.index],p=orderProfileFor(it.name,it.unitType),l=normalizeOrderLearningBucket(p.learning[prev],true),available=Math.max(0,Number(it.stockInitial??it.stockCurrent)||0)+Math.max(0,Number(it.qty)||0),consumption=Math.max(0,available-fb.stockRemaining),factor=resultFactor[fb.result]||1,demand=Math.max(0,consumption*factor),temporary=Math.max(.45,Number(it.appliedDemandFactor)||1),observedBase=demand/temporary,legacy=Number(p.legacySuggested)||0,generalBefore=l.base!=null?Number(l.base):(legacy>0?legacy:null);
-    updateOrderLearningBucket(l,observedBase,fb.result,generalBefore);
-    const ml=orderMonthLearning(l,month,true);updateOrderLearningBucket(ml,observedBase,fb.result,generalBefore);
-    p.learning[prev]=l;
-    it.stockRemaining=fb.stockRemaining;it.approxConsumption=Math.round(consumption*100)/100;it.result=fb.result;it.feedbackAt=new Date().toISOString();
-  });
-  entry.feedbackCompletedAt=new Date().toISOString();saveAll();renderOrders();renderOrderReview();renderOrderHistory();showToast("Aprendizaje actualizado");
-}
 const orderCategoryExpanded={martes:{},jueves:{},sabado:{}};
 function renderOrders(){
   ensureOrderTemplateForDay(activeOrderTab);const current=orders[activeOrderTab],visible=current;current.forEach(x=>{x.stockCurrent=Math.max(0,Number(x.stockCurrent)||0);x.priceState=["oferta","normal","caro"].includes(x.priceState)?x.priceState:"normal";x.expectedMovement=["poco","normal","mucho"].includes(x.expectedMovement)?x.expectedMovement:"normal";const p=orderProfileFor(x.name,x.unitType);x.unitType=p.qtyType});
@@ -2493,7 +2419,6 @@ function renderOrders(){
   document.querySelectorAll("[data-order-item-id]").forEach(card=>{card.addEventListener("click",e=>{if(card.dataset.gestureConsumed==="1"){card.dataset.gestureConsumed="0";return}if(e.target.closest("button,input,select"))return;openOrderEdit(card.dataset.orderItemId)})});
   initOrderLongPressReorder();
   refreshSwipeDelete();
-  renderOrderReview();
 }
 
 const MONTH_SHORT=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
@@ -2531,7 +2456,7 @@ $("completeOrderBtn").onclick=async()=>{
   const now=new Date(),dateLabel=now.toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
   const itemsToSave=current.map(x=>{const c=orderCalc(x);return {...x,unitType:c.profile.qtyType,stockInitial:c.stock,priceState:x.priceState||"normal",movementExpected:x.expectedMovement||"normal",rotation:c.profile.rotation,offerReaction:c.profile.offerReaction,expensiveSensitivity:c.profile.expensiveSensitivity,estimatedNeed:c.estimated,suggestedQty:c.suggested,qty:Math.max(0,Number(x.qty)||0),appliedDemandFactor:c.factors.total,confidence:c.confidence}});
   orderHistory[activeOrderTab].unshift({id:uid(),createdAt:now.toISOString(),month:now.getMonth()+1,dateLabel,day:activeOrderTab,items:itemsToSave,feedbackCompletedAt:null});
-  orderHistory[activeOrderTab]=orderHistory[activeOrderTab].slice(0,30);saveAll();renderOrderHistory();renderCompletion();renderOrderReview();showToast("Pedido guardado en el historial");
+  orderHistory[activeOrderTab]=orderHistory[activeOrderTab].slice(0,30);saveAll();renderOrderHistory();renderCompletion();showToast("Pedido guardado en el historial");
 };
 let orderHistoryOpen={};
 function orderResultLabel(v){return ({sobra_mucho:"Sobró mucho",sobra_poco:"Sobró un poco",bien:"Quedó bien",falta_poco:"Faltó un poco",falta_mucho:"Faltó mucho"})[v]||"Pendiente"}
@@ -3522,7 +3447,7 @@ function backupSummaryText(d,includeTitle=true){
   return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos guardados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}`;
 }
 function currentBackupObject(){
-  return {version:25,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:26,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;

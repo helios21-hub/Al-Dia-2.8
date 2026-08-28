@@ -1,4 +1,4 @@
-AL DÍA v2.25 — PROYECTO COMPLETO PARA RESUBIR A GITHUB
+AL DÍA v2.26 — PROYECTO COMPLETO PARA RESUBIR A GITHUB
 
 Subir TODO el contenido de esta carpeta a la raíz del repositorio, incluyendo carpetas ocultas como .github.
 
@@ -17,6 +17,6 @@ Elementos críticos:
 - .github/workflows/build-apk.yml
 - .github/workflows/publicar-actualizacion.yml
 
-La app corresponde a versionName 2.25, backup v25 y versionCode base 225000 + GITHUB_RUN_NUMBER.
+La app corresponde a versionName 2.26, backup v26 y versionCode base 226000 + GITHUB_RUN_NUMBER.
 El paquete no contiene gradle-wrapper.jar; GitHub Actions instala Gradle 8.13 directamente.
 Después de subir, ejecutar manualmente “Compilar APK Al Día”. No dar por compilado el APK hasta que lintDebug y assembleDebug terminen correctamente.

@@ -1,0 +1,47 @@
+VALIDACIÓN PREVIA — AL DÍA v2.26
+Fecha de revisión: 28-08-2026
+
+ALCANCE
+- Base utilizada: AlDia_Proyecto_Completo_GitHub_v2_25.zip.
+- Cambio funcional solicitado: retirar únicamente “Revisar pedido anterior” de Pedidos y conservar el resto de v2.25.
+
+RESULTADO ESTÁTICO
+[OK] Se eliminó de index.html la tarjeta “Revisar pedido anterior”.
+[OK] No quedan referencias a orderReviewCard, renderOrderReview, confirmOrderReview, orderPendingReview ni controles data-review-*.
+[OK] Se conserva el resto de Pedidos v2.25: edición localizada, selector de categoría, arrastre guiado, historial simplificado, fecha/Compartir y sugerencias.
+[OK] Los datos aprendidos/históricos existentes no se eliminan del backup ni de los perfiles.
+[OK] HTML parseado: 202 IDs, sin IDs duplicados.
+[OK] Los 2 scripts inline de index.html pasan `node --check`.
+[OK] assets/recetas_locales.js pasa `node --check`.
+[OK] AndroidManifest.xml y recursos XML parsean correctamente.
+[OK] Ambos workflows YAML parsean correctamente.
+[OK] versionName 2.26 y versionCode base 226000 + GITHUB_RUN_NUMBER.
+[OK] Backup v26; la importación existente conserva normalización/valores por defecto para copias anteriores.
+
+COMPARACIÓN CONTRA v2.25
+[OK] No se detectaron modificaciones accidentales fuera de los archivos previstos.
+Archivos funcionales modificados:
+- app/src/main/assets/index.html
+- app/src/main/java/com/aldia/app/MainActivity.java (solo fallback de versión)
+- app/build.gradle (solo versión/versionCode)
+Archivos de documentación modificados/añadidos:
+- README.txt
+- README_GITHUB.md
+- ACTUALIZAR_REPO.txt
+- SUBIR_COMPLETO_A_GITHUB.txt
+- CAMBIOS_V2_26.txt
+- VALIDACION_V2_26.txt
+
+REVISIÓN JAVA / BUILD
+[OK] `javac -proc:none` no mostró diagnósticos típicos de error de sintaxis (illegal start, fin inesperado, etc.).
+[INFO] `javac` sí falla por referencias Android no resueltas porque este entorno no contiene Android SDK/android.jar; esto no equivale a una compilación Android.
+[INFO] gradle-wrapper.jar continúa ausente, igual que en la base histórica.
+[OK] GitHub Actions continúa instalando Gradle con setup-gradle y ejecuta `:app:lintDebug` antes de `:app:assembleDebug`.
+[OK] Android Gradle Plugin 8.13.2 y Gradle 8.13 se mantienen.
+
+COMPILACIÓN
+[NO COMPILADO] No se generó APK localmente.
+[PENDIENTE EXTERNO] La validación definitiva sigue siendo ejecutar en GitHub Actions “Compilar APK Al Día” y verificar lintDebug + assembleDebug.
+
+CONCLUSIÓN
+v2.26 retira el flujo manual “Revisar pedido anterior” sin alterar el resto de las mejoras de v2.25 ni borrar datos existentes.

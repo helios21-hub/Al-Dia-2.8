@@ -1,4 +1,4 @@
-AL DÍA — PROYECTO ANDROID v2.25
+AL DÍA — PROYECTO ANDROID v2.26
 
 Este proyecto contiene la app completa embebida dentro del APK. El uso principal funciona de forma local; algunas funciones, como comprobar actualizaciones, requieren Internet.
 
@@ -8,10 +8,17 @@ CONFIGURACIÓN
 - targetSdk / compileSdk: 36
 - orientación: vertical
 - Java: 17
-- versión: 2.25
-- backup: v25
+- versión: 2.26
+- backup: v26
 
-NOVEDADES v2.25
+NOVEDADES v2.26
+- Se retira por completo la sección “Revisar pedido anterior” de Pedidos y su flujo de confirmación manual.
+- El resto de Pedidos permanece como en v2.25: foco estable, selector de categoría, arrastre guiado, historial simplificado, fecha/Compartir y sugerencias.
+- Los datos y referencias de aprendizaje ya existentes se conservan; quitar la revisión no borra backups ni historial.
+- Backup v26; importación compatible con copias anteriores.
+- El APK NO fue compilado localmente durante esta preparación; la compilación definitiva debe realizarse con GitHub Actions.
+
+NOVEDADES v2.25 (base conservada)
 - Recetas locales deja de depender de un JS externo para mostrarse: las 28 recetas quedan integradas también dentro de index.html, conservando el XLSX y recetas_locales.js como fuentes del proyecto.
 - Pedidos corrige la pérdida de foco al cambiar Stock, Precio o Movimiento: se actualiza únicamente la ficha afectada.
 - Al añadir un producto a Pedidos se puede elegir explícitamente Frutas, Vegetales u Hortalizas.

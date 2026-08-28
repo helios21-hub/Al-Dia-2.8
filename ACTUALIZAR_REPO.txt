@@ -1,4 +1,4 @@
-ACTUALIZAR AL DÍA v2.25
+ACTUALIZAR AL DÍA v2.26
 
 Para actualizar un repositorio existente de Al Día:
 1. Reemplazar app/ por la carpeta app/ de este paquete.
@@ -10,5 +10,5 @@ Para actualizar un repositorio existente de Al Día:
 7. Confirmar que primero pase lintDebug y después assembleDebug.
 8. Solo considerar la versión compilada cuando el workflow haya generado el artefacto Al-Dia-APK.
 
-v2.25 mantiene applicationId com.aldia.app y la misma clave debug fija para permitir actualización sobre versiones anteriores compatibles.
+v2.26 mantiene applicationId com.aldia.app y la misma clave debug fija para permitir actualización sobre versiones anteriores compatibles.
 Backup v25 continúa aceptando las estructuras anteriores; los campos nuevos de aprendizaje e historial son opcionales/migrables.

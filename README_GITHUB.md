@@ -16,7 +16,14 @@ Proyecto Android de **Al Día**, una app personal para control de vencimientos y
 Los workflows están configurados en modo **manual**. Después de cada actualización, entrá en **Actions** y ejecutá **Run workflow** cuando quieras compilar.
 
 
-## Estado actual — v2.25
+## Estado actual — v2.26
+
+- Se retiró la tarjeta y flujo **Revisar pedido anterior** de Pedidos.
+- Se conserva el resto de v2.25 sin cambios funcionales: edición estable, selector de categoría, reordenamiento guiado, historial simple y sugerencias.
+- Historial mantiene **Nombre, Stock y Pedido**, fecha y Compartir; solo Pedido > 0 se destaca.
+- Los datos aprendidos o restaurados desde backups anteriores no se eliminan.
+- Backup v26, compatible con restauración de copias anteriores.
+- versionName 2.26 y versionCode base 226000 + GITHUB_RUN_NUMBER.
 
 - **Recetas locales** conserva las 28 recetas de `Recetas LOCALES.xlsx` (14 FRUTA y 14 VERDURA), pero ahora los datos también están integrados directamente en `index.html` para evitar una pantalla vacía si falla la carga del JS externo.
 - El XLSX original continúa en `app/src/main/assets/biblioteca/Recetas_LOCALES.xlsx` y `recetas_locales.js` se conserva como fuente separada.

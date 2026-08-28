@@ -1,0 +1,25 @@
+Al Día v2.26 — Retiro de revisión manual de pedidos anteriores
+
+PEDIDOS
+- Se elimina de la interfaz la tarjeta “Revisar pedido anterior”.
+- Se elimina el formulario de Stock restante / Resultado y su confirmación manual.
+- Se eliminan las llamadas de renderizado asociadas para que no quede código ejecutándose sobre una vista inexistente.
+- No se modifica el resto del módulo Pedidos de v2.25.
+- Se conservan foco estable, actualización localizada de Stock/Precio/Movimiento, selector de categoría, reordenamiento flotante con auto-scroll y límites por categoría.
+- Se conserva el Historial simplificado con Nombre, Stock y Pedido, fecha y Compartir; solo Pedido > 0 se resalta.
+- Se conservan sugerencias y cualquier referencia de aprendizaje ya almacenada/importada.
+
+DATOS / BACKUP
+- Backup pasa a v26.
+- No se eliminan campos históricos ni datos existentes.
+- Importación de backups anteriores continúa usando normalización y valores por defecto.
+
+VERSIÓN / BUILD
+- versionName 2.26.
+- versionCode base 226000 + GITHUB_RUN_NUMBER.
+- compileSdk/targetSdk 36, minSdk 26 y Java 17 sin cambios.
+- Gradle/workflows sin cambios funcionales.
+- No se compiló APK localmente.
+
+PENDIENTES
+- Carbón y reglas de categorías/días/horarios siguen pendientes hasta disponer del conjunto completo.
