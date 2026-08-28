@@ -1,0 +1,68 @@
+VALIDACIÓN PREVIA — AL DÍA v2.25
+Fecha de revisión: 28-08-2026
+
+RESULTADO ESTÁTICO — HTML / JAVASCRIPT
+[OK] index.html parseado sin IDs duplicados.
+[OK] Los dos bloques JavaScript inline de index.html pasan `node --check`.
+[OK] assets/recetas_locales.js pasa `node --check`.
+[OK] La carga integrada de Recetas LOCALES fue evaluada en Node: 28 recetas, 14 FRUTA y 14 VERDURA.
+[OK] Prueba aislada del render de Biblioteca: `renderRecipeLibrary()` genera 28 bloques y el filtro FRUTA devuelve 14.
+[OK] `renderOrderReview()` está definido en v2.25; en la base v2.24 era invocado pero no existía una definición.
+[OK] Los handlers de Stock, Precio y Movimiento ya no llaman a `renderOrders()` completo; actualizan la ficha afectada mediante `refreshOrderCardCalculation()`.
+[OK] El formulario de alta de Pedidos contiene selector explícito Frutas / Vegetales / Hortalizas.
+[OK] El historial nuevo se construye desde todos los productos del día (`current.map`), no únicamente desde Pedido > 0.
+[OK] La vista de Historial por producto se limita a Nombre, Stock y Pedido; el estilo de destaque se aplica solo cuando Pedido > 0.
+[OK] El texto Compartir del historial se limita a fecha, nombre, stock y pedido.
+[OK] El reordenamiento limita la persistencia a la categoría de origen y contiene placeholder visible, copia flotante y auto-scroll.
+
+PRUEBA AISLADA — INTELIGENCIA DE PEDIDOS
+[OK] Sin historial mantiene Sugerido 0 y Confianza “Sin historial”.
+[OK] Con base 8 y stock 2, el motor calcula Sugerido 6 en el escenario normal probado.
+[OK] La confianza puede ser Alta con historial suficiente y observaciones estables.
+[OK] La referencia mensual empieza a mezclarse solo con al menos 2 ciclos mensuales.
+[OK] Un perfil antiguo sin `observations` ni `months` se normaliza correctamente al formato nuevo.
+[OK] El aprendizaje mantiene bases independientes por Martes/Jueves/Sábado y los campos nuevos son aditivos.
+
+RECETAS LOCALES
+[OK] Las recetas quedan integradas directamente dentro de index.html para no depender de cargar un JS externo en la WebView/HTML suelto.
+[OK] Se conserva assets/recetas_locales.js como fuente separada.
+[OK] Se conserva assets/biblioteca/Recetas_LOCALES.xlsx.
+
+XML / ANDROID
+[OK] AndroidManifest.xml parsea correctamente.
+[OK] styles.xml parsea correctamente.
+[OK] network_security_config.xml parsea correctamente.
+[OK] applicationId se mantiene en com.aldia.app.
+[OK] compileSdk/targetSdk 36, minSdk 26 y Java 17 se mantienen.
+[OK] app/build.gradle: versionName 2.25 y versionCode base 225000 + GITHUB_RUN_NUMBER.
+[OK] MainActivity devuelve fallback de versión 2.25.
+
+REVISIÓN DE JAVA
+[OK] `javac -proc:none` no mostró diagnósticos estructurales de sintaxis como “illegal start”, “reached end of file”, “; expected” o equivalentes.
+[INFO] `javac` sí informa referencias Android no resueltas porque este entorno no contiene Android SDK/android.jar. Esto NO equivale a una compilación Android.
+
+GRADLE / GITHUB ACTIONS
+[OK] Root build.gradle mantiene Android Gradle Plugin 8.13.2.
+[OK] Ambos workflows YAML parsean correctamente.
+[OK] build-apk.yml mantiene workflow_dispatch, Java 17, Android SDK 36, Gradle 8.13, lintDebug y assembleDebug.
+[OK] publicar-actualizacion.yml obtiene versionName desde app/build.gradle y compila antes de publicar.
+[INFO] gradle-wrapper.jar continúa ausente. Los workflows no dependen del wrapper y configuran Gradle 8.13 directamente.
+
+BACKUP / COMPATIBILIDAD
+[OK] Backup pasa a versión 25.
+[OK] El esquema anterior de datos personales no se elimina ni renombra.
+[OK] Los campos nuevos de aprendizaje (`observations`, `months`) se crean al normalizar perfiles antiguos cuando faltan.
+[OK] Los campos nuevos de historial (`createdAt`, `month`) son opcionales; historiales anteriores continúan usando dateLabel y sus campos existentes.
+[OK] applyBackupObject continúa aceptando valores ausentes con defaults/migraciones.
+
+PRUEBA VISUAL AUTOMATIZADA
+[INFO] Se intentó nuevamente abrir la app por localhost con Chromium headless.
+[INFO] Chromium no completó la navegación/dump dentro del límite del entorno y fue terminado por timeout; no se usa ese intento como evidencia visual.
+[INFO] Por lo tanto no se afirma una prueba visual automatizada completa en este entorno.
+
+LIMITACIÓN DE COMPILACIÓN
+[NO COMPILADO] No se generó APK localmente: no hay Gradle instalado y el proyecto histórico carece de gradle-wrapper.jar; tampoco hay Android SDK local utilizable para una compilación Android real.
+[PENDIENTE EXTERNO] La validación definitiva es ejecutar GitHub Actions “Compilar APK Al Día” y confirmar que `:app:lintDebug` y `:app:assembleDebug` terminen correctamente.
+
+CONCLUSIÓN
+La v2.25 queda preparada como nueva base para intentar compilación real en GitHub Actions. No se afirma que el APK haya compilado hasta que el workflow finalice correctamente.

@@ -1,27 +1,14 @@
-ACTUALIZAR AL DÍA v2.23
+ACTUALIZAR AL DÍA v2.25
 
-RECOMENDADO: usar GitHub Desktop o subir respetando la estructura de carpetas.
-No subir los archivos "aplanados" en la raíz.
+Para actualizar un repositorio existente de Al Día:
+1. Reemplazar app/ por la carpeta app/ de este paquete.
+2. Reemplazar build.gradle, settings.gradle y gradle.properties de la raíz.
+3. Reemplazar .github/workflows/build-apk.yml y publicar-actualizacion.yml.
+4. Conservar gradle/wrapper/gradle-wrapper.properties. El paquete no contiene gradle-wrapper.jar; los workflows usan Gradle 8.13 instalado por GitHub Actions.
+5. Subir CAMBIOS_V2_25.txt y VALIDACION_V2_25.txt como referencia.
+6. Ejecutar Actions > Compilar APK Al Día > Run workflow.
+7. Confirmar que primero pase lintDebug y después assembleDebug.
+8. Solo considerar la versión compilada cuando el workflow haya generado el artefacto Al-Dia-APK.
 
-1. Descomprimí AlDia_Actualizacion_v2_23.zip.
-2. Reemplazá los archivos manteniendo exactamente sus rutas (app/, .github/, etc.).
-3. Verificá especialmente:
-   - /build.gradle
-   - /app/build.gradle
-   - /settings.gradle
-   - /gradle.properties
-   - /app/src/main/assets/index.html
-   - /app/src/main/AndroidManifest.xml
-   - /app/src/main/java/com/aldia/app/MainActivity.java
-   - /app/src/main/java/com/aldia/app/NotificationReceiver.java
-   - /app/src/main/java/com/aldia/app/AppFileProvider.java
-   - /.github/workflows/build-apk.yml
-   - /.github/workflows/publicar-actualizacion.yml
-4. Hacé Commit y Push.
-5. Actions > Compilar APK Al Día > Run workflow.
-6. Elegí la rama main y ejecutá el workflow manualmente.
-7. El workflow ejecuta primero lintDebug y, si pasa, assembleDebug.
-8. Al finalizar descargá Artifacts > Al-Dia-APK.
-
-v2.23 mantiene applicationId com.aldia.app y la misma clave debug fija para permitir actualización sobre versiones anteriores compatibles.
-Los workflows instalan Gradle 8.13 directamente; el paquete histórico no incluye gradle-wrapper.jar, por eso no dependen de ./gradlew.
+v2.25 mantiene applicationId com.aldia.app y la misma clave debug fija para permitir actualización sobre versiones anteriores compatibles.
+Backup v25 continúa aceptando las estructuras anteriores; los campos nuevos de aprendizaje e historial son opcionales/migrables.

@@ -16,18 +16,22 @@ Proyecto Android de **Al Día**, una app personal para control de vencimientos y
 Los workflows están configurados en modo **manual**. Después de cada actualización, entrá en **Actions** y ejecutá **Run workflow** cuando quieras compilar.
 
 
-## Estado actual — v2.23
+## Estado actual — v2.25
 
-- Vencimientos permite cargar una o varias fechas en una sola alta.
-- Se reemplazó el desplegable nativo de productos por sugerencias compactas para no tapar el teclado.
-- Se agregó la vista **Último añadido**, detección de productos ya existentes y acciones **Retirar / Nueva fecha** por cada fecha.
-- Entrar desde Inicio abre Vencimientos, Pedidos y Muestras desde arriba; las alertas pueden abrir el dato concreto.
-- La flecha/gesto Atrás de Android navega dentro de Al Día y en Inicio requiere una segunda pulsación para salir.
-- Los escáneres/OCR continúan eliminados.
-- Backup v23.
+- **Recetas locales** conserva las 28 recetas de `Recetas LOCALES.xlsx` (14 FRUTA y 14 VERDURA), pero ahora los datos también están integrados directamente en `index.html` para evitar una pantalla vacía si falla la carga del JS externo.
+- El XLSX original continúa en `app/src/main/assets/biblioteca/Recetas_LOCALES.xlsx` y `recetas_locales.js` se conserva como fuente separada.
+- **Pedidos** deja de reconstruir toda la lista al cambiar Stock, Precio o Movimiento; la sugerencia/confianza de la ficha se actualiza en su lugar.
+- Al añadir productos se elige explícitamente la categoría.
+- El arrastre por pulsación larga muestra un bloque flotante y un hueco de destino, hace auto-scroll y no permite cruzar de categoría.
+- El Historial de Pedidos muestra por producto solo **Nombre, Stock y Pedido**; únicamente Pedido > 0 se destaca. Fecha y Compartir se mantienen.
+- Los nuevos historiales guardan todos los productos del día, incluso Pedido 0, conservando en segundo plano los datos técnicos necesarios para aprendizaje.
+- El aprendizaje incorpora control de observaciones atípicas, confianza basada también en estabilidad y una referencia mensual gradual cuando ya hay al menos dos ciclos de ese mes.
+- Se incorpora la función de revisión del pedido anterior que la interfaz ya intentaba usar pero no estaba definida en la base previa.
+- Backup v25, compatible con restauración de copias anteriores.
+- Las mejoras de notificaciones de v2.24 se mantienen sin cambios.
 - Los workflows ejecutan `lintDebug` antes de compilar y configuran Gradle 8.13 directamente.
 
-> Nota: el paquete histórico contiene un script `gradlew` informativo pero no `gradle-wrapper.jar`; GitHub Actions no depende de ese wrapper.
+> Nota: el paquete histórico sigue sin `gradle-wrapper.jar`; GitHub Actions no depende de ese wrapper. Durante esta preparación no se compiló un APK localmente.
 
 ## Instalar en Android
 

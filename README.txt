@@ -1,4 +1,4 @@
-AL DÍA — PROYECTO ANDROID v2.23
+AL DÍA — PROYECTO ANDROID v2.25
 
 Este proyecto contiene la app completa embebida dentro del APK. El uso principal funciona de forma local; algunas funciones, como comprobar actualizaciones, requieren Internet.
 
@@ -8,8 +8,19 @@ CONFIGURACIÓN
 - targetSdk / compileSdk: 36
 - orientación: vertical
 - Java: 17
-- versión: 2.23
-- backup: v23
+- versión: 2.25
+- backup: v25
+
+NOVEDADES v2.25
+- Recetas locales deja de depender de un JS externo para mostrarse: las 28 recetas quedan integradas también dentro de index.html, conservando el XLSX y recetas_locales.js como fuentes del proyecto.
+- Pedidos corrige la pérdida de foco al cambiar Stock, Precio o Movimiento: se actualiza únicamente la ficha afectada.
+- Al añadir un producto a Pedidos se puede elegir explícitamente Frutas, Vegetales u Hortalizas.
+- Reordenamiento por pulsación larga mejorado con bloque flotante, hueco de destino visible, auto-desplazamiento cerca de los bordes y límite estricto dentro de la categoría de origen.
+- Historial de Pedidos simplificado a Nombre, Stock y Pedido. Solo Pedido > 0 se resalta; fecha y Compartir se mantienen.
+- Los nuevos historiales guardan la fotografía completa del pedido, incluidos los productos con Pedido 0, sin eliminar los datos internos usados para aprendizaje.
+- Aprendizaje de Pedidos reforzado de forma compatible: control de valores atípicos, confianza sensible a variabilidad y referencia mensual gradual cuando existe evidencia suficiente.
+- Se restaura/define la vista de revisión de pedidos anteriores, que estaba invocada pero no definida en la base anterior.
+- El APK NO fue compilado localmente durante esta preparación; la compilación definitiva debe realizarse con GitHub Actions.
 
 COMPILAR CON GITHUB ACTIONS
 1. Subir el proyecto conservando app/, .github/, gradle/ y los archivos de raíz.

@@ -1,0 +1,66 @@
+Al Día v2.25 — Pedidos estable, historial simple y Recetas locales corregidas
+
+RECETAS LOCALES
+- Las 28 recetas siguen siendo 14 FRUTA + 14 VERDURA.
+- Los datos de recetas ahora también se integran directamente en index.html.
+- Esto elimina la dependencia de cargar recetas_locales.js para que la vista muestre contenido dentro del HTML/WebView.
+- recetas_locales.js se conserva como fuente separada del proyecto.
+- Recetas_LOCALES.xlsx se conserva en assets/biblioteca.
+
+PEDIDOS — EDICIÓN Y FOCO
+- Cambiar Stock, Precio o Movimiento ya no ejecuta renderOrders() completo.
+- La app actualiza solamente Sugerido, Confianza y aviso de la ficha afectada.
+- Esto evita que el DOM completo de Pedidos se reconstruya durante la edición y reduce saltos de foco/desplazamiento.
+- Usar Sugerido actualiza directamente el campo Pedido de la misma ficha.
+
+PEDIDOS — ALTA DE PRODUCTOS
+- Se agrega selector explícito de Categoría: Frutas / Vegetales / Hortalizas.
+- Si el producto ya existe, el formulario recupera su categoría conocida.
+- Al agregar un producto nuevo se guarda en la categoría seleccionada y esa categoría queda abierta.
+
+PEDIDOS — REORDENAMIENTO
+- Pulsación larga mantiene la activación por intención y vibración.
+- El producto se “despega” visualmente en una copia flotante con escala/sombra.
+- La ubicación futura queda indicada siempre por un placeholder “Soltar aquí”.
+- El arrastre queda funcionalmente limitado a la categoría de origen.
+- Las demás categorías se muestran bloqueadas/atenuadas durante el gesto.
+- Cerca de los bordes superior/inferior, la vista hace auto-scroll para continuar moviendo sin soltar.
+- El orden persistido solo modifica la secuencia dentro de la categoría.
+
+HISTORIAL DE PEDIDOS
+- Cada producto muestra únicamente Nombre, Stock y Pedido.
+- Solo el valor Pedido se resalta cuando Pedido > 0.
+- Pedido = 0 no se resalta.
+- Stock nunca se resalta por este criterio.
+- Se conserva la fecha de creación del historial.
+- Se conserva Compartir, con texto simplificado a Fecha + Nombre + Stock + Pedido.
+- Los nuevos historiales guardan todos los productos del día, incluidos los de Pedido 0.
+- Los datos internos (sugerido, factores, configuración y aprendizaje) continúan almacenándose para no empobrecer la inteligencia.
+
+APRENDIZAJE DE PEDIDOS
+- Se define/restaura renderOrderReview(), que era llamado por la base pero no estaba definido.
+- La revisión usa productos con Pedido > 0 o Stock inicial > 0 para evitar pedir feedback inútil de filas sin información.
+- Se valida que el stock restante no pueda superar el stock disponible del ciclo.
+- Se conservan las bases independientes por Martes/Jueves/Sábado.
+- Se añaden observaciones recientes para medir estabilidad; una serie muy variable reduce la confianza.
+- Se limita el impacto de una observación extrema para evitar que un error aislado destruya la referencia.
+- Se incorpora una referencia mensual que empieza a influir gradualmente después de al menos 2 ciclos del mismo mes.
+- Oferta, precio caro, movimiento y rotación siguen siendo factores explicables, no una caja negra.
+
+DATOS / BACKUP
+- Backup pasa a v25.
+- Las estructuras nuevas son aditivas y se normalizan al cargar perfiles antiguos.
+- Importación de backups anteriores mantiene valores por defecto cuando faltan observations/months/createdAt/month.
+- No se elimina ningún dato personal existente.
+
+VERSIÓN / BUILD
+- versionName 2.25.
+- versionCode base 225000 + GITHUB_RUN_NUMBER.
+- compileSdk/targetSdk 36, minSdk 26 y Java 17 se mantienen.
+- Android Gradle Plugin 8.13.2 y workflows con Gradle 8.13 se mantienen.
+- El proyecto histórico continúa sin gradle-wrapper.jar; GitHub Actions no usa el wrapper.
+
+NO IMPLEMENTADO EN v2.25
+- No se agregan reglas/categorías nuevas de Pedidos (incluido Carbón) hasta tener la lista completa de categorías, días y horarios.
+- No se implementa el Ayudante de Al Día.
+- No se rehace Estaciones ni el visor general de PDF/documentos en esta versión.
