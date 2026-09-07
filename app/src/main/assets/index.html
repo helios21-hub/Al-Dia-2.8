@@ -1080,6 +1080,151 @@ body.theme-graphite .order-history-simple-order.positive{color:#bfdbfe}
   .order-history-simple-head,.order-history-simple-row{grid-template-columns:minmax(0,1fr) 54px 62px;gap:4px}
   .order-drag-placeholder{font-size:9px}
 }
+
+/* v2.27 - Formularios rápidos y vistas tipo planilla móvil */
+.quick-entry-form{display:grid;gap:12px;padding-top:12px}.quick-entry-title{font-size:15px;font-weight:900;color:var(--text);padding-bottom:8px;border-bottom:1px solid var(--border)}.quick-entry-step{display:grid;grid-template-columns:30px 1fr;gap:9px;align-items:start}.quick-step-number{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--surface-strong);border:1px solid var(--border);font-size:12px;font-weight:900}.quick-step-body{min-width:0}.field-help{font-size:10px;color:var(--muted);margin-top:4px;line-height:1.35}.quick-entry-grid{display:grid;gap:10px}.quick-entry-grid.two-col{grid-template-columns:1fr 1fr}.quick-field{min-width:0}.quick-field.wide{grid-column:1/-1}.quick-entry-form label{font-size:11px;font-weight:900;margin-bottom:5px}.quick-entry-form input,.quick-entry-form select{min-height:46px;font-size:15px;border-radius:11px;padding:9px 11px}.optional-label{font-weight:600;color:var(--muted)}.sticky-form-action{position:sticky;bottom:4px;z-index:6;padding-top:7px;background:linear-gradient(180deg,transparent,var(--card) 32%)}.sticky-form-action .btn-primary{width:100%;min-height:48px;font-size:14px}.compact-optional-details{border:1px solid var(--border);border-radius:11px;padding:0;background:var(--surface-soft)}.compact-optional-details summary{padding:10px 11px;font-weight:850;font-size:12px}.compact-optional-details .month-picker{padding:0 10px 10px}
+.mobile-sheet-head{display:grid;align-items:center;gap:6px;padding:7px 9px;border:1px solid var(--border);border-bottom:0;border-radius:10px 10px 0 0;background:var(--surface-strong);font-size:9px;font-weight:900;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}.order-sheet-head{grid-template-columns:minmax(110px,1.55fr) 52px 61px 67px}.sample-sheet-head{grid-template-columns:minmax(115px,1.5fr) repeat(3,minmax(52px,.7fr))}.expiry-sheet-head{grid-template-columns:minmax(100px,1.25fr) minmax(100px,1fr) 80px}.sheet-list{border-radius:0 0 10px 10px}.sheet-list .order-category{border-radius:0!important;margin:0!important;border-top:0!important}.sheet-list .order-item-smart{border-radius:0!important;box-shadow:none!important;border-left:1px solid var(--border)!important;border-right:1px solid var(--border)!important;border-bottom:1px solid var(--border)!important;margin:0!important}.sheet-list .sample-stock-row{border-radius:0!important;box-shadow:none!important;margin:0!important;border-top:0!important}.sheet-list .expiry-group-card{border-radius:0!important;box-shadow:none!important;margin:0!important;border-top:0!important}.sheet-empty{padding:14px 10px;border:1px solid var(--border);border-top:0;color:var(--muted);font-size:11px;text-align:center}.expiry-withdraw-section{margin-top:13px}.sheet-section-title{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 10px;border-radius:10px 10px 0 0;border:1px solid var(--border);background:var(--surface-soft);font-size:13px;font-weight:900}.expiry-withdraw-section .mobile-sheet-head{border-radius:0;border-top:0}.expiry-withdraw-section .sheet-list{border-radius:0 0 10px 10px;overflow:hidden}.expiry-group-head{padding:7px 8px!important}.expiry-group-name{font-size:12px!important}.expiry-group-code{font-size:9px!important}.expiry-lot-row{padding:7px 8px!important;border-radius:0!important}.expiry-lot-date{font-size:11px!important}.expiry-lot-meta{font-size:9px!important}.status-badge{font-size:9px!important}.next-order-card-expanded{display:grid!important;grid-template-columns:1fr auto;gap:8px}.next-order-main{min-width:0}.next-order-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:4px}.next-order-row>span{font-size:11px;color:var(--muted);font-weight:800}.next-order-row .next-day{font-size:18px}.order-reminder-box{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.28);padding-top:9px;margin-top:2px;font-size:11px;line-height:1.4}.order-reminder-box strong{display:block;font-size:11px;margin-bottom:3px}.order-reminder-time{margin-top:4px;opacity:.92}.order-day-tabs{grid-template-columns:repeat(2,1fr)!important}.carbon-pending-tab{border-style:dashed!important}.order-day-info{display:flex;gap:8px;align-items:flex-start;margin:8px 0;padding:9px 10px;border:1px solid var(--border);border-radius:10px;background:var(--surface-soft);font-size:11px;line-height:1.35}.order-day-info strong{white-space:nowrap}.sample-form-actions{display:grid;grid-template-columns:1fr;gap:8px}.sample-stock-row{display:grid!important;grid-template-columns:minmax(110px,1.5fr) repeat(3,minmax(52px,.7fr)) auto!important;gap:6px!important;align-items:center!important;padding:7px 8px!important}.sample-stock-name{font-size:12px!important}.sample-stock-cell{min-width:0}.sample-stock-cell .stock-label{display:none!important}.sample-stock-value{font-size:11px!important}.sample-stock-remove{width:28px!important;height:28px!important}
+.expiry-sheet-group{padding:0!important;border:0!important;background:transparent!important}.expiry-sheet-row{display:grid!important;grid-template-columns:minmax(100px,1.25fr) minmax(100px,1fr) 80px!important;gap:6px!important;align-items:center!important;border:1px solid var(--border)!important;border-top:0!important;background:var(--card)!important}.expiry-sheet-product,.expiry-sheet-dates,.expiry-sheet-status{min-width:0}.expiry-sheet-product strong,.expiry-sheet-dates strong{display:block;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.expiry-sheet-product small,.expiry-sheet-dates small{display:block;font-size:8px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}.expiry-sheet-status{display:grid;gap:4px;justify-items:start}.expiry-sheet-status .status-badge{white-space:normal;line-height:1.15}.expiry-sheet-status .btn-retired{min-height:27px;padding:4px 6px;font-size:9px}.expiry-sheet-tools{display:flex;gap:4px;margin-top:4px}.expiry-sheet-tools button{min-height:25px;padding:3px 6px;font-size:9px}.expiry-sheet-row .swipe-delete-source{display:none!important}
+@media(max-width:430px){.quick-entry-grid.two-col{grid-template-columns:1fr 1fr}.quick-entry-form input,.quick-entry-form select{min-height:44px;font-size:14px}.mobile-sheet-head{font-size:8px;padding:6px}.sample-sheet-head{grid-template-columns:minmax(95px,1.35fr) repeat(3,minmax(46px,.7fr))}.sample-stock-row{grid-template-columns:minmax(95px,1.35fr) repeat(3,minmax(46px,.7fr)) auto!important}.expiry-sheet-head{grid-template-columns:minmax(90px,1.2fr) minmax(88px,1fr) 70px}.expiry-sheet-row{grid-template-columns:minmax(90px,1.2fr) minmax(88px,1fr) 70px!important}.order-day-tabs{grid-template-columns:1fr 1fr!important}}
+
+/* v2.28 — Tema Claro, lectura de notas y alta de Pedidos */
+body:not(.dark){
+  --bg:#f3f5f7;--card:#ffffff;--text:#17212f;--muted:#526174;--border:#cdd5df;
+  --primary:#285e91;--danger:#b42318;--warning:#995d10;--ok:#176b4a;
+  --surface-soft:#f4f6f9;--surface-strong:#e8edf3;
+  --shadow:0 2px 10px rgba(24,39,58,.045);
+}
+body:not(.dark) input,body:not(.dark) select,body:not(.dark) textarea{background:#fff;color:var(--text);border-color:var(--border)}
+body:not(.dark) input::placeholder,body:not(.dark) textarea::placeholder{color:#667589;opacity:1}
+body:not(.dark) input:focus-visible,body:not(.dark) select:focus-visible,body:not(.dark) textarea:focus-visible,body:not(.dark) button:focus-visible{outline:2px solid #285e91;outline-offset:2px}
+body:not(.dark) .main-tab,body:not(.dark) .subtab,body:not(.dark) .view-tab,body:not(.dark) .filter-btn:not(.active),body:not(.dark) .manage-toggle,body:not(.dark) .secondary-btn,body:not(.dark) .library-tab:not(.active),body:not(.dark) .recipe-filter-btn:not(.active){background:#e8edf3;color:#263c53;border-color:#cbd5e1}
+body:not(.dark) .main-tab.active,body:not(.dark) .subtab.active,body:not(.dark) .view-tab.active,body:not(.dark) .filter-btn.active,body:not(.dark) .library-tab.active,body:not(.dark) .recipe-filter-btn.active{background:#285e91;color:#fff;border-color:#285e91}
+body:not(.dark) .btn-primary{background:#285e91;color:#fff;border-color:#285e91}
+body:not(.dark) #tab-vencimientos .btn-primary{background:#285e91!important;color:#fff!important}
+body:not(.dark) #tab-pedidos .btn-primary{background:#725532!important;color:#fff!important}
+body:not(.dark) #tab-muestras .btn-primary{background:#176b4a!important;color:#fff!important}
+body:not(.dark) #tab-notas .btn-primary{background:#285e91!important;color:#fff!important}
+body:not(.dark) .settings-btn,body:not(.dark) .section-settings-btn{background:#263c53;color:#fff}
+body:not(.dark) .back-home-btn{background:var(--card)!important;color:#285e91!important;border-color:var(--border)!important}
+body:not(.dark) #tab-pedidos .back-home-btn{color:#725532!important}
+body:not(.dark) #tab-muestras .back-home-btn{color:#176b4a!important}
+body:not(.dark) .pill,body:not(.dark) .category-count{background:#e8edf5;color:#254b70}
+body:not(.dark) .dashboard-card,body:not(.dark) .item,body:not(.dark) .order-category,body:not(.dark) .history-card,body:not(.dark) .history-order-card,body:not(.dark) .saved-product-row{background:var(--card);color:var(--text);border-color:var(--border)}
+body:not(.dark) .category-header,body:not(.dark) .sheet-section-title,body:not(.dark) .mobile-sheet-head{background:#e8edf3;color:#263c53;border-color:var(--border)}
+body:not(.dark) .item.warning{background:#fff7e9;border-left-color:#ad6b16}
+body:not(.dark) .item.danger{background:#fff0ee;border-left-color:#b42318}
+body:not(.dark) .status-badge.ok{background:#e6f4eb;color:#176b4a}
+body:not(.dark) .status-badge.warning{background:#fff0cf;color:#854d0e}
+body:not(.dark) .status-badge.danger,body:not(.dark) .btn-danger,body:not(.dark) .clear-history-btn{background:#fde8e6;color:#a3261d}
+body:not(.dark) .btn-retired{background:#176b4a;color:#fff}
+body:not(.dark) .edit-btn,body:not(.dark) .share-btn{background:#e4eef8;color:#285e91}
+body:not(.dark) .unit-badge.unit{background:#e4eef8;color:#285e91}
+body:not(.dark) .unit-badge.weight{background:#f1e9f8;color:#6b3f86}
+body:not(.dark) .order-suggested-tap{background:#f1f4f8;color:#263c53;border-color:#cdd5df}
+body:not(.dark) .order-warning-chip{color:#854d0e;background:#fff4df;border-color:#e7c890}
+body:not(.dark) .order-qty-input{color:var(--text)}
+body:not(.dark) .next-order-card{background:#eaf1f8;border-color:#b8cee4;color:var(--text)}
+body:not(.dark) .next-label,body:not(.dark) .next-day,body:not(.dark) .next-order-arrow{color:#285e91}
+body:not(.dark) .order-reminder-box{border-top-color:#b8cee4}
+body:not(.dark) #tab-notas h1,body:not(.dark) #tab-notas .subtitle{color:var(--text)}
+body:not(.dark) .fixed-input:disabled{background:#e8edf3!important;color:#526174!important;border-color:#cdd5df!important}
+body:not(.dark) .note-editor-sheet,body:not(.dark) .modal,body:not(.dark) .confirm-box{background:#fff;color:var(--text)}
+body:not(.dark) .note-editor-save{background:#285e91;color:#fff}
+body:not(.dark) .note-format-toolbar button{background:#e8edf3;color:#263c53}
+body:not(.dark) .note-format-toolbar button.active{background:#285e91;color:#fff}
+body:not(.dark) .note-editor-star{background:#e8edf3;color:#526174;border-color:#cdd5df}
+body:not(.dark) .note-editor-star.pinned{background:#f3cf67;color:#583b08;border-color:#c39123}
+/* Acceso al alta antes de la planilla; mismo formulario y mismos datos. */
+.order-add-shortcut{display:grid;grid-template-columns:1fr;gap:5px;margin:0 0 10px;padding:9px 10px;background:var(--card);border:1px solid var(--border);border-radius:12px}
+.order-add-shortcut button{width:100%;min-height:46px}
+.order-add-shortcut span{font-size:11px;color:var(--muted);text-align:center;line-height:1.4}
+.order-add-panel{scroll-margin-top:12px;margin-bottom:12px;border:1px solid var(--border)}
+.order-add-panel .add-product-toggle{min-height:40px}
+.order-add-panel .quick-entry-title{font-size:15px}
+.order-add-panel .quick-field label{font-size:12px}
+.order-add-panel .sticky-form-action{position:static!important}
+.carbon-friday-panel{border-left:4px solid #725532;padding:15px}
+.carbon-friday-panel strong{font-size:17px}
+.carbon-friday-panel p{font-size:14px;line-height:1.5;margin:9px 0}
+/* Notas: una columna, letra legible y acciones explícitas. */
+.notes-board-head{align-items:flex-start;gap:10px;flex-wrap:wrap}
+.notes-board-head>div:first-child{flex:1 1 170px;min-width:0}
+.notes-board-actions{gap:7px}
+.notes-add-btn{display:inline-flex;align-items:center;gap:6px;width:auto;min-width:0;height:46px;min-height:46px;border-radius:12px;padding:9px 13px;font-size:14px;font-weight:900;box-shadow:none;background:#285e91;color:#fff}
+.notes-add-btn span{font-size:23px;line-height:1}
+.notes-search-row{display:grid;grid-template-columns:minmax(0,1fr) 124px;gap:8px;margin:0 0 7px}
+.notes-search-row input,.notes-search-row select{min-width:0;min-height:46px}
+.notes-result-count{font-size:12px;color:var(--muted);margin:0 0 10px}
+.notes-masonry{display:grid;grid-template-columns:minmax(0,1fr);gap:11px;column-count:auto;column-gap:0}
+.sticky-note{display:block;width:100%;margin:0;padding:14px;border:1px solid var(--border);border-left:4px solid var(--note-accent,#285e91);border-radius:12px;background:var(--card)!important;color:var(--text)!important;box-shadow:var(--shadow);break-inside:auto;cursor:default}
+.note-color-0{--note-accent:#b07a12}.note-color-1{--note-accent:#287d91}.note-color-2{--note-accent:#34754d}.note-color-3{--note-accent:#a34839}.note-color-4{--note-accent:#76519c}.note-color-5{--note-accent:#526174}
+.sticky-note.pinned{outline:0;border-left-width:5px;box-shadow:0 0 0 1px #d5ae45,var(--shadow)}
+.sticky-note-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.sticky-note-heading{flex:1;min-width:0}
+.sticky-note-title{font-size:16px;line-height:1.4;margin:0 0 5px;word-break:break-word}
+.sticky-note-preview{font-size:14px;line-height:1.55;white-space:pre-wrap;word-break:break-word;max-height:265px;overflow:hidden;margin-top:10px}
+.sticky-note-meta{font-size:11px;line-height:1.4;opacity:1;color:var(--muted);margin-top:3px}
+.sticky-note-star{position:static;flex:0 0 42px;width:42px;height:42px;min-height:42px;border-radius:11px;font-size:22px;background:var(--surface-strong);color:var(--muted);border:1px solid var(--border)}
+.sticky-note.pinned .sticky-note-star{background:#f3cf67;color:#583b08;border-color:#c39123}
+.sticky-note-checkline{display:flex;align-items:flex-start;gap:9px;margin:7px 0;font-size:14px;line-height:1.45}
+.sticky-note-checkline input{width:20px;height:20px;min-height:20px;flex:0 0 20px;margin:0;accent-color:#285e91}
+.sticky-note-checkline span{min-width:0;word-break:break-word}
+.sticky-note-actions{margin-top:12px;border-top:1px solid var(--border);padding-top:10px}
+.sticky-note-actions button{width:100%;min-height:42px;background:var(--surface-strong);color:var(--text);border:1px solid var(--border);font-size:13px}
+.sticky-note.note-compact .sticky-note-preview{max-height:100px;display:block;overflow:hidden}
+.sticky-note.note-large .sticky-note-preview{max-height:none;font-size:15px}
+.note-layout-tools{grid-template-columns:46px 1fr;gap:8px}
+.note-layout-tools button{min-height:42px;height:42px;font-size:12px}
+.note-editor-backdrop{align-items:flex-end}
+.note-editor-sheet{height:min(100%,900px);min-height:0;max-height:100dvh;padding:14px 14px calc(14px + env(safe-area-inset-bottom));overflow:hidden}
+.note-editor-head{flex:0 0 auto}
+.note-editor-close,.note-editor-star{min-width:44px;width:44px;height:44px;min-height:44px}
+.note-editor-save{min-height:44px;height:44px;padding:0 18px}
+.note-editor-title{font-size:20px;min-height:48px!important;flex:0 0 auto}
+.note-editor-options{flex:0 0 auto;border-bottom:1px solid var(--border)}
+.note-editor-options summary{font-size:12px;font-weight:800;color:var(--muted);padding:9px 4px;cursor:pointer;list-style:none}
+.note-editor-options summary::-webkit-details-marker{display:none}
+.note-editor-options summary::after{content:"⌄";float:right}
+.note-editor-options[open] summary::after{content:"⌃"}
+.note-format-toolbar{padding:5px 0 9px;gap:6px}
+.note-format-toolbar button{min-height:42px;font-size:12px}
+.note-editor-text{flex:1 1 auto;min-height:110px!important;font-size:16px;line-height:1.55;overflow-y:auto}
+.note-reminder-box{flex:0 0 auto;margin-top:5px;padding:0 10px;background:var(--surface-soft);border-color:var(--border)}
+.note-reminder-title{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:11px 0;margin:0;cursor:pointer;list-style:none;font-size:12px}
+.note-reminder-title::-webkit-details-marker{display:none}
+.note-reminder-title span{font-weight:600;color:var(--muted);text-align:right}
+.note-reminder-grid{padding-top:5px}
+.note-reminder-clear{min-height:42px;margin-bottom:9px}
+.note-editor-meta{font-size:10px;flex:0 0 auto}
+.note-editor-draft-status{font-size:11px;line-height:1.3;color:var(--muted);min-height:0;padding:0 4px 4px}
+.note-editor-draft-status:empty{display:none}
+.note-editor-bottom{flex:0 0 auto;grid-template-columns:1fr 1fr}
+.note-editor-bottom button{min-height:44px}
+body.dark .sticky-note{background:var(--card)!important;color:var(--text)!important}
+body.dark .sticky-note-star{background:#202734;color:#dbeafe;border-color:var(--border)}
+body.dark .sticky-note.pinned .sticky-note-star{background:#713f12;color:#fde68a;border-color:#a16207}
+body.dark .sticky-note-actions button{background:#202734;color:#dbeafe;border-color:var(--border)}
+body.dark .notes-add-btn{background:#2563eb;color:#fff}
+@media(max-width:380px){.notes-search-row{grid-template-columns:1fr 108px}.notes-add-btn{padding:8px 10px}.notes-board-actions{width:100%;justify-content:space-between}.notes-board-head>div:first-child{flex-basis:100%}}
+@media(max-height:600px){.note-editor-sheet{height:100dvh;padding-top:7px}.note-editor-text{min-height:72px!important}.note-editor-meta{display:none}}
+
+
+.notes-drafts-btn{min-height:44px;padding:9px 11px;background:var(--surface-strong);color:var(--text);border:1px solid var(--border);font-size:12px;gap:5px}
+.notes-drafts-btn span{display:inline-flex;align-items:center;justify-content:center;min-width:23px;height:23px;border-radius:999px;background:var(--card);color:var(--text);padding:0 5px}
+.note-draft-list{display:grid;gap:8px}
+.note-draft-row{width:100%;display:grid;gap:5px;text-align:left;justify-content:stretch;min-height:60px;padding:11px 12px;background:var(--surface-soft);color:var(--text);border:1px solid var(--border);border-radius:10px}
+.note-draft-row strong,.note-draft-row small{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left}
+.note-draft-row small{font-weight:400;color:var(--muted);font-size:12px}
+
+
+/* v2.28 — encabezado de Notas sin recortes en pantallas estrechas */
+.notes-board-head{display:block}
+.notes-board-head>div:first-child{margin-bottom:12px}
+.notes-board-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;width:100%;min-width:0}
+.notes-add-btn{grid-column:1;grid-row:1;width:100%;min-width:0;justify-content:center;white-space:normal;line-height:1.2}
+.notes-organize-btn{grid-column:2;grid-row:1;min-height:46px}
+.notes-drafts-btn{grid-column:1/-1;grid-row:2;justify-self:stretch;min-width:0}
+
 </style>
 </head>
 <body>
@@ -1146,22 +1291,13 @@ body.theme-graphite .order-history-simple-order.positive{color:#bfdbfe}
 
     <div class="card add-product-panel">
       <button class="add-product-toggle" type="button" data-add-panel="expiry"><span>＋ Añadir vencimiento</span><span class="add-panel-arrow">⌄</span></button>
-      <form id="expiryForm" class="add-product-form hidden">
-        <div class="expiry-product-input-wrap">
-          <label>Producto</label>
-          <input id="name" autocomplete="off" placeholder="Nombre del producto" required>
-          <div id="expirySuggestions" class="expiry-suggestions hidden" aria-label="Sugerencias de productos"></div>
-          <div id="expiryExistingHint" class="expiry-existing-hint hidden"></div>
-        </div>
-        <div class="expiry-date-builder">
-          <div class="expiry-date-builder-title">Fechas de vencimiento</div>
-          <div id="expiryDateRows" class="expiry-date-rows"></div>
-          <button id="addExpiryDateBtn" class="expiry-add-another-date" type="button">＋ Añadir otra fecha</button>
-        </div>
-        <div><label>Retiro</label><select id="withdrawDays"><option value="0">Retirar el día del vencimiento</option><option value="10">Retirar 10 días antes</option></select></div>
-        <details class="expiry-optional-details"><summary>Código / EAN y nota · opcional</summary><div class="expiry-optional-body"><div><label>Código / EAN</label><input id="code" autocomplete="off" inputmode="numeric"></div><div style="margin-top:8px"><label>Nota</label><input id="notes"></div></div></details>
-        <label class="frequent-check"><input id="saveAsFrequent" type="checkbox"> <span>Guardar como producto frecuente</span></label>
-        <div class="expiry-form-actions"><button class="btn-primary" type="submit">Guardar producto</button></div>
+      <form id="expiryForm" class="add-product-form quick-entry-form hidden">
+        <div class="quick-entry-title">Nuevo vencimiento</div>
+        <div class="quick-entry-step expiry-product-input-wrap"><span class="quick-step-number">1</span><div class="quick-step-body"><label>Producto</label><input id="name" autocomplete="off" placeholder="Ej: Yogur natural" required><div class="field-help">Escribí el nombre o elegí una sugerencia.</div><div id="expirySuggestions" class="expiry-suggestions hidden" aria-label="Sugerencias de productos"></div><div id="expiryExistingHint" class="expiry-existing-hint hidden"></div></div></div>
+        <div class="quick-entry-step"><span class="quick-step-number">2</span><div class="quick-step-body expiry-date-builder"><div class="expiry-date-builder-title">Fecha de vencimiento</div><div id="expiryDateRows" class="expiry-date-rows"></div><button id="addExpiryDateBtn" class="expiry-add-another-date" type="button">＋ Añadir otra fecha del mismo producto</button></div></div>
+        <div class="quick-entry-step"><span class="quick-step-number">3</span><div class="quick-step-body"><label>¿Cuándo se retira?</label><select id="withdrawDays"><option value="0">El mismo día del vencimiento</option><option value="10">10 días antes del vencimiento</option></select><div class="field-help">Esta opción define en qué sección aparecerá el producto.</div></div></div>
+        <details class="expiry-optional-details"><summary>Datos opcionales: código, nota y producto frecuente</summary><div class="expiry-optional-body"><div><label>Código / EAN</label><input id="code" autocomplete="off" inputmode="numeric" placeholder="Opcional"></div><div style="margin-top:8px"><label>Nota</label><input id="notes" placeholder="Opcional"></div><label class="frequent-check"><input id="saveAsFrequent" type="checkbox"> <span>Guardar como producto frecuente</span></label></div></details>
+        <div class="expiry-form-actions sticky-form-action"><button class="btn-primary" type="submit">Guardar vencimiento</button></div>
       </form>
     </div>
     <div class="filter-row">
@@ -1179,10 +1315,12 @@ body.theme-graphite .order-history-simple-order.positive{color:#bfdbfe}
       <button class="view-tab" data-expiry-view="history">Historial</button>
     </div>
 
-    <div id="expiry-active-view" class="card">
+    <div id="expiry-active-view" class="card sheet-card">
       <div class="topbar"><div class="history-toolbar"><strong>Productos activos</strong><div class="history-tools"><span class="pill" id="totalCount">0 registros</span><span class="pill" id="urgentCount">0 para revisar</span><button class="share-btn" id="shareExpiryListBtn" type="button">Compartir lista</button></div></div></div>
       <div id="emptyState" class="empty">Todavía no cargaste ningún vencimiento.</div>
-      <div id="list" class="list"></div>
+      <div id="expirySameDaySection" class="expiry-withdraw-section"><div class="sheet-section-title"><span>Retirar día del vencimiento</span><span class="pill" id="expirySameDayCount">0</span></div><div class="mobile-sheet-head expiry-sheet-head"><span>Producto</span><span>Fechas</span><span>Estado</span></div><div id="expirySameDayList" class="list sheet-list"></div></div>
+      <div id="expiryTenDaysSection" class="expiry-withdraw-section"><div class="sheet-section-title"><span>Retirar 10 días antes</span><span class="pill" id="expiryTenDaysCount">0</span></div><div class="mobile-sheet-head expiry-sheet-head"><span>Producto</span><span>Fechas</span><span>Estado</span></div><div id="expiryTenDaysList" class="list sheet-list"></div></div>
+      <div id="list" class="list hidden" aria-hidden="true"></div>
     </div>
 
     <div id="expiry-last-view" class="card expiry-last-card hidden">
@@ -1203,49 +1341,56 @@ body.theme-graphite .order-history-simple-order.positive{color:#bfdbfe}
     <div class="section-title-row">
       <div>
         <h1>Pedidos</h1>
-        <div class="subtitle">Planificador semanal para Martes, Jueves y Sábado.</div>
+        <div class="subtitle">Planificador semanal de pedidos.</div>
       </div>
     </div>
     <button class="back-home-btn pedidos" data-back-home type="button">← Volver a Inicio</button>
 
 
-    <div class="next-order-card" id="nextOrderCard">
-      <div><div class="next-label">Próximo pedido</div><div class="next-day" id="nextOrderDay">—</div><div class="next-sub" id="nextOrderSub">Se actualiza automáticamente</div></div>
+    <div class="next-order-card next-order-card-expanded" id="nextOrderCard">
+      <div class="next-order-main"><div class="next-label">Próximo pedido</div><div class="next-order-row"><span>Día a hacer pedido</span><strong class="next-day" id="nextOrderDay">—</strong></div><div class="next-sub" id="nextOrderSub">Se actualiza automáticamente</div></div>
       <div class="next-order-arrow">›</div>
+      <div class="order-reminder-box"><strong>Recordatorio FRUTA SECA, JUGOS Y SEMILLAS</strong><div>Los <b>MARTES Y JUEVES</b> se consolida la imagen vía SRA.</div><div class="order-reminder-time">Edición disponible desde el día anterior al mediodía hasta el mismo día a las <b>8:30</b>. Después de ese horario, el pedido saldrá en base a lo sugerido por el sistema.</div></div>
     </div>
     <button class="manage-toggle" id="toggleOrderSavedProducts">Productos guardados de Pedidos</button>
     <div id="orderSavedProductsPanel" class="saved-products-panel hidden"></div>
 
-    <div class="subtabs">
-      <button class="subtab active" data-order-tab="martes">Martes</button>
-      <button class="subtab" data-order-tab="jueves">Jueves</button>
-      <button class="subtab" data-order-tab="sabado">Sábado</button>
+    <div class="subtabs order-day-tabs">
+      <button class="subtab active" data-order-tab="martes">Para Martes</button>
+      <button class="subtab" data-order-tab="jueves">Para Jueves</button>
+      <button class="subtab" data-order-tab="sabado">Para Sábado</button>
+      <button class="subtab carbon-pending-tab" id="carbonFridayTab" type="button" aria-expanded="false" aria-controls="carbonFridayPanel">Carbón Viernes</button>
+    </div>
+    <div id="orderDayInfo" class="order-day-info hidden"></div>
+    <div id="carbonFridayPanel" class="card carbon-friday-panel hidden" role="region" aria-label="Carbón Viernes">
+      <strong>Carbón · Viernes</strong>
+      <p>El pedido de carbón corresponde únicamente al viernes.</p>
+      <div class="footer-note">La carga y el cálculo permanecen pendientes hasta definir las categorías y los horarios correspondientes. No se aplican las reglas de Martes, Jueves ni Sábado.</div>
     </div>
 
-    <div class="view-tabs">
+    <div class="view-tabs" id="orderViewTabs">
       <button class="view-tab active" data-order-view="current">Pedido</button>
       <button class="view-tab" data-order-view="history">Historial de pedidos</button>
     </div>
 
     <div id="order-current-view">
+      <div class="order-add-shortcut"><button class="btn-primary" id="orderOpenAddBtn" type="button">＋ Añadir producto</button><span>Agregá productos sin bajar hasta el final.</span></div>
+      <div class="card add-product-panel order-add-panel" id="orderAddPanel">
+        <button class="add-product-toggle" type="button" data-add-panel="order"><span>＋ Añadir producto</span><span class="add-panel-arrow">⌄</span></button>
+        <form id="orderForm" class="add-product-form quick-entry-form hidden">
+          <div class="quick-entry-title">Añadir producto al pedido</div>
+          <div class="quick-entry-grid two-col"><div class="quick-field wide"><label>Producto</label><input id="orderName" list="savedProducts" autocomplete="off" placeholder="Nombre del producto" required><datalist id="savedProducts"></datalist></div><div class="quick-field"><label>Categoría</label><select id="orderCategory"><option value="Frutas">Frutas</option><option value="Vegetales" selected>Vegetales</option><option value="Hortalizas">Hortalizas</option></select></div><div class="quick-field"><label>Unidad</label><select id="orderUnitType"><option value="bulto">Bulto</option><option value="peso">Peso</option></select></div><div class="quick-field"><label>Pedido inicial</label><input id="orderQtyInput" type="number" inputmode="decimal" step="1" min="0" value="0"></div><div class="quick-field wide"><label>Nota <span class="optional-label">opcional</span></label><input id="orderNotes" autocomplete="off" placeholder="Observación breve"></div></div>
+          <details class="compact-optional-details"><summary>Disponibilidad por meses</summary><div class="month-picker" id="orderMonthPicker"><div class="month-picker-head"><label style="margin:0">Meses disponibles</label><button class="month-toggle-all" id="orderMonthsToggleAll" type="button">Seleccionar todos</button></div><div class="month-grid" id="orderMonthsGrid"></div><div class="month-count-note" id="orderMonthsCount">0 de 12 meses seleccionados</div></div></details>
+          <div class="sticky-form-action"><button class="btn-primary" type="submit">Añadir producto</button></div>
+        </form>
+      </div>
+
       <div class="card">
         <div class="topbar"><div><strong id="orderTitle">Pedido - Martes</strong><div class="order-season-hint" id="orderSeasonHint">Temporada del mes</div></div><span class="pill" id="orderCount">0 productos</span></div>
         <div class="order-template-note">La casilla Pedido corresponde solo a tu decisión actual. La app calcula Necesidad y Sugerido sin reemplazar lo que vos cargues. Tocá la tarjeta para configurar el producto.</div>
         <div id="orderEmpty" class="empty">Todavía no agregaste productos para este día.</div>
-        <div id="orderCategories"></div>
-      </div>
-
-      <div class="card add-product-panel" style="margin-top:10px">
-        <button class="add-product-toggle" type="button" data-add-panel="order"><span>＋ Añadir producto</span><span class="add-panel-arrow">⌄</span></button>
-        <form id="orderForm" class="add-product-form hidden">
-          <div><label>Nombre</label><input id="orderName" list="savedProducts" autocomplete="off" required><datalist id="savedProducts"></datalist></div>
-          <div><label>Categoría</label><select id="orderCategory"><option value="Frutas">Frutas</option><option value="Vegetales" selected>Vegetales</option><option value="Hortalizas">Hortalizas</option></select></div>
-          <div><label>Tipo de cantidad</label><select id="orderUnitType"><option value="bulto">Bulto</option><option value="peso">Peso</option></select></div>
-          <div class="month-picker" id="orderMonthPicker"><div class="month-picker-head"><label style="margin:0">Meses disponibles</label><button class="month-toggle-all" id="orderMonthsToggleAll" type="button">Seleccionar todos</button></div><div class="month-grid" id="orderMonthsGrid"></div><div class="month-count-note" id="orderMonthsCount">0 de 12 meses seleccionados</div></div>
-          <div><label>Cantidad del pedido</label><input id="orderQtyInput" type="number" inputmode="decimal" step="1" min="0" value="0"></div>
-          <div><label>Nota opcional</label><input id="orderNotes" autocomplete="off"></div>
-          <button class="btn-primary" type="submit">Añadir producto</button>
-        </form>
+        <div class="mobile-sheet-head order-sheet-head"><span>Producto</span><span>Stock</span><span>Sugerido</span><span>Pedido</span></div>
+        <div id="orderCategories" class="sheet-list"></div>
       </div>
 
       <div class="primary-action-wrap order-save-wrap"><div class="primary-action-label">Copia opcional</div><button class="btn-complete-order" id="completeOrderBtn">Guardar pedido en historial</button><div class="order-status-note" id="orderStatusNote">No es obligatorio guardar el pedido.</div></div>
@@ -1302,22 +1447,20 @@ body.theme-graphite .order-history-simple-order.positive{color:#bfdbfe}
         <button class="add-product-toggle" type="button" data-add-panel="sample"><span>＋ Añadir producto a muestra</span><span class="add-panel-arrow">⌄</span></button>
         <div class="add-product-form hidden" id="sampleAddBody">
         <div class="footer-note" style="margin:4px 0 12px">Elegí una muestra. Después de añadir el primer producto, quedará bloqueada hasta finalizar o cancelar la muestra.</div>
-        <form id="sampleForm" class="form-grid">
-          <div><label>Muestra</label><select id="sampleTemplateSelect"></select></div>
-          <div><label>Producto</label><input id="sampleProductName" list="sampleProductMemoryList" autocomplete="off" placeholder="Producto"><datalist id="sampleProductMemoryList"></datalist></div>
-          <div><label>Cantidad en</label><select id="sampleMeasure"><option value="peso">Peso</option><option value="unidad">Unidad</option></select></div>
-          <div class="sample-row-grid"><div><label>Depósito</label><input id="sampleDeposit" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0"></div><div><label>Góndola</label><input id="sampleShelf" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0"></div></div>
+        <form id="sampleForm" class="quick-entry-form">
+          <div class="quick-entry-title">Producto de la muestra</div>
+          <div class="quick-entry-grid two-col"><div class="quick-field wide"><label>Muestra</label><select id="sampleTemplateSelect"></select></div><div class="quick-field wide"><label>Producto</label><input id="sampleProductName" list="sampleProductMemoryList" autocomplete="off" placeholder="Nombre del producto"><datalist id="sampleProductMemoryList"></datalist></div><div class="quick-field"><label>Medición</label><select id="sampleMeasure"><option value="peso">Peso</option><option value="unidad">Unidad</option></select></div><div class="quick-field"><label>Depósito</label><input id="sampleDeposit" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0"></div><div class="quick-field"><label>Góndola</label><input id="sampleShelf" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0"></div></div>
           <div class="sample-edit-status" id="sampleEditStatus">Editando producto</div>
-          <button class="btn-primary" id="sampleSubmitBtn" type="submit">Añadir producto</button>
-          <button class="secondary-btn hidden" id="sampleCancelEditBtn" type="button">Cancelar edición</button>
+          <div class="sample-form-actions sticky-form-action"><button class="btn-primary" id="sampleSubmitBtn" type="submit">Añadir producto</button><button class="secondary-btn hidden" id="sampleCancelEditBtn" type="button">Cancelar edición</button></div>
         </form>
         </div>
       </div>
 
       <div class="card">
         <div class="topbar"><strong id="sampleTemplateTitle">Elegí una muestra para comenzar</strong><span class="pill" id="sampleProductCount">0 productos</span></div>
-        <div class="sample-edit-hint">Tocá cualquier producto de la lista para editarlo.</div>
-        <div id="sampleRows"></div>
+        <div class="sample-edit-hint">Tocá cualquier fila para editarla.</div>
+        <div class="mobile-sheet-head sample-sheet-head"><span>Producto</span><span>Depósito</span><span>Góndola</span><span>Total</span></div>
+        <div id="sampleRows" class="sheet-list"></div>
         <div class="sample-finish-actions"><button class="secondary-btn sample-cancel-btn" id="cancelSampleBtn" type="button">Cancelar</button><button class="btn-primary" id="finishSampleBtn" type="button">Finalizar muestra</button></div>
       </div>
     </div>
@@ -1330,13 +1473,16 @@ body.theme-graphite .order-history-simple-order.positive{color:#bfdbfe}
       <button class="back-home-btn notas" data-back-home type="button">← Volver a Inicio</button>
     </div>
     <div class="notes-board-head">
-      <div><h1>Notas rápidas</h1><div class="subtitle">Tus recordatorios, como pequeñas hojas.</div></div>
+      <div><h1>Notas rápidas</h1><div class="subtitle">Anotá, buscá y consultá tus pendientes sin perder tiempo.</div></div>
       <div class="notes-board-actions">
+        <button class="notes-drafts-btn hidden" id="notesDraftsBtn" type="button">Borradores <span id="notesDraftCount">0</span></button>
         <button class="notes-organize-btn" id="notesOrganizeBtn" type="button">Organizar</button>
-        <button class="notes-add-btn" id="addNoteBtn" type="button" aria-label="Añadir nota"><span aria-hidden="true">+</span></button>
+        <button class="notes-add-btn" id="addNoteBtn" type="button"><span aria-hidden="true">＋</span> Nueva nota</button>
       </div>
     </div>
-    <div id="noteEmpty" class="notes-empty">No hay notas todavía.<br><span>Tocá + para crear la primera.</span></div>
+    <div class="notes-search-row"><input id="notesSearch" type="search" autocomplete="off" placeholder="Buscar en tus notas" aria-label="Buscar en tus notas"><select id="notesFilter" aria-label="Filtrar notas"><option value="all">Todas</option><option value="pinned">Fijadas</option><option value="reminders">Con aviso</option></select></div>
+    <div id="notesResultCount" class="notes-result-count" aria-live="polite"></div>
+    <div id="noteEmpty" class="notes-empty">No hay notas todavía.<br><span>Tocá Nueva nota para comenzar.</span></div>
     <div id="noteList" class="notes-masonry"></div>
   </section>
 
@@ -1370,8 +1516,8 @@ body.theme-graphite .order-history-simple-order.positive{color:#bfdbfe}
             <input id="cvLocal" value="953" disabled class="fixed-input" aria-label="Local fijo 953">
             <div class="footer-note">Valor fijo</div>
           </div>
-          <div><label>Artículo *</label><input id="cvArticulo" data-no-autocap autocomplete="off" required placeholder="Artículo"></div>
-          <div><label>Descripción *</label><input id="cvDescripcion" autocomplete="off" required placeholder="Descripción"></div>
+          <div><label>Artículo *</label><input id="cvArticulo" data-no-autocap autocomplete="off" required placeholder="Código"></div>
+          <div><label>Descripción *</label><input id="cvDescripcion" autocomplete="off" required placeholder="Nombre Producto"></div>
           <div><label>Fecha de vencimiento del Producto *</label><input id="cvVencimiento" autocomplete="off" required placeholder="Ej: 250 k"></div>
           <div class="cv-product-form-actions">
             <button class="secondary-btn" id="cvCancelProductBtn" type="button">Cancelar</button>
@@ -1500,7 +1646,7 @@ body.theme-graphite .order-history-simple-order.positive{color:#bfdbfe}
       <strong>Acerca de Al Día</strong>
       <div class="settings-option app-version-row">
         <span>Versión instalada</span>
-        <strong id="appVersionText">2.26</strong>
+        <strong id="appVersionText">2.28</strong>
       </div>
       <button class="secondary-btn" id="checkUpdatesBtn" type="button" style="width:100%">Buscar actualizaciones</button>
       <div class="footer-note" id="updateCheckStatus">Comprueba la última versión publicada en GitHub Releases.</div>
@@ -1523,30 +1669,31 @@ body.theme-graphite .order-history-simple-order.positive{color:#bfdbfe}
 
 
 <div class="note-editor-backdrop" id="noteEditorBackdrop">
-  <div class="note-editor-sheet">
+  <div class="note-editor-sheet" role="dialog" aria-modal="true" aria-label="Editor de nota">
     <div class="note-editor-head">
-      <button class="note-editor-close" id="noteEditorCloseBtn" type="button" aria-label="Cerrar"><span aria-hidden="true">←</span></button>
+      <button class="note-editor-close" id="noteEditorCloseBtn" type="button" aria-label="Cerrar editor"><span aria-hidden="true">←</span></button>
       <div class="note-editor-head-actions">
         <button class="note-editor-star" id="noteEditorStarBtn" type="button" aria-label="Fijar nota" title="Fijar nota">★</button>
         <button class="note-editor-save" id="noteEditorSaveBtn" type="button">Guardar</button>
       </div>
     </div>
-    <input class="note-editor-title" id="noteEditorTitle" type="text" placeholder="Título">
-    <div class="note-format-toolbar">
+    <input class="note-editor-title" id="noteEditorTitle" type="text" placeholder="Título (opcional)" aria-label="Título de la nota">
+    <details class="note-editor-options" id="noteEditorFormatOptions"><summary>Opciones de lista</summary><div class="note-format-toolbar">
       <button type="button" data-note-format="check">☑️ Checklist</button>
       <button type="button" data-note-format="bullet">• Lista</button>
       <button type="button" data-note-format="number">1. Numerar</button>
-    </div>
+    </div></details>
     <textarea class="note-editor-text" id="noteEditorText" placeholder="Escribí una nota…"></textarea>
-    <div class="note-reminder-box">
+    <details class="note-reminder-box" id="noteReminderOptions"><summary class="note-reminder-title">Recordatorio <span id="noteReminderSummary">Opcional</span></summary>
       <div class="note-reminder-title">Recordatorio</div>
       <div class="note-reminder-grid">
         <input id="noteReminderDate" type="date" aria-label="Fecha del recordatorio">
         <input id="noteReminderTime" type="time" value="09:00" aria-label="Hora del recordatorio">
       </div>
       <button class="secondary-btn note-reminder-clear" id="noteReminderClearBtn" type="button">Quitar recordatorio</button>
-    </div>
+    </details>
     <div class="note-editor-meta" id="noteEditorMeta"></div>
+    <div class="note-editor-draft-status" id="noteEditorDraftStatus" aria-live="polite"></div>
     <div class="note-editor-bottom">
       <button class="share-btn" id="noteEditorShareBtn" type="button">Compartir</button>
       <button class="btn-danger" id="noteEditorDeleteBtn" type="button">Eliminar</button>
@@ -1586,6 +1733,7 @@ const K={
   samples:"al_dia_muestras_plantillas_v1",
   sampleHistory:"al_dia_muestras_historial_v1",
   notes:"al_dia_notas_v1",
+  noteDraft:"al_dia_notas_borrador_v1",
   noteHistory:"al_dia_notas_historial_v1",
   consultant:"al_dia_consultor_productos_v1",
   backupMeta:"al_dia_backup_meta_v1",
@@ -1896,6 +2044,15 @@ document.querySelectorAll("[data-add-panel]").forEach(btn=>btn.onclick=()=>{
   let body=name==="expiry"?$("expiryForm"):name==="order"?$("orderForm"):name==="sample"?$("sampleAddBody"):$("consultorForm");
   if(body)setAddPanel(name,body.classList.contains("hidden"));
 });
+
+
+function openOrderAddFromShortcut(){
+  if(!$("carbonFridayPanel").classList.contains("hidden"))activateRegularOrderDay(activeOrderTab);
+  setAddPanel("order",true);
+  $("orderAddPanel").scrollIntoView({behavior:"smooth",block:"start"});
+  setTimeout(()=>$("orderName")?.focus({preventScroll:true}),180);
+}
+$("orderOpenAddBtn").onclick=openOrderAddFromShortcut;
 
 function applySettings(){
   const theme=appSettings.theme||"light";
@@ -2408,7 +2565,8 @@ function refreshOrderCardCalculation(id){
 const orderCategoryExpanded={martes:{},jueves:{},sabado:{}};
 function renderOrders(){
   ensureOrderTemplateForDay(activeOrderTab);const current=orders[activeOrderTab],visible=current;current.forEach(x=>{x.stockCurrent=Math.max(0,Number(x.stockCurrent)||0);x.priceState=["oferta","normal","caro"].includes(x.priceState)?x.priceState:"normal";x.expectedMovement=["poco","normal","mucho"].includes(x.expectedMovement)?x.expectedMovement:"normal";const p=orderProfileFor(x.name,x.unitType);x.unitType=p.qtyType});
-  $("orderTitle").textContent=`Pedido - ${dayLabel(activeOrderTab)}`;$("orderSeasonHint").textContent=`Temporada · ${capitalizeFirstUserLetter(ORDER_MONTH_NAMES[new Date().getMonth()])} · aprendizaje independiente para ${dayLabel(activeOrderTab)}`;$("orderCount").textContent=`${current.length} producto${current.length===1?"":"s"}`;$("orderEmpty").style.display=visible.length?"none":"block";$("orderCategories").innerHTML="";
+  $("orderTitle").textContent=`Para ${dayLabel(activeOrderTab)}`;$("orderSeasonHint").textContent=`Temporada · ${capitalizeFirstUserLetter(ORDER_MONTH_NAMES[new Date().getMonth()])} · aprendizaje independiente para ${dayLabel(activeOrderTab)}`;$("orderCount").textContent=`${current.length} producto${current.length===1?"":"s"}`;$("orderEmpty").style.display=visible.length?"none":"block";$("orderCategories").innerHTML="";
+  if($("orderDayInfo")){const show=$("carbonFridayPanel").classList.contains("hidden")&&(activeOrderTab==="jueves"||activeOrderTab==="sabado");$("orderDayInfo").classList.toggle("hidden",!show);$("orderDayInfo").innerHTML=show?`<strong>4ta Gama</strong><span>Pedidos disponibles para realizar los días <b>Martes y Jueves</b>.</span>`:"";}
   cats.forEach(cat=>{const ps=visible.filter(x=>(x.category||cats[0])===cat);if(!ps.length)return;const wrap=document.createElement("div");wrap.className="order-category";wrap.dataset.orderCategoryWrap=cat;const id="cat-"+activeOrderTab+"-"+cat.replace(/[^a-z0-9]/gi,"-");let body=ps.map(orderItemCardHtml).join("");const cls=cat==="Frutas"?"cat-frutas":cat==="Vegetales"?"cat-vegetales":"cat-hortalizas-pesadas";const open=!!orderCategoryExpanded[activeOrderTab]?.[cat];wrap.innerHTML=`<button class="category-header order-subgroup-title ${cls}" data-order-category="${esc(cat)}" data-toggle="${id}" aria-expanded="${open}"><span class="order-cat-label"><span class="order-cat-chevron">${open?"▾":"▸"}</span>${esc(cat)}</span><span class="category-count">${ps.length}</span></button><div class="category-body ${open?"":"collapsed"}" id="${id}" data-order-category-body="${esc(cat)}">${body}</div>`;$("orderCategories").appendChild(wrap)});
   document.querySelectorAll("[data-order-category]").forEach(b=>b.onclick=()=>{const cat=b.dataset.orderCategory;orderCategoryExpanded[activeOrderTab][cat]=!orderCategoryExpanded[activeOrderTab][cat];const body=document.getElementById(b.dataset.toggle);body?.classList.toggle("collapsed",!orderCategoryExpanded[activeOrderTab][cat]);b.setAttribute("aria-expanded",String(!!orderCategoryExpanded[activeOrderTab][cat]));const ch=b.querySelector(".order-cat-chevron");if(ch)ch.textContent=orderCategoryExpanded[activeOrderTab][cat]?"▾":"▸"});
   document.querySelectorAll("[data-order-qty]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderQty);if(!x)return;const v=Number(i.value);x.qty=Number.isFinite(v)&&v>=0?v:0;i.value=String(x.qty);saveAll();renderCompletion()});
@@ -2440,7 +2598,7 @@ $("orderForm").onsubmit=e=>{
   rememberProductName(orderProductMemory,name);
   orders[activeOrderTab].push({id:uid(),name,code,category:cat,unitType:orderQtyType(type,name),qty,stockCurrent:0,priceState:"normal",expectedMovement:"normal",notes:$("orderNotes").value.trim(),templateSeed:false,seasonGroup:cat});
   orderCategoryExpanded[activeOrderTab][cat]=true;
-  saveAll();e.target.reset();$("orderCategory").value="Vegetales";$("orderUnitType").value="bulto";$("orderQtyInput").value="0";initOrderMonthPicker();toggleQtyInput();collapseAddPanel("order");renderAll();showToast(`Producto añadido en ${cat}.`);
+  saveAll();e.target.reset();$("orderCategory").value="Vegetales";$("orderUnitType").value="bulto";$("orderQtyInput").value="0";initOrderMonthPicker();toggleQtyInput();renderAll();setTimeout(()=>$("orderName")?.focus(),40);showToast(`Producto añadido en ${cat}.`);
 };
 function renderCompletion(){
   const btn=$("completeOrderBtn"),note=$("orderStatusNote");if(!btn||!note)return;
@@ -2472,7 +2630,7 @@ function orderHistorySimpleCategoryHtml(cat,items){
 }
 function renderOrderHistory(){
   const h=orderHistory[activeOrderTab],q=norm($("orderHistorySearch")?.value||""),visible=h.filter(e=>{if(!q)return true;const hay=[e.dateLabel,dayLabel(activeOrderTab),...(e.items||[]).flatMap(x=>[x.name,x.category,orderHistoryStockValue(x),orderHistoryQtyValue(x)])].join(" ");return norm(hay).includes(q)});
-  $("orderHistoryTitle").textContent=`Historial - ${dayLabel(activeOrderTab)}`;$("orderHistoryCount").textContent=q?`${visible.length} de ${h.length}`:`${h.length} pedido${h.length===1?"":"s"}`;$("orderHistoryEmpty").style.display=visible.length?"none":"block";$("orderHistoryEmpty").textContent=q?"No hay coincidencias en este historial.":"Todavía no hay pedidos guardados.";$("orderHistoryList").innerHTML="";
+  $("orderHistoryTitle").textContent=`Historial · Para ${dayLabel(activeOrderTab)}`;$("orderHistoryCount").textContent=q?`${visible.length} de ${h.length}`:`${h.length} pedido${h.length===1?"":"s"}`;$("orderHistoryEmpty").style.display=visible.length?"none":"block";$("orderHistoryEmpty").textContent=q?"No hay coincidencias en este historial.":"Todavía no hay pedidos guardados.";$("orderHistoryList").innerHTML="";
   visible.forEach(e=>{
     const open=!!orderHistoryOpen[e.id],card=document.createElement("div");card.className="history-order-card";
     const groups=cats.map(c=>orderHistorySimpleCategoryHtml(c,(e.items||[]).filter(x=>(x.category||cats[0])===c))).join("");
@@ -2603,7 +2761,7 @@ $("sampleForm").onsubmit=e=>{
     saveAll();resetSampleForm();renderSamples();showToast("Producto actualizado");
   }else{
     rows.push({id:uid(),name,unitType:type,deposit:dep,shelf});
-    sampleLocked=true;saveAll();resetSampleForm();collapseAddPanel("sample");renderSamples();showToast("Producto añadido");
+    sampleLocked=true;saveAll();resetSampleForm();renderSamples();setTimeout(()=>$("sampleProductName")?.focus(),40);showToast("Producto añadido");
   }
 };
 $("finishSampleBtn").onclick=()=>{
@@ -2670,45 +2828,51 @@ function renderNoteBody(text,noteId){
     return `<div>${esc(line)||"&nbsp;"}</div>`;
   }).join("");
 }
+let notesSearchQuery="",notesFilter="all";
 function renderNotes(){
-  notes=notes.filter(n=>n&&String(n.text||n.title||"").trim());
-  notes.forEach((n,i)=>{
-    delete n.priority; delete n.date; delete n.time;
+  const valid=notes.filter(n=>n&&String(n.text||n.title||"").trim());
+  valid.forEach((n,i)=>{
     if(!n.createdAt)n.createdAt=new Date().toISOString();
     if(n.title==null)n.title="";
     if(n.layoutOrder==null)n.layoutOrder=i;
     if(!["normal","compact","large"].includes(n.noteSize))n.noteSize="normal";
   });
-  notes.sort((a,b)=>Number(b.pinned)-Number(a.pinned)||(Number(a.layoutOrder)-Number(b.layoutOrder))||(b.updatedAt||b.createdAt||"").localeCompare(a.updatedAt||a.createdAt||""));
-  $("noteEmpty").style.display=notes.length?"none":"block";
+  const ordered=[...valid].sort((a,b)=>Number(b.pinned)-Number(a.pinned)||Number(a.layoutOrder)-Number(b.layoutOrder)||(b.updatedAt||b.createdAt||"").localeCompare(a.updatedAt||a.createdAt||""));
+  const visible=ordered.filter(n=>{
+    if(notesFilter==="pinned"&&!n.pinned)return false;
+    if(notesFilter==="reminders"&&!n.reminderDate)return false;
+    return !notesSearchQuery||norm(notePlainText(n)).includes(norm(notesSearchQuery));
+  });
+  renderNoteDraftButton();
+  $("notesResultCount").textContent=`${visible.length} de ${valid.length} nota${valid.length===1?"":"s"}`;
+  $("noteEmpty").style.display=visible.length?"none":"block";
+  $("noteEmpty").innerHTML=valid.length?"No hay notas que coincidan.<br><span>Probá otra búsqueda o filtro.</span>":"No hay notas todavía.<br><span>Tocá Nueva nota para comenzar.</span>";
   $("noteList").innerHTML="";
-  notes.forEach((n,index)=>{
+  visible.forEach((n,index)=>{
     const el=document.createElement("article");
     el.className=`sticky-note ${noteColorClass(n,index)} ${n.pinned?"pinned":""} ${n.noteSize==="large"?"note-large":n.noteSize==="compact"?"note-compact":""}`;
     el.dataset.openNote=n.id;
     const title=String(n.title||"").trim();
-    el.innerHTML=`<button class="sticky-note-star" data-pin-note="${n.id}" type="button" aria-label="${n.pinned?"Quitar de acceso rápido":"Fijar en acceso rápido"}">${n.pinned?"★":"☆"}</button>${title?`<div class="sticky-note-title">${esc(title)}</div>`:""}<div class="sticky-note-preview">${renderNoteBody(n.text,n.id)}</div><div class="sticky-note-meta">${n.reminderDate?`🔔 ${esc(fmt(n.reminderDate))} ${esc(n.reminderTime||"09:00")} · `:""}${n.updatedAt?"Editada ":"Creada "}${esc(n.updatedAt?noteUpdatedLabel(n):noteCreatedLabel(n))}</div><div class="note-layout-tools"><button class="note-drag-handle" data-drag-note="${n.id}" type="button" aria-label="Mover nota">↕</button><button data-size-note="${n.id}" type="button">${n.noteSize==="compact"?"Tamaño: compacto":n.noteSize==="large"?"Tamaño: grande":"Tamaño: normal"}</button></div>`;
+    el.innerHTML=`<div class="sticky-note-header"><div class="sticky-note-heading">${title?`<div class="sticky-note-title">${esc(title)}</div>`:""}<div class="sticky-note-meta">${n.reminderDate?`🔔 ${esc(fmt(n.reminderDate))} ${esc(n.reminderTime||"09:00")} · `:""}${n.updatedAt?"Editada ":"Creada "}${esc(n.updatedAt?noteUpdatedLabel(n):noteCreatedLabel(n))}</div></div><button class="sticky-note-star" data-pin-note="${n.id}" type="button" aria-label="${n.pinned?"Quitar de fijadas":"Fijar nota"}">${n.pinned?"★":"☆"}</button></div><div class="sticky-note-preview">${renderNoteBody(n.text,n.id)}</div><div class="sticky-note-actions"><button type="button" class="note-open-btn" data-edit-note="${n.id}">Abrir y editar</button></div><div class="note-layout-tools"><button class="note-drag-handle" data-drag-note="${n.id}" type="button" aria-label="Mover nota">↕</button><button data-size-note="${n.id}" type="button">${n.noteSize==="compact"?"Tamaño: compacto":n.noteSize==="large"?"Tamaño: grande":"Tamaño: normal"}</button></div>`;
     $("noteList").appendChild(el);
   });
   document.querySelectorAll("[data-open-note]").forEach(card=>card.onclick=e=>{
-    if(e.target.closest("[data-pin-note],[data-note-check],[data-drag-note],[data-size-note]"))return;
+    if(e.target.closest("button,input,label,[data-note-check]"))return;
     openNoteEditor(card.dataset.openNote);
   });
+  document.querySelectorAll("[data-edit-note]").forEach(b=>b.onclick=e=>{e.stopPropagation();openNoteEditor(b.dataset.editNote)});
   document.querySelectorAll("[data-pin-note]").forEach(b=>b.onclick=e=>{
-    e.stopPropagation();
-    const n=notes.find(x=>x.id===b.dataset.pinNote);
-    if(n){n.pinned=!n.pinned;n.updatedAt=new Date().toISOString();saveAll();renderAll()}
+    e.stopPropagation();const n=notes.find(x=>x.id===b.dataset.pinNote);
+    if(n){n.pinned=!n.pinned;n.updatedAt=new Date().toISOString();saveAll();renderNotes();renderDashboard()}
   });
   document.querySelectorAll("[data-note-check]").forEach(c=>c.onchange=e=>{
-    e.stopPropagation();
-    const n=notes.find(x=>x.id===c.dataset.noteCheck);if(!n)return;
+    e.stopPropagation();const n=notes.find(x=>x.id===c.dataset.noteCheck);if(!n)return;
     const lines=String(n.text||"").split("\n"),i=Number(c.dataset.noteLine);
     if(i>=0&&i<lines.length)lines[i]=lines[i].replace(/^\[( |x|X)\]/,c.checked?"[x]":"[ ]");
-    n.text=lines.join("\n");n.updatedAt=new Date().toISOString();saveAll();renderAll();
+    n.text=lines.join("\n");n.updatedAt=new Date().toISOString();saveAll();renderNotes();renderDashboard();
   });
   document.querySelectorAll("[data-size-note]").forEach(b=>b.onclick=e=>{
-    e.stopPropagation();
-    const n=notes.find(x=>x.id===b.dataset.sizeNote);if(!n)return;
+    e.stopPropagation();const n=notes.find(x=>x.id===b.dataset.sizeNote);if(!n)return;
     n.noteSize=n.noteSize==="normal"?"large":n.noteSize==="large"?"compact":"normal";
     saveAll();renderNotes();
   });
@@ -2724,11 +2888,7 @@ function renderNotes(){
         if(target&&target.dataset.openNote&&target.dataset.openNote!==sourceId){
           const ordered=[...notes].sort((a,b)=>Number(b.pinned)-Number(a.pinned)||Number(a.layoutOrder||0)-Number(b.layoutOrder||0));
           const from=ordered.findIndex(x=>x.id===sourceId),to=ordered.findIndex(x=>x.id===target.dataset.openNote);
-          if(from>=0&&to>=0){
-            const [moved]=ordered.splice(from,1);ordered.splice(to,0,moved);
-            ordered.forEach((n,i)=>n.layoutOrder=i);
-            saveAll();renderNotes();
-          }
+          if(from>=0&&to>=0){const [moved]=ordered.splice(from,1);ordered.splice(to,0,moved);ordered.forEach((n,i)=>n.layoutOrder=i);saveAll();renderNotes()}
         }
         h.onpointerup=null;
       };
@@ -2738,37 +2898,96 @@ function renderNotes(){
 function renderNoteHistory(){/* Las notas rápidas ya no usan una vista de completadas. Se conserva el historial antiguo en la copia de seguridad. */}
 
 let noteEditorId=null;
+let noteEditorDraftKey=null;
 let noteEditorPinned=false;
 let noteEditorCreatedAt=null;
 let noteEditorColorIndex=0;
-
+let noteEditorBaseline="";
+let noteDraftTimer=null;
+function noteDraftStoreRead(){
+  try{
+    const value=JSON.parse(localStorage.getItem(K.noteDraft)||"null");
+    if(Array.isArray(value))return value.filter(x=>x&&x.values);
+    if(value&&typeof value==="object"&&value.values)return[value];
+  }catch(_){}
+  return [];
+}
+function noteDraftKey(id){return id==null?"__new__":String(id)}
+function noteDraftFor(id){return noteDraftStoreRead().find(x=>noteDraftKey(x.id)===noteDraftKey(id))||null}
+function noteDraftRead(){return noteDraftStoreRead()}
+function noteDraftStoreWrite(all){
+  if(all.length)localStorage.setItem(K.noteDraft,JSON.stringify(all));
+  else localStorage.removeItem(K.noteDraft);
+  renderNoteDraftButton();
+}
+function renderNoteDraftButton(){
+  const count=noteDraftStoreRead().length,btn=$("notesDraftsBtn");if(!btn)return;
+  btn.classList.toggle("hidden",!count);$("notesDraftCount").textContent=String(count);
+}
+function noteEditorValues(){return{title:$("noteEditorTitle").value,text:$("noteEditorText").value,pinned:noteEditorPinned,reminderDate:$("noteReminderDate").value||"",reminderTime:$("noteReminderTime").value||"09:00"}}
+function noteEditorSetValues(v){
+  $("noteEditorTitle").value=v.title||"";$("noteEditorText").value=v.text||"";
+  noteEditorPinned=!!v.pinned;$("noteReminderDate").value=v.reminderDate||"";$("noteReminderTime").value=v.reminderTime||"09:00";
+  $("noteEditorStarBtn").classList.toggle("pinned",noteEditorPinned);$("noteEditorStarBtn").textContent=noteEditorPinned?"★":"☆";
+  updateNoteReminderSummary();
+}
+function noteEditorIsDirty(){return JSON.stringify(noteEditorValues())!==noteEditorBaseline}
+function noteDraftClear(id=noteEditorDraftKey){
+  clearTimeout(noteDraftTimer);
+  noteDraftStoreWrite(noteDraftStoreRead().filter(x=>noteDraftKey(x.id)!==noteDraftKey(id)));
+  $("noteEditorDraftStatus").textContent="";
+}
+function noteDraftPersist(){
+  clearTimeout(noteDraftTimer);
+  if(!$("noteEditorBackdrop").classList.contains("open"))return;
+  if(!noteEditorIsDirty())return;
+  try{
+    const all=noteDraftStoreRead().filter(x=>noteDraftKey(x.id)!==noteDraftKey(noteEditorDraftKey));
+    all.push({id:noteEditorDraftKey,createdAt:noteEditorCreatedAt,colorIndex:noteEditorColorIndex,values:noteEditorValues(),savedAt:new Date().toISOString()});
+    noteDraftStoreWrite(all);
+    $("noteEditorDraftStatus").textContent="Borrador guardado en este dispositivo";
+    scheduleNativeStatePersist();
+  }catch(e){$("noteEditorDraftStatus").textContent="No se pudo guardar el borrador. Guardá la nota antes de salir."}
+}
+function noteDraftSchedule(){clearTimeout(noteDraftTimer);noteDraftTimer=setTimeout(noteDraftPersist,350);$("noteEditorDraftStatus").textContent="Cambios pendientes";updateNoteReminderSummary()}
+function updateNoteReminderSummary(){
+  const d=$("noteReminderDate").value;
+  $("noteReminderSummary").textContent=d?`${fmt(d)} · ${$("noteReminderTime").value||"09:00"}`:"Opcional";
+}
 function openNoteEditor(id=null){
   const n=id?notes.find(x=>x.id===id):null;
   noteEditorId=n?n.id:null;
-  noteEditorPinned=!!(n&&n.pinned);
+  noteEditorDraftKey=id||null;
   noteEditorCreatedAt=n&&n.createdAt?n.createdAt:new Date().toISOString();
   noteEditorColorIndex=n&&n.colorIndex!=null?n.colorIndex:(notes.length%6);
-  $("noteEditorTitle").value=n&&n.title?n.title:"";
-  $("noteEditorText").value=n&&n.text?n.text:"";
-  $("noteReminderDate").value=n&&n.reminderDate?n.reminderDate:"";
-  $("noteReminderTime").value=n&&n.reminderTime?n.reminderTime:"09:00";
-  $("noteEditorStarBtn").classList.toggle("pinned",noteEditorPinned);
-  $("noteEditorStarBtn").textContent=noteEditorPinned?"★":"☆";
+  const values={title:n?.title||"",text:n?.text||"",pinned:!!n?.pinned,reminderDate:n?.reminderDate||"",reminderTime:n?.reminderTime||"09:00"};
+  noteEditorSetValues(values);
+  noteEditorBaseline=JSON.stringify(noteEditorValues());
+  const draft=noteDraftFor(noteEditorDraftKey);
+  if(draft&&draft.values){
+    noteEditorSetValues(draft.values);
+    if(!n){noteEditorCreatedAt=draft.createdAt||noteEditorCreatedAt;noteEditorColorIndex=draft.colorIndex??noteEditorColorIndex}
+    $("noteEditorDraftStatus").textContent="Borrador recuperado";
+  }else $("noteEditorDraftStatus").textContent="";
   $("noteEditorDeleteBtn").style.display=n?"block":"none";
   $("noteEditorShareBtn").style.display=n?"block":"none";
-  $("noteEditorMeta").textContent=n
-    ? `Creada: ${noteCreatedLabel(n)}${n.updatedAt?` · Editada: ${noteUpdatedLabel(n)}`:""}`
-    : `Creada automáticamente: ${new Date(noteEditorCreatedAt).toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})}`;
+  $("noteEditorMeta").textContent=n?`Creada: ${noteCreatedLabel(n)}${n.updatedAt?` · Editada: ${noteUpdatedLabel(n)}`:""}`:`Creada automáticamente: ${new Date(noteEditorCreatedAt).toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"})}`;
+  $("noteEditorFormatOptions").open=false;
+  $("noteReminderOptions").open=!!$("noteReminderDate").value;
   $("noteEditorBackdrop").classList.add("open");
   setTimeout(()=>{(n?$("noteEditorText"):$("noteEditorTitle")).focus();updateNoteToolbarState()},40);
 }
-function closeNoteEditor(){
-  $("noteEditorBackdrop").classList.remove("open");
-  noteEditorId=null;
+async function closeNoteEditor(){
+  if(noteEditorIsDirty()){
+    noteDraftPersist();
+    if(!await askConfirm("Hay cambios sin guardar. ¿Cerrar el editor? El borrador quedará disponible para recuperarlo.","Cambios sin guardar"))return false;
+  }
+  clearTimeout(noteDraftTimer);
+  $("noteEditorBackdrop").classList.remove("open");noteEditorId=null;noteEditorDraftKey=null;
+  return true;
 }
 function saveOpenNote(){
-  const title=$("noteEditorTitle").value.trim();
-  const text=$("noteEditorText").value.trimEnd();
+  const title=$("noteEditorTitle").value.trim(),text=$("noteEditorText").value.trimEnd();
   if(!title&&!text){showToast("La nota está vacía");return false}
   const now=new Date().toISOString();
   if(noteEditorId){
@@ -2779,7 +2998,15 @@ function saveOpenNote(){
     noteEditorId=uid();
     notes.push({id:noteEditorId,title,text,pinned:noteEditorPinned,createdAt:noteEditorCreatedAt,updatedAt:null,colorIndex:noteEditorColorIndex,reminderDate:$("noteReminderDate").value||"",reminderTime:$("noteReminderTime").value||"09:00"});
   }
-  saveAll();renderAll();showToast("Nota guardada");return true
+  noteEditorBaseline=JSON.stringify(noteEditorValues());noteDraftClear();
+  saveAll();renderAll();showToast("Nota guardada");return true;
+}
+function openNoteDraftList(){
+  const drafts=noteDraftStoreRead().sort((a,b)=>String(b.savedAt||"").localeCompare(String(a.savedAt||"")));
+  if(!drafts.length)return;
+  openModal("Borradores de notas",`<div class="note-draft-list">${drafts.map((d,i)=>`<button type="button" class="note-draft-row" data-resume-note-draft="${i}"><strong>${esc(d.values.title||d.values.text?.split("\n")[0]||"Nota sin título")}</strong><small>${esc((d.values.text||"").slice(0,110))}</small></button>`).join("")}</div>`,{type:"note-drafts"});
+  $("editSaveBtn").classList.add("hidden");
+  $("editModalContent").querySelectorAll("[data-resume-note-draft]").forEach(b=>b.onclick=()=>{const draft=drafts[Number(b.dataset.resumeNoteDraft)];closeModal();if(draft)openNoteEditor(draft.id)});
 }
 
 function noteLinePrefixInfo(line){
@@ -2836,7 +3063,7 @@ function formatSelectedNoteLines(kind){
   const replacement=out.join("\n");
   ta.setRangeText(replacement,r.lineStart,r.lineEnd,"select");
   ta.focus();
-  updateNoteToolbarState();
+  updateNoteToolbarState();noteDraftSchedule();
 }
 
 function currentNoteLineInfo(){
@@ -2869,7 +3096,7 @@ function continueNoteListOnEnter(e){
   if(!info.content.trim()){
     e.preventDefault();
     ta.setRangeText("",lineStart,pos,"end");
-    updateNoteToolbarState();
+    updateNoteToolbarState();noteDraftSchedule();
     return;
   }
 
@@ -2879,7 +3106,7 @@ function continueNoteListOnEnter(e){
   if(info.kind==="bullet")nextPrefix="• ";
   if(info.kind==="number")nextPrefix=`${(info.number||1)+1}. `;
   ta.setRangeText("\n"+nextPrefix,pos,pos,"end");
-  updateNoteToolbarState();
+  updateNoteToolbarState();noteDraftSchedule();
 }
 
 function renumberFollowingLines(){
@@ -2898,7 +3125,7 @@ function renumberFollowingLines(){
   }
   const pos=ta.selectionStart;
   ta.value=lines.join("\n");
-  ta.setSelectionRange(Math.min(pos,ta.value.length),Math.min(pos,ta.value.length));
+  ta.setSelectionRange(Math.min(pos,ta.value.length),Math.min(pos,ta.value.length));noteDraftSchedule();
 }
 
 function handleNoteEditorKeydown(e){
@@ -2917,7 +3144,7 @@ function handleNoteEditorKeydown(e){
     if(info.kind&&!info.content){
       e.preventDefault();
       ta.setRangeText("",start,pos,"end");
-      updateNoteToolbarState();
+      updateNoteToolbarState();noteDraftSchedule();
     }
   }
 }
@@ -2925,21 +3152,27 @@ function noteShareContent(n){
   return `Al Día · Nota rápida\n${notePlainText(n)}\nCreada: ${noteCreatedLabel(n)}`;
 }
 
+$("notesSearch").oninput=e=>{notesSearchQuery=e.target.value;renderNotes()};
+$("notesFilter").onchange=e=>{notesFilter=e.target.value;renderNotes()};
 $("addNoteBtn").onclick=()=>openNoteEditor();
+$("notesDraftsBtn").onclick=openNoteDraftList;
 $("noteEditorCloseBtn").onclick=()=>closeNoteEditor();
 $("noteEditorBackdrop").onclick=e=>{if(e.target===$("noteEditorBackdrop"))closeNoteEditor()};
 $("noteEditorStarBtn").onclick=()=>{
   noteEditorPinned=!noteEditorPinned;
   $("noteEditorStarBtn").classList.toggle("pinned",noteEditorPinned);
-  $("noteEditorStarBtn").textContent=noteEditorPinned?"★":"☆";
+  $("noteEditorStarBtn").textContent=noteEditorPinned?"★":"☆";noteDraftSchedule();
 };
 $("noteEditorSaveBtn").onclick=()=>{if(saveOpenNote())closeNoteEditor()};
-$("noteReminderClearBtn").onclick=()=>{$("noteReminderDate").value="";$("noteReminderTime").value="09:00";showToast("Recordatorio quitado")};
+$("noteReminderClearBtn").onclick=()=>{$("noteReminderDate").value="";$("noteReminderTime").value="09:00";noteDraftSchedule();showToast("Recordatorio quitado")};
 document.querySelectorAll("[data-note-format]").forEach(b=>b.onclick=()=>formatSelectedNoteLines(b.dataset.noteFormat));
 $("noteEditorShareBtn").onclick=()=>{
   if(!noteEditorId)return;
   const n=notes.find(x=>x.id===noteEditorId);if(n)shareText("Nota rápida",noteShareContent(n));
 };
+["noteEditorTitle","noteEditorText","noteReminderDate","noteReminderTime"].forEach(id=>{
+  $(id).addEventListener("input",noteDraftSchedule);$(id).addEventListener("change",noteDraftSchedule);
+});
 $("noteEditorText").addEventListener("keydown",handleNoteEditorKeydown);
 $("noteEditorText").addEventListener("keyup",updateNoteToolbarState);
 $("noteEditorText").addEventListener("click",updateNoteToolbarState);
@@ -2947,7 +3180,7 @@ $("noteEditorText").addEventListener("select",updateNoteToolbarState);
 $("noteEditorDeleteBtn").onclick=async()=>{
   if(!noteEditorId)return;
   if(!await askConfirm("¿Eliminar esta nota?","Eliminar nota",true))return;
-  notes=notes.filter(x=>x.id!==noteEditorId);saveAll();renderAll();closeNoteEditor();showToast("Nota eliminada");
+  notes=notes.filter(x=>x.id!==noteEditorId);noteEditorBaseline=JSON.stringify(noteEditorValues());noteDraftClear();saveAll();renderAll();closeNoteEditor();showToast("Nota eliminada");
 };
 function updateNextOrder(){
   const date=nextOrderDate(),d=date.getDay(),key=keyFromDow(d),n=new Date(),minutes=n.getHours()*60+n.getMinutes();
@@ -2955,7 +3188,7 @@ function updateNextOrder(){
   $("nextOrderSub").textContent=n.getDay()===d&&localDate(n)===localDate(date)&&minutes<615?"Es hoy · hasta las 10:15":"Tocá para abrir ese día";
   $("nextOrderCard").dataset.target=key;
 }
-$("nextOrderCard").onclick=()=>{const t=$("nextOrderCard").dataset.target;document.querySelectorAll(".subtab").forEach(b=>b.classList.toggle("active",b.dataset.orderTab===t));activeOrderTab=t;renderAll()};
+$("nextOrderCard").onclick=()=>{const t=$("nextOrderCard").dataset.target;activateRegularOrderDay(t)};
 
 function openModal(title,html,ctx){editCtx=ctx;$("editModalTitle").textContent=title;$("editModalContent").innerHTML=html;$("editSaveBtn").classList.remove("hidden");$("editSaveBtn").textContent="Guardar cambios";$("editModalBackdrop").classList.add("open")}
 function closeModal(){editCtx=null;$("editModalBackdrop").classList.remove("open");$("editSaveBtn").classList.remove("hidden");$("editSaveBtn").textContent="Guardar cambios"}
@@ -3165,7 +3398,7 @@ function expiryIdentity(x){const pid=String(x?.productId||"").trim();if(pid)retu
 function expiryGroupsFor(list){const map=new Map();(list||[]).forEach(x=>{const k=expiryIdentity(x);if(!map.has(k))map.set(k,[]);map.get(k).push(x)});return [...map.values()].map(g=>g.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)))).sort((a,b)=>parseDate(withdrawalDate(a[0]))-parseDate(withdrawalDate(b[0])))}
 function expiryGroupCardHtml(group){
   const first=group.find(x=>x.code)||group[0],codeLabel=first.codeType==="PLU"?"PLU":"Código / EAN";
-  return `<div class="item expiry-group-card" data-expiry-product-id="${esc(first.productId||"")}"><div class="expiry-group-head"><div><div class="expiry-group-name">${esc(first.name)}</div><div class="expiry-group-code">${first.code?`${codeLabel}: ${esc(first.code)}`:"Sin código guardado"}</div></div><div class="expiry-group-tools"><span class="expiry-group-count">${group.length} vencimiento${group.length===1?"":"s"}</span><button class="expiry-add-lot-btn" data-add-expiry-lot="${group[0].id}" type="button">＋ Fecha</button><button class="share-btn" data-share-expiry-group="${group[0].id}" type="button" title="Compartir">↗</button></div></div><div class="expiry-lots">${group.map(x=>{const st=expiryStatus(x),rd=withdrawalDate(x);return `<div class="expiry-lot-row ${st.cls}" data-expiry-id="${x.id}" tabindex="0"><div><div class="expiry-lot-date">Vence: ${fmt(x.date)}</div><div class="expiry-lot-meta">Retiro: ${fmt(rd)}${x.notes?` · ${esc(x.notes)}`:""}</div><span class="status-badge ${st.cls}">${st.text}</span></div><div class="expiry-lot-actions">${st.days<=0?`<button class="btn-retired" data-resolve-expiry="${x.id}" type="button">Resolver</button>`:""}<button class="btn-danger expiry-lot-delete" data-del-expiry="${x.id}" type="button" tabindex="-1" aria-hidden="true">Eliminar</button></div></div>`}).join("")}</div></div>`;
+  return `<div class="item expiry-group-card expiry-sheet-group" data-expiry-product-id="${esc(first.productId||"")}">${group.map((x,idx)=>{const st=expiryStatus(x),rd=withdrawalDate(x);return `<div class="expiry-lot-row expiry-sheet-row ${st.cls}" data-expiry-id="${x.id}" tabindex="0"><div class="expiry-sheet-product"><strong>${esc(x.name)}</strong><small>${x.code?`${codeLabel}: ${esc(x.code)}`:"Sin código"}</small>${idx===0?`<div class="expiry-sheet-tools"><button class="expiry-add-lot-btn" data-add-expiry-lot="${x.id}" type="button">＋ Fecha</button><button class="share-btn" data-share-expiry-group="${x.id}" type="button" title="Compartir">↗</button></div>`:""}</div><div class="expiry-sheet-dates"><strong>Vence ${fmt(x.date)}</strong><small>Retiro ${fmt(rd)}${x.notes?` · ${esc(x.notes)}`:""}</small></div><div class="expiry-sheet-status"><span class="status-badge ${st.cls}">${st.text}</span>${st.days<=0?`<button class="btn-retired" data-resolve-expiry="${x.id}" type="button">Resolver</button>`:""}</div><button class="btn-danger expiry-lot-delete swipe-delete-source" data-del-expiry="${x.id}" type="button" tabindex="-1" aria-hidden="true">Eliminar</button></div>`}).join("")}</div>`;
 }
 function renderLastExpiryProduct(){
   const list=$("lastExpiryList"),empty=$("lastExpiryEmpty"),count=$("lastExpiryCount");if(!list||!empty||!count)return;
@@ -3183,8 +3416,14 @@ function bindExpiryInteractions(){
 function renderExpiry(){
   migrateExpiryProductIds();
   items.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)));
-  const filtered=items.filter(x=>{const status=expiryStatus(x);return expiryFilter==="all"||status.cls===expiryFilter}),groups=expiryGroupsFor(filtered);
-  $("emptyState").style.display=groups.length?"none":"block";$("list").innerHTML=groups.map(expiryGroupCardHtml).join("");
+  const filtered=items.filter(x=>{const status=expiryStatus(x);return expiryFilter==="all"||status.cls===expiryFilter});
+  const sameDay=expiryGroupsFor(filtered.filter(x=>Number(x.withdrawDays||0)===0));
+  const tenDays=expiryGroupsFor(filtered.filter(x=>Number(x.withdrawDays||0)===10));
+  const groups=[...sameDay,...tenDays];
+  $("emptyState").style.display=groups.length?"none":"block";
+  $("expirySameDayList").innerHTML=sameDay.length?sameDay.map(expiryGroupCardHtml).join(""):`<div class="sheet-empty">Sin productos en esta sección.</div>`;
+  $("expiryTenDaysList").innerHTML=tenDays.length?tenDays.map(expiryGroupCardHtml).join(""):`<div class="sheet-empty">Sin productos en esta sección.</div>`;
+  $("expirySameDayCount").textContent=String(sameDay.length);$("expiryTenDaysCount").textContent=String(tenDays.length);
   const urgent=items.filter(x=>expiryStatus(x).days<=7).length,allGroups=expiryGroupsFor(items);
   $("totalCount").textContent=`${allGroups.length} producto${allGroups.length===1?"":"s"} · ${items.length} fecha${items.length===1?"":"s"}`;
   $("urgentCount").textContent=`${urgent} vencimiento${urgent===1?"":"s"} para revisar`;
@@ -3385,10 +3624,33 @@ document.querySelectorAll(".main-tab").forEach(b=>b.onclick=()=>openMainTab(b.da
 $("settingsBtn").onclick=()=>openMainTab("ajustes");
 if(document.querySelector("[data-settings-back-home]")) document.querySelector("[data-settings-back-home]").onclick=()=>openMainTab("inicio");
 if($("goVencimientosBtn")) $("goVencimientosBtn").onclick=()=>{expiryFilter="danger";document.querySelectorAll("[data-expiry-filter]").forEach(x=>x.classList.toggle("active",x.dataset.expiryFilter==="danger"));setExpiryView("active");openMainTab("vencimientos");renderExpiry()};
-if($("goPedidosBtn")) $("goPedidosBtn").onclick=()=>{const t=keyFromDow(nextOrderDay());document.querySelectorAll(".subtab").forEach(b=>b.classList.toggle("active",b.dataset.orderTab===t));activeOrderTab=t;openMainTab("pedidos");renderAll()};
+if($("goPedidosBtn")) $("goPedidosBtn").onclick=()=>{const t=keyFromDow(nextOrderDay());activateRegularOrderDay(t);openMainTab("pedidos")};
+if($("carbonFridayTab")) $("carbonFridayTab").onclick=()=>{
+  document.querySelectorAll(".order-day-tabs .subtab").forEach(b=>b.classList.toggle("active",b.id==="carbonFridayTab"));
+  $("carbonFridayTab").setAttribute("aria-expanded","true");
+  $("carbonFridayPanel").classList.remove("hidden");
+  $("orderDayInfo").classList.add("hidden");
+  $("orderViewTabs").classList.add("hidden");
+  $("order-current-view").classList.add("hidden");
+  $("order-history-view").classList.add("hidden");
+  document.querySelectorAll("[data-order-view]").forEach(b=>b.classList.toggle("active",b.dataset.orderView==="current"));
+  collapseAddPanel("order");
+};
 document.querySelectorAll("[data-expiry-view]").forEach(b=>b.onclick=()=>setExpiryView(b.dataset.expiryView));
-document.querySelectorAll("[data-order-view]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-order-view]").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("order-current-view").classList.toggle("hidden",b.dataset.orderView!=="current");$("order-history-view").classList.toggle("hidden",b.dataset.orderView!=="history");if(b.dataset.orderView==="history")renderOrderHistory()});
-document.querySelectorAll(".subtab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".subtab").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeOrderTab=b.dataset.orderTab;renderAll()});
+document.querySelectorAll("[data-order-view]").forEach(b=>b.onclick=()=>{if(!$("carbonFridayPanel").classList.contains("hidden"))activateRegularOrderDay(activeOrderTab);document.querySelectorAll("[data-order-view]").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("order-current-view").classList.toggle("hidden",b.dataset.orderView!=="current");$("order-history-view").classList.toggle("hidden",b.dataset.orderView!=="history");if(b.dataset.orderView==="history")renderOrderHistory()});
+function activateRegularOrderDay(day){
+  if(!["martes","jueves","sabado"].includes(day))return;
+  $("carbonFridayPanel").classList.add("hidden");
+  $("carbonFridayTab").setAttribute("aria-expanded","false");
+  $("orderOpenAddBtn").classList.remove("hidden");
+  $("orderViewTabs").classList.remove("hidden");
+  $("order-current-view").classList.remove("hidden");
+  $("order-history-view").classList.add("hidden");
+  document.querySelectorAll("[data-order-view]").forEach(b=>b.classList.toggle("active",b.dataset.orderView==="current"));
+  document.querySelectorAll(".order-day-tabs .subtab").forEach(b=>b.classList.toggle("active",b.dataset.orderTab===day));
+  activeOrderTab=day;renderAll();
+}
+document.querySelectorAll(".subtab[data-order-tab]").forEach(b=>b.onclick=()=>activateRegularOrderDay(b.dataset.orderTab));
 document.querySelectorAll("[data-expiry-filter]").forEach(b=>b.onclick=()=>{
   document.querySelectorAll("[data-expiry-filter]").forEach(x=>x.classList.remove("active"));
   b.classList.add("active");
@@ -3447,7 +3709,7 @@ function backupSummaryText(d,includeTitle=true){
   return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos guardados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}`;
 }
 function currentBackupObject(){
-  return {version:26,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:28,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,noteDraft:noteDraftRead(),consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;
@@ -3488,6 +3750,9 @@ function applyBackupObject(d,silent=false){
   sampleHistory=d.sampleHistory||[];
   notes=d.notes||[];
   noteHistory=d.noteHistory||[];
+  if(Array.isArray(d.noteDraft))noteDraftStoreWrite(d.noteDraft.filter(x=>x&&x.values));
+  else if(d.noteDraft&&typeof d.noteDraft==="object"&&d.noteDraft.values)noteDraftStoreWrite([d.noteDraft]);
+  else noteDraftStoreWrite([]);
   consultantProducts=Array.isArray(d.consultantProducts)?d.consultantProducts:[];
   carnesVegetalesHistory=Array.isArray(d.carnesVegetalesHistory)?d.carnesVegetalesHistory:[];
   carnesVegetalesDraft=d.carnesVegetalesDraft&&Array.isArray(d.carnesVegetalesDraft.items)?d.carnesVegetalesDraft:null;

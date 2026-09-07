@@ -16,29 +16,20 @@ Proyecto Android de **Al Día**, una app personal para control de vencimientos y
 Los workflows están configurados en modo **manual**. Después de cada actualización, entrá en **Actions** y ejecutá **Run workflow** cuando quieras compilar.
 
 
-## Estado actual — v2.26
+## Estado actual — v2.28
 
-- Se retiró la tarjeta y flujo **Revisar pedido anterior** de Pedidos.
-- Se conserva el resto de v2.25 sin cambios funcionales: edición estable, selector de categoría, reordenamiento guiado, historial simple y sugerencias.
-- Historial mantiene **Nombre, Stock y Pedido**, fecha y Compartir; solo Pedido > 0 se destaca.
-- Los datos aprendidos o restaurados desde backups anteriores no se eliminan.
-- Backup v26, compatible con restauración de copias anteriores.
-- versionName 2.26 y versionCode base 226000 + GITHUB_RUN_NUMBER.
+La base válida para continuar es **v2.28**, derivada del ZIP completo v2.27.
+No se reconstruyó la app ni se alteró su identificador o su firma debug fija.
 
-- **Recetas locales** conserva las 28 recetas de `Recetas LOCALES.xlsx` (14 FRUTA y 14 VERDURA), pero ahora los datos también están integrados directamente en `index.html` para evitar una pantalla vacía si falla la carga del JS externo.
-- El XLSX original continúa en `app/src/main/assets/biblioteca/Recetas_LOCALES.xlsx` y `recetas_locales.js` se conserva como fuente separada.
-- **Pedidos** deja de reconstruir toda la lista al cambiar Stock, Precio o Movimiento; la sugerencia/confianza de la ficha se actualiza en su lugar.
-- Al añadir productos se elige explícitamente la categoría.
-- El arrastre por pulsación larga muestra un bloque flotante y un hueco de destino, hace auto-scroll y no permite cruzar de categoría.
-- El Historial de Pedidos muestra por producto solo **Nombre, Stock y Pedido**; únicamente Pedido > 0 se destaca. Fecha y Compartir se mantienen.
-- Los nuevos historiales guardan todos los productos del día, incluso Pedido 0, conservando en segundo plano los datos técnicos necesarios para aprendizaje.
-- El aprendizaje incorpora control de observaciones atípicas, confianza basada también en estabilidad y una referencia mensual gradual cuando ya hay al menos dos ciclos de ese mes.
-- Se incorpora la función de revisión del pedido anterior que la interfaz ya intentaba usar pero no estaba definida en la base previa.
-- Backup v25, compatible con restauración de copias anteriores.
-- Las mejoras de notificaciones de v2.24 se mantienen sin cambios.
-- Los workflows ejecutan `lintDebug` antes de compilar y configuran Gradle 8.13 directamente.
+- Pedidos: alta accesible antes de la planilla, días Martes/Jueves/Sábado conservados y Carbón únicamente viernes, con reglas operativas pendientes.
+- Carnes-Vegetales: ayudas Código y Nombre Producto; XLSX y local 953 sin cambios.
+- Notas rápidas: lista de ancho completo, búsqueda, filtros, editor simplificado y borradores independientes recuperables.
+- Tema Claro: nueva paleta de alto contraste y controles más legibles.
+- Se conserva el aprendizaje, historial, importación y exportación de datos.
+- Backup v28; `versionName 2.28`; `versionCode` base 228000 + GITHUB_RUN_NUMBER.
+- El APK no se compiló localmente. La validación definitiva es `lintDebug` seguido de `assembleDebug` en GitHub Actions.
 
-> Nota: el paquete histórico sigue sin `gradle-wrapper.jar`; GitHub Actions no depende de ese wrapper. Durante esta preparación no se compiló un APK localmente.
+Consultar `CAMBIOS_V2_28.txt` y `VALIDACION_V2_28.txt` para los detalles y límites de la validación.
 
 ## Instalar en Android
 
@@ -48,6 +39,10 @@ Copiar `Al-Dia-debug.apk` al teléfono y abrirlo. Android puede pedir habilitar 
 
 Este es un APK **debug**, ideal para pruebas personales. Para una versión final conviene generar un APK firmado con una clave propia.
 
+
+## Historial de versiones anteriores
+
+Las secciones siguientes son antecedentes y no sustituyen el estado vigente v2.28.
 
 ## Actualización 1.1
 

@@ -1,4 +1,4 @@
-AL DÍA — PROYECTO ANDROID v2.26
+AL DÍA — PROYECTO ANDROID v2.28
 
 Este proyecto contiene la app completa embebida dentro del APK. El uso principal funciona de forma local; algunas funciones, como comprobar actualizaciones, requieren Internet.
 
@@ -8,15 +8,24 @@ CONFIGURACIÓN
 - targetSdk / compileSdk: 36
 - orientación: vertical
 - Java: 17
-- versión: 2.26
-- backup: v26
+- versión: 2.28
+- backup: v28
 
-NOVEDADES v2.26
-- Se retira por completo la sección “Revisar pedido anterior” de Pedidos y su flujo de confirmación manual.
-- El resto de Pedidos permanece como en v2.25: foco estable, selector de categoría, arrastre guiado, historial simplificado, fecha/Compartir y sugerencias.
-- Los datos y referencias de aprendizaje ya existentes se conservan; quitar la revisión no borra backups ni historial.
-- Backup v26; importación compatible con copias anteriores.
-- El APK NO fue compilado localmente durante esta preparación; la compilación definitiva debe realizarse con GitHub Actions.
+NOVEDADES v2.28
+- Carbón únicamente viernes, con panel informativo y lógica operativa pendiente.
+- Formularios Carnes-Vegetales: placeholders Código y Nombre Producto.
+- Alta de Pedidos ubicada antes de la planilla y acceso destacado al formulario.
+- Notas rápidas: tarjetas de ancho completo, búsqueda, filtros, editor simplificado y borradores recuperables independientes.
+- Tema Claro renovado para mejorar contraste y lectura en teléfonos.
+- Se conservan los datos, historial, aprendizaje y compatibilidad de backup/importación.
+- Backup v28; versión 2.28; versionCode base 228000.
+- El APK NO fue compilado localmente; validación definitiva por GitHub Actions.
+
+HISTORIAL v2.27
+- Rediseño operativo de Vencimientos, Pedidos y Muestras con planillas móviles.
+- Vencimientos separados por retiro el día y retiro 10 días antes.
+- Pedidos renombrados y recordatorios SRA / 4ta Gama; Carbón añadido como opción pendiente.
+- Se mantiene retirado el flujo Revisar pedido anterior.
 
 NOVEDADES v2.25 (base conservada)
 - Recetas locales deja de depender de un JS externo para mostrarse: las 28 recetas quedan integradas también dentro de index.html, conservando el XLSX y recetas_locales.js como fuentes del proyecto.

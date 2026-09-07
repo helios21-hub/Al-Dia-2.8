@@ -1,0 +1,31 @@
+VALIDACIÓN PREVIA — AL DÍA v2.28
+Fecha: 07-09-2026
+
+[OK] Proyecto completo extraído del ZIP válido v2.27.
+[OK] JavaScript analizado con node --check.
+[OK] HTML parseado sin IDs duplicados.
+[OK] versionName 2.28 y versionCode base 228000.
+[OK] Backup v28, claves históricas conservadas y campo opcional de borradores.
+[OK] Prueba funcional en Chromium aislado con almacenamiento simulado:
+     crear/guardar nota, buscar, checklist, editar, cerrar y recuperar borrador.
+[OK] Dos borradores independientes; guardar uno conserva el otro.
+[OK] Importación de estructura v27 de prueba: notas, campos adicionales,
+     historial, aprendizaje, vencimientos, muestras y planillas conservados.
+[OK] Carbón Viernes muestra su panel; volver a Jueves restablece el alta.
+[OK] Carbón no modifica pedidos, historiales ni perfiles de aprendizaje.
+[OK] Plantilla: placeholders Código / Nombre Producto y guardado de artículo intacto.
+[OK] Añadir producto en Pedidos conserva categoría, cantidad y almacenamiento.
+[OK] Tema Claro y visualización a anchos móviles de 360 y 390 px.
+[OK] Sin errores JavaScript de página en las pruebas ejecutadas.
+[OK] Archivos originales no modificados, excepto los enumerados en CAMBIOS.
+
+LIMITACIONES
+- El navegador de pruebas bloquea la navegación a archivos y localhost;
+  se ejecutó el HTML en una página aislada con una simulación de localStorage.
+  Esto comprueba lógica/interfaz, pero no reproduce Android WebView ni sus puentes nativos.
+- No se compiló ni instaló un APK. No se ejecutó lintDebug ni assembleDebug.
+- El paquete histórico no contiene gradle-wrapper.jar; no se añadió uno ficticio.
+- La validación Android definitiva requiere GitHub Actions con Gradle 8.13,
+  Java 17, SDK 36 y las tareas lintDebug y assembleDebug, en ese orden.
+- No se realizaron pruebas con datos reales del usuario ni se verificaron servicios externos.
+- El flujo operativo completo de Carbón permanece pendiente de definición.

@@ -1,0 +1,11 @@
+AL DÍA v2.14
+
+- Base de aprendizaje rediseñada como planilla compacta.
+- Vista mensual en tres columnas: Frutas, Vegetales y Hortalizas Pesadas.
+- Vista anual tipo matriz con los 12 meses y disponibilidad por producto.
+- Productos de Base de aprendizaje siguen siendo tocables para editar categoría y meses.
+- Categorías de Pedidos contraídas por defecto; se expanden a demanda y conservan su estado durante la sesión.
+- Flecha Volver arriba reubicada arriba y centrada, respetando el margen seguro del teléfono.
+- Revisión general de contraste de temas, botones, campos, tarjetas y etiquetas.
+- Backup interno actualizado a versión 14.
+- versionName 2.14 y versionCode base 214000.

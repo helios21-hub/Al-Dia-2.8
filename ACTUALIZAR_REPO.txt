@@ -1,14 +1,14 @@
-ACTUALIZAR AL DÍA v2.26
+ACTUALIZAR AL DÍA v2.28
 
-Para actualizar un repositorio existente de Al Día:
-1. Reemplazar app/ por la carpeta app/ de este paquete.
-2. Reemplazar build.gradle, settings.gradle y gradle.properties de la raíz.
-3. Reemplazar .github/workflows/build-apk.yml y publicar-actualizacion.yml.
-4. Conservar gradle/wrapper/gradle-wrapper.properties. El paquete no contiene gradle-wrapper.jar; los workflows usan Gradle 8.13 instalado por GitHub Actions.
-5. Subir CAMBIOS_V2_25.txt y VALIDACION_V2_25.txt como referencia.
-6. Ejecutar Actions > Compilar APK Al Día > Run workflow.
-7. Confirmar que primero pase lintDebug y después assembleDebug.
-8. Solo considerar la versión compilada cuando el workflow haya generado el artefacto Al-Dia-APK.
+1. Exportar una copia de seguridad desde la app instalada antes de actualizar.
+2. Subir el contenido COMPLETO de este ZIP a la raíz del repositorio, incluidas las carpetas ocultas .github.
+3. Reemplazar los archivos del proyecto por los del paquete; conservar los datos y el historial del repositorio que sean ajenos a la app.
+4. No sustituir la firma debug fija del proyecto por una clave nueva.
+5. Abrir GitHub > Actions > Compilar APK Al Día > Run workflow.
+6. Confirmar que lintDebug y assembleDebug terminen correctamente.
+7. Descargar Artifacts > Al-Dia-APK y verificar que exista Al-Dia-debug.apk.
+8. Instalarlo como actualización compatible. Si Android rechaza la firma, no desinstalar sin haber exportado una copia de seguridad recuperable.
 
-v2.26 mantiene applicationId com.aldia.app y la misma clave debug fija para permitir actualización sobre versiones anteriores compatibles.
-Backup v25 continúa aceptando las estructuras anteriores; los campos nuevos de aprendizaje e historial son opcionales/migrables.
+El paquete conserva applicationId com.aldia.app, versión 2.28, backup v28 y versionCode base 228000 + GITHUB_RUN_NUMBER.
+El wrapper JAR histórico no está incluido; GitHub Actions configura Gradle 8.13 directamente.
+No se ha compilado ningún APK durante la preparación de este paquete.

@@ -1,0 +1,50 @@
+AL DÍA v2.28 — Usabilidad, Notas rápidas y Tema Claro
+Fecha: 07-09-2026
+Base: proyecto completo v2.27. No se reconstruyó la aplicación.
+
+CAMBIOS IMPLEMENTADOS
+
+CARBÓN
+- Carbón queda asociado únicamente al viernes.
+- Se sustituye el aviso emergente por un panel informativo dentro de Pedidos.
+- Se mantiene pendiente la lógica de carga y cálculo: todavía faltan las categorías y los horarios de Carbón.
+- No se reutilizan ni modifican las reglas ni el aprendizaje de Martes, Jueves y Sábado.
+- Al volver de Carbón a un día normal se restablecen correctamente la vista, el historial y el acceso a Añadir producto.
+
+PLANTILLA CARNES-VEGETALES
+- Artículo * conserva su etiqueta; su placeholder pasa a Código.
+- Descripción * conserva su etiqueta; su placeholder pasa a Nombre Producto.
+- No se alteran los nombres de las propiedades, el local fijo 953, el formato XLSX, el historial ni la exportación nativa.
+
+PEDIDOS
+- El formulario existente de Añadir producto se mueve antes de la planilla.
+- Se incorpora un acceso destacado al principio del pedido que abre y enfoca ese formulario.
+- Se mantiene el mismo formulario, la selección de categoría, meses, cantidad, notas y la lógica de guardado.
+- El alta continúa abierta después de cargar productos consecutivos.
+- Se conservan los nombres Para Martes, Para Jueves, Para Sábado, el recordatorio SRA y el aviso de 4ta Gama.
+- No se reintroduce Revisar pedido anterior.
+
+NOTAS RÁPIDAS
+- Tarjetas de ancho completo con texto y controles más legibles, sin formato de columnas estrechas.
+- Acción Nueva nota claramente visible y botón Abrir y editar en cada nota.
+- Búsqueda de texto y filtros Todas / Fijadas / Con aviso.
+- Formato de listas y recordatorios agrupados como opciones plegables en el editor.
+- Título opcional, cuerpo de texto amplio y botones Guardar/Compartir/Eliminar conservados.
+- Aviso al cerrar con cambios sin guardar.
+- Borradores locales recuperables e independientes por nota; acceso Borradores con contador.
+- Los borradores se incluyen opcionalmente en el backup v28; se conserva el historial antiguo y los campos adicionales de las notas.
+- Se conservan fijado, checklist, tamaño de tarjeta y organización manual.
+
+TEMA CLARO
+- Paleta neutral clara con fondo gris suave, tarjetas blancas, texto oscuro y bordes definidos.
+- Contraste reforzado en controles, encabezados de planilla, etiquetas, estados y acciones.
+- Colores de sección más sobrios y botones primarios con texto blanco.
+- Mejoras de foco de teclado, lectura de campos y adaptación a pantallas estrechas.
+- No se cambian los temas Oscuro, Azul petróleo, Verde bosque ni Grafito como opciones de configuración.
+
+COMPATIBILIDAD
+- applicationId com.aldia.app y firma debug fija conservados.
+- versionName 2.28; versionCode base 228000 + GITHUB_RUN_NUMBER.
+- Backup v28; importación compatible con estructuras anteriores.
+- Se mantienen las claves de almacenamiento existentes; se añade únicamente la clave local de borradores de notas.
+- No se alteran los recursos de recetas, el XLSX fuente ni el generador nativo Carnes-Vegetales.

@@ -1,0 +1,32 @@
+AL DÍA v2.27 — Rediseño operativo de Vencimientos, Pedidos y Muestras
+
+CAMBIOS IMPLEMENTADOS
+
+VENCIMIENTOS
+- La vista activa se divide en dos secciones: “Retirar día del vencimiento” y “Retirar 10 días antes”.
+- Los productos se distribuyen automáticamente según withdrawDays, sin cambiar el formato de datos existente.
+- Vista más compacta, tipo planilla móvil.
+- Alta de vencimiento reorganizada en pasos grandes y fáciles de completar.
+- Se conserva “Productos frecuentes” porque en v2.26 esa función pertenece a Vencimientos; Muestras no tenía esa opción.
+
+PEDIDOS
+- Pestañas renombradas: Para Martes, Para Jueves y Para Sábado.
+- Se muestra Carbón Viernes como opción pendiente, sin activar reglas hasta definir categorías y horarios completos.
+- Próximo pedido ahora muestra explícitamente “Día a hacer pedido”.
+- Añadido recordatorio SRA para FRUTA SECA, JUGOS Y SEMILLAS: Martes y Jueves; edición desde el día anterior al mediodía hasta las 8:30 del mismo día.
+- En Para Jueves y Para Sábado se informa: 4ta Gama disponible para realizar pedido los días Martes y Jueves.
+- Alta de producto reorganizada y más visible.
+- El formulario permanece abierto después de añadir un producto para facilitar carga consecutiva.
+- La lista adopta una cabecera tipo planilla: Producto / Stock / Sugerido / Pedido.
+- No se altera el aprendizaje existente por martes/jueves/sábado.
+
+MUESTRAS
+- Confirmado: v2.26 ya no presentaba ninguna opción “Productos frecuentes”; no se agregó ninguna.
+- Alta de producto reorganizada con campos grandes para móvil.
+- El formulario permanece abierto después de añadir un producto.
+- La lista adopta presentación tipo planilla: Producto / Depósito / Góndola / Total.
+
+COMPATIBILIDAD
+- Se mantiene applicationId com.aldia.app.
+- Backup actualizado a versión 27, manteniendo importación de backups anteriores mediante el mismo esquema de campos.
+- No se reconstruyó la app desde cero.

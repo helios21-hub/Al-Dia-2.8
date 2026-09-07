@@ -1,0 +1,40 @@
+VALIDACIÓN PREVIA — AL DÍA v2.24
+Fecha de revisión: 27-08-2026
+
+RESULTADO ESTÁTICO
+[OK] JavaScript principal extraído de index.html validado con `node --check`.
+[OK] assets/recetas_locales.js validado con `node --check`.
+[OK] HTML parseado sin IDs duplicados.
+[OK] No hay funciones JavaScript declaradas dos veces.
+[OK] AndroidManifest.xml y recursos XML parseados correctamente.
+[OK] Ambos workflows YAML parsean correctamente y conservan ejecución manual `workflow_dispatch`.
+[OK] app/build.gradle: versionName 2.24 y versionCode base 224000 + GITHUB_RUN_NUMBER.
+[OK] compileSdk/targetSdk 36, minSdk 26 y Java 17 se mantienen.
+[OK] Backup v24; applyBackupObject conserva valores por defecto/migraciones para copias anteriores.
+[OK] Biblioteca conserva la Base de aprendizaje existente como pestaña Temporadas.
+[OK] Recetas LOCALES contiene 28 recetas reconstruidas: 14 FRUTA y 14 VERDURA, sin recetas vacías.
+[OK] El XLSX fuente queda empaquetado en assets/biblioteca/Recetas_LOCALES.xlsx.
+[OK] Canal nuevo de notificaciones con IMPORTANCE_HIGH y visibilidad de pantalla bloqueada.
+[OK] Alarma diaria usa setAndAllowWhileIdle() y se reprograme desde NotificationReceiver.
+
+REVISIÓN DE JAVA
+[OK] `javac -proc:none` no mostró diagnósticos de sintaxis (illegal start, fin de archivo inesperado, paréntesis/identificadores inválidos, etc.).
+[INFO] `javac` sí genera referencias no resueltas porque este entorno no contiene Android SDK/android.jar; esas referencias no equivalen a una compilación Android.
+
+REVISIÓN DE GRADLE / GITHUB ACTIONS
+[OK] Root build.gradle mantiene Android Gradle Plugin 8.13.2.
+[OK] Los workflows siguen instalando Android SDK 36 y Gradle 8.13 mediante GitHub Actions.
+[OK] El pipeline conserva `:app:lintDebug` antes de `:app:assembleDebug`.
+[INFO] `gradle-wrapper.jar` no está presente. Se intentó obtener el wrapper oficial, pero este entorno no dispone de salida de red utilizable para descargar el binario. No se inventó ni reemplazó con un archivo falso.
+
+PRUEBA VISUAL AUTOMATIZADA
+[INFO] Se intentó ejecutar Chromium/Playwright sobre los assets actualizados.
+[INFO] El entorno bloquea navegación `file://` y `localhost` para el navegador automatizado y Chromium directo no terminó en el tiempo disponible; por eso no se afirma una prueba visual ejecutada.
+[OK] La estructura de la Biblioteca, filtros y recetas fue validada estáticamente en HTML/JS y contra los datos reales extraídos del XLSX.
+
+LIMITACIÓN DE COMPILACIÓN
+[NO COMPILADO] No se generó APK en este entorno: no hay Android SDK ni Gradle instalados localmente y el wrapper del proyecto carece de gradle-wrapper.jar.
+[PENDIENTE EXTERNO] La validación definitiva es ejecutar en GitHub Actions “Compilar APK Al Día”: debe pasar lintDebug y luego assembleDebug.
+
+CONCLUSIÓN
+La v2.24 queda preparada para intentar compilación real en GitHub Actions. No se afirma que el APK haya compilado hasta que ese workflow termine correctamente.

@@ -1,0 +1,15 @@
+Al Día v2.13
+
+- Nueva sección Base de aprendizaje en Inicio.
+- Productos de temporada visibles por mes, categoría y origen.
+- Pedidos separados en Frutas, Vegetales y Hortalizas Pesadas.
+- Hortalizas pesadas: papas, cebollas, batatas, boniato, zanahoria, ajos y zapallos (excepto zapallitos).
+- Al crear productos nuevos se elige categoría y meses de disponibilidad.
+- Selector rápido de todos/ningún mes.
+- Edición de categoría y meses desde Base de aprendizaje.
+- La plantilla mensual de Pedidos usa la Base de aprendizaje.
+- Resumen de productos activos del mes, todo el año y entradas/salidas del mes siguiente.
+- Origen visible de los datos.
+- Historial/aprendizaje de Pedidos se conserva aunque cambie nombre/categoría.
+- Copia de seguridad v13 incluye Base de aprendizaje.
+- Categorías futuras (Jugos, Leña/Carbón, 4ta Gama, Legumbres) NO se incorporan todavía.

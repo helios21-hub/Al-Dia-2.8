@@ -1,0 +1,33 @@
+AL DÍA — CAMBIOS v2.12
+
+INTERFAZ GENERAL
+- Fichas con separación visual más clara: borde, fondo y sombra suave para distinguir dónde empieza y termina cada registro.
+- Jerarquía de colores más consistente y menos saturada.
+- Menos acciones visibles de forma permanente para reducir ruido visual.
+- Se mantiene tocar una ficha para editar.
+- Deslizar lateralmente una ficha intenta eliminarla y siempre solicita confirmación antes de borrar.
+
+PEDIDOS
+- Productos rediseñados como filas horizontales compactas.
+- Vista rápida: producto, tipo, stock, sugerido y pedido.
+- Precio, movimiento esperado y confianza quedan en una línea secundaria discreta.
+- Tocar Sugerido aplica ese valor al Pedido.
+- Tocar la ficha abre la edición.
+- Mantener pulsada la ficha y arrastrar permite reordenar.
+- Deslizar la ficha hacia un lateral permite eliminar con confirmación.
+- Configuración avanzada y aprendizaje quedan plegados dentro de la edición.
+
+OTROS MÓDULOS
+- Los botones visibles de eliminar de las listas se sustituyen por el gesto lateral cuando corresponde.
+- Las acciones principales siguen visibles cuando son necesarias, por ejemplo Retirar.
+
+NOTIFICACIONES
+- Se mantiene la prueba temporal de alerta real de productos.
+- Se elimina el botón de prueba de notificación genérica.
+
+COPIA DE SEGURIDAD
+- Formato de exportación identificado como versión 12.
+
+VERSIÓN
+- versionName 2.12
+- versionCode base 212000 + GITHUB_RUN_NUMBER

@@ -1,22 +1,10 @@
-AL DÍA v2.26 — PROYECTO COMPLETO PARA RESUBIR A GITHUB
+AL DÍA v2.28 — PROYECTO COMPLETO PARA GITHUB
 
-Subir TODO el contenido de esta carpeta a la raíz del repositorio, incluyendo carpetas ocultas como .github.
+Subir TODO el contenido de esta carpeta a la raíz del repositorio, incluidas las carpetas ocultas.
 
-Elementos críticos:
-- app/
-- app/src/main/assets/index.html
-- app/src/main/assets/recetas_locales.js
-- app/src/main/assets/biblioteca/Recetas_LOCALES.xlsx
-- app/src/main/java/com/aldia/app/
-- app/src/main/AndroidManifest.xml
-- app/build.gradle
-- build.gradle
-- settings.gradle
-- gradle.properties
-- gradle/wrapper/gradle-wrapper.properties
-- .github/workflows/build-apk.yml
-- .github/workflows/publicar-actualizacion.yml
+Elementos críticos: app/, app/src/main/assets/index.html, recetas_locales.js, biblioteca/Recetas_LOCALES.xlsx, app/src/main/java/com/aldia/app/, AndroidManifest.xml, app/build.gradle, archivos Gradle de raíz, gradle/wrapper/gradle-wrapper.properties y .github/workflows/.
 
-La app corresponde a versionName 2.26, backup v26 y versionCode base 226000 + GITHUB_RUN_NUMBER.
-El paquete no contiene gradle-wrapper.jar; GitHub Actions instala Gradle 8.13 directamente.
-Después de subir, ejecutar manualmente “Compilar APK Al Día”. No dar por compilado el APK hasta que lintDebug y assembleDebug terminen correctamente.
+La versión actual es 2.28; backup v28; versionCode base 228000 + GITHUB_RUN_NUMBER.
+La firma debug fija se conserva. No se inventó gradle-wrapper.jar.
+Ejecutar manualmente Compilar APK Al Día. Solo considerar compilada la versión después de que lintDebug y assembleDebug generen el artefacto.
+Consultar CAMBIOS_V2_28.txt y VALIDACION_V2_28.txt.

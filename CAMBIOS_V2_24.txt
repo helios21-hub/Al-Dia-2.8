@@ -1,0 +1,42 @@
+Al Día v2.24 — Biblioteca visual, Recetas LOCALES y notificaciones reforzadas
+
+BIBLIOTECA
+- “Base de aprendizaje” pasa a presentarse como “Biblioteca” en Inicio y dentro del módulo.
+- Se conserva íntegramente la función existente de Productos de temporada dentro de la pestaña “Temporadas”.
+- Se agrega la pestaña “Recetas locales”.
+- Se incorpora Recetas LOCALES.xlsx como fuente empaquetada dentro de assets/biblioteca/Recetas_LOCALES.xlsx.
+- Los datos de FRUTA y VERDURA se reconstruyen en assets/recetas_locales.js para mostrarlos sin depender de abrir Excel externamente.
+- Se incorporan 28 recetas: 14 de FRUTA y 14 de VERDURA.
+- Cada receta conserva la estructura visual principal de la planilla: encabezado negro, códigos, número de receta, franja “Ingredientes” y filas alineadas con código, descripción y cantidad.
+- Se agrega búsqueda por receta, ingrediente, código, scanning o número de receta.
+- Se agregan filtros Todas / FRUTA / VERDURA.
+- Las recetas incluidas con la app son datos de referencia estáticos; no alteran ni sustituyen datos del usuario.
+
+NOTIFICACIONES ANDROID
+- Se crea un canal nuevo `al_dia_alertas_v2` con IMPORTANCE_HIGH. Se usa un ID nuevo porque Android no permite elevar programáticamente la importancia de un canal que ya había sido creado en el teléfono.
+- El canal habilita vibración, visibilidad en pantalla bloqueada y badge.
+- Las notificaciones de vencimientos, notas y pruebas se marcan como prioridad alta, categoría recordatorio, visibilidad pública y defaults de alerta.
+- La alarma diaria deja de usar `setInexactRepeating()` y pasa a una alarma de una sola ejecución con `setAndAllowWhileIdle()`.
+- Al dispararse la alarma diaria, el receiver programa inmediatamente la del día siguiente, incluso si ese día no hay vencimientos para mostrar.
+- Recordatorios de notas y repeticiones continúan usando `setAndAllowWhileIdle()`.
+- No se agregó permiso de alarma exacta: esta versión mejora el funcionamiento con Doze sin obligar al usuario a conceder un permiso especial adicional.
+
+DATOS / BACKUP
+- Backup pasa a v24.
+- No se modifica el esquema de los datos personales existentes.
+- La importación continúa aceptando copias anteriores porque los campos ausentes conservan sus valores/migraciones existentes.
+- Recetas LOCALES no se duplican dentro del backup: forman parte de los assets de la aplicación.
+
+COMPILACIÓN Y MANTENIMIENTO
+- versionName 2.24.
+- versionCode base 224000 + GITHUB_RUN_NUMBER.
+- compileSdk/targetSdk 36, minSdk 26 y Java 17 se mantienen.
+- Android Gradle Plugin 8.13.2 y los workflows con Gradle 8.13 se mantienen.
+- El paquete histórico sigue sin incluir `gradle-wrapper.jar`; los workflows NO dependen del wrapper y configuran Gradle 8.13 directamente.
+
+NO IMPLEMENTADO EN v2.24
+- No se modificó Pedidos ni se agregó todavía la regla especial de Carbón: faltan definir las demás categorías/detalles antes de tocar datos reales.
+- No se simplificaron todavía Notas rápidas.
+- No se rehizo todavía Estaciones.
+- No se implementó todavía el visor interno general de PDFs/documentos.
+- El “Ayudante de Al Día” continúa postergado por decisión del usuario.
