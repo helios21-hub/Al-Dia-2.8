@@ -1,4 +1,4 @@
-AL DÍA — PROYECTO ANDROID v2.28
+AL DÍA — PROYECTO ANDROID v2.30
 
 Este proyecto contiene la app completa embebida dentro del APK. El uso principal funciona de forma local; algunas funciones, como comprobar actualizaciones, requieren Internet.
 
@@ -8,8 +8,8 @@ CONFIGURACIÓN
 - targetSdk / compileSdk: 36
 - orientación: vertical
 - Java: 17
-- versión: 2.28
-- backup: v28
+- versión: 2.30
+- backup: v30
 
 NOVEDADES v2.28
 - Carbón únicamente viernes, con panel informativo y lógica operativa pendiente.
@@ -19,6 +19,17 @@ NOVEDADES v2.28
 - Tema Claro renovado para mejorar contraste y lectura en teléfonos.
 - Se conservan los datos, historial, aprendizaje y compatibilidad de backup/importación.
 - Backup v28; versión 2.28; versionCode base 228000.
+- El APK NO fue compilado localmente; validación definitiva por GitHub Actions.
+
+
+NOVEDADES v2.30
+- Pedidos: entrega automática jueves/sábado/martes según la pestaña.
+- 4ta Gama: visible solamente en Martes y Jueves.
+- Pedidos: un único acceso superior para Añadir producto.
+- Carbón Viernes: acceso Añadir producto incorporado al panel.
+- Próximo pedido: día + fecha automática en formato d/m/aa.
+- Exportación XLSX universal completada con el archivo Java auxiliar correspondiente.
+- Esta versión parte directamente del proyecto v2.28 real.
 - El APK NO fue compilado localmente; validación definitiva por GitHub Actions.
 
 HISTORIAL v2.27

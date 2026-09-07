@@ -7,6 +7,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.zip.ZipEntry;
@@ -41,6 +44,32 @@ public final class CarnesVegetalesXlsx {
         }
         return bytes.toByteArray();
     }
+
+    public static File crearExcelGenerico(Context context,String tituloDocumento,String jsonDatos) throws Exception {
+        File dir=new File(context.getFilesDir(),"xlsx");
+        if(!dir.exists()&&!dir.mkdirs())throw new Exception("No se pudo crear la carpeta XLSX");
+        String base=safeId((tituloDocumento==null||tituloDocumento.trim().isEmpty()?"Al_Dia":tituloDocumento).replaceAll("\\s+","_"));
+        File file=new File(dir,base+"-"+System.currentTimeMillis()+".xlsx");
+        try(FileOutputStream out=new FileOutputStream(file)){out.write(createExcelGenerico(tituloDocumento,jsonDatos));}
+        return file;
+    }
+
+    public static byte[] createExcelGenerico(String tituloDocumento,String jsonDatos) throws Exception {
+        JSONObject root=new JSONObject(jsonDatos==null||jsonDatos.trim().isEmpty()?"{}":jsonDatos);
+        JSONArray rows=root.optJSONArray("rows");if(rows==null)rows=root.optJSONArray("items");if(rows==null)rows=new JSONArray();
+        List<String> headers=new ArrayList<>();JSONArray hs=root.optJSONArray("headers");
+        if(hs!=null)for(int i=0;i<hs.length();i++)headers.add(hs.optString(i,""));
+        if(headers.isEmpty()){LinkedHashMap<String,Boolean> seen=new LinkedHashMap<>();for(int i=0;i<rows.length();i++){JSONObject row=rows.optJSONObject(i);if(row==null)continue;java.util.Iterator<String> it=row.keys();while(it.hasNext())seen.put(it.next(),Boolean.TRUE);}headers.addAll(seen.keySet());}
+        if(headers.isEmpty())headers.add("Dato");
+        ByteArrayOutputStream bytes=new ByteArrayOutputStream();
+        try(ZipOutputStream zip=new ZipOutputStream(bytes)){put(zip,"[Content_Types].xml",genericContentTypes());put(zip,"_rels/.rels",rootRels());put(zip,"xl/workbook.xml",genericWorkbook(tituloDocumento));put(zip,"xl/_rels/workbook.xml.rels",workbookRels());put(zip,"xl/styles.xml",styles());put(zip,"xl/worksheets/sheet1.xml",genericSheet(headers,rows));}
+        return bytes.toByteArray();
+    }
+
+    private static String genericContentTypes(){return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><Types xmlns=\"http://schemas.openxmlformats.org/package/2006/content-types\"><Default Extension=\"rels\" ContentType=\"application/vnd.openxmlformats-package.relationships+xml\"/><Default Extension=\"xml\" ContentType=\"application/xml\"/><Override PartName=\"/xl/workbook.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml\"/><Override PartName=\"/xl/worksheets/sheet1.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml\"/><Override PartName=\"/xl/styles.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml\"/></Types>";}
+    private static String genericWorkbook(String title){String t=(title==null||title.trim().isEmpty()?"Al Día":title.trim()).replaceAll("[\\/:?*\\[\\]]", "_");t=xml(t.substring(0,Math.min(31,t.length())));return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><workbook xmlns=\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\" xmlns:r=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\"><sheets><sheet name=\""+t+"\" sheetId=\"1\" r:id=\"rId1\"/></sheets></workbook>";}
+    private static String genericSheet(List<String> headers,JSONArray rows){StringBuilder head=new StringBuilder(),body=new StringBuilder();for(int i=0;i<headers.size();i++)head.append(dataCell(genericCol(i+1)+"1",headers.get(i)));for(int r=0;r<rows.length();r++){JSONObject row=rows.optJSONObject(r);body.append("<row r=\"").append(r+2).append("\">");for(int c=0;c<headers.size();c++){String key=headers.get(c);String value=row==null?"":row.optString(key,"");body.append(dataCell(genericCol(c+1)+(r+2),value));}body.append("</row>");}StringBuilder cols=new StringBuilder();for(int i=1;i<=headers.size();i++)cols.append("<col min=\"").append(i).append("\" max=\"").append(i).append("\" width=\"18\" customWidth=\"1\"/>");int last=Math.max(1,rows.length()+1);return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><worksheet xmlns=\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\"><dimension ref=\"A1:"+genericCol(headers.size())+last+"\"/><cols>"+cols+"</cols><sheetData><row r=\"1\" ht=\"20\" customHeight=\"1\">"+head+"</row>"+body+"</sheetData><pageMargins left=\"0.7\" right=\"0.7\" top=\"0.75\" bottom=\"0.3\"/></worksheet>";}
+    private static String genericCol(int n){StringBuilder s=new StringBuilder();int x=n;while(x>0){int rem=(x-1)%26;s.insert(0,(char)('A'+rem));x=(x-1)/26;}return s.toString();}
 
     private static JSONArray normalizedItems(JSONObject record) {
         JSONArray items = record.optJSONArray("items");

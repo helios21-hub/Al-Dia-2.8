@@ -1,30 +1,29 @@
-AL DÍA v2.30 — VALIDACIÓN
+AL DÍA v2.30 — VALIDACIÓN CORREGIDA
 Fecha: 07-09-2026
-Base revisada: v2.29 completa.
+Base revisada: v2.28 completa.
 
 VALIDACIONES ESTÁTICAS
-- JavaScript inline de index.html: sintaxis OK con node --check.
-- recetas_locales.js: sintaxis OK con node --check.
+- index.html: JavaScript inline extraído y verificado con node --check.
+- recetas_locales.js: verificado con node --check.
 - AndroidManifest.xml: XML válido.
-- HTML: sin IDs duplicados en markup.
-- ZIP final: integridad verificada después de crear el paquete.
+- HTML: IDs duplicados revisados.
+- ZIP final: integridad verificada.
+- CarnesVegetalesXlsx.java: se agregaron imports de ArrayList, LinkedHashMap y List requeridos por el nuevo código.
+- La expresión regular del nombre de hoja XLSX fue normalizada a un literal Java válido.
+- El método MainActivity.exportarXlsxUniversal tiene ahora su implementación correspondiente en CarnesVegetalesXlsx.
 
 CAMBIOS VERIFICADOS EN FUENTE
-- No existe el texto “Entrega estimada”.
-- Entrega de Martes se calcula para Jueves.
-- Entrega de Jueves se calcula para Sábado.
-- Entrega de Sábado se calcula para Martes.
-- 4ta Gama aparece solo en Martes y Jueves.
-- No existe orderFloatingAddBtn ni su CSS/handler.
-- El botón principal orderOpenAddBtn es el único acceso superior de añadir producto.
-- Carbón Viernes tiene carbonAddProductBtn.
-- Próximo pedido usa formato d/m/aa.
-- Backup usa versión 30.
-- versionName 2.30 y fallback nativo 2.30.
+- No queda el texto “Entrega estimada” en la zona de Pedidos.
+- Martes -> jueves; Jueves -> sábado; Sábado -> martes.
+- 4ta Gama solo en Martes y Jueves.
+- No existe orderFloatingAddBtn.
+- El acceso superior principal es orderOpenAddBtn y el formulario conserva su botón interno únicamente al abrirse.
+- Carbón Viernes incluye carbonAddProductBtn.
+- Próximo pedido usa d/m/aa.
+- Versionado 2.30 / backup v30.
+- MainActivity y CarnesVegetalesXlsx contienen la pareja de métodos necesaria para exportar XLSX genérico.
 
 COMPILACIÓN
-- No fue posible compilar el APK en este entorno.
-- El proyecto no incluye gradle-wrapper.jar.
-- bash ./gradlew assembleDebug devuelve: “Gradle wrapper JAR no incluido en este paquete.”
-- No hay instalación de gradle de sistema disponible.
+- No fue posible compilar el APK en este entorno porque el proyecto no incluye gradle-wrapper.jar y no hay una instalación de Gradle/Android SDK disponible localmente.
 - Por lo tanto, NO se afirma que el APK haya compilado.
+- La validación definitiva debe hacerse en GitHub Actions ejecutando primero lintDebug y luego assembleDebug.

@@ -16,9 +16,9 @@ Proyecto Android de **Al Día**, una app personal para control de vencimientos y
 Los workflows están configurados en modo **manual**. Después de cada actualización, entrá en **Actions** y ejecutá **Run workflow** cuando quieras compilar.
 
 
-## Estado actual — v2.28
+## Estado actual — v2.30
 
-La base válida para continuar es **v2.28**, derivada del ZIP completo v2.27.
+La base válida para continuar es **v2.30**, derivada DIRECTAMENTE del ZIP completo **v2.28 real**.
 No se reconstruyó la app ni se alteró su identificador o su firma debug fija.
 
 - Pedidos: alta accesible antes de la planilla, días Martes/Jueves/Sábado conservados y Carbón únicamente viernes, con reglas operativas pendientes.
@@ -26,7 +26,10 @@ No se reconstruyó la app ni se alteró su identificador o su firma debug fija.
 - Notas rápidas: lista de ancho completo, búsqueda, filtros, editor simplificado y borradores independientes recuperables.
 - Tema Claro: nueva paleta de alto contraste y controles más legibles.
 - Se conserva el aprendizaje, historial, importación y exportación de datos.
-- Backup v28; `versionName 2.28`; `versionCode` base 228000 + GITHUB_RUN_NUMBER.
+- Pedidos: entrega automática Jueves/Sábado/Martes, 4ta Gama solo Martes/Jueves, un único acceso superior para Añadir producto y fecha completa en Próximo pedido.
+- Carbón Viernes incorpora Añadir producto y preselecciona la categoría Carbón.
+- Exportación XLSX universal: MainActivity y CarnesVegetalesXlsx están incluidos en conjunto, con imports necesarios.
+- Backup v30; `versionName 2.30`; `versionCode` base 230000 + GITHUB_RUN_NUMBER.
 - El APK no se compiló localmente. La validación definitiva es `lintDebug` seguido de `assembleDebug` en GitHub Actions.
 
 Consultar `CAMBIOS_V2_28.txt` y `VALIDACION_V2_28.txt` para los detalles y límites de la validación.

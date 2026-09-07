@@ -1,38 +1,41 @@
-AL DÍA v2.30 — Correcciones de Pedidos solicitadas
+AL DÍA v2.30 — ACTUALIZACIÓN CORREGIDA DESDE v2.28
 Fecha: 07-09-2026
-Base: proyecto completo v2.29. No se reconstruyó la aplicación.
+Base: proyecto completo v2.28 real del usuario. No se reconstruyó la aplicación.
 
 PEDIDOS — ENTREGA
 - Se elimina “Entrega estimada”.
-- Martes muestra “Entrega jueves” con la fecha calculada automáticamente.
-- Jueves muestra “Entrega sábado” con la fecha calculada automáticamente.
-- Sábado muestra “Entrega martes” con la fecha calculada automáticamente.
-- La fecha se muestra en formato d/m/aa, por ejemplo “Entrega jueves 10/9/26”.
+- Martes muestra Entrega jueves con fecha automática.
+- Jueves muestra Entrega sábado con fecha automática.
+- Sábado muestra Entrega martes con fecha automática.
+- Formato de fecha: d/m/aa, por ejemplo “Entrega jueves 10/9/26”.
 
 PEDIDOS — 4ta Gama
-- Aparece solo en Martes y Jueves: “4ta Gama: pedidos disponibles Martes y Jueves.”
-- Se elimina de Sábado.
+- Aparece únicamente en Martes y Jueves: “4ta Gama: pedidos disponibles Martes y Jueves.”
+- No aparece en Sábado.
 
 PEDIDOS — AÑADIR PRODUCTO
-- Se elimina el segundo botón blanco que duplicaba “＋ Añadir producto”.
-- Se elimina el acceso flotante adicional para que quede un único botón visible en Pedidos: el marrón superior.
-- El único botón mantiene el formulario de alta existente.
+- Queda un único botón superior visible “＋ Añadir producto”.
+- Se retira el botón duplicado que aparecía debajo.
+- Se mantiene el alta de producto existente.
+- Se mantiene la posibilidad de escribir una categoría personalizada, con sugerencias para Vegetales, Frutas y Hortalizas.
 
 CARBÓN VIERNES
 - Se añade “＋ Añadir producto” al final del panel Carbón Viernes.
-- El botón reutiliza el formulario existente y prepara la categoría “Carbón”.
+- El acceso abre el mismo formulario y preselecciona la categoría Carbón.
 - La lógica operativa completa de Viernes sigue pendiente hasta definir categorías y horarios.
 
 PRÓXIMO PEDIDO
 - Ahora muestra día y fecha completos, por ejemplo “Martes 8/9/26”.
 - La fecha se calcula automáticamente según el próximo día real de pedido.
 
+XLSX UNIVERSAL
+- MainActivity incluye el puente exportarXlsxUniversal.
+- CarnesVegetalesXlsx incluye crearExcelGenerico y createExcelGenerico.
+- Se reutiliza el proveedor de archivos existente de la aplicación.
+- Se incluyen los imports necesarios para evitar el error de compilación que faltaba en la actualización anterior.
+
 VERSIONADO / DATOS
 - versionName 2.30.
 - versionCode base 230000 + GITHUB_RUN_NUMBER.
 - Backup v30.
-- Se preservan los datos, funciones y compatibilidad de importación anteriores.
-
-NO CAMBIADO
-- No se modifica el aprendizaje interno ni el historial técnico.
-- No se implementa todavía la lógica completa de Carbón Viernes.
+- Se conservan applicationId, firma debug fija, aprendizaje, historial e importación/exportación.
