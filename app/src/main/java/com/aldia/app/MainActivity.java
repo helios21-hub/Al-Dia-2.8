@@ -297,8 +297,28 @@ public class MainActivity extends ComponentActivity {
             try {
                 return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             } catch (Exception e) {
-                return "2.28";
+                return "2.30";
             }
+        }
+
+        @JavascriptInterface
+        public void exportarXlsxUniversal(String tituloDocumento, String jsonDatos) {
+            runOnUiThread(() -> {
+                try {
+                    String title = (tituloDocumento == null || tituloDocumento.trim().isEmpty()) ? "Al Día" : tituloDocumento.trim();
+                    File file = CarnesVegetalesXlsx.crearExcelGenerico(MainActivity.this, title, jsonDatos == null ? "{}" : jsonDatos);
+                    String displayName = file.getName();
+                    Uri uri = new Uri.Builder().scheme("content").authority(getPackageName() + ".files").appendPath("xlsx").appendPath(file.getName()).appendQueryParameter("name", displayName).build();
+                    Intent intent = new Intent(Intent.ACTION_SEND);
+                    intent.setType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                    intent.putExtra(Intent.EXTRA_STREAM, uri);
+                    intent.setClipData(ClipData.newRawUri(displayName, uri));
+                    intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    startActivity(Intent.createChooser(intent, "Compartir " + title));
+                } catch (Exception e) {
+                    Toast.makeText(MainActivity.this, "No se pudo preparar el XLSX", Toast.LENGTH_LONG).show();
+                }
+            });
         }
 
         @JavascriptInterface

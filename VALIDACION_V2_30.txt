@@ -1,0 +1,30 @@
+AL DÍA v2.30 — VALIDACIÓN
+Fecha: 07-09-2026
+Base revisada: v2.29 completa.
+
+VALIDACIONES ESTÁTICAS
+- JavaScript inline de index.html: sintaxis OK con node --check.
+- recetas_locales.js: sintaxis OK con node --check.
+- AndroidManifest.xml: XML válido.
+- HTML: sin IDs duplicados en markup.
+- ZIP final: integridad verificada después de crear el paquete.
+
+CAMBIOS VERIFICADOS EN FUENTE
+- No existe el texto “Entrega estimada”.
+- Entrega de Martes se calcula para Jueves.
+- Entrega de Jueves se calcula para Sábado.
+- Entrega de Sábado se calcula para Martes.
+- 4ta Gama aparece solo en Martes y Jueves.
+- No existe orderFloatingAddBtn ni su CSS/handler.
+- El botón principal orderOpenAddBtn es el único acceso superior de añadir producto.
+- Carbón Viernes tiene carbonAddProductBtn.
+- Próximo pedido usa formato d/m/aa.
+- Backup usa versión 30.
+- versionName 2.30 y fallback nativo 2.30.
+
+COMPILACIÓN
+- No fue posible compilar el APK en este entorno.
+- El proyecto no incluye gradle-wrapper.jar.
+- bash ./gradlew assembleDebug devuelve: “Gradle wrapper JAR no incluido en este paquete.”
+- No hay instalación de gradle de sistema disponible.
+- Por lo tanto, NO se afirma que el APK haya compilado.

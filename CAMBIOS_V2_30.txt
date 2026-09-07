@@ -1,0 +1,38 @@
+AL DÍA v2.30 — Correcciones de Pedidos solicitadas
+Fecha: 07-09-2026
+Base: proyecto completo v2.29. No se reconstruyó la aplicación.
+
+PEDIDOS — ENTREGA
+- Se elimina “Entrega estimada”.
+- Martes muestra “Entrega jueves” con la fecha calculada automáticamente.
+- Jueves muestra “Entrega sábado” con la fecha calculada automáticamente.
+- Sábado muestra “Entrega martes” con la fecha calculada automáticamente.
+- La fecha se muestra en formato d/m/aa, por ejemplo “Entrega jueves 10/9/26”.
+
+PEDIDOS — 4ta Gama
+- Aparece solo en Martes y Jueves: “4ta Gama: pedidos disponibles Martes y Jueves.”
+- Se elimina de Sábado.
+
+PEDIDOS — AÑADIR PRODUCTO
+- Se elimina el segundo botón blanco que duplicaba “＋ Añadir producto”.
+- Se elimina el acceso flotante adicional para que quede un único botón visible en Pedidos: el marrón superior.
+- El único botón mantiene el formulario de alta existente.
+
+CARBÓN VIERNES
+- Se añade “＋ Añadir producto” al final del panel Carbón Viernes.
+- El botón reutiliza el formulario existente y prepara la categoría “Carbón”.
+- La lógica operativa completa de Viernes sigue pendiente hasta definir categorías y horarios.
+
+PRÓXIMO PEDIDO
+- Ahora muestra día y fecha completos, por ejemplo “Martes 8/9/26”.
+- La fecha se calcula automáticamente según el próximo día real de pedido.
+
+VERSIONADO / DATOS
+- versionName 2.30.
+- versionCode base 230000 + GITHUB_RUN_NUMBER.
+- Backup v30.
+- Se preservan los datos, funciones y compatibilidad de importación anteriores.
+
+NO CAMBIADO
+- No se modifica el aprendizaje interno ni el historial técnico.
+- No se implementa todavía la lógica completa de Carbón Viernes.

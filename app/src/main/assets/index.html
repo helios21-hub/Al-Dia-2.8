@@ -998,6 +998,9 @@ body.dark .recipe-sheet-block,body.theme-petrol .recipe-sheet-block,body.theme-f
 
 
 
+/* v2.29 - Acceso flotante a Añadir Producto */
+.cat-custom{background:var(--surface-soft);color:var(--text)}
+
 /* v2.25 - Pedidos: foco estable, arrastre guiado e historial simplificado */
 .order-drag-origin{display:none!important}
 .order-drag-ghost{
@@ -1138,6 +1141,7 @@ body:not(.dark) .note-editor-star.pinned{background:#f3cf67;color:#583b08;border
 .order-add-shortcut{display:grid;grid-template-columns:1fr;gap:5px;margin:0 0 10px;padding:9px 10px;background:var(--card);border:1px solid var(--border);border-radius:12px}
 .order-add-shortcut button{width:100%;min-height:46px}
 .order-add-shortcut span{font-size:11px;color:var(--muted);text-align:center;line-height:1.4}
+.carbon-add-product-btn{width:100%;margin-top:10px;min-height:44px}
 .order-add-panel{scroll-margin-top:12px;margin-bottom:12px;border:1px solid var(--border)}
 .order-add-panel .add-product-toggle{min-height:40px}
 .order-add-panel .quick-entry-title{font-size:15px}
@@ -1356,9 +1360,9 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
     <div id="orderSavedProductsPanel" class="saved-products-panel hidden"></div>
 
     <div class="subtabs order-day-tabs">
-      <button class="subtab active" data-order-tab="martes">Para Martes</button>
-      <button class="subtab" data-order-tab="jueves">Para Jueves</button>
-      <button class="subtab" data-order-tab="sabado">Para Sábado</button>
+      <button class="subtab active" data-order-tab="martes">Martes</button>
+      <button class="subtab" data-order-tab="jueves">Jueves</button>
+      <button class="subtab" data-order-tab="sabado">Sábado</button>
       <button class="subtab carbon-pending-tab" id="carbonFridayTab" type="button" aria-expanded="false" aria-controls="carbonFridayPanel">Carbón Viernes</button>
     </div>
     <div id="orderDayInfo" class="order-day-info hidden"></div>
@@ -1366,6 +1370,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
       <strong>Carbón · Viernes</strong>
       <p>El pedido de carbón corresponde únicamente al viernes.</p>
       <div class="footer-note">La carga y el cálculo permanecen pendientes hasta definir las categorías y los horarios correspondientes. No se aplican las reglas de Martes, Jueves ni Sábado.</div>
+      <button class="btn-primary carbon-add-product-btn" id="carbonAddProductBtn" type="button">＋ Añadir producto</button>
     </div>
 
     <div class="view-tabs" id="orderViewTabs">
@@ -1374,12 +1379,11 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
     </div>
 
     <div id="order-current-view">
-      <div class="order-add-shortcut"><button class="btn-primary" id="orderOpenAddBtn" type="button">＋ Añadir producto</button><span>Agregá productos sin bajar hasta el final.</span></div>
+      <div class="order-add-shortcut"><button class="btn-primary" id="orderOpenAddBtn" data-add-panel="order" type="button">＋ Añadir producto</button><span>Agregá productos sin bajar hasta el final.</span></div>
       <div class="card add-product-panel order-add-panel" id="orderAddPanel">
-        <button class="add-product-toggle" type="button" data-add-panel="order"><span>＋ Añadir producto</span><span class="add-panel-arrow">⌄</span></button>
         <form id="orderForm" class="add-product-form quick-entry-form hidden">
           <div class="quick-entry-title">Añadir producto al pedido</div>
-          <div class="quick-entry-grid two-col"><div class="quick-field wide"><label>Producto</label><input id="orderName" list="savedProducts" autocomplete="off" placeholder="Nombre del producto" required><datalist id="savedProducts"></datalist></div><div class="quick-field"><label>Categoría</label><select id="orderCategory"><option value="Frutas">Frutas</option><option value="Vegetales" selected>Vegetales</option><option value="Hortalizas">Hortalizas</option></select></div><div class="quick-field"><label>Unidad</label><select id="orderUnitType"><option value="bulto">Bulto</option><option value="peso">Peso</option></select></div><div class="quick-field"><label>Pedido inicial</label><input id="orderQtyInput" type="number" inputmode="decimal" step="1" min="0" value="0"></div><div class="quick-field wide"><label>Nota <span class="optional-label">opcional</span></label><input id="orderNotes" autocomplete="off" placeholder="Observación breve"></div></div>
+          <div class="quick-entry-grid two-col"><div class="quick-field wide"><label>Producto</label><input id="orderName" list="savedProducts" autocomplete="off" placeholder="Nombre del producto" required><datalist id="savedProducts"></datalist></div><div class="quick-field"><label for="orderCategory">Categoría</label><input list="lista_categorias" id="orderCategory" class="input-form" placeholder="Escribí o seleccioná una categoría" value="Vegetales" autocomplete="off"><datalist id="lista_categorias"><option value="Vegetales"><option value="Frutas"><option value="Hortalizas"></datalist></div><div class="quick-field"><label>Unidad</label><select id="orderUnitType"><option value="bulto">Bulto</option><option value="peso">Peso</option></select></div><div class="quick-field"><label>Pedido inicial</label><input id="orderQtyInput" type="number" inputmode="decimal" step="1" min="0" value="0"></div><div class="quick-field wide"><label>Nota <span class="optional-label">opcional</span></label><input id="orderNotes" autocomplete="off" placeholder="Observación breve"></div></div>
           <details class="compact-optional-details"><summary>Disponibilidad por meses</summary><div class="month-picker" id="orderMonthPicker"><div class="month-picker-head"><label style="margin:0">Meses disponibles</label><button class="month-toggle-all" id="orderMonthsToggleAll" type="button">Seleccionar todos</button></div><div class="month-grid" id="orderMonthsGrid"></div><div class="month-count-note" id="orderMonthsCount">0 de 12 meses seleccionados</div></div></details>
           <div class="sticky-form-action"><button class="btn-primary" type="submit">Añadir producto</button></div>
         </form>
@@ -1646,7 +1650,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
       <strong>Acerca de Al Día</strong>
       <div class="settings-option app-version-row">
         <span>Versión instalada</span>
-        <strong id="appVersionText">2.28</strong>
+        <strong id="appVersionText">2.30</strong>
       </div>
       <button class="secondary-btn" id="checkUpdatesBtn" type="button" style="width:100%">Buscar actualizaciones</button>
       <div class="footer-note" id="updateCheckStatus">Comprueba la última versión publicada en GitHub Releases.</div>
@@ -2109,9 +2113,25 @@ function nextOrderDate(){
 }
 function nextOrderDay(){return nextOrderDate().getDay()}
 function keyFromDow(d){return d===2?"martes":d===4?"jueves":"sabado"}
+function formatShortDate(d){return `${d.getDate()}/${d.getMonth()+1}/${String(d.getFullYear()).slice(-2)}`}
+function nextOccurrenceForOrderDay(dayKey,ref=new Date()){
+  const target={martes:2,jueves:4,sabado:6}[dayKey];
+  const base=new Date(ref.getFullYear(),ref.getMonth(),ref.getDate());
+  const delta=(target-base.getDay()+7)%7;
+  return new Date(base.getFullYear(),base.getMonth(),base.getDate()+delta);
+}
+function orderDeliveryDate(dayKey,ref=new Date()){
+  const add=dayKey==="sabado"?3:2;
+  const orderDate=nextOccurrenceForOrderDay(dayKey,ref);
+  return new Date(orderDate.getFullYear(),orderDate.getMonth(),orderDate.getDate()+add);
+}
+function orderDeliveryLabel(dayKey,ref=new Date()){
+  const d=orderDeliveryDate(dayKey,ref);
+  return `Entrega ${dayLabel(keyFromDow(d.getDay()))} ${formatShortDate(d)}`;
+}
 function nextOrderLabel(){
   const d=nextOrderDate(),key=keyFromDow(d.getDay());
-  return `${dayLabel(key)} ${d.getDate()}`;
+  return `${dayLabel(key)} ${formatShortDate(d)}`;
 }
 
 
@@ -2515,12 +2535,17 @@ function seedLearningCatalog(){
   learningCatalog=[...map.values()].map(x=>({...x,months:[...new Set(x.months)].sort((a,b)=>a-b)}));
 }
 function knowledgeFor(name,create=false){let x=learningCatalog.find(y=>norm(y.name)===norm(name));if(!x&&create){x={id:uid(),name:String(name||""),category:"Vegetales",months:[new Date().getMonth()+1],origin:"Añadido manualmente"};learningCatalog.push(x)}return x}
+function orderCategoryNames(list=[]){
+  const extra=[];
+  list.forEach(x=>{const c=String(x?.category||"").trim();if(c&&!cats.some(base=>norm(base)===norm(c))&&!extra.some(v=>norm(v)===norm(c)))extra.push(c)});
+  return [...cats,...extra.sort((a,b)=>a.localeCompare(b,"es"))];
+}
 function migrateOrderCategoriesV215(){
   const normalizeCategory=(cat,name,group="Vegetales")=>{
     if(cat==="Hortalizas Pesadas")cat="Hortalizas";
     if(norm(name).includes("cebolla de verdeo")||norm(name).includes("verdeo"))return "Vegetales";
-    if(cat==="Frutas / Vegetales"||!cats.includes(cat))return defaultCategoryForProduct(name,group);
-    return cat;
+    if(cat==="Frutas / Vegetales"||!String(cat||"").trim())return defaultCategoryForProduct(name,group);
+    return String(cat).trim();
   };
   learningCatalog.forEach(x=>{x.category=normalizeCategory(x.category,x.name,x.category==="Frutas"?"Frutas":"Vegetales")});
   const fix=x=>{if(!x)return;const group=x.seasonGroup==="Frutas"?"Frutas":"Vegetales";x.category=normalizeCategory(x.category,x.name,group);x.seasonGroup=x.category};
@@ -2528,6 +2553,12 @@ function migrateOrderCategoriesV215(){
   Object.values(orderHistory).flat().forEach(h=>(h.items||[]).forEach(fix));
   Object.values(savedProducts).forEach(fix);
 }
+function updateOrderArrivalReminders(){
+  const day=activeOrderTab;
+  const el=$("recordatorio-"+day);
+  if(el&&["martes","jueves","sabado"].includes(day))el.textContent=formatShortDate(orderDeliveryDate(day));
+}
+function mostrarDia(day){activateRegularOrderDay(day);updateOrderArrivalReminders()}
 function buildMonthlyOrderSuggestion(date=new Date()){seedLearningCatalog();const m=date.getMonth()+1;return learningCatalog.filter(x=>Array.isArray(x.months)&&x.months.includes(m)).map(x=>({name:x.name,seasonGroup:x.category,category:x.category}));}
 function ensureOrderTemplateForDay(day){
   const mk=orderMonthKey();if(orderTemplateState[day]===mk)return false;
@@ -2538,12 +2569,18 @@ function ensureOrderTemplateForDay(day){
 function rememberOrder(name,code,category,unitType,rotation="media",offerReaction="ninguna",expensiveSensitivity="ninguna"){
   if(!name.trim())return;const p=orderProfileFor(name,unitType);p.qtyType=orderQtyType(unitType,name);p.rotation=rotation;p.offerReaction=offerReaction;p.expensiveSensitivity=expensiveSensitivity;savedProducts[norm(name)]={name:name.trim(),code:code.trim(),category,unitType:p.qtyType};const k=knowledgeFor(name,true);k.name=name.trim();k.category=category;renderOrderDatalist();saveAll()
 }
-function renderOrderDatalist(){$("savedProducts").innerHTML=Object.values(savedProducts).sort((a,b)=>a.name.localeCompare(b.name,"es")).map(x=>`<option value="${esc(x.name)}"></option>`).join("")}
+function renderOrderCategoryDatalist(){
+  const el=$("lista_categorias");if(!el)return;
+  const source=[...(orders[activeOrderTab]||[]),...Object.values(savedProducts||{})];
+  const names=orderCategoryNames(source);
+  el.innerHTML=names.map(c=>`<option value="${esc(c)}"></option>`).join("");
+}
+function renderOrderDatalist(){renderOrderCategoryDatalist();$("savedProducts").innerHTML=Object.values(savedProducts).sort((a,b)=>a.name.localeCompare(b.name,"es")).map(x=>`<option value="${esc(x.name)}"></option>`).join("")}
 $("orderName").addEventListener("input",()=>{
   const name=$("orderName").value,p=savedProducts[norm(name)],know=knowledgeFor(name,false),profile=orderProfileFor(name,p?.unitType||"bulto",false);
   if(p||know){
     if(know)initOrderMonthPicker(know.months);
-    if($("orderCategory"))$("orderCategory").value=cats.includes(know?.category)?know.category:(cats.includes(p?.category)?p.category:"Vegetales");
+    if($("orderCategory"))$("orderCategory").value=String(know?.category||p?.category||"Vegetales");
     if(p&&profile)$("orderUnitType").value=orderQtyType(profile.qtyType||p.unitType,p.name);
     toggleQtyInput();
   }
@@ -2564,10 +2601,10 @@ function refreshOrderCardCalculation(id){
 }
 const orderCategoryExpanded={martes:{},jueves:{},sabado:{}};
 function renderOrders(){
-  ensureOrderTemplateForDay(activeOrderTab);const current=orders[activeOrderTab],visible=current;current.forEach(x=>{x.stockCurrent=Math.max(0,Number(x.stockCurrent)||0);x.priceState=["oferta","normal","caro"].includes(x.priceState)?x.priceState:"normal";x.expectedMovement=["poco","normal","mucho"].includes(x.expectedMovement)?x.expectedMovement:"normal";const p=orderProfileFor(x.name,x.unitType);x.unitType=p.qtyType});
+  ensureOrderTemplateForDay(activeOrderTab);renderOrderCategoryDatalist();const current=orders[activeOrderTab],visible=current;current.forEach(x=>{x.stockCurrent=Math.max(0,Number(x.stockCurrent)||0);x.priceState=["oferta","normal","caro"].includes(x.priceState)?x.priceState:"normal";x.expectedMovement=["poco","normal","mucho"].includes(x.expectedMovement)?x.expectedMovement:"normal";const p=orderProfileFor(x.name,x.unitType);x.unitType=p.qtyType});
   $("orderTitle").textContent=`Para ${dayLabel(activeOrderTab)}`;$("orderSeasonHint").textContent=`Temporada · ${capitalizeFirstUserLetter(ORDER_MONTH_NAMES[new Date().getMonth()])} · aprendizaje independiente para ${dayLabel(activeOrderTab)}`;$("orderCount").textContent=`${current.length} producto${current.length===1?"":"s"}`;$("orderEmpty").style.display=visible.length?"none":"block";$("orderCategories").innerHTML="";
-  if($("orderDayInfo")){const show=$("carbonFridayPanel").classList.contains("hidden")&&(activeOrderTab==="jueves"||activeOrderTab==="sabado");$("orderDayInfo").classList.toggle("hidden",!show);$("orderDayInfo").innerHTML=show?`<strong>4ta Gama</strong><span>Pedidos disponibles para realizar los días <b>Martes y Jueves</b>.</span>`:"";}
-  cats.forEach(cat=>{const ps=visible.filter(x=>(x.category||cats[0])===cat);if(!ps.length)return;const wrap=document.createElement("div");wrap.className="order-category";wrap.dataset.orderCategoryWrap=cat;const id="cat-"+activeOrderTab+"-"+cat.replace(/[^a-z0-9]/gi,"-");let body=ps.map(orderItemCardHtml).join("");const cls=cat==="Frutas"?"cat-frutas":cat==="Vegetales"?"cat-vegetales":"cat-hortalizas-pesadas";const open=!!orderCategoryExpanded[activeOrderTab]?.[cat];wrap.innerHTML=`<button class="category-header order-subgroup-title ${cls}" data-order-category="${esc(cat)}" data-toggle="${id}" aria-expanded="${open}"><span class="order-cat-label"><span class="order-cat-chevron">${open?"▾":"▸"}</span>${esc(cat)}</span><span class="category-count">${ps.length}</span></button><div class="category-body ${open?"":"collapsed"}" id="${id}" data-order-category-body="${esc(cat)}">${body}</div>`;$("orderCategories").appendChild(wrap)});
+  if($("orderDayInfo")){const show=$("carbonFridayPanel").classList.contains("hidden")&&(activeOrderTab==="martes"||activeOrderTab==="jueves"||activeOrderTab==="sabado");$("orderDayInfo").classList.toggle("hidden",!show);const delivery=orderDeliveryDate(activeOrderTab);const cuartaGama=(activeOrderTab==="martes"||activeOrderTab==="jueves")?`<span style="display:block;margin-top:3px"><b>4ta Gama:</b> pedidos disponibles Martes y Jueves.</span>`:"";$("orderDayInfo").innerHTML=show?`<strong>Entrega ${dayLabel(keyFromDow(delivery.getDay()))}</strong><span id="recordatorio-${activeOrderTab}">${esc(formatShortDate(delivery))}</span>${cuartaGama}`:"";}
+  orderCategoryNames(visible).forEach(cat=>{const ps=visible.filter(x=>norm(x.category||cats[0])===norm(cat));if(!ps.length)return;const wrap=document.createElement("div");wrap.className="order-category";wrap.dataset.orderCategoryWrap=cat;const id="cat-"+activeOrderTab+"-"+cat.replace(/[^a-z0-9]/gi,"-");let body=ps.map(orderItemCardHtml).join("");const cls=cat==="Frutas"?"cat-frutas":cat==="Vegetales"?"cat-vegetales":cat==="Hortalizas"?"cat-hortalizas-pesadas":"cat-custom";const open=!!orderCategoryExpanded[activeOrderTab]?.[cat];wrap.innerHTML=`<button class="category-header order-subgroup-title ${cls}" data-order-category="${esc(cat)}" data-toggle="${id}" aria-expanded="${open}"><span class="order-cat-label"><span class="order-cat-chevron">${open?"▾":"▸"}</span>${esc(cat)}</span><span class="category-count">${ps.length}</span></button><div class="category-body ${open?"":"collapsed"}" id="${id}" data-order-category-body="${esc(cat)}">${body}</div>`;$("orderCategories").appendChild(wrap)});
   document.querySelectorAll("[data-order-category]").forEach(b=>b.onclick=()=>{const cat=b.dataset.orderCategory;orderCategoryExpanded[activeOrderTab][cat]=!orderCategoryExpanded[activeOrderTab][cat];const body=document.getElementById(b.dataset.toggle);body?.classList.toggle("collapsed",!orderCategoryExpanded[activeOrderTab][cat]);b.setAttribute("aria-expanded",String(!!orderCategoryExpanded[activeOrderTab][cat]));const ch=b.querySelector(".order-cat-chevron");if(ch)ch.textContent=orderCategoryExpanded[activeOrderTab][cat]?"▾":"▸"});
   document.querySelectorAll("[data-order-qty]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderQty);if(!x)return;const v=Number(i.value);x.qty=Number.isFinite(v)&&v>=0?v:0;i.value=String(x.qty);saveAll();renderCompletion()});
   document.querySelectorAll("[data-order-stock]").forEach(i=>i.onchange=()=>{const x=current.find(y=>y.id===i.dataset.orderStock);if(!x)return;const v=Number(i.value);x.stockCurrent=Number.isFinite(v)&&v>=0?v:0;i.value=String(x.stockCurrent);saveAll();refreshOrderCardCalculation(x.id);renderCompletion()});
@@ -2577,6 +2614,7 @@ function renderOrders(){
   document.querySelectorAll("[data-order-item-id]").forEach(card=>{card.addEventListener("click",e=>{if(card.dataset.gestureConsumed==="1"){card.dataset.gestureConsumed="0";return}if(e.target.closest("button,input,select"))return;openOrderEdit(card.dataset.orderItemId)})});
   initOrderLongPressReorder();
   refreshSwipeDelete();
+  updateOrderArrivalReminders();
 }
 
 const MONTH_SHORT=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
@@ -2588,7 +2626,7 @@ if($("orderMonthsToggleAll"))$("orderMonthsToggleAll").onclick=()=>{const all=se
 initOrderMonthPicker();
 $("orderForm").onsubmit=e=>{
   e.preventDefault();
-  const name=$("orderName").value.trim(),type=$("orderUnitType").value,qty=Number($("orderQtyInput").value||0),months=selectedOrderMonths(),existing=savedProducts[norm(name)]||null,cat=cats.includes($("orderCategory")?.value)?$("orderCategory").value:"Vegetales",code=existing?.code||"",profile=orderProfileFor(name,type,true);
+  const name=$("orderName").value.trim(),type=$("orderUnitType").value,qty=Number($("orderQtyInput").value||0),months=selectedOrderMonths(),existing=savedProducts[norm(name)]||null,cat=String($("orderCategory")?.value||"Vegetales").trim()||"Vegetales",code=existing?.code||"",profile=orderProfileFor(name,type,true);
   if(!name)return showToast("Ingresá un nombre.");
   if(!months.length)return showToast("Seleccioná al menos un mes de disponibilidad.");
   if(!Number.isFinite(qty)||qty<0)return showToast("Ingresá una cantidad válida.");
@@ -2633,7 +2671,7 @@ function renderOrderHistory(){
   $("orderHistoryTitle").textContent=`Historial · Para ${dayLabel(activeOrderTab)}`;$("orderHistoryCount").textContent=q?`${visible.length} de ${h.length}`:`${h.length} pedido${h.length===1?"":"s"}`;$("orderHistoryEmpty").style.display=visible.length?"none":"block";$("orderHistoryEmpty").textContent=q?"No hay coincidencias en este historial.":"Todavía no hay pedidos guardados.";$("orderHistoryList").innerHTML="";
   visible.forEach(e=>{
     const open=!!orderHistoryOpen[e.id],card=document.createElement("div");card.className="history-order-card";
-    const groups=cats.map(c=>orderHistorySimpleCategoryHtml(c,(e.items||[]).filter(x=>(x.category||cats[0])===c))).join("");
+    const groups=orderCategoryNames(e.items||[]).map(c=>orderHistorySimpleCategoryHtml(c,(e.items||[]).filter(x=>norm(x.category||cats[0])===norm(c)))).join("");
     card.innerHTML=`<button class="history-delete" data-del-oh="${e.id}"><span aria-hidden="true">×</span></button><button class="sample-history-header" data-toggle-order-history="${e.id}" type="button"><div class="sample-history-title"><span class="sample-history-chevron">${open?"▾":"▸"}</span><span>Pedido guardado</span></div><span class="sample-history-date">${esc(e.dateLabel||"")}</span></button><div class="sample-history-body ${open?"":"hidden"}">${groups}<button class="share-btn" data-share-order-history="${e.id}" type="button" style="width:100%;margin-top:8px">Compartir pedido</button></div>`;
     $("orderHistoryList").appendChild(card)
   });
@@ -3636,6 +3674,13 @@ if($("carbonFridayTab")) $("carbonFridayTab").onclick=()=>{
   document.querySelectorAll("[data-order-view]").forEach(b=>b.classList.toggle("active",b.dataset.orderView==="current"));
   collapseAddPanel("order");
 };
+$('carbonAddProductBtn')?.addEventListener('click',()=>{
+  const previous=activeOrderTab;
+  activateRegularOrderDay(previous);
+  $('orderCategory').value='Carbón';
+  openOrderAddFromShortcut();
+  showToast('Alta de producto preparada con categoría Carbón. La lógica de Viernes sigue pendiente.');
+});
 document.querySelectorAll("[data-expiry-view]").forEach(b=>b.onclick=()=>setExpiryView(b.dataset.expiryView));
 document.querySelectorAll("[data-order-view]").forEach(b=>b.onclick=()=>{if(!$("carbonFridayPanel").classList.contains("hidden"))activateRegularOrderDay(activeOrderTab);document.querySelectorAll("[data-order-view]").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("order-current-view").classList.toggle("hidden",b.dataset.orderView!=="current");$("order-history-view").classList.toggle("hidden",b.dataset.orderView!=="history");if(b.dataset.orderView==="history")renderOrderHistory()});
 function activateRegularOrderDay(day){
@@ -3650,7 +3695,7 @@ function activateRegularOrderDay(day){
   document.querySelectorAll(".order-day-tabs .subtab").forEach(b=>b.classList.toggle("active",b.dataset.orderTab===day));
   activeOrderTab=day;renderAll();
 }
-document.querySelectorAll(".subtab[data-order-tab]").forEach(b=>b.onclick=()=>activateRegularOrderDay(b.dataset.orderTab));
+document.querySelectorAll(".subtab[data-order-tab]").forEach(b=>b.onclick=()=>mostrarDia(b.dataset.orderTab));
 document.querySelectorAll("[data-expiry-filter]").forEach(b=>b.onclick=()=>{
   document.querySelectorAll("[data-expiry-filter]").forEach(x=>x.classList.remove("active"));
   b.classList.add("active");
@@ -3709,7 +3754,7 @@ function backupSummaryText(d,includeTitle=true){
   return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos guardados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}`;
 }
 function currentBackupObject(){
-  return {version:28,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,noteDraft:noteDraftRead(),consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:30,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,noteDraft:noteDraftRead(),consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;
