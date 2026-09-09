@@ -998,6 +998,9 @@ body.dark .recipe-sheet-block,body.theme-petrol .recipe-sheet-block,body.theme-f
 
 
 
+/* v2.31 - formularios colapsables, limpiar campos y Carbón Viernes */
+.add-panel-symbol{display:inline-block;min-width:16px;font-weight:950}.add-panel-label{display:inline-block}.add-product-toggle.open .add-panel-symbol{transform:none}.add-product-toggle.open .add-panel-label{}
+.clearable-input-wrap{position:relative;display:block;width:100%}.clearable-input-wrap>input,.clearable-input-wrap>textarea{width:100%;padding-right:34px!important;box-sizing:border-box}.clear-input-btn{position:absolute;right:7px;top:50%;transform:translateY(-50%);width:24px;height:24px;min-height:24px!important;padding:0!important;border:0!important;border-radius:50%!important;background:var(--surface-strong)!important;color:var(--muted)!important;box-shadow:none!important;font-size:16px!important;line-height:24px!important;font-weight:900;display:none;align-items:center;justify-content:center;z-index:2}.clear-input-btn.visible{display:flex}.carbon-friday-list{display:grid;gap:7px;margin:12px 0}.carbon-friday-empty{padding:10px;border:1px dashed var(--border);border-radius:10px;color:var(--muted);font-size:10.5px;text-align:center}.carbon-friday-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;border:1px solid rgba(114,85,50,.25);border-left:4px solid #725532;border-radius:10px;padding:9px 10px;background:var(--surface-soft)}.carbon-friday-item strong{display:block;font-size:12px}.carbon-friday-meta{margin-top:2px;font-size:9.5px;color:var(--muted)}.carbon-friday-actions{display:flex;gap:5px}.carbon-friday-actions button{min-height:30px!important;padding:5px 8px!important;font-size:9.5px!important;border-radius:8px!important}
 /* v2.29 - Acceso flotante a Añadir Producto */
 .cat-custom{background:var(--surface-soft);color:var(--text)}
 
@@ -1369,8 +1372,20 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
     <div id="carbonFridayPanel" class="card carbon-friday-panel hidden" role="region" aria-label="Carbón Viernes">
       <strong>Carbón · Viernes</strong>
       <p>El pedido de carbón corresponde únicamente al viernes.</p>
+      <div id="carbonFridayList" class="carbon-friday-list"></div>
       <div class="footer-note">La carga y el cálculo permanecen pendientes hasta definir las categorías y los horarios correspondientes. No se aplican las reglas de Martes, Jueves ni Sábado.</div>
-      <button class="btn-primary carbon-add-product-btn" id="carbonAddProductBtn" type="button">＋ Añadir producto</button>
+      <button class="btn-primary carbon-add-product-btn" id="carbonAddProductBtn" type="button" data-add-panel="carbon" aria-expanded="false"><span class="add-panel-symbol">＋</span><span class="add-panel-label">Añadir producto</span></button>
+      <form id="carbonOrderForm" class="add-product-form quick-entry-form hidden">
+        <div class="quick-entry-title">Añadir producto al pedido de Carbón · Viernes</div>
+        <div class="quick-entry-grid two-col">
+          <div class="quick-field wide"><label>Producto</label><input id="carbonOrderName" autocomplete="off" placeholder="Nombre del producto" required></div>
+          <div class="quick-field"><label>Código / EAN <span class="optional-label">opcional</span></label><input id="carbonOrderCode" inputmode="numeric" autocomplete="off" placeholder="Código"></div>
+          <div class="quick-field"><label>Unidad</label><select id="carbonOrderUnitType"><option value="bulto">Bulto</option><option value="peso">Peso</option></select></div>
+          <div class="quick-field"><label>Pedido inicial</label><input id="carbonOrderQtyInput" type="number" inputmode="decimal" step="1" min="0" value="0"></div>
+          <div class="quick-field wide"><label>Nota <span class="optional-label">opcional</span></label><input id="carbonOrderNotes" autocomplete="off" placeholder="Observación breve"></div>
+        </div>
+        <div class="sticky-form-action"><button class="btn-primary" type="submit">Añadir producto a Carbón Viernes</button></div>
+      </form>
     </div>
 
     <div class="view-tabs" id="orderViewTabs">
@@ -1379,7 +1394,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
     </div>
 
     <div id="order-current-view">
-      <div class="order-add-shortcut"><button class="btn-primary" id="orderOpenAddBtn" data-add-panel="order" type="button">＋ Añadir producto</button><span>Agregá productos sin bajar hasta el final.</span></div>
+      <div class="order-add-shortcut"><button class="btn-primary" id="orderOpenAddBtn" data-add-panel="order" type="button" aria-expanded="false"><span class="add-panel-symbol">＋</span><span class="add-panel-label">Añadir producto</span></button><span>Agregá productos sin bajar hasta el final.</span></div>
       <div class="card add-product-panel order-add-panel" id="orderAddPanel">
         <form id="orderForm" class="add-product-form quick-entry-form hidden">
           <div class="quick-entry-title">Añadir producto al pedido</div>
@@ -1650,7 +1665,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
       <strong>Acerca de Al Día</strong>
       <div class="settings-option app-version-row">
         <span>Versión instalada</span>
-        <strong id="appVersionText">2.30</strong>
+        <strong id="appVersionText">2.31</strong>
       </div>
       <button class="secondary-btn" id="checkUpdatesBtn" type="button" style="width:100%">Buscar actualizaciones</button>
       <div class="footer-note" id="updateCheckStatus">Comprueba la última versión publicada en GitHub Releases.</div>
@@ -1728,6 +1743,7 @@ const K={
   expirySaved:"control_vencimientos_productos_guardados_v1",
   expiryLastProduct:"al_dia_vencimientos_ultimo_producto_v1",
   orders:"control_pedidos_v1",
+  carbonOrders:"control_pedidos_carbon_viernes_v1",
   orderHistory:"control_pedidos_historial_v1",
   orderCompletion:"control_pedidos_estado_realizado_v1",
   orderSuggestedQty:"al_dia_pedidos_cantidad_sugerida_v1",
@@ -1763,6 +1779,8 @@ let savedExpiryProducts=JSON.parse(localStorage.getItem(K.expirySaved)||"{}");
 let lastExpiryProductId=String(JSON.parse(localStorage.getItem(K.expiryLastProduct)||'""')||"");
 let expirySelectedProductId=null;
 let orders=JSON.parse(localStorage.getItem(K.orders)||'{"martes":[],"jueves":[],"sabado":[]}');
+let carbonOrders=JSON.parse(localStorage.getItem(K.carbonOrders)||'[]');
+if(!Array.isArray(carbonOrders))carbonOrders=[];
 let orderHistory=JSON.parse(localStorage.getItem(K.orderHistory)||'{"martes":[],"jueves":[],"sabado":[]}');
 let orderCompletion=JSON.parse(localStorage.getItem(K.orderCompletion)||'{"martes":null,"jueves":null,"sabado":null}');
 let orderSuggestedQty=JSON.parse(localStorage.getItem(K.orderSuggestedQty)||"{}");
@@ -1844,6 +1862,7 @@ const saveAll=()=>{
   saveJsonIfChanged(K.expirySaved,savedExpiryProducts);
   saveJsonIfChanged(K.expiryLastProduct,lastExpiryProductId);
   saveJsonIfChanged(K.orders,orders);
+  saveJsonIfChanged(K.carbonOrders,carbonOrders);
   saveJsonIfChanged(K.orderHistory,orderHistory);
   saveJsonIfChanged(K.orderCompletion,orderCompletion);
   saveJsonIfChanged(K.orderSuggestedQty,orderSuggestedQty);
@@ -2038,17 +2057,62 @@ function setAddPanel(name,open){
   if(name==="order")body=$("orderForm");
   if(name==="sample")body=$("sampleAddBody");
   if(name==="consultor")body=$("consultorForm");
+  if(name==="carbon")body=$("carbonOrderForm");
   if(!body)return;
   body.classList.toggle("hidden",!open);
   btn.classList.toggle("open",!!open);
+  btn.setAttribute("aria-expanded",String(!!open));
+  const sym=btn.querySelector(".add-panel-symbol");if(sym)sym.textContent=open?"−":"＋";
+  const label=btn.querySelector(".add-panel-label");if(label)label.textContent=name==="carbon"?"Añadir producto":(open?"Ocultar formulario":"Añadir producto");
+  const first=btn.querySelector("span:first-child:not(.add-panel-symbol)");
+  if(!label&&first){
+    const base=(btn.dataset.addClosedLabel||first.textContent||"").replace(/^[＋+−-]\s*/,"");
+    btn.dataset.addClosedLabel=base;first.textContent=(open?"− ":"＋ ")+base;
+  }
 }
 function collapseAddPanel(name){setAddPanel(name,false)}
 document.querySelectorAll("[data-add-panel]").forEach(btn=>btn.onclick=()=>{
   const name=btn.dataset.addPanel;
-  let body=name==="expiry"?$("expiryForm"):name==="order"?$("orderForm"):name==="sample"?$("sampleAddBody"):$("consultorForm");
+  if(name==="carbon")return;
+  let body=name==="expiry"?$("expiryForm"):name==="order"?$("orderForm"):name==="sample"?$("sampleAddBody"):name==="carbon"?$("carbonOrderForm"):$(`consultorForm`);
   if(body)setAddPanel(name,body.classList.contains("hidden"));
 });
 
+
+function enhanceClearableInputs(root=document){
+  const fields=root.querySelectorAll?.("input:not([data-clearable-enhanced]):not([type=hidden]):not([type=date]):not([type=checkbox]):not([type=radio]):not([type=file]):not([type=button]):not([type=submit]), textarea:not([data-clearable-enhanced])")||[];
+  fields.forEach(input=>{
+    if(input.disabled||input.readOnly)return;
+    input.dataset.clearableEnhanced="1";
+    const wrap=document.createElement("span");wrap.className="clearable-input-wrap";
+    input.parentNode.insertBefore(wrap,input);wrap.appendChild(input);
+    const clear=document.createElement("button");clear.type="button";clear.className="clear-input-btn";clear.setAttribute("aria-label","Borrar contenido");clear.title="Borrar";clear.textContent="×";
+    wrap.appendChild(clear);
+    const sync=()=>clear.classList.toggle("visible",String(input.value||"").length>0);
+    input.addEventListener("input",sync);input.addEventListener("change",sync);
+    clear.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();input.value="";input.dispatchEvent(new Event("input",{bubbles:true}));input.dispatchEvent(new Event("change",{bubbles:true}));input.focus({preventScroll:true});sync()});
+    sync();
+  });
+}
+function renderCarbonFriday(){
+  const list=$("carbonFridayList");if(!list)return;
+  if(!carbonOrders.length){list.innerHTML='<div class="carbon-friday-empty">Todavía no agregaste productos para Carbón Viernes.</div>';return}
+  list.innerHTML=carbonOrders.map(x=>`<div class="carbon-friday-item" data-carbon-order-id="${esc(x.id)}"><div><strong>${esc(x.name)}</strong><div class="carbon-friday-meta">${x.qty!=null?`Pedido: ${esc(x.qty)}`:"Pedido: 0"}${x.code?` · Código/EAN: ${esc(x.code)}`:""}${x.notes?` · ${esc(x.notes)}`:""}</div></div><div class="carbon-friday-actions"><button type="button" data-del-carbon="${esc(x.id)}">Retirar</button></div></div>`).join("");
+  enhanceClearableInputs(list);
+}
+function resetCarbonOrderForm(){const f=$("carbonOrderForm");if(!f)return;f.reset();$("carbonOrderQtyInput").value="0"}
+$("carbonOrderForm")?.addEventListener("submit",e=>{
+  e.preventDefault();
+  const name=$("carbonOrderName").value.trim();
+  const code=$("carbonOrderCode").value.trim();
+  const unitType=$("carbonOrderUnitType").value;
+  const qty=Number($("carbonOrderQtyInput").value||0);
+  const notes=$("carbonOrderNotes").value.trim();
+  if(!name)return showToast("Ingresá un producto para Carbón Viernes.");
+  if(carbonOrders.some(x=>norm(x.name)===norm(name)))return showToast("Ese producto ya está en Carbón Viernes.");
+  carbonOrders.push({id:uid(),name,code,unitType,qty,notes,createdAt:new Date().toISOString()});
+  saveAll();renderCarbonFriday();resetCarbonOrderForm();setAddPanel("carbon",false);showToast("Producto añadido a Carbón Viernes.");
+});
 
 function openOrderAddFromShortcut(){
   if(!$("carbonFridayPanel").classList.contains("hidden"))activateRegularOrderDay(activeOrderTab);
@@ -3672,14 +3736,13 @@ if($("carbonFridayTab")) $("carbonFridayTab").onclick=()=>{
   $("order-current-view").classList.add("hidden");
   $("order-history-view").classList.add("hidden");
   document.querySelectorAll("[data-order-view]").forEach(b=>b.classList.toggle("active",b.dataset.orderView==="current"));
-  collapseAddPanel("order");
+  renderCarbonFriday();
+  setAddPanel("carbon",false);
 };
-$('carbonAddProductBtn')?.addEventListener('click',()=>{
-  const previous=activeOrderTab;
-  activateRegularOrderDay(previous);
-  $('orderCategory').value='Carbón';
-  openOrderAddFromShortcut();
-  showToast('Alta de producto preparada con categoría Carbón. La lógica de Viernes sigue pendiente.');
+$("carbonAddProductBtn")?.addEventListener("click",()=>{
+  const open=$("carbonOrderForm").classList.contains("hidden");
+  setAddPanel("carbon",open);
+  if(open){$("carbonOrderForm").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>$("carbonOrderName")?.focus({preventScroll:true}),160)}
 });
 document.querySelectorAll("[data-expiry-view]").forEach(b=>b.onclick=()=>setExpiryView(b.dataset.expiryView));
 document.querySelectorAll("[data-order-view]").forEach(b=>b.onclick=()=>{if(!$("carbonFridayPanel").classList.contains("hidden"))activateRegularOrderDay(activeOrderTab);document.querySelectorAll("[data-order-view]").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("order-current-view").classList.toggle("hidden",b.dataset.orderView!=="current");$("order-history-view").classList.toggle("hidden",b.dataset.orderView!=="history");if(b.dataset.orderView==="history")renderOrderHistory()});
@@ -3754,7 +3817,7 @@ function backupSummaryText(d,includeTitle=true){
   return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos guardados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}`;
 }
 function currentBackupObject(){
-  return {version:30,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,noteDraft:noteDraftRead(),consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:31,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,carbonOrders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,noteDraft:noteDraftRead(),consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;
@@ -3785,6 +3848,7 @@ function applyBackupObject(d,silent=false){
   lastExpiryProductId=typeof d.lastExpiryProductId==="string"?d.lastExpiryProductId:"";
   migrateExpiryProductIds();
   orders=d.orders||{martes:[],jueves:[],sabado:[]};
+  carbonOrders=Array.isArray(d.carbonOrders)?d.carbonOrders:carbonOrders;
   orderHistory=d.orderHistory||{martes:[],jueves:[],sabado:[]};
   orderCompletion=d.orderCompletion||{martes:null,jueves:null,sabado:null};
   orderSuggestedQty=d.orderSuggestedQty&&typeof d.orderSuggestedQty==="object"?d.orderSuggestedQty:{};
@@ -4033,13 +4097,18 @@ function refreshAutomaticMonthIfNeeded(){
   ["martes","jueves","sabado"].forEach(day=>ensureOrderTemplateForDay(day));
   renderOrders();renderLibrary();updateNextOrder();renderDashboard();
 }
+enhanceClearableInputs(document);
+const clearableObserver=new MutationObserver(muts=>{muts.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType===1)enhanceClearableInputs(n)}))});
+clearableObserver.observe(document.body,{childList:true,subtree:true});
+setAddPanel("order",$("orderForm")&&!$("orderForm").classList.contains("hidden"));
+renderCarbonFriday();
 setInterval(refreshAutomaticMonthIfNeeded,60000);
 document.addEventListener("visibilitychange",()=>{if(!document.hidden)refreshAutomaticMonthIfNeeded()});
 
 
-async function handleDeleteAction(target){const expiryBtn=target.closest("[data-del-expiry]");if(expiryBtn){if(!await askConfirm("¿Eliminar este vencimiento?","Eliminar vencimiento",true))return true;const removed=items.find(x=>x.id===expiryBtn.dataset.delExpiry);items=items.filter(x=>x.id!==expiryBtn.dataset.delExpiry);if(removed&&lastExpiryProductId===removed.productId&&!items.some(x=>x.productId===removed.productId))lastExpiryProductId="";saveAll();renderExpiry();renderDashboard();return true}const expiryHistoryBtn=target.closest("[data-del-exp-h]");if(expiryHistoryBtn){if(!await askConfirm("¿Eliminar este registro del historial?","Eliminar registro",true))return true;expiryHistory=expiryHistory.filter(x=>x.id!==expiryHistoryBtn.dataset.delExpH);saveAll();renderExpiryHistory();renderDashboard();return true}const orderBtn=target.closest("[data-del-order]");if(orderBtn){if(!await askConfirm("¿Eliminar este producto?","Eliminar producto",true))return true;orders[activeOrderTab]=orders[activeOrderTab].filter(x=>x.id!==orderBtn.dataset.delOrder);saveAll();renderAll();return true}const orderHistoryBtn=target.closest("[data-del-oh]");if(orderHistoryBtn){if(!await askConfirm("¿Eliminar este pedido del historial?","Eliminar pedido",true))return true;orderHistory[activeOrderTab]=orderHistory[activeOrderTab].filter(x=>x.id!==orderHistoryBtn.dataset.delOh);saveAll();renderOrderHistory();renderDashboard();return true}const savedExpiryBtn=target.closest("[data-del-exp-s]");if(savedExpiryBtn){if(!await askConfirm("¿Eliminar este producto frecuente?","Eliminar producto frecuente",true))return true;delete savedExpiryProducts[savedExpiryBtn.dataset.delExpS];saveAll();renderExpiryDatalist();renderExpirySavedManager();return true}const savedOrderBtn=target.closest("[data-del-os]");if(savedOrderBtn){if(!await askConfirm("¿Eliminar este producto guardado?","Eliminar producto guardado",true))return true;delete savedProducts[savedOrderBtn.dataset.delOs];saveAll();renderOrderDatalist();renderOrderSavedManager();return true}const sampleRowBtn=target.closest("[data-del-sample-row]");if(sampleRowBtn){if(!await askConfirm("¿Eliminar este producto de la muestra?","Eliminar producto",true))return true;sampleTemplates[activeSampleTemplate]=sampleTemplates[activeSampleTemplate].filter(x=>x.id!==sampleRowBtn.dataset.delSampleRow);if(editingSampleId===sampleRowBtn.dataset.delSampleRow)resetSampleForm();sampleLocked=sampleTemplates[activeSampleTemplate].length>0;saveAll();renderSamples();return true}const sampleHistoryBtn=target.closest("[data-del-sample-history]");if(sampleHistoryBtn){if(!await askConfirm("¿Eliminar esta muestra del historial?","Eliminar muestra",true))return true;sampleHistory=sampleHistory.filter(x=>x.id!==sampleHistoryBtn.dataset.delSampleHistory);saveAll();renderSampleHistory();return true}return false;}
+async function handleDeleteAction(target){const carbonBtn=target.closest("[data-del-carbon]");if(carbonBtn){if(!await askConfirm("¿Retirar este producto de Carbón Viernes?","Retirar producto",true))return true;carbonOrders=carbonOrders.filter(x=>x.id!==carbonBtn.dataset.delCarbon);saveAll();renderCarbonFriday();renderDashboard();return true}const expiryBtn=target.closest("[data-del-expiry]");if(expiryBtn){if(!await askConfirm("¿Eliminar este vencimiento?","Eliminar vencimiento",true))return true;const removed=items.find(x=>x.id===expiryBtn.dataset.delExpiry);items=items.filter(x=>x.id!==expiryBtn.dataset.delExpiry);if(removed&&lastExpiryProductId===removed.productId&&!items.some(x=>x.productId===removed.productId))lastExpiryProductId="";saveAll();renderExpiry();renderDashboard();return true}const expiryHistoryBtn=target.closest("[data-del-exp-h]");if(expiryHistoryBtn){if(!await askConfirm("¿Eliminar este registro del historial?","Eliminar registro",true))return true;expiryHistory=expiryHistory.filter(x=>x.id!==expiryHistoryBtn.dataset.delExpH);saveAll();renderExpiryHistory();renderDashboard();return true}const orderBtn=target.closest("[data-del-order]");if(orderBtn){if(!await askConfirm("¿Eliminar este producto?","Eliminar producto",true))return true;orders[activeOrderTab]=orders[activeOrderTab].filter(x=>x.id!==orderBtn.dataset.delOrder);saveAll();renderAll();return true}const orderHistoryBtn=target.closest("[data-del-oh]");if(orderHistoryBtn){if(!await askConfirm("¿Eliminar este pedido del historial?","Eliminar pedido",true))return true;orderHistory[activeOrderTab]=orderHistory[activeOrderTab].filter(x=>x.id!==orderHistoryBtn.dataset.delOh);saveAll();renderOrderHistory();renderDashboard();return true}const savedExpiryBtn=target.closest("[data-del-exp-s]");if(savedExpiryBtn){if(!await askConfirm("¿Eliminar este producto frecuente?","Eliminar producto frecuente",true))return true;delete savedExpiryProducts[savedExpiryBtn.dataset.delExpS];saveAll();renderExpiryDatalist();renderExpirySavedManager();return true}const savedOrderBtn=target.closest("[data-del-os]");if(savedOrderBtn){if(!await askConfirm("¿Eliminar este producto guardado?","Eliminar producto guardado",true))return true;delete savedProducts[savedOrderBtn.dataset.delOs];saveAll();renderOrderDatalist();renderOrderSavedManager();return true}const sampleRowBtn=target.closest("[data-del-sample-row]");if(sampleRowBtn){if(!await askConfirm("¿Eliminar este producto de la muestra?","Eliminar producto",true))return true;sampleTemplates[activeSampleTemplate]=sampleTemplates[activeSampleTemplate].filter(x=>x.id!==sampleRowBtn.dataset.delSampleRow);if(editingSampleId===sampleRowBtn.dataset.delSampleRow)resetSampleForm();sampleLocked=sampleTemplates[activeSampleTemplate].length>0;saveAll();renderSamples();return true}const sampleHistoryBtn=target.closest("[data-del-sample-history]");if(sampleHistoryBtn){if(!await askConfirm("¿Eliminar esta muestra del historial?","Eliminar muestra",true))return true;sampleHistory=sampleHistory.filter(x=>x.id!==sampleHistoryBtn.dataset.delSampleHistory);saveAll();renderSampleHistory();return true}return false;}
 
-document.addEventListener("click",e=>{if(e.target.closest("[data-del-expiry],[data-del-exp-h],[data-del-order],[data-del-oh],[data-del-exp-s],[data-del-os],[data-del-sample-row],[data-del-sample-history]")){e.preventDefault();e.stopImmediatePropagation();handleDeleteAction(e.target)}},true);
+document.addEventListener("click",e=>{if(e.target.closest("[data-del-carbon],[data-del-expiry],[data-del-exp-h],[data-del-order],[data-del-oh],[data-del-exp-s],[data-del-os],[data-del-sample-row],[data-del-sample-history]")){e.preventDefault();e.stopImmediatePropagation();handleDeleteAction(e.target)}},true);
 
 
 window.openFromAndroidIntent=function(target,id){

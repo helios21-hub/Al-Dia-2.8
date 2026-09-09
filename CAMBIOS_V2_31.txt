@@ -1,0 +1,14 @@
+AL DÍA v2.31
+
+Base: v2.30 corregida, derivada directamente de la v2.28 real.
+
+Cambios implementados:
+- Pedidos: el botón + Añadir producto ahora funciona como control desplegable; al abrir muestra − Ocultar formulario y permite volver a minimizar sin perder el contenido escrito.
+- Vencimientos y demás formularios con botón de despliegue: el control +/− se sincroniza con el estado abierto/cerrado.
+- Campos de escritura: se añadió botón × para borrar el contenido con un toque; aparece solo cuando el campo tiene contenido. Se aplica de forma reutilizable a inputs de texto/búsqueda/numéricos y textarea de la app, incluidos formularios dinámicos.
+- Pedidos · Carbón Viernes: ya no reutiliza ni redirige al día normal seleccionado. Tiene almacenamiento independiente, formulario propio y listado propio. Los productos agregados quedan en Carbón Viernes.
+- Carbón Viernes: el botón Añadir producto permanece al final y abre/cierra su formulario.
+- Backup actualizado a v31 incluyendo carbonOrders.
+- Versión 2.31.
+
+No se modificaron las reglas pendientes de cálculo/aprendizaje de Carbón Viernes; únicamente se corrigió su alta y almacenamiento independiente.

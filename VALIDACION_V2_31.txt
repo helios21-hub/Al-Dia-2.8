@@ -1,0 +1,9 @@
+VALIDACIÓN ESTÁTICA v2.31
+
+Base: v2.30 corregida / v2.28 real.
+- JavaScript: pendiente de ejecutar node --check en entorno final.
+- XML/YAML: sin cambios estructurales en recursos.
+- MainActivity.java: fallback de versión actualizado a 2.31.
+- CarnesVegetalesXlsx.java: preservado desde v2.30 corregida.
+- ZIP: se generará y verificará integridad.
+- No se ejecutó compilación Android/assembleDebug en este entorno.
