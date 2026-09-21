@@ -723,6 +723,7 @@ body.dark #tab-muestras .sample-stock-value.weight{color:#fda4af!important}
 .today-summary-item .summary-arrow{color:var(--muted);font-size:18px}
 .today-summary-item.expiry{border-left:3px solid #7aa9c2}
 .today-summary-item.order{border-left:3px solid #c5a06b}
+.today-summary-item.offer{border-left:3px solid #2caf55}
 .today-summary-item.sample{border-left:3px solid #79a18f}
 
 .history-search{
@@ -1269,19 +1270,52 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
 .note-editor-secondary-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.note-editor-secondary-actions button{min-height:40px}
 @media(max-width:520px){.code-list-toolbar{grid-template-columns:1fr 1fr}.code-list-toolbar input{grid-column:1/-1}.code-list-toolbar button{width:100%}.cv-value-grid{grid-template-columns:1fr}.home-order-reminder{grid-template-columns:1fr}.home-order-reminder span{white-space:normal}}
 
+
+
+/* v2.34 - identidad renovada, tema clásico único, campana y Ofertas */
+:root{
+  --bg:#f5f9fd;--card:#ffffff;--text:#102a4c;--muted:#60758f;--border:#dce6f0;
+  --primary:#0f7ae5;--danger:#e53935;--warning:#ef9b22;--ok:#2caf55;
+  --surface-soft:#f7faff;--surface-strong:#edf4fb;--input-bg:#ffffff;
+  --shadow:0 7px 24px rgba(30,74,120,.08);--radius:18px;
+}
+body,body:not(.dark){background:var(--bg)!important;color:var(--text)!important}
+.container{padding:calc(env(safe-area-inset-top) + 18px) 14px 42px!important;max-width:560px}
+.top-nav{position:sticky!important;top:0!important;grid-template-columns:minmax(0,1fr) 44px 44px!important;gap:8px!important;padding:8px 2px 12px!important;background:linear-gradient(180deg,var(--bg) 78%,rgba(245,249,253,0))!important;backdrop-filter:blur(9px)}
+.top-app-identity{gap:10px!important}.top-app-identity .app-icon{width:50px!important;height:50px!important;flex-basis:50px!important;border-radius:15px!important;box-shadow:none!important;background:transparent!important}.top-app-identity .app-icon.brand-leaf img{object-fit:contain!important}.top-app-identity .app-name{font-size:27px!important;line-height:1!important;letter-spacing:-.7px;color:#1155a3}.top-app-identity .app-name span{font-weight:950}.top-app-identity .meta{font-size:11px!important;color:#3d628c!important;margin-top:3px}.brand-copy{min-width:0}
+.settings-btn,.notification-bell-btn{width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;padding:0!important;border-radius:13px!important;background:#fff!important;color:#1556a3!important;border:1px solid #dce8f4!important;box-shadow:0 4px 14px rgba(31,76,121,.07)!important;display:grid;place-items:center;position:relative}.settings-btn{font-size:21px!important}.notification-bell-btn svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}.notification-bell-badge{display:none;position:absolute;right:-4px;top:-5px;min-width:19px;height:19px;padding:0 5px;border-radius:999px;background:#ef4444;color:#fff;font-size:10px;font-weight:900;align-items:center;justify-content:center;border:2px solid var(--bg)}.notification-bell-badge.show{display:flex}
+.main-section{padding-top:16px}.main-section>h1,.section-title-row h1,.notes-board-head h1{font-size:26px!important;color:#102a4c!important;letter-spacing:-.4px}.subtitle{color:#60758f!important}
+.card,.dashboard-card{border:1px solid #dfe9f3!important;border-radius:18px!important;box-shadow:var(--shadow)!important;background:#fff!important}.back-home-btn{margin-bottom:14px!important;border-radius:12px!important;background:#eef5fc!important;color:#1556a3!important;border:1px solid #d8e7f5!important}
+#tab-inicio{padding-top:12px}.home-date-time{background:#fff!important;border-color:#dce8f4!important;box-shadow:0 5px 18px rgba(31,76,121,.06)!important}.dashboard-card{background:linear-gradient(145deg,#eaf7ff,#f5fbff)!important;border-color:#cfe8f8!important}.home-reminders-card{background:linear-gradient(145deg,#effcf3,#f8fffa)!important;border-color:#ccebd6!important}
+.home-section-buttons{grid-template-columns:1fr!important;gap:10px!important}.home-section-btn{min-height:78px!important;padding:13px 15px!important;border-radius:17px!important;border:1px solid #dce6f0!important;border-left-width:1px!important;background:#fff!important;box-shadow:0 5px 18px rgba(31,76,121,.055)!important}.home-section-btn .home-section-top{align-items:center!important}.home-section-btn .home-section-icon{width:39px!important;height:39px!important;display:grid!important;place-items:center!important;border-radius:11px!important;font-size:20px!important;margin-right:10px!important}.home-section-btn.vencimientos .home-section-icon{background:#e2f1ff!important;color:#0f7ae5}.home-section-btn.ofertas .home-section-icon{background:#e7f8ed!important;color:#25a84e}.home-section-btn.notas .home-section-icon{background:#fff6cf!important;color:#d49a00}.home-section-btn.plantilla .home-section-icon{background:#f0e9ff!important;color:#7c4bc0}.home-section-btn.aprendizaje .home-section-icon{background:#eef2f6!important;color:#4e6680}.home-section-btn strong{font-size:15px!important}.home-section-btn small{font-size:11px!important;color:#60758f!important;margin-left:49px!important}.home-section-btn.ofertas{border-color:#d9e9df!important}.home-section-btn.notas{border-color:#eee7cf!important}
+.home-alert-badge{top:10px!important;right:10px!important}.modern-section-title{margin-top:2px}
+
+/* Ofertas */
+.offer-new-btn{width:100%;min-height:50px;background:linear-gradient(135deg,#0f7ae5,#2496f0)!important;box-shadow:0 8px 18px rgba(15,122,229,.2)}
+.offer-view-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:13px 0}.offer-view-tab{min-height:40px;padding:8px 6px;background:#f1f6fb;color:#60758f;border:1px solid #e0e8f1;border-radius:11px;font-size:11px}.offer-view-tab span{display:inline-flex;min-width:20px;height:20px;padding:0 5px;align-items:center;justify-content:center;border-radius:999px;background:#e5edf6;margin-left:3px}.offer-view-tab.active{background:#e7f3ff;color:#0f67c8;border-color:#bcdcff}.offer-view-tab.active span{background:#0f7ae5;color:#fff}
+.offer-list{display:grid;gap:10px}.offer-card{border:1px solid #dfe9f3;border-radius:15px;padding:13px;background:#fff;box-shadow:0 4px 14px rgba(31,76,121,.05)}.offer-card.active{border-left:4px solid #2caf55}.offer-card.upcoming{border-left:4px solid #0f7ae5}.offer-card.finished{border-left:4px solid #94a3b8;opacity:.92}.offer-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.offer-card-title{font-size:15px;font-weight:900;line-height:1.25}.offer-card-sub{font-size:10px;color:var(--muted);margin-top:3px}.offer-status-chip{display:inline-flex;align-items:center;padding:5px 8px;border-radius:999px;font-size:9px;font-weight:900;text-transform:uppercase}.offer-status-chip.active{background:#dcfce7;color:#16723a}.offer-status-chip.upcoming{background:#dbeafe;color:#1556a3}.offer-status-chip.finished{background:#eef2f6;color:#64748b}.offer-card-meta{display:grid;gap:5px;margin-top:10px;font-size:11px;color:#45617f}.offer-card-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:11px}.offer-card-actions button{min-height:37px;padding:6px 8px;font-size:10px}.offer-card-products{margin-top:10px;border-top:1px solid #e6edf4;padding-top:7px}.offer-card-products summary{cursor:pointer;font-size:11px;font-weight:850;color:#1556a3;padding:4px 0}.offer-product-summary-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:7px 0;border-top:1px solid #edf2f7}.offer-product-summary-row:first-of-type{border-top:0}.offer-product-summary-row strong{font-size:11px}.offer-product-summary-row small{display:block;color:var(--muted);font-size:9px;margin-top:2px}.offer-promo{font-weight:900;color:#0f67c8;font-size:11px;white-space:nowrap}
+.offer-editor-card{scroll-margin-top:90px}.offer-editor-head,.offer-products-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.offer-editor-close{width:38px;height:38px;min-height:38px;padding:0;background:#eef4fa;color:#5c7088;font-size:22px}.offer-editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.offer-editor-grid>div{min-width:0}.offer-reminder-box{margin:12px 0;padding:11px;border-radius:13px;background:#f2f8fe;border:1px solid #dceaf7}.offer-reminder-box>strong{display:block;margin-bottom:8px}.offer-check{display:flex;align-items:center;gap:8px;color:var(--text);margin:7px 0}.offer-check input{width:20px;height:20px;min-height:20px;accent-color:#2caf55}.offer-draft-products{display:grid;gap:7px;margin:9px 0 12px}.offer-draft-empty{padding:12px;border:1px dashed #d4e0ea;border-radius:12px;text-align:center;color:var(--muted);font-size:11px}.offer-draft-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:7px;align-items:center;padding:9px 10px;border:1px solid #e0e9f2;border-radius:12px;background:#f9fbfd}.offer-draft-row strong{font-size:11px}.offer-draft-row small{display:block;font-size:9px;color:var(--muted);margin-top:2px}.offer-draft-row button{min-height:32px;padding:5px 7px;font-size:9px}.offer-product-form{border-top:1px solid #e4edf5;padding-top:12px}.offer-product-title{font-size:13px;font-weight:900}.offer-product-actions,.offer-editor-actions{display:grid;grid-template-columns:1fr 1.3fr;gap:8px;margin-top:10px}.offer-editor-actions{margin-top:14px;padding-top:12px;border-top:1px solid #e4edf5}.offer-product-actions button,.offer-editor-actions button{min-height:46px}.offer-products-head{margin-top:12px}
+.notification-center-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.notification-center-list{display:grid;gap:8px}.notification-center-item{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:9px;align-items:center;padding:10px;border:1px solid #e1e9f1;border-radius:13px;background:#fbfdff}.notification-center-icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:#e9f3ff;color:#0f7ae5;font-weight:900}.notification-center-main strong{display:block;font-size:12px}.notification-center-main small{display:block;font-size:9.5px;color:var(--muted);margin-top:2px;line-height:1.35}.notification-center-time{font-size:9px;color:var(--muted);white-space:nowrap}
+#tab-ajustes .settings-option:has(#themeSetting){opacity:.9}
+@media(max-width:430px){.offer-editor-grid{grid-template-columns:1fr}.offer-view-tab{font-size:10px}.top-app-identity .app-name{font-size:24px!important}.top-app-identity .meta{font-size:10px!important}.container{padding-left:12px!important;padding-right:12px!important}}
+
 </style>
 </head>
 <body>
 <div class="container">
   <div class="top-nav" id="topNavBar">
     <div class="app-identity top-app-identity">
-      <div class="app-icon"><img src="al_dia_icono.png" alt=""></div>
-      <div>
-        <div class="app-name">Al Día</div>
-        <div class="meta">Control diario, notas y herramientas</div>
+      <div class="app-icon brand-leaf"><img src="al_dia_leaf.png" alt="Hoja de Al Día"></div>
+      <div class="brand-copy">
+        <div class="app-name"><span>Al Día</span></div>
+        <div class="meta">Tu día organizado</div>
       </div>
     </div>
-    <button class="settings-btn" id="settingsBtn" type="button" aria-label="Ajustes"><span aria-hidden="true">⚙️</span></button>
+    <button class="notification-bell-btn" id="notificationBellBtn" type="button" aria-label="Notificaciones">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
+      <span class="notification-bell-badge" id="notificationBellBadge">0</span>
+    </button>
+    <button class="settings-btn" id="settingsBtn" type="button" aria-label="Ajustes"><span aria-hidden="true">⚙</span></button>
   </div>
 
   <section id="tab-inicio" class="main-section active">
@@ -1317,11 +1351,69 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
     <div class="card">
       <div class="home-access-group-title">Secciones</div>
       <div class="home-section-buttons">
-        <button class="home-section-btn vencimientos" id="homeVencimientosBtn" type="button"><span class="home-alert-badge" id="homeExpiryBadge">0</span><span class="home-section-top"><span class="home-section-icon">⏰</span><strong>Vencimientos</strong></span><small id="homeExpirySummary">Sin vencimientos</small></button>
-        <button class="home-section-btn notas" id="homeNotesBtn" type="button"><span class="home-alert-badge" id="homeNotesBadge">0</span><span class="home-section-top"><span class="home-section-icon">📝</span><strong>Notas rápidas</strong></span><small id="homeNotesSummary">No hay notas pendientes</small></button>
+        <button class="home-section-btn vencimientos" id="homeVencimientosBtn" type="button"><span class="home-alert-badge" id="homeExpiryBadge">0</span><span class="home-section-top"><span class="home-section-icon">▣</span><strong>Vencimientos</strong></span><small id="homeExpirySummary">Sin vencimientos</small></button>
+        <button class="home-section-btn ofertas" id="homeOffersBtn" type="button"><span class="home-alert-badge" id="homeOffersBadge">0</span><span class="home-section-top"><span class="home-section-icon">◆</span><strong>Ofertas</strong></span><small id="homeOffersSummary">Sin ofertas activas</small></button>
+        <button class="home-section-btn notas" id="homeNotesBtn" type="button"><span class="home-alert-badge" id="homeNotesBadge">0</span><span class="home-section-top"><span class="home-section-icon">▤</span><strong>Notas rápidas</strong></span><small id="homeNotesSummary">No hay notas pendientes</small></button>
         <button class="home-section-btn plantilla" id="homePlantillaBtn" type="button"><span class="home-section-top"><span class="home-section-icon">📉</span><strong>Baja de precios</strong></span><small>Preparar y compartir Planilla vegetales</small></button>
         <button class="home-section-btn aprendizaje" id="homeLearningBtn" type="button"><span class="home-section-top"><span class="home-section-icon">🔢</span><strong>Lista de códigos</strong></span><small>Consultar y editar la planilla de códigos</small></button>
       </div>
+    </div>
+  </section>
+
+  <section id="tab-ofertas" class="main-section">
+    <div class="section-title-row modern-section-title"><div><h1>Ofertas</h1><div class="subtitle">Creá y gestioná cada promoción como un bloque completo de productos.</div></div></div>
+    <button class="back-home-btn ofertas" data-back-home type="button">← Volver a Inicio</button>
+
+    <div class="card offers-main-card">
+      <button class="btn-primary offer-new-btn" id="offerNewBtn" type="button">＋ Nueva oferta</button>
+      <div class="offer-view-tabs" role="tablist" aria-label="Estado de ofertas">
+        <button class="offer-view-tab active" data-offer-view="active" type="button">Activas <span id="offerActiveCount">0</span></button>
+        <button class="offer-view-tab" data-offer-view="upcoming" type="button">Próximas <span id="offerUpcomingCount">0</span></button>
+        <button class="offer-view-tab" data-offer-view="finished" type="button">Finalizadas <span id="offerFinishedCount">0</span></button>
+      </div>
+      <div id="offerEmpty" class="empty">Todavía no hay ofertas en esta vista.</div>
+      <div id="offerList" class="offer-list"></div>
+    </div>
+
+    <div class="card offer-editor-card hidden" id="offerEditorCard">
+      <div class="offer-editor-head"><div><strong id="offerEditorTitle">Nueva oferta</strong><div class="footer-note">Las fechas pertenecen al bloque completo, no a cada producto.</div></div><button class="offer-editor-close" id="offerEditorCloseBtn" type="button" aria-label="Cerrar">×</button></div>
+      <div class="offer-editor-grid">
+        <div><label>Tipo de oferta *</label><select id="offerType"><option>Ofertas publicadas fin de semana</option><option>Oferta semanal publicada</option><option>Oferta semanal interna</option><option>Oferta 4ta Gama</option><option>Ofertas internas fin de semana</option></select></div>
+        <div><label>Nombre <span class="optional-label">opcional</span></label><input id="offerTitle" autocomplete="off" placeholder="Ej. Frutas y verduras"></div>
+        <div><label>Fecha de inicio *</label><input id="offerStartDate" type="date"></div>
+        <div><label>Fecha de finalización *</label><input id="offerEndDate" type="date"></div>
+      </div>
+      <div class="offer-reminder-box">
+        <strong>Recordatorios</strong>
+        <label class="offer-check"><input id="offerNotifyStart" type="checkbox" checked><span>Avisarme cuando empieza</span></label>
+        <label class="offer-check"><input id="offerNotifyEnd" type="checkbox" checked><span>Avisarme el último día</span></label>
+      </div>
+
+      <div class="offer-products-head"><div><strong>Productos de la oferta</strong><div class="footer-note">Podés combinar precio de oferta, 2x1 y porcentaje de descuento.</div></div><span class="pill" id="offerDraftCount">0 productos</span></div>
+      <div id="offerDraftProducts" class="offer-draft-products"></div>
+
+      <div class="offer-product-form" id="offerProductForm">
+        <div class="offer-product-title" id="offerProductFormTitle">Añadir producto</div>
+        <div class="offer-editor-grid">
+          <div class="offer-product-name-wrap"><label>Producto *</label><input id="offerProductName" list="offerProductSuggestions" autocomplete="off" placeholder="Escribí el nombre"><datalist id="offerProductSuggestions"></datalist></div>
+          <div><label>Código</label><input id="offerProductCode" data-no-autocap autocomplete="off" placeholder="Opcional"></div>
+          <div><label>Tipo de promoción *</label><select id="offerPromoType"><option value="price">Precio oferta</option><option value="2x1">2x1</option><option value="percent">% descuento</option></select></div>
+          <div id="offerPromoValueWrap"><label id="offerPromoValueLabel">Precio de oferta *</label><input id="offerPromoValue" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0"></div>
+        </div>
+        <div class="offer-product-actions"><button class="secondary-btn" id="offerProductCancelEditBtn" type="button">Limpiar</button><button class="btn-primary" id="offerProductAddBtn" type="button">Añadir producto</button></div>
+      </div>
+
+      <div class="offer-editor-actions"><button class="secondary-btn" id="offerCancelBtn" type="button">Cancelar</button><button class="btn-primary" id="offerSaveBtn" type="button">Guardar oferta</button></div>
+    </div>
+  </section>
+
+  <section id="tab-notificaciones" class="main-section">
+    <div class="section-title-row modern-section-title"><div><h1>Notificaciones</h1><div class="subtitle">Recordatorios y avisos que requieren tu atención.</div></div></div>
+    <button class="back-home-btn" data-back-home type="button">← Volver a Inicio</button>
+    <div class="card notification-center-card">
+      <div class="notification-center-head"><strong>Hoy</strong><span class="pill" id="notificationCenterCount">0 avisos</span></div>
+      <div id="notificationCenterEmpty" class="empty">No hay avisos para hoy.</div>
+      <div id="notificationCenterList" class="notification-center-list"></div>
     </div>
   </section>
 
@@ -1654,7 +1746,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
       <div class="switch-row">
         <div>
           <strong>Notificaciones</strong>
-          <div class="footer-note">Avisos de vencimientos, recordatorios de notas y pedidos programados para el día.</div>
+          <div class="footer-note">Avisos de vencimientos, ofertas, recordatorios de notas y pedidos programados para el día.</div>
         </div>
         <label class="switch" aria-label="Activar notificaciones">
           <input id="notificationSetting" type="checkbox">
@@ -1690,8 +1782,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
         <div class="settings-option">
           <strong>Tema</strong>
           <select id="themeSetting">
-            <option value="light">Claro</option>
-            <option value="dark">Oscuro</option><option value="petrol">Azul petróleo</option><option value="forest">Verde bosque</option><option value="graphite">Grafito / Azul noche</option>
+            <option value="light">Clásico</option>
           </select>
         </div>
         <div class="settings-option">
@@ -1709,7 +1800,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
       <strong>Acerca de Al Día</strong>
       <div class="settings-option app-version-row">
         <span>Versión instalada</span>
-        <strong id="appVersionText">2.33</strong>
+        <strong id="appVersionText">2.34</strong>
       </div>
       <button class="secondary-btn" id="checkUpdatesBtn" type="button" style="width:100%">Buscar actualizaciones</button>
       <div class="footer-note" id="updateCheckStatus">Comprueba la última versión publicada en GitHub Releases.</div>
@@ -1814,6 +1905,7 @@ const K={
   carnesVegetalesDraft:"al_dia_plantilla_carnes_vegetales_borrador_v1",
   learningCatalog:"al_dia_base_aprendizaje_productos_v1",
   codeList:"al_dia_lista_codigos_v1",
+  offers:"al_dia_ofertas_v1",
   settings:"dia_a_dia_ajustes_v1"
 };
 const cats=["Frutas","Vegetales","Hortalizas"];
@@ -1861,6 +1953,8 @@ function defaultCodeListSheets(){
 let codeListSheets=JSON.parse(localStorage.getItem(K.codeList)||"null");
 if(!Array.isArray(codeListSheets)||!codeListSheets.length)codeListSheets=defaultCodeListSheets();
 codeListSheets=codeListSheets.map((sheet,i)=>({name:`Lista ${i+1}`,sourceName:sheet?.sourceName||`Hoja ${i+1}`,rows:Array.isArray(sheet?.rows)?sheet.rows.map(r=>({articuloref:String(r?.articuloref??""),scanning:String(r?.scanning??r?.Scanning??""),descripcion:String(r?.descripcion??r?.Descripción??""),packaging:String(r?.packaging??"")})):[]}));
+let offers=JSON.parse(localStorage.getItem(K.offers)||"[]");
+if(!Array.isArray(offers))offers=[];
 
 function migrateSampleCategories(){
   const aliases={
@@ -1936,6 +2030,7 @@ const saveAll=()=>{
   saveJsonIfChanged(K.carnesVegetalesDraft,carnesVegetalesDraft);
   saveJsonIfChanged(K.learningCatalog,learningCatalog);
   saveJsonIfChanged(K.codeList,codeListSheets);
+  saveJsonIfChanged(K.offers,offers);
   saveJsonIfChanged(K.backupMeta,backupMetaState);
   saveJsonIfChanged(K.expiryProductMemory,expiryProductMemory);
   saveJsonIfChanged(K.orderProductMemory,orderProductMemory);
@@ -2181,14 +2276,11 @@ function openOrderAddFromShortcut(){
 $("orderOpenAddBtn").onclick=openOrderAddFromShortcut;
 
 function applySettings(){
-  const theme=appSettings.theme||"light";
+  appSettings.theme="light";
+  const theme="light";
   document.body.classList.remove("dark","theme-petrol","theme-forest","theme-graphite");
-  if(theme!=="light")document.body.classList.add("dark");
-  if(theme==="petrol")document.body.classList.add("theme-petrol");
-  if(theme==="forest")document.body.classList.add("theme-forest");
-  if(theme==="graphite")document.body.classList.add("theme-graphite");
   document.body.classList.toggle("text-large",appSettings.textSize==="large");
-  if($("themeSetting")) $("themeSetting").value=theme;
+  if($("themeSetting")) $("themeSetting").value="light";
   if($("textSizeSetting")) $("textSizeSetting").value=appSettings.textSize||"normal";
   if($("notificationSetting")) $("notificationSetting").checked=!!appSettings.notifications;
   if($("notificationTimeSetting")) $("notificationTimeSetting").value=appSettings.notificationTime||"06:00";
@@ -2275,7 +2367,7 @@ function syncNativeNotificationData(){
     const minute=Math.max(0,Math.min(59,Number(parts[1]||0)));
     const repeatValue=Number(appSettings.notificationRepeat||0);
     const repeatMinutes=repeatValue===0.5?30:repeatValue===1?60:repeatValue===2?120:0;
-    const dataJson=JSON.stringify({items,orderReminders:ORDER_REMINDERS,notes:notes.map(n=>({id:n.id,title:n.title,text:n.text,reminderDate:n.reminderDate||"",reminderTime:n.reminderTime||"09:00"}))});
+    const dataJson=JSON.stringify({items,orderReminders:ORDER_REMINDERS,notes:notes.map(n=>({id:n.id,title:n.title,text:n.text,reminderDate:n.reminderDate||"",reminderTime:n.reminderTime||"09:00"})),offers:offers.map(o=>({id:o.id,type:o.type,title:o.title||"",startDate:o.startDate,endDate:o.endDate,notifyStart:o.notifyStart!==false,notifyEnd:o.notifyEnd!==false,finishedAt:o.finishedAt||"",products:Array.isArray(o.products)?o.products.length:0}))});
     const signature=JSON.stringify([!!appSettings.notifications,hour,minute,repeatMinutes,dataJson]);
     if(signature===lastNativeNotificationSignature)return;
     lastNativeNotificationSignature=signature;
@@ -2300,6 +2392,9 @@ function renderDashboard(){
   const pinned=notes.filter(n=>n.pinned).length;
   if($("homeNotesSummary"))$("homeNotesSummary").textContent=pinned?`${pinned} nota${pinned===1?"":"s"} importante${pinned===1?"":"s"}`:notes.length?`${notes.length} nota${notes.length===1?"":"s"}`:"No hay notas pendientes";
   setHomeBadge("homeNotesBadge",pinned);
+  const activeOffers=offers.filter(o=>offerStatus(o)==="active").length,upcomingOffers=offers.filter(o=>offerStatus(o)==="upcoming").length;
+  if($("homeOffersSummary"))$("homeOffersSummary").textContent=activeOffers?`${activeOffers} activa${activeOffers===1?"":"s"}${upcomingOffers?` · ${upcomingOffers} próxima${upcomingOffers===1?"":"s"}`:""}`:upcomingOffers?`${upcomingOffers} próxima${upcomingOffers===1?"":"s"}`:"Sin ofertas activas";
+  setHomeBadge("homeOffersBadge",activeOffers+upcomingOffers);
 
   const now=new Date(),todayOrders=orderRemindersForDate(now);
   if($("homeOrderReminderDay"))$("homeOrderReminderDay").textContent=weekDayLong(now);
@@ -2311,10 +2406,12 @@ function renderDashboard(){
     const sub=due?(due>dueProducts?`${due} vencimientos requieren atención.${upcoming?` Además, ${upcoming} próximo${upcoming===1?"":"s"}.`:""}`:(upcoming?`Además, ${upcoming} próximo${upcoming===1?"":"s"}.`:"Requiere atención.")):`${upcoming} vencimiento${upcoming===1?"":"s"} para revisar.`;
     rows.push({type:"expiry",icon:"⏰",title,sub,action:"expiry"});
   }
-  if(todayOrders.length)rows.push({type:"order",icon:"🧾",title:`${todayOrders.length} pedido${todayOrders.length===1?"":"s"} para hoy`,sub:todayOrders.map(x=>`${x.name} · ${x.time}`).join(" · "),action:"none"});
-  if(pinned)rows.push({type:"note",icon:"📝",title:`${pinned} nota${pinned===1?"":"s"} fijada${pinned===1?"":"s"}`,sub:"Tocá Notas rápidas para revisarlas.",action:"notes"});
+  if(todayOrders.length)rows.push({type:"order",icon:"▣",title:`${todayOrders.length} pedido${todayOrders.length===1?"":"s"} para hoy`,sub:todayOrders.map(x=>`${x.name} · ${x.time}`).join(" · "),action:"none"});
+  const todayOfferAlerts=offerAlertsForDate(now);if(todayOfferAlerts.length)rows.push({type:"offer",icon:"◆",title:`${todayOfferAlerts.length} aviso${todayOfferAlerts.length===1?"":"s"} de ofertas hoy`,sub:todayOfferAlerts.map(x=>`${x.title}: ${x.text}`).join(" · "),action:"offers"});
+  if(pinned)rows.push({type:"note",icon:"▤",title:`${pinned} nota${pinned===1?"":"s"} fijada${pinned===1?"":"s"}`,sub:"Tocá Notas rápidas para revisarlas.",action:"notes"});
   if(!rows.length)rows.push({type:"ok",icon:"✓",title:"Sin pendientes destacados",sub:"No hay vencimientos cercanos ni pedidos programados para hoy.",action:"none"});
   $("todaySummaryList").innerHTML=rows.map(r=>`<button class="today-summary-item ${r.type}" type="button" data-today-action="${r.action}" ${r.action==="none"?'disabled':''}><span class="summary-icon">${r.icon}</span><span><span class="summary-title">${esc(r.title)}</span><span class="summary-sub">${esc(r.sub)}</span></span><span class="summary-arrow">${r.action==="none"?'':'›'}</span></button>`).join("");
+  renderNotificationCenter();
 }
 function rememberExpiry(name,code,withdrawDays){
   if(!name.trim())return;
@@ -3597,6 +3694,110 @@ function openExpiryProduct(productId,lotId="",attention=true){
 }
 
 function openLearningEdit(id){const x=learningCatalog.find(y=>y.id===id);if(!x)return;openModal("Editar producto de temporada",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Categoría</label><select id="m3">${cats.map(c=>`<option ${x.category===c?"selected":""}>${c}</option>`).join("")}</select><div class="month-picker"><div class="month-picker-head"><label style="margin:0">Meses disponibles</label><button class="month-toggle-all" id="modalMonthsToggle" type="button">Seleccionar todos</button></div><div class="month-grid" id="modalMonthsGrid">${monthPickerHtml(x.months)}</div><div class="month-count-note" id="modalMonthsCount"></div></div><div class="footer-note">Origen: ${esc(x.origin||"Dato guardado")}</div>`,{type:"learning",id});const upd=()=>{const n=[...$("modalMonthsGrid").querySelectorAll("input:checked")].length;$("modalMonthsCount").textContent=`${n} de 12 meses seleccionados`;$("modalMonthsToggle").textContent=n===12?"Deseleccionar todos":"Seleccionar todos"};$("modalMonthsGrid").querySelectorAll("input").forEach(i=>i.onchange=upd);$("modalMonthsToggle").onclick=()=>{const all=[...$("modalMonthsGrid").querySelectorAll("input:checked")].length===12;$("modalMonthsGrid").querySelectorAll("input").forEach(i=>i.checked=!all);upd()};upd()}
+
+const OFFER_TYPES=["Ofertas publicadas fin de semana","Oferta semanal publicada","Oferta semanal interna","Oferta 4ta Gama","Ofertas internas fin de semana"];
+let offerView="active",offerEditorId="",offerDraftProducts=[],offerProductEditingId="";
+function offerStatus(o){
+  if(o?.finishedAt)return "finished";
+  const t=today(),start=o?.startDate?parseDate(o.startDate):t,end=o?.endDate?parseDate(o.endDate):t;
+  if(end<t)return "finished";
+  if(start>t)return "upcoming";
+  return "active";
+}
+function offerStatusLabel(st){return st==="active"?"Activa":st==="upcoming"?"Próxima":"Finalizada"}
+function offerName(o){return String(o?.title||"").trim()||String(o?.type||"Oferta")}
+function offerPromoLabel(p){
+  if(p.promoType==="2x1")return "2x1";
+  if(p.promoType==="percent")return `${Number(p.value||0)}% OFF`;
+  const n=Number(p.value||0);return `$ ${Number.isFinite(n)?n.toLocaleString("es-AR",{maximumFractionDigits:2}):p.value}`;
+}
+function offerRelativeLabel(o){
+  const st=offerStatus(o);if(st==="finished")return "Oferta finalizada";
+  const t=today(),d=st==="upcoming"?Math.round((parseDate(o.startDate)-t)/86400000):Math.round((parseDate(o.endDate)-t)/86400000);
+  if(st==="upcoming")return d===0?"Empieza hoy":d===1?"Empieza mañana":`Empieza en ${d} días`;
+  return d===0?"Último día":d===1?"Termina mañana":`Termina en ${d} días`;
+}
+function renderOfferProductSuggestions(){
+  const dl=$("offerProductSuggestions");if(!dl)return;
+  const seen=new Set(),opts=[];
+  codeListFlatRows().forEach(r=>{const n=String(r.descripcion||"").trim();if(!n||seen.has(norm(n)))return;seen.add(norm(n));opts.push(`<option value="${esc(n)}"></option>`)});
+  dl.innerHTML=opts.slice(0,1800).join("");
+}
+function findCodeRowByName(name){const n=norm(name);return codeListFlatRows().find(r=>norm(r.descripcion)===n)||null}
+function findCodeRowByCode(code){const c=String(code||"").trim().toLowerCase();return codeListFlatRows().find(r=>[r.articuloref,r.scanning].some(v=>String(v||"").trim().toLowerCase()===c))||null}
+function syncOfferProductFromName(){const r=findCodeRowByName($("offerProductName")?.value||"");if(!r)return;if($("offerProductCode"))$("offerProductCode").value=r.articuloref||""}
+function syncOfferProductFromCode(){const r=findCodeRowByCode($("offerProductCode")?.value||"");if(!r)return;if($("offerProductName"))$("offerProductName").value=r.descripcion||$("offerProductName").value}
+function updateOfferPromoInput(){
+  const type=$("offerPromoType")?.value||"price",wrap=$("offerPromoValueWrap");if(!wrap)return;
+  wrap.classList.toggle("hidden",type==="2x1");
+  if(type==="price"){$("offerPromoValueLabel").textContent="Precio de oferta *";$("offerPromoValue").step="0.01";$("offerPromoValue").max=""}
+  if(type==="percent"){$("offerPromoValueLabel").textContent="Porcentaje de descuento *";$("offerPromoValue").step="1";$("offerPromoValue").max="100"}
+}
+function resetOfferProductForm(){offerProductEditingId="";if($("offerProductName"))$("offerProductName").value="";if($("offerProductCode"))$("offerProductCode").value="";if($("offerPromoType"))$("offerPromoType").value="price";if($("offerPromoValue"))$("offerPromoValue").value="";if($("offerProductFormTitle"))$("offerProductFormTitle").textContent="Añadir producto";if($("offerProductAddBtn"))$("offerProductAddBtn").textContent="Añadir producto";updateOfferPromoInput()}
+function renderOfferDraftProducts(){
+  const box=$("offerDraftProducts");if(!box)return;
+  $("offerDraftCount").textContent=`${offerDraftProducts.length} producto${offerDraftProducts.length===1?"":"s"}`;
+  box.innerHTML=offerDraftProducts.length?offerDraftProducts.map(p=>`<div class="offer-draft-row"><span><strong>${esc(p.name)}</strong><small>${esc(p.code||"Sin código")}</small></span><span class="offer-promo">${esc(offerPromoLabel(p))}</span><span><button class="secondary-btn" type="button" data-offer-product-edit="${p.id}">Editar</button> <button class="btn-danger" type="button" data-offer-product-remove="${p.id}">×</button></span></div>`).join(""):`<div class="offer-draft-empty">Añadí los productos que forman parte de esta oferta.</div>`;
+}
+function openOfferEditor(id=""){
+  offerEditorId=id||"";const o=id?offers.find(x=>x.id===id):null;
+  $("offerEditorTitle").textContent=o?"Editar oferta":"Nueva oferta";
+  $("offerType").value=o?.type||OFFER_TYPES[0];$("offerTitle").value=o?.title||"";
+  const td=localDate(new Date());$("offerStartDate").value=o?.startDate||td;$("offerEndDate").value=o?.endDate||td;
+  $("offerNotifyStart").checked=o?.notifyStart!==false;$("offerNotifyEnd").checked=o?.notifyEnd!==false;
+  offerDraftProducts=JSON.parse(JSON.stringify(o?.products||[]));offerProductEditingId="";renderOfferProductSuggestions();resetOfferProductForm();renderOfferDraftProducts();
+  $("offerEditorCard").classList.remove("hidden");setTimeout(()=>$("offerEditorCard").scrollIntoView({behavior:"smooth",block:"start"}),40)
+}
+function closeOfferEditor(){offerEditorId="";offerDraftProducts=[];offerProductEditingId="";$("offerEditorCard")?.classList.add("hidden");resetOfferProductForm()}
+function saveOfferProduct(){
+  const name=$("offerProductName").value.trim(),code=$("offerProductCode").value.trim(),promoType=$("offerPromoType").value,value=$("offerPromoValue").value.trim();
+  if(!name)return showToast("Escribí el nombre del producto");
+  if(promoType!=="2x1"){
+    const n=Number(value);if(!value||!Number.isFinite(n)||n<0)return showToast(promoType==="percent"?"Ingresá un porcentaje válido":"Ingresá el precio de oferta");
+    if(promoType==="percent"&&(n<=0||n>100))return showToast("El descuento debe estar entre 1 y 100%");
+  }
+  const item={id:offerProductEditingId||uid(),name,code,promoType,value:promoType==="2x1"?"":String(value)};
+  const idx=offerDraftProducts.findIndex(x=>x.id===item.id);if(idx>=0)offerDraftProducts[idx]=item;else offerDraftProducts.push(item);
+  renderOfferDraftProducts();resetOfferProductForm();showToast(idx>=0?"Producto actualizado":"Producto añadido a la oferta")
+}
+function editOfferDraftProduct(id){const p=offerDraftProducts.find(x=>x.id===id);if(!p)return;offerProductEditingId=id;$("offerProductName").value=p.name;$("offerProductCode").value=p.code||"";$("offerPromoType").value=p.promoType||"price";$("offerPromoValue").value=p.value||"";$("offerProductFormTitle").textContent="Editar producto";$("offerProductAddBtn").textContent="Guardar producto";updateOfferPromoInput();$("offerProductForm").scrollIntoView({behavior:"smooth",block:"center"})}
+function saveOffer(){
+  const type=$("offerType").value,title=$("offerTitle").value.trim(),startDate=$("offerStartDate").value,endDate=$("offerEndDate").value;
+  if(!startDate||!endDate)return showToast("Elegí fecha de inicio y finalización");
+  if(parseDate(endDate)<parseDate(startDate))return showToast("La fecha final no puede ser anterior al inicio");
+  if(!offerDraftProducts.length)return showToast("Añadí al menos un producto a la oferta");
+  const old=offerEditorId?offers.find(x=>x.id===offerEditorId):null;
+  const data={id:old?.id||uid(),type,title,startDate,endDate,notifyStart:$("offerNotifyStart").checked,notifyEnd:$("offerNotifyEnd").checked,products:JSON.parse(JSON.stringify(offerDraftProducts)),createdAt:old?.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString(),finishedAt:old?.finishedAt||""};
+  const idx=offers.findIndex(x=>x.id===data.id);if(idx>=0)offers[idx]=data;else offers.unshift(data);saveAll();closeOfferEditor();offerView=offerStatus(data)==="upcoming"?"upcoming":"active";renderOffers();renderDashboard();renderNotificationCenter();showToast(idx>=0?"Oferta actualizada":"Oferta guardada")
+}
+async function finishOffer(id){const o=offers.find(x=>x.id===id);if(!o)return;if(!await askConfirm(`Se finalizará la oferta completa con ${o.products?.length||0} productos.`,`Finalizar ${offerName(o)}`,true))return;o.finishedAt=new Date().toISOString();o.updatedAt=new Date().toISOString();saveAll();renderOffers();renderDashboard();renderNotificationCenter();showToast("Oferta finalizada")}
+async function deleteOffer(id){const o=offers.find(x=>x.id===id);if(!o)return;if(!await askConfirm("¿Eliminar definitivamente esta oferta y todos sus productos?","Eliminar oferta",true))return;offers=offers.filter(x=>x.id!==id);saveAll();renderOffers();renderDashboard();renderNotificationCenter();showToast("Oferta eliminada")}
+function renderOffers(){
+  const counts={active:0,upcoming:0,finished:0};offers.forEach(o=>counts[offerStatus(o)]++);
+  if($("offerActiveCount"))$("offerActiveCount").textContent=counts.active;if($("offerUpcomingCount"))$("offerUpcomingCount").textContent=counts.upcoming;if($("offerFinishedCount"))$("offerFinishedCount").textContent=counts.finished;
+  document.querySelectorAll("[data-offer-view]").forEach(b=>b.classList.toggle("active",b.dataset.offerView===offerView));
+  const arr=offers.filter(o=>offerStatus(o)===offerView).sort((a,b)=>String(a.startDate).localeCompare(String(b.startDate)));
+  if($("offerEmpty"))$("offerEmpty").classList.toggle("hidden",!!arr.length);
+  if($("offerList"))$("offerList").innerHTML=arr.map(o=>{const st=offerStatus(o),products=Array.isArray(o.products)?o.products:[];return `<article class="offer-card ${st}" data-offer-id="${o.id}"><div class="offer-card-head"><div><div class="offer-card-title">${esc(offerName(o))}</div><div class="offer-card-sub">${esc(o.type)}</div></div><span class="offer-status-chip ${st}">${offerStatusLabel(st)}</span></div><div class="offer-card-meta"><span>📅 ${esc(fmt(o.startDate))} → ${esc(fmt(o.endDate))}</span><span>◆ ${products.length} producto${products.length===1?"":"s"}</span><span>${st==="finished"?"✓":st==="active"?"◷":"◴"} ${esc(offerRelativeLabel(o))}</span></div><details class="offer-card-products"><summary>Ver productos</summary>${products.map(p=>`<div class="offer-product-summary-row"><span><strong>${esc(p.name)}</strong><small>${esc(p.code||"Sin código")}</small></span><span class="offer-promo">${esc(offerPromoLabel(p))}</span></div>`).join("")}</details><div class="offer-card-actions"><button class="secondary-btn" type="button" data-offer-edit="${o.id}">Editar</button>${st!=="finished"?`<button class="btn-danger" type="button" data-offer-finish="${o.id}">Finalizar oferta</button>`:`<button class="btn-danger" type="button" data-offer-delete="${o.id}">Eliminar</button>`}</div></article>`}).join("");
+}
+function offerAlertsForDate(date=new Date()){
+  const td=localDate(date),alerts=[];
+  offers.forEach(o=>{if(o.finishedAt)return;const name=offerName(o),count=Array.isArray(o.products)?o.products.length:0;if(o.notifyStart!==false&&o.startDate===td)alerts.push({kind:"offer",icon:"▶",title:"Empieza hoy",text:`${name} · ${count} producto${count===1?"":"s"}`,time:"Hoy",offerId:o.id});if(o.notifyEnd!==false&&o.endDate===td)alerts.push({kind:"offer",icon:"!",title:"Último día",text:`${name} · finaliza hoy`,time:"Hoy",offerId:o.id})});return alerts
+}
+function notificationCenterItems(){
+  const now=new Date(),td=localDate(now),out=[];
+  orderRemindersForDate(now).forEach(x=>out.push({kind:"order",icon:"▣",title:x.name,text:`Hacer pedido antes de ${x.time} hs`,time:x.time}));
+  expiryGroupsFor(items.filter(x=>expiryStatus(x).days<=0)).slice(0,6).forEach(g=>{const r=g[0];out.push({kind:"expiry",icon:"!",title:r.name,text:`${g.length} fecha${g.length===1?"":"s"} para retirar`,time:"Hoy",expiryId:r.id})});
+  out.push(...offerAlertsForDate(now));
+  notes.filter(n=>n.reminderDate===td).forEach(n=>out.push({kind:"note",icon:"▤",title:n.title||"Nota rápida",text:(n.text||"Recordatorio de nota").replace(/\n/g," ").slice(0,110),time:n.reminderTime||"09:00",noteId:n.id}));
+  return out;
+}
+function renderNotificationCenter(){
+  const arr=notificationCenterItems();if($("notificationCenterCount"))$("notificationCenterCount").textContent=`${arr.length} aviso${arr.length===1?"":"s"}`;if($("notificationCenterEmpty"))$("notificationCenterEmpty").classList.toggle("hidden",!!arr.length);if($("notificationCenterList"))$("notificationCenterList").innerHTML=arr.map((a,i)=>`<button class="notification-center-item" type="button" data-notification-index="${i}"><span class="notification-center-icon">${a.icon}</span><span class="notification-center-main"><strong>${esc(a.title)}</strong><small>${esc(a.text)}</small></span><span class="notification-center-time">${esc(a.time||"")}</span></button>`).join("");const b=$("notificationBellBadge");if(b){b.textContent=String(arr.length);b.classList.toggle("show",arr.length>0)}
+  return arr;
+}
+function openNotificationItem(a){if(!a)return;if(a.offerId){openMainTab("ofertas");offerView=offerStatus(offers.find(x=>x.id===a.offerId)||{})||"active";renderOffers();focusElementAfterOpen(`[data-offer-id="${CSS.escape(a.offerId)}"]`);return}if(a.expiryId){openExpiryAttention(a.expiryId);return}if(a.noteId){openMainTab("notas");return}}
+
 function openMainTab(tab){
   if(["pedidos","muestras","consultor"].includes(tab))tab="inicio";
   const prev=getActiveMainTab();
@@ -3609,8 +3810,7 @@ function openMainTab(tab){
     if(a!==-1&&b!==-1&&a!==b)target.classList.add(b>a?"section-enter-right":"section-enter-left");
   }
 
-  const onHome=tab==="inicio";
-  if($("topNavBar")) $("topNavBar").classList.toggle("topbar-hidden",!onHome);
+  if($("topNavBar")) $("topNavBar").classList.remove("topbar-hidden");
 
   window.scrollTo({top:0,behavior:"smooth"});
 }
@@ -3629,15 +3829,30 @@ function openExpiryFromHome(){expiryFilter="all";document.querySelectorAll("[dat
 function openOrdersFromHome(){document.querySelectorAll("[data-order-view]").forEach(x=>x.classList.toggle("active",x.dataset.orderView==="current"));$("order-current-view").classList.remove("hidden");$("order-history-view").classList.add("hidden");collapseAddPanel("order");openMainTab("pedidos");renderOrders();updateNextOrder()}
 function openSamplesFromHome(){document.querySelectorAll("[data-sample-view]").forEach(x=>x.classList.toggle("active",x.dataset.sampleView==="current"));$("sample-current-view").classList.remove("hidden");$("sample-history-view").classList.add("hidden");collapseAddPanel("sample");openMainTab("muestras");renderSamples()}
 function searchValueMatch(value,q){const v=norm(value||"");return !!q&&v.includes(q)}
-function globalProductSearchResults(query){const q=norm(query);if(!q)return[];const out=[];(items||[]).forEach(x=>{if(searchValueMatch(x.name,q)||searchValueMatch(x.code,q))out.push({type:"expiry",id:x.id,name:x.name,code:x.code,location:"Vencimientos",detail:`Vence ${fmt(x.date)}`})});codeListFlatRows().forEach(r=>{if([r.descripcion,r.articuloref,r.scanning].some(v=>searchValueMatch(v,q)))out.push({type:"code-list",sheetIndex:r.sheetIndex,rowIndex:r.rowIndex,id:`${r.sheetIndex}:${r.rowIndex}`,name:r.descripcion||"Sin descripción",code:r.articuloref||r.scanning||"",location:`Lista de códigos · Lista ${r.sheetIndex+1}`,detail:[r.articuloref&&`Código ${r.articuloref}`,r.scanning&&`Scanning ${r.scanning}`,r.packaging].filter(Boolean).join(" · ")})});(carnesVegetalesDraft?.items||[]).forEach(x=>{if(searchValueMatch(x.descripcion,q)||searchValueMatch(x.articulo,q))out.push({type:"price",id:x.id,name:x.descripcion,code:x.articulo,location:"Baja de precios · Planilla actual",detail:x.expiryText||""})});return out.filter((r,i,a)=>i===a.findIndex(x=>x.type===r.type&&x.id===r.id)).slice(0,80)}
-function renderGlobalProductSearch(query){const box=$("globalProductSearchResults");if(!box)return;const q=String(query||"").trim(),results=globalProductSearchResults(q);if(!q){box.classList.add("hidden");box.innerHTML="";return}box.classList.remove("hidden");box.innerHTML=results.length?`<div class="global-product-search-summary">${results.length} coincidencia${results.length===1?"":"s"}</div>${results.map(r=>`<button class="global-search-result" data-global-result="${esc(JSON.stringify(r))}" type="button"><span class="global-search-result-main"><strong>${esc(r.name)}</strong><small>${esc(r.code||"Sin código")}</small></span><span class="global-search-result-location"><b>${esc(r.location)}</b><small>${esc(r.detail||"")}</small></span><span class="global-search-result-arrow">›</span></button>`).join("")}`:`<div class="global-product-search-empty">No encontré ese producto o código en Vencimientos, Lista de códigos ni Baja de precios.</div>`}
+function globalProductSearchResults(query){const q=norm(query);if(!q)return[];const out=[];(items||[]).forEach(x=>{if(searchValueMatch(x.name,q)||searchValueMatch(x.code,q))out.push({type:"expiry",id:x.id,name:x.name,code:x.code,location:"Vencimientos",detail:`Vence ${fmt(x.date)}`})});codeListFlatRows().forEach(r=>{if([r.descripcion,r.articuloref,r.scanning].some(v=>searchValueMatch(v,q)))out.push({type:"code-list",sheetIndex:r.sheetIndex,rowIndex:r.rowIndex,id:`${r.sheetIndex}:${r.rowIndex}`,name:r.descripcion||"Sin descripción",code:r.articuloref||r.scanning||"",location:`Lista de códigos · Lista ${r.sheetIndex+1}`,detail:[r.articuloref&&`Código ${r.articuloref}`,r.scanning&&`Scanning ${r.scanning}`,r.packaging].filter(Boolean).join(" · ")})});(carnesVegetalesDraft?.items||[]).forEach(x=>{if(searchValueMatch(x.descripcion,q)||searchValueMatch(x.articulo,q))out.push({type:"price",id:x.id,name:x.descripcion,code:x.articulo,location:"Baja de precios · Planilla actual",detail:x.expiryText||""})});(offers||[]).forEach(o=>(o.products||[]).forEach(p=>{if(searchValueMatch(p.name,q)||searchValueMatch(p.code,q))out.push({type:"offer",id:`${o.id}:${p.id}`,offerId:o.id,name:p.name,code:p.code||"",location:`Ofertas · ${offerName(o)}`,detail:`${offerPromoLabel(p)} · ${fmt(o.startDate)} → ${fmt(o.endDate)}`})}));return out.filter((r,i,a)=>i===a.findIndex(x=>x.type===r.type&&x.id===r.id)).slice(0,80)}
+function renderGlobalProductSearch(query){const box=$("globalProductSearchResults");if(!box)return;const q=String(query||"").trim(),results=globalProductSearchResults(q);if(!q){box.classList.add("hidden");box.innerHTML="";return}box.classList.remove("hidden");box.innerHTML=results.length?`<div class="global-product-search-summary">${results.length} coincidencia${results.length===1?"":"s"}</div>${results.map(r=>`<button class="global-search-result" data-global-result="${esc(JSON.stringify(r))}" type="button"><span class="global-search-result-main"><strong>${esc(r.name)}</strong><small>${esc(r.code||"Sin código")}</small></span><span class="global-search-result-location"><b>${esc(r.location)}</b><small>${esc(r.detail||"")}</small></span><span class="global-search-result-arrow">›</span></button>`).join("")}`:`<div class="global-product-search-empty">No encontré ese producto o código en Vencimientos, Ofertas, Lista de códigos ni Baja de precios.</div>`}
 function focusElementAfterOpen(selector){setTimeout(()=>{const el=document.querySelector(selector);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.add("attention-focus");setTimeout(()=>el.classList.remove("attention-focus"),1700)}},220)}
-function openGlobalSearchResult(r){$("homeProductSearchInput").blur();$("globalProductSearchResults")?.classList.add("hidden");if(r.type==="expiry"){openExpiryFromHome();focusElementAfterOpen(`#expiry-active-view [data-expiry-id="${CSS.escape(r.id)}"]`);return}if(r.type==="code-list"){openCodeListResult(r.sheetIndex,r.rowIndex);return}if(r.type==="price"){openMainTab("plantilla");renderCvDraft();openCvProductForm(r.id);return}}
+function openGlobalSearchResult(r){$("homeProductSearchInput").blur();$("globalProductSearchResults")?.classList.add("hidden");if(r.type==="expiry"){openExpiryFromHome();focusElementAfterOpen(`#expiry-active-view [data-expiry-id="${CSS.escape(r.id)}"]`);return}if(r.type==="code-list"){openCodeListResult(r.sheetIndex,r.rowIndex);return}if(r.type==="price"){openMainTab("plantilla");renderCvDraft();openCvProductForm(r.id);return}if(r.type==="offer"){openMainTab("ofertas");const o=offers.find(x=>x.id===r.offerId);if(o)offerView=offerStatus(o);renderOffers();focusElementAfterOpen(`[data-offer-id="${CSS.escape(r.offerId)}"]`);return}}
 $("globalProductSearchResults")?.addEventListener("click",e=>{const b=e.target.closest("[data-global-result]");if(!b)return;try{openGlobalSearchResult(JSON.parse(b.dataset.globalResult))}catch(err){}});
 $("homeVencimientosBtn").onclick=()=>openExpiryFromHome();
+$("homeOffersBtn").onclick=()=>{openMainTab("ofertas");renderOffers()};
 $("homeNotesBtn").onclick=()=>openMainTab("notas");
 $("homePlantillaBtn").onclick=()=>{openMainTab("plantilla");renderCvDraft();renderCvHistory()};
 $("homeLearningBtn").onclick=()=>{openMainTab("aprendizaje");renderCodeList()};
+if($("notificationBellBtn"))$("notificationBellBtn").onclick=()=>{openMainTab("notificaciones");renderNotificationCenter()};
+if($("offerNewBtn"))$("offerNewBtn").onclick=()=>openOfferEditor();
+if($("offerEditorCloseBtn"))$("offerEditorCloseBtn").onclick=closeOfferEditor;
+if($("offerCancelBtn"))$("offerCancelBtn").onclick=closeOfferEditor;
+if($("offerSaveBtn"))$("offerSaveBtn").onclick=saveOffer;
+if($("offerProductAddBtn"))$("offerProductAddBtn").onclick=saveOfferProduct;
+if($("offerProductCancelEditBtn"))$("offerProductCancelEditBtn").onclick=resetOfferProductForm;
+if($("offerPromoType"))$("offerPromoType").onchange=updateOfferPromoInput;
+if($("offerProductName"))$("offerProductName").addEventListener("change",syncOfferProductFromName);
+if($("offerProductCode"))$("offerProductCode").addEventListener("change",syncOfferProductFromCode);
+if($("offerDraftProducts"))$("offerDraftProducts").onclick=e=>{const eb=e.target.closest("[data-offer-product-edit]"),rb=e.target.closest("[data-offer-product-remove]");if(eb){editOfferDraftProduct(eb.dataset.offerProductEdit);return}if(rb){offerDraftProducts=offerDraftProducts.filter(x=>x.id!==rb.dataset.offerProductRemove);if(offerProductEditingId===rb.dataset.offerProductRemove)resetOfferProductForm();renderOfferDraftProducts()}};
+if($("offerList"))$("offerList").onclick=e=>{const eb=e.target.closest("[data-offer-edit]"),fb=e.target.closest("[data-offer-finish]"),db=e.target.closest("[data-offer-delete]");if(eb){openOfferEditor(eb.dataset.offerEdit);return}if(fb){finishOffer(fb.dataset.offerFinish);return}if(db){deleteOffer(db.dataset.offerDelete);return}};
+document.querySelectorAll("[data-offer-view]").forEach(b=>b.onclick=()=>{offerView=b.dataset.offerView;renderOffers()});
+if($("notificationCenterList"))$("notificationCenterList").onclick=e=>{const b=e.target.closest("[data-notification-index]");if(!b)return;const a=notificationCenterItems()[Number(b.dataset.notificationIndex)];openNotificationItem(a)};
 $("homeProductSearchInput").oninput=e=>renderGlobalProductSearch(e.target.value);
 $("homeProductSearchInput").onkeydown=e=>{if(e.key!=="Escape")return;e.target.value="";renderGlobalProductSearch("")};
 if($("codeListSearch"))$("codeListSearch").oninput=e=>{codeListQuery=e.target.value;closeCodeListEditor();renderCodeList()};
@@ -3654,7 +3869,7 @@ if($("libraryRecipesBtn"))$("libraryRecipesBtn").onclick=()=>setLibraryView("rec
 if($("orderHistorySearch"))$("orderHistorySearch").oninput=renderOrderHistory;
 if($("sampleHistorySearch"))$("sampleHistorySearch").oninput=renderSampleHistory;
 
-$("todaySummaryList").onclick=e=>{const b=e.target.closest("[data-today-action]");if(!b)return;if(b.dataset.todayAction==="expiry")openExpiryAttention();if(b.dataset.todayAction==="notes")openMainTab("notas")};
+$("todaySummaryList").onclick=e=>{const b=e.target.closest("[data-today-action]");if(!b)return;if(b.dataset.todayAction==="expiry")openExpiryAttention();if(b.dataset.todayAction==="notes")openMainTab("notas");if(b.dataset.todayAction==="offers"){openMainTab("ofertas");renderOffers()}};
 
 
 $("cvCreateSheetBtn").onclick=()=>{if(carnesVegetalesDraft)return renderCvDraft();carnesVegetalesDraft={id:uid(),createdAt:new Date().toISOString(),items:[]};resetCvProductForm();saveAll();renderCvDraft();showToast("Planilla creada. Ahora podés añadir productos")};
@@ -3695,7 +3910,7 @@ $("notesOrganizeBtn").onclick=()=>{
 };
 document.querySelectorAll("[data-back-home]").forEach(b=>b.onclick=()=>openMainTab("inicio"));
 
-const swipeTabs=["inicio","vencimientos","notas","plantilla","aprendizaje"];
+const swipeTabs=["inicio","vencimientos","ofertas","notas","plantilla","aprendizaje"];
 let touchStartX=0;
 let touchStartY=0;
 let touchEndX=0;
@@ -3790,7 +4005,7 @@ document.querySelectorAll("[data-expiry-filter]").forEach(b=>b.onclick=()=>{
 });
 $("toggleExpirySavedProducts").onclick=()=>{$("expirySavedProductsPanel").classList.toggle("hidden");if(!$("expirySavedProductsPanel").classList.contains("hidden"))renderExpirySavedManager()};
 $("toggleOrderSavedProducts").onclick=()=>{$("orderSavedProductsPanel").classList.toggle("hidden");if(!$("orderSavedProductsPanel").classList.contains("hidden"))renderOrderSavedManager()};
-$("themeSetting").onchange=()=>{appSettings.theme=$("themeSetting").value;applySettings();saveAll()};
+$("themeSetting").onchange=()=>{appSettings.theme="light";applySettings();saveAll()};
 $("textSizeSetting").onchange=()=>{appSettings.textSize=$("textSizeSetting").value;applySettings();saveAll()};
 $("notificationSetting").onchange=()=>{appSettings.notifications=$("notificationSetting").checked;localStorage.setItem(K.settings,JSON.stringify(appSettings));applySettings();saveAll();refreshNotificationPermissionStatus();showToast(appSettings.notifications?"Notificaciones activadas":"Notificaciones desactivadas")};
 $("notificationTimeSetting").onchange=()=>{
@@ -3828,7 +4043,8 @@ function backupCounts(d){
     sampleActive,
     sampleHistory:Array.isArray(d.sampleHistory)?d.sampleHistory.length:0,
     carnesVegetales:Array.isArray(d.carnesVegetalesHistory)?d.carnesVegetalesHistory.length:0,
-    codeListRows:Array.isArray(d.codeListSheets)?d.codeListSheets.reduce((n,s)=>n+(Array.isArray(s?.rows)?s.rows.length:0),0):0
+    codeListRows:Array.isArray(d.codeListSheets)?d.codeListSheets.reduce((n,s)=>n+(Array.isArray(s?.rows)?s.rows.length:0),0):0,
+    offers:Array.isArray(d.offers)?d.offers.length:0
   };
 }
 function backupSummaryText(d,includeTitle=true){
@@ -3838,10 +4054,10 @@ function backupSummaryText(d,includeTitle=true){
     const dt=new Date(d.exportedAt);
     if(!Number.isNaN(dt.getTime()))when=dt.toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
   }
-  return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nNotas rápidas: ${c.notes}\nFilas en Lista de códigos: ${c.codeListRows}\nPlanillas de Baja de precios: ${c.carnesVegetales}`;
+  return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nOfertas: ${c.offers}\nNotas rápidas: ${c.notes}\nFilas en Lista de códigos: ${c.codeListRows}\nPlanillas de Baja de precios: ${c.carnesVegetales}`;
 }
 function currentBackupObject(){
-  return {version:33,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,carbonOrders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,noteDraft:noteDraftRead(),consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,codeListSheets,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:34,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,carbonOrders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,noteDraft:noteDraftRead(),consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,codeListSheets,offers,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;
@@ -3856,7 +4072,7 @@ window.onBackupExported=function(){
   const data=currentBackupObject();
   backupMetaState.lastExportAt=new Date().toISOString();
   const c=backupCounts(data);
-  backupMetaState.lastSummary=`${c.expiry} vencimientos · ${c.notes} notas · ${c.codeListRows} códigos · ${c.carnesVegetales} planillas`;
+  backupMetaState.lastSummary=`${c.expiry} vencimientos · ${c.offers} ofertas · ${c.notes} notas · ${c.codeListRows} códigos · ${c.carnesVegetales} planillas`;
   saveAll();renderBackupStatus();
   showToast("Copia exportada correctamente");
 };
@@ -3891,6 +4107,7 @@ function applyBackupObject(d,silent=false){
   carnesVegetalesDraft=d.carnesVegetalesDraft&&Array.isArray(d.carnesVegetalesDraft.items)?d.carnesVegetalesDraft:null;
   learningCatalog=Array.isArray(d.learningCatalog)?d.learningCatalog:learningCatalog;seedLearningCatalog();
   codeListSheets=Array.isArray(d.codeListSheets)&&d.codeListSheets.length?d.codeListSheets:codeListSheets;
+  offers=Array.isArray(d.offers)?d.offers:[];
   backupMetaState=d.backupMetaState&&typeof d.backupMetaState==="object"?d.backupMetaState:backupMetaState;
   expiryProductMemory=Array.isArray(d.expiryProductMemory)?d.expiryProductMemory:expiryProductMemory;
   orderProductMemory=Array.isArray(d.orderProductMemory)?d.orderProductMemory:orderProductMemory;
@@ -3964,7 +4181,7 @@ $("backupFileInput").onchange=async()=>{
 function restoreNativeStateIfAvailable(){
   try{
     if(!(window.AndroidNative&&AndroidNative.getPersistedAppState))return;
-    const localHasData=items.length||notes.length||consultantProducts.length||carnesVegetalesHistory.length||carnesVegetalesDraft||Object.values(orders).some(a=>Array.isArray(a)&&a.length)||Object.values(orderHistory).some(a=>Array.isArray(a)&&a.length)||sampleHistory.length||Object.values(sampleTemplates).some(a=>Array.isArray(a)&&a.length);
+    const localHasData=items.length||offers.length||notes.length||consultantProducts.length||carnesVegetalesHistory.length||carnesVegetalesDraft||Object.values(orders).some(a=>Array.isArray(a)&&a.length)||Object.values(orderHistory).some(a=>Array.isArray(a)&&a.length)||sampleHistory.length||Object.values(sampleTemplates).some(a=>Array.isArray(a)&&a.length);
     if(localHasData)return;
     const raw=String(AndroidNative.getPersistedAppState()||"");
     if(!raw)return;
@@ -4102,7 +4319,7 @@ function initOrderLongPressReorder(){
 }
 
 function renderAll(){
-  const jobs=[cleanExpiryHistory,renderProductMemories,renderExpiryDatalist,renderExpiry,renderExpiryHistory,renderNotes,renderNoteHistory,renderLibrary,renderCvDraft,renderCvHistory,renderDashboard,updateHomeClock,renderBackupStatus,applySettings,refreshNotificationPermissionStatus,loadNativeVersion];
+  const jobs=[cleanExpiryHistory,renderProductMemories,renderExpiryDatalist,renderExpiry,renderExpiryHistory,renderNotes,renderNoteHistory,renderLibrary,renderCvDraft,renderCvHistory,renderOffers,renderDashboard,renderNotificationCenter,updateHomeClock,renderBackupStatus,applySettings,refreshNotificationPermissionStatus,loadNativeVersion];
   jobs.forEach(fn=>{try{fn()}catch(e){console.error("Render:",fn&&fn.name,e)}});
   try{saveAll()}catch(e){console.error("Save",e)}
 }
@@ -4125,6 +4342,7 @@ document.addEventListener("click",e=>{if(e.target.closest("[data-del-carbon],[da
 window.openFromAndroidIntent=function(target,id){
   if(target==="expiry"){openExpiryAttention(id||"");return true}
   if(target==="note"){openMainTab("notas");return true}
+  if(target==="offer"){openMainTab("ofertas");renderOffers();if(id)focusElementAfterOpen(`[data-offer-id="${CSS.escape(id)}"]`);return true}
   return false;
 };
 window.handleAndroidBack=function(){
@@ -4132,6 +4350,7 @@ window.handleAndroidBack=function(){
   if($("editModalBackdrop")?.classList.contains("open")){closeModal();return true}
   if($("noteEditorBackdrop")?.classList.contains("open")){closeNoteEditor();return true}
   const tab=getActiveMainTab();
+  if(tab==="ofertas"&&!$("offerEditorCard").classList.contains("hidden")){closeOfferEditor();return true}
   if(tab==="vencimientos"){
     if(!$("expiry-history-view").classList.contains("hidden")||!$("expiry-last-view").classList.contains("hidden")){setExpiryView("active");window.scrollTo({top:0,behavior:"smooth"});return true}
     if(!$("expiryForm").classList.contains("hidden")){collapseAddPanel("expiry");window.scrollTo({top:0,behavior:"smooth"});return true}

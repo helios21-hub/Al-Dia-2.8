@@ -16,31 +16,32 @@ Proyecto Android de **Al Día**, una app personal para control diario de vencimi
 Los workflows están configurados en modo **manual**. Después de cada actualización, entrá en **Actions** y ejecutá **Run workflow** cuando quieras compilar.
 
 
-## Estado actual — v2.33
+## Estado actual — v2.34
 
-La base válida para continuar es **v2.33**, creada sobre el proyecto completo **v2.32**. v2.32 ya era acumulativa desde la base real v2.28. No se reconstruyó la app ni se alteraron `applicationId`, firma debug fija, importación/exportación de copias ni los datos existentes.
+La base válida para continuar es **v2.34**, creada sobre la **v2.33 corregida**. La cadena conserva la base real v2.28 y las mejoras acumuladas posteriores. No se reconstruyó la app ni se alteraron `applicationId`, firma debug fija, importación/exportación de copias ni los datos existentes.
 
 ### Secciones activas
 
 - **Inicio**: resumen diario, buscador global y recordatorios de pedidos por día.
 - **Vencimientos**: productos agrupados con múltiples fechas independientes.
+- **Ofertas**: bloques completos con fechas, productos, tipo de promoción y recordatorios.
 - **Notas rápidas**: editor amplio, Cancelar/Guardar accesibles y checklist interactivo.
 - **Baja de precios**: reemplaza visualmente a Carnes-Vegetales y exporta `Planilla vegetales-DD-MM-AAAA.xlsx`.
 - **Lista de códigos**: reemplaza Biblioteca con las 8 listas de `Planilla Lista de Codigos.xlsx`, editables y exportables a XLSX.
-- **Ajustes**.
+- **Ajustes**: tema Clásico único, notificaciones y copias de seguridad.
 
 ### Cambios estructurales
 
 - **Pedidos** y **Muestras** dejan de formar parte de la interfaz activa. Sus datos heredados se conservan internamente y en las copias para no destruir información histórica.
 - Los recordatorios de pedidos pasan a **Inicio** y a la notificación diaria: Martes/Jueves (SRA 217, 4° Gama y Jumbo Retail), Sábado (Jumbo Retail) y Viernes (Carbón), con sus horarios límite.
 - **Consultor** deja de exponerse como sección principal.
-- `versionName`: **2.33**.
-- `versionCode` base: **233000 + GITHUB_RUN_NUMBER**.
-- Backup interno: **v33**.
+- `versionName`: **2.34**.
+- `versionCode` base: **234000 + GITHUB_RUN_NUMBER**.
+- Backup interno: **v34**.
 
 El APK no fue compilado en el entorno donde se preparó esta actualización. La validación definitiva se realiza con `gradle :app:lintDebug --stacktrace` y luego `gradle :app:assembleDebug --stacktrace` en GitHub Actions.
 
-Consultar `CAMBIOS_V2_33.txt` y `VALIDACION_V2_33.txt` para el detalle de esta versión.
+Consultar `CAMBIOS_V2_34.txt` y `VALIDACION_V2_34.txt` para el detalle de esta versión.
 
 ## Instalar en Android
 
@@ -53,7 +54,7 @@ Este es un APK **debug**, ideal para pruebas personales. Para una versión final
 
 ## Historial de versiones anteriores
 
-Las secciones siguientes son antecedentes y no sustituyen el estado vigente v2.33.
+Las secciones siguientes son antecedentes y no sustituyen el estado vigente v2.34.
 
 ## Actualización 1.1
 

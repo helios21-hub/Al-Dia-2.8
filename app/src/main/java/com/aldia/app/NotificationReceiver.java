@@ -53,6 +53,22 @@ public class NotificationReceiver extends BroadcastReceiver {
             JSONObject data=new JSONObject(prefs.getString("notification_data","{}"));
             JSONArray items=data.optJSONArray("items");LocalDate today=LocalDate.now();
             JSONArray orderReminders=data.optJSONArray("orderReminders");
+            JSONArray offers=data.optJSONArray("offers");
+            List<String> todayOfferAlerts=new ArrayList<>();
+            String firstOfferId="";
+            if(!isRepeat&&offers!=null){
+                for(int i=0;i<offers.length();i++){
+                    JSONObject offer=offers.optJSONObject(i);if(offer==null)continue;
+                    if(!offer.optString("finishedAt","").trim().isEmpty())continue;
+                    String start=offer.optString("startDate","").trim(),end=offer.optString("endDate","").trim();
+                    String name=offer.optString("title","").trim();if(name.isEmpty())name=offer.optString("type","Oferta").trim();
+                    int products=offer.optInt("products",0);
+                    boolean hit=false;
+                    if(offer.optBoolean("notifyStart",true)&&!start.isEmpty()&&LocalDate.parse(start).equals(today)){todayOfferAlerts.add("Empieza hoy: "+name+(products>0?" · "+products+" productos":""));hit=true;}
+                    if(offer.optBoolean("notifyEnd",true)&&!end.isEmpty()&&LocalDate.parse(end).equals(today)){todayOfferAlerts.add("Último día: "+name);hit=true;}
+                    if(hit&&firstOfferId.isEmpty())firstOfferId=offer.optString("id","").trim();
+                }
+            }
             List<String> todayOrders=new ArrayList<>();
             if(!isRepeat&&orderReminders!=null){
                 int todayDow=today.getDayOfWeek().getValue();
@@ -96,6 +112,7 @@ public class NotificationReceiver extends BroadcastReceiver {
             if(todayWithdraw>0)parts.add(todayWithdraw+(todayWithdraw==1?" vencimiento para retirar hoy":" vencimientos para retirar hoy"));
             if(!isRepeat&&upcoming>0)parts.add(upcoming+(upcoming==1?" vencimiento próximo":" vencimientos próximos"));
             if(!todayOrders.isEmpty())parts.add("Pedidos de hoy: "+String.join(" · ",todayOrders));
+            if(!todayOfferAlerts.isEmpty())parts.add("Ofertas: "+String.join(" · ",todayOfferAlerts));
 
             if(parts.isEmpty()){
                 if(isTest)parts.add("No hay productos pendientes ni vencimientos próximos para probar");
@@ -112,7 +129,9 @@ public class NotificationReceiver extends BroadcastReceiver {
                 if(!details.isEmpty())message.append(" · ").append(String.join(" · ",details));
             }
             String title=isTest?"Al Día · Prueba de alertas":"Al Día";
-            notify(context,4301,title,message.toString(),bestExpiryId.isEmpty()?"":"expiry",bestExpiryId);
+            String target=!bestExpiryId.isEmpty()?"expiry":(!firstOfferId.isEmpty()?"offer":"");
+            String openId=!bestExpiryId.isEmpty()?bestExpiryId:firstOfferId;
+            notify(context,4301,title,message.toString(),target,openId);
 
             int repeat=prefs.getInt("notification_repeat_minutes",0);
             boolean pending=overdue>0||todayWithdraw>0;

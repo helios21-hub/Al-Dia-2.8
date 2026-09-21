@@ -297,7 +297,7 @@ public class MainActivity extends ComponentActivity {
             try {
                 return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             } catch (Exception e) {
-                return "2.33";
+                return "2.34";
             }
         }
 

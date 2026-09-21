@@ -1,0 +1,16 @@
+Al Día v2.34
+
+- Nueva gestión de Ofertas por bloques completos.
+- Tipos: publicadas fin de semana, semanal publicada, semanal interna, 4ta Gama e internas fin de semana.
+- Cada oferta tiene fecha de inicio/fin y recordatorios de comienzo/último día.
+- Cada producto admite Precio oferta, 2x1 o % de descuento.
+- Sugerencias de productos desde Lista de códigos.
+- Inicio renovado con tarjetas verticales y acceso a Ofertas.
+- Campana de notificaciones con centro de avisos.
+- Recordatorios nativos diarios incorporan eventos de Ofertas.
+- Encabezado e identidad visual Al Día renovados en azul/verde.
+- Nuevo icono de app con hoja.
+- Se retiraron los temas alternativos de Ajustes; queda solo Clásico.
+- Se conserva Pedidos fuera de la interfaz, manteniendo sus recordatorios diarios en Inicio.
+- Workflows GitHub Actions mantienen setup-android@v4 con packages vacío y SDK 36 explícito.
+- Backup sube a versión 34 e incluye Ofertas.

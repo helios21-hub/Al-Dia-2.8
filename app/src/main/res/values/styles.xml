@@ -3,9 +3,10 @@
     <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
         <item name="android:fontFamily">sans</item>
         <item name="android:windowActionModeOverlay">true</item>
-        <item name="android:colorAccent">#2563EB</item>
-        <item name="android:navigationBarColor">#0B0B0C</item>
-        <item name="android:statusBarColor">#0B0B0C</item>
-        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:colorAccent">#0F7AE5</item>
+        <item name="android:navigationBarColor">#F5F9FD</item>
+        <item name="android:statusBarColor">#F5F9FD</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
 </resources>

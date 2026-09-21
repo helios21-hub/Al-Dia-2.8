@@ -1,0 +1,36 @@
+Al Día v2.34 — Validación realizada
+
+Base
+- Proyecto usado: Al Día v2.33 corregida para GitHub Actions.
+- No se reconstruyó la app desde cero.
+
+Versión
+- versionName: 2.34
+- versionCode base: 234000 + GITHUB_RUN_NUMBER
+- Backup interno: v34
+
+Comprobaciones realizadas
+- JavaScript: node --check OK en scripts inline, lista_codigos_data.js y recetas_locales.js.
+- HTML: parseado correctamente; 280 IDs revisados y sin IDs duplicados.
+- XML Android: parseo correcto de todos los XML de app/src/main.
+- Java: revisión de sintaxis con javac; no aparecieron diagnósticos de sintaxis. Las clases Android no se resuelven localmente por no disponer del SDK completo en este entorno.
+- Workflows YAML: parseo correcto.
+- GitHub Actions: ambos workflows usan android-actions/setup-android@v4, packages: '' y luego instalan explícitamente platform-tools, platforms;android-36 y build-tools;36.0.0.
+- No queda setup-android@v3 en los workflows.
+- Iconos launcher: revisadas las 5 densidades Android con tamaños 48/72/96/144/192 px.
+- Tema: Ajustes expone únicamente Clásico y la app fuerza theme=light para migrar instalaciones que tuvieran un tema anterior.
+- Ofertas: se verificó la presencia de los 5 tipos definidos, vistas Activas/Próximas/Finalizadas, edición por bloque, productos, precio/2x1/% y recordatorios.
+- Notificaciones: el payload nativo incluye Ofertas; NotificationReceiver agrega avisos de comienzo y último día.
+- Backup: Ofertas incluidas en exportación/restauración.
+
+GitHub Actions
+Se conserva la corrección necesaria para evitar el fallo del paquete Android obsoleto `tools`:
+- android-actions/setup-android@v4
+- packages: ''
+- sdkmanager instala solo los paquetes requeridos del SDK 36.
+
+Limitación de validación
+No se compiló un APK localmente porque este entorno no dispone de Gradle/Android SDK completo. La validación definitiva sigue siendo:
+1. gradle :app:lintDebug --stacktrace
+2. gradle :app:assembleDebug --stacktrace
+por GitHub Actions.
