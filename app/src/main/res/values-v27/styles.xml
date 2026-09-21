@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base theme compatible with the app minimum SDK (API 26). -->
+    <!-- From API 27 onward Android supports dark navigation-bar icons, so the
+         navigation bar can use the same light surface as the redesigned UI. -->
     <style name="AppTheme" parent="android:style/Theme.Material.Light.NoActionBar">
         <item name="android:fontFamily">sans</item>
         <item name="android:windowActionModeOverlay">true</item>
         <item name="android:colorAccent">#0F7AE5</item>
-        <!-- API 26 does not support light navigation-bar icons. Use the app blue
-             so the system's light icons remain legible on Android 8.0. -->
-        <item name="android:navigationBarColor">#0F7AE5</item>
+        <item name="android:navigationBarColor">#F5F9FD</item>
         <item name="android:statusBarColor">#F5F9FD</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
 </resources>

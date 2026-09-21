@@ -34,3 +34,10 @@ No se compiló un APK localmente porque este entorno no dispone de Gradle/Androi
 1. gradle :app:lintDebug --stacktrace
 2. gradle :app:assembleDebug --stacktrace
 por GitHub Actions.
+
+Corrección posterior de lint API 26
+- GitHub Actions confirmó que compileDebugJavaWithJavac finaliza correctamente.
+- Lint detectó android:windowLightNavigationBar en values/styles.xml, atributo disponible desde API 27 mientras minSdk=26.
+- Corregido moviendo dicho atributo a values-v27/styles.xml.
+- API 26 mantiene una barra de navegación azul con iconos claros; API 27+ mantiene la barra clara del nuevo diseño con iconos oscuros.
+- XML de ambos styles parseado correctamente.

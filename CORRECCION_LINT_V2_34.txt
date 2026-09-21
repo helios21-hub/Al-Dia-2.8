@@ -1,0 +1,17 @@
+Al Día v2.34 — Corrección de lint para API 26
+
+Problema detectado en GitHub Actions:
+- android:windowLightNavigationBar requiere API 27.
+- La app conserva minSdk 26.
+
+Corrección aplicada:
+- Se retiró android:windowLightNavigationBar del tema base en res/values/styles.xml.
+- Se creó res/values-v27/styles.xml con android:windowLightNavigationBar=true.
+- En API 26 la barra de navegación usa azul #0F7AE5 para conservar contraste con los iconos claros del sistema.
+- En API 27+ se conserva la barra clara #F5F9FD con iconos oscuros, manteniendo el rediseño visual.
+- No se aumentó minSdk y no se redujo compatibilidad.
+- No se cambió versionName/versionCode: sigue siendo v2.34, ya que es una corrección de compilación/lint.
+
+GitHub Actions:
+- Se verificó que build-apk.yml y publicar-actualizacion.yml siguen usando android-actions/setup-android@v4 con packages: ''.
+- Se mantiene la instalación explícita de platform-tools, platforms;android-36 y build-tools;36.0.0.
