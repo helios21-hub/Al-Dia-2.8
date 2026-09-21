@@ -19,7 +19,7 @@ public final class CarnesVegetalesXlsx {
     private CarnesVegetalesXlsx() {}
 
     public static String defaultFileName() {
-        return "Plantilla Carnes-Vegetales " + LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yy")) + ".xlsx";
+        return "Planilla vegetales-" + LocalDate.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ".xlsx";
     }
 
     public static File writePrivate(Context context, JSONObject record) throws Exception {
@@ -114,7 +114,7 @@ public final class CarnesVegetalesXlsx {
     private static String workbook() {
         return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"+
                 "<workbook xmlns=\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\" xmlns:r=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\">"+
-                "<sheets><sheet name=\"Carnes-Vegetales\" sheetId=\"1\" r:id=\"rId1\"/></sheets></workbook>";
+                "<sheets><sheet name=\"Baja de precios\" sheetId=\"1\" r:id=\"rId1\"/></sheets></workbook>";
     }
 
     private static String workbookRels() {
@@ -137,7 +137,7 @@ public final class CarnesVegetalesXlsx {
     }
 
     private static String sheet(JSONArray items) {
-        String[] headers={"Local","Artiulo","Descripcion","Accion","Vigencia desde","Vigencia hasta","Fecha de vencimiento del Producto"};
+        String[] headers={"Local","Artículo","Descripción","Acción","Vigencia desde","Vigencia hasta","Fecha de vencimiento del Producto"};
         String[] subtitles={"(Lo completa el local)","(Lo completa el local)","(Lo completa el local)","(Lo completa compras)","(Lo completa compras)","(Lo completa compras)","(completa el local)"};
         boolean[] localFields={true,true,true,false,false,false,true};
         StringBuilder h=new StringBuilder(),rows=new StringBuilder();

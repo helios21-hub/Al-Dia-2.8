@@ -998,6 +998,14 @@ body.dark .recipe-sheet-block,body.theme-petrol .recipe-sheet-block,body.theme-f
 
 
 
+/* v2.32 - buscador global, Vencimientos agrupados, Carbón como Pedido y botones unificados */
+.btn-add-product-standard{background:#2563eb!important;color:#fff!important;border:1px solid #1d4ed8!important;min-height:44px;border-radius:10px;font-weight:900;box-shadow:0 2px 6px rgba(37,99,235,.18)}
+.btn-add-product-standard:hover{background:#1d4ed8!important;color:#fff!important}.add-product-toggle.btn-add-product-standard{display:flex;align-items:center;justify-content:space-between;text-align:left;width:100%;padding:9px 12px}
+.global-product-search-wrap{position:relative}.global-product-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:14px;pointer-events:none}.global-product-search-wrap input{padding-left:36px!important}.global-product-search-results{margin-top:7px;border:1px solid var(--border);border-radius:12px;background:var(--card);box-shadow:0 8px 24px rgba(15,23,42,.12);overflow:hidden}.global-product-search-results.hidden{display:none!important}.global-product-search-summary{padding:7px 10px;font-size:10px;font-weight:850;color:var(--muted);border-bottom:1px solid var(--border)}.global-search-result{width:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(120px,.9fr) auto;gap:8px;align-items:center;padding:10px 11px;border:0;border-bottom:1px solid var(--border);background:transparent;color:var(--text);text-align:left}.global-search-result:last-child{border-bottom:0}.global-search-result:hover{background:var(--surface-soft)}.global-search-result-main,.global-search-result-location{min-width:0}.global-search-result-main strong,.global-search-result-location b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.global-search-result-main small,.global-search-result-location small{display:block;color:var(--muted);font-size:9px;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.global-search-result-location b{font-size:10px}.global-search-result-arrow{font-size:22px;color:var(--muted)}.global-product-search-empty{padding:13px 11px;font-size:10.5px;color:var(--muted);text-align:center}
+.order-reminder-intro{margin-top:2px}.order-reminder-table-wrap{overflow:auto;margin-top:8px;border:1px solid rgba(255,255,255,.30);border-radius:8px}.order-reminder-table{width:100%;border-collapse:collapse;min-width:430px}.order-reminder-table th,.order-reminder-table td{padding:5px 6px;border:1px solid rgba(255,255,255,.30);font-size:8.8px;line-height:1.2;text-align:left}.order-reminder-table th{font-size:8.5px;letter-spacing:.02em;background:rgba(255,255,255,.10)}.order-reminder-table td{background:rgba(255,255,255,.045)}
+.carbon-order-sheet{border-radius:0 0 10px 10px}.carbon-order-category{margin:0!important;border-radius:0!important}.carbon-order-category .category-header{cursor:default}.order-item-carbon .carbon-no-learning{opacity:.75;cursor:default}.order-item-carbon .carbon-manual-chip{color:var(--muted)}.order-item-carbon{cursor:pointer}
+.expiry-product-group-head{display:flex;align-items:flex-start;justify-content:space-between;gap:9px;padding:8px 9px;background:var(--surface-soft);border-bottom:1px solid var(--border)}.expiry-product-group-title{min-width:0}.expiry-product-group-title strong{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.expiry-product-group-title small{display:block;margin-top:2px;font-size:9px;color:var(--muted)}.expiry-product-group-actions{display:flex;justify-content:flex-end;gap:5px;flex-wrap:wrap}.expiry-product-group-actions button{min-height:28px;padding:4px 7px;font-size:9px;border-radius:8px}.expiry-lots-list{display:flex;flex-direction:column}.expiry-lot-date-label{font-size:8.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);font-weight:800}.expiry-lot-actions{display:flex;gap:4px;flex-wrap:wrap}.expiry-lot-actions button{min-height:26px!important;padding:3px 6px!important;font-size:8.5px!important;border-radius:7px!important}.expiry-sheet-row .expiry-sheet-status{justify-items:stretch}.expiry-sheet-row .expiry-sheet-status .status-badge{justify-self:start}
+@media(max-width:430px){.global-search-result{grid-template-columns:1fr auto;gap:6px}.global-search-result-location{grid-column:1}.global-search-result-arrow{grid-column:2;grid-row:1/3;align-self:center}.order-reminder-table{min-width:400px}.expiry-product-group-head{flex-direction:column}.expiry-product-group-actions{width:100%;justify-content:flex-start}.expiry-product-group-actions button{flex:1 1 auto}.expiry-lot-actions button{flex:1 1 auto}.order-item-carbon .order-row-meta{gap:4px}}
 /* v2.31 - formularios colapsables, limpiar campos y Carbón Viernes */
 .add-panel-symbol{display:inline-block;min-width:16px;font-weight:950}.add-panel-label{display:inline-block}.add-product-toggle.open .add-panel-symbol{transform:none}.add-product-toggle.open .add-panel-label{}
 .clearable-input-wrap{position:relative;display:block;width:100%}.clearable-input-wrap>input,.clearable-input-wrap>textarea{width:100%;padding-right:34px!important;box-sizing:border-box}.clear-input-btn{position:absolute;right:7px;top:50%;transform:translateY(-50%);width:24px;height:24px;min-height:24px!important;padding:0!important;border:0!important;border-radius:50%!important;background:var(--surface-strong)!important;color:var(--muted)!important;box-shadow:none!important;font-size:16px!important;line-height:24px!important;font-weight:900;display:none;align-items:center;justify-content:center;z-index:2}.clear-input-btn.visible{display:flex}.carbon-friday-list{display:grid;gap:7px;margin:12px 0}.carbon-friday-empty{padding:10px;border:1px dashed var(--border);border-radius:10px;color:var(--muted);font-size:10.5px;text-align:center}.carbon-friday-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;border:1px solid rgba(114,85,50,.25);border-left:4px solid #725532;border-radius:10px;padding:9px 10px;background:var(--surface-soft)}.carbon-friday-item strong{display:block;font-size:12px}.carbon-friday-meta{margin-top:2px;font-size:9.5px;color:var(--muted)}.carbon-friday-actions{display:flex;gap:5px}.carbon-friday-actions button{min-height:30px!important;padding:5px 8px!important;font-size:9.5px!important;border-radius:8px!important}
@@ -1232,6 +1240,35 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
 .notes-organize-btn{grid-column:2;grid-row:1;min-height:46px}
 .notes-drafts-btn{grid-column:1/-1;grid-row:2;justify-self:stretch;min-width:0}
 
+
+/* v2.33 - simplificación, Lista de códigos, Baja de precios y Notas rápidas */
+.legacy-module{display:none!important}
+.home-reminders-card{margin-top:10px}
+.home-reminders-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:9px}
+.home-reminders-day{font-size:12px;font-weight:900;color:var(--muted)}
+.home-order-reminders{display:grid;gap:7px}
+.home-order-reminder{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;padding:10px 11px;border:1px solid var(--border);border-radius:12px;background:var(--surface-soft)}
+.home-order-reminder strong{font-size:12px;line-height:1.25}.home-order-reminder span{font-size:10px;color:var(--muted);font-weight:850;white-space:nowrap}
+.home-order-none{padding:10px 0;color:var(--muted);font-size:11px}
+
+.code-list-toolbar{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:8px;align-items:center;margin-bottom:10px}
+.code-list-toolbar input{min-width:0}.code-list-tabs{display:flex;gap:6px;overflow-x:auto;padding:2px 0 9px;scrollbar-width:none}.code-list-tabs::-webkit-scrollbar{display:none}
+.code-list-tab{flex:0 0 auto;min-height:36px;padding:6px 11px;border-radius:10px;background:var(--surface-strong);color:var(--text);border:1px solid var(--border);font-size:11px;font-weight:850}.code-list-tab.active{background:var(--primary)!important;color:#fff!important;border-color:var(--primary)!important}
+.code-list-meta{font-size:10px;color:var(--muted);margin:3px 0 8px}.code-list-sheet-wrap{overflow:auto;border:1px solid var(--border);border-radius:12px;background:var(--card);-webkit-overflow-scrolling:touch;max-height:62vh}
+.code-list-table{border-collapse:separate;border-spacing:0;min-width:720px;width:100%;font-family:Arial,sans-serif;font-size:11px}.code-list-table th,.code-list-table td{border-right:1px solid #111;border-bottom:1px solid #111;padding:6px 7px;vertical-align:middle;background:var(--card);color:var(--text)}.code-list-table th{font-weight:900;text-align:left;position:sticky;top:0;z-index:2;background:var(--surface-strong)}.code-list-table th:last-child,.code-list-table td:last-child{border-right:0}.code-list-table tr:last-child td{border-bottom:0}.code-list-table tbody tr{cursor:pointer}.code-list-table tbody tr:active td,.code-list-table tbody tr.code-row-focus td{background:color-mix(in srgb,var(--primary) 12%,var(--card))}.code-list-table td:nth-child(1),.code-list-table td:nth-child(2){text-align:right}.code-list-table td:nth-child(2){font-weight:800}.code-list-table th:nth-child(1),.code-list-table td:nth-child(1){width:125px}.code-list-table th:nth-child(2),.code-list-table td:nth-child(2){width:120px}.code-list-table th:nth-child(3),.code-list-table td:nth-child(3){min-width:310px}.code-list-table th:nth-child(4),.code-list-table td:nth-child(4){width:125px}
+.code-list-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.code-list-actions button{flex:1 1 130px}.code-list-editor{margin-top:10px;border-top:1px solid var(--border);padding-top:12px}.code-list-editor-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}.code-list-editor-danger{margin-top:8px;width:100%}
+
+.cv-inline-help{padding:8px 10px;border-radius:10px;background:var(--surface-soft);border:1px solid var(--border);font-size:10px;color:var(--muted);line-height:1.4}.cv-field-wrap{position:relative}.cv-suggestions{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;background:var(--card);border:1px solid var(--border);border-radius:11px;box-shadow:0 10px 28px rgba(15,23,42,.18);max-height:230px;overflow:auto}.cv-suggestions.hidden{display:none!important}.cv-suggestion{width:100%;display:block;border:0;border-bottom:1px solid var(--border);border-radius:0;background:transparent;color:var(--text);padding:9px 10px;text-align:left;box-shadow:none}.cv-suggestion:last-child{border-bottom:0}.cv-suggestion strong{display:block;font-size:11px}.cv-suggestion small{display:block;color:var(--muted);font-size:9px;margin-top:2px}
+.cv-value-grid{display:grid;grid-template-columns:130px minmax(0,1fr);gap:8px}.cv-view-tools{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin:10px 0}.cv-view-tools select{flex:1 1 150px}.cv-view-tools button{flex:0 0 auto}.cv-product-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.cv-product-actions button{min-height:32px;padding:5px 8px;font-size:10px}.cv-preview{margin:10px 0;border:1px solid var(--border);border-radius:12px;overflow:auto}.cv-preview.hidden{display:none!important}.cv-preview table{border-collapse:collapse;min-width:920px;width:100%;font-size:10px}.cv-preview th,.cv-preview td{border:1px solid var(--border);padding:6px 7px;text-align:left}.cv-preview th{background:#b8dcab;color:#111;font-weight:900}.cv-preview .compras-col{background:color-mix(in srgb,var(--surface-strong) 78%,#9dc7db 22%);color:var(--muted)}
+
+.sticky-note-preview,.sticky-note.note-compact .sticky-note-preview,.sticky-note.note-large .sticky-note-preview{max-height:none!important;overflow:visible!important;display:block!important;-webkit-line-clamp:unset!important}
+.note-editor-sheet{height:100dvh!important;max-height:100dvh!important;border-radius:0!important;padding-bottom:calc(10px + env(safe-area-inset-bottom))!important}
+.note-editor-text{min-height:42vh!important;flex:1 1 42vh!important;border:1px solid var(--border)!important;border-radius:12px!important;background:var(--surface-soft)!important;padding:12px!important}
+.note-editor-primary-actions{position:sticky;bottom:0;z-index:6;display:grid;grid-template-columns:1fr 1.35fr;gap:8px;padding:9px 0 2px;background:var(--card);border-top:1px solid var(--border)}
+.note-editor-primary-actions button{min-height:50px;font-size:14px;font-weight:900}.note-editor-cancel{background:var(--surface-strong)!important;color:var(--text)!important;border:1px solid var(--border)!important}.note-editor-save-bottom{background:var(--primary)!important;color:#fff!important}
+.note-editor-secondary-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.note-editor-secondary-actions button{min-height:40px}
+@media(max-width:520px){.code-list-toolbar{grid-template-columns:1fr 1fr}.code-list-toolbar input{grid-column:1/-1}.code-list-toolbar button{width:100%}.cv-value-grid{grid-template-columns:1fr}.home-order-reminder{grid-template-columns:1fr}.home-order-reminder span{white-space:normal}}
+
 </style>
 </head>
 <body>
@@ -1241,7 +1278,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
       <div class="app-icon"><img src="al_dia_icono.png" alt=""></div>
       <div>
         <div class="app-name">Al Día</div>
-        <div class="meta">Control, recordatorios y pedidos</div>
+        <div class="meta">Control diario, notas y herramientas</div>
       </div>
     </div>
     <button class="settings-btn" id="settingsBtn" type="button" aria-label="Ajustes"><span aria-hidden="true">⚙️</span></button>
@@ -1255,7 +1292,11 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
     </div>
 
     <div class="home-product-search">
-      <input id="homeProductSearchInput" type="search" autocomplete="off" placeholder="Buscar producto, código o categoría · Enter">
+      <div class="global-product-search-wrap">
+        <span class="global-product-search-icon" aria-hidden="true">🔎</span>
+        <input id="homeProductSearchInput" type="search" autocomplete="off" placeholder="Buscar producto o código EAN">
+      </div>
+      <div id="globalProductSearchResults" class="global-product-search-results hidden" aria-live="polite"></div>
     </div>
 
     <h1>Inicio</h1>
@@ -1268,20 +1309,18 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
       </div>
     </div>
 
+    <div class="card home-reminders-card">
+      <div class="home-reminders-head"><div><strong>Pedidos de hoy</strong><div class="footer-note">Recordatorios diarios conservados aunque el módulo Pedidos ya no forme parte de la app.</div></div><span class="home-reminders-day" id="homeOrderReminderDay">—</span></div>
+      <div id="homeOrderRemindersList" class="home-order-reminders"></div>
+    </div>
+
     <div class="card">
-      <div class="home-access-group-title">Uso diario</div>
+      <div class="home-access-group-title">Secciones</div>
       <div class="home-section-buttons">
         <button class="home-section-btn vencimientos" id="homeVencimientosBtn" type="button"><span class="home-alert-badge" id="homeExpiryBadge">0</span><span class="home-section-top"><span class="home-section-icon">⏰</span><strong>Vencimientos</strong></span><small id="homeExpirySummary">Sin vencimientos</small></button>
-        <button class="home-section-btn pedidos" id="homePedidosBtn" type="button"><span class="home-alert-badge" id="homeOrderBadge">0</span><span class="home-section-top"><span class="home-section-icon">🧾</span><strong>Pedidos</strong></span><small id="homeOrderSummary">Próximo pedido</small></button>
-        <button class="home-section-btn muestras" id="homeMuestrasBtn" type="button"><span class="home-alert-badge" id="homeSampleBadge">0</span><span class="home-section-top"><span class="home-section-icon">📦</span><strong>Muestras</strong></span><small id="homeSampleSummary">Sin muestra en curso</small></button>
         <button class="home-section-btn notas" id="homeNotesBtn" type="button"><span class="home-alert-badge" id="homeNotesBadge">0</span><span class="home-section-top"><span class="home-section-icon">📝</span><strong>Notas rápidas</strong></span><small id="homeNotesSummary">No hay notas pendientes</small></button>
-      </div>
-    </div>
-    <div class="card home-tools-card">
-      <div class="home-access-group-title">Herramientas</div>
-      <div class="home-section-buttons">
-        <button class="home-section-btn plantilla" id="homePlantillaBtn" type="button"><span class="home-section-top"><span class="home-section-icon">📊</span><strong>Carnes-Vegetales</strong></span><small>Generar plantilla XLSX</small></button>
-        <button class="home-section-btn aprendizaje" id="homeLearningBtn" type="button"><span class="home-section-top"><span class="home-section-icon">📚</span><strong>Biblioteca</strong></span><small>Recetas, temporadas y material de referencia</small></button>
+        <button class="home-section-btn plantilla" id="homePlantillaBtn" type="button"><span class="home-section-top"><span class="home-section-icon">📉</span><strong>Baja de precios</strong></span><small>Preparar y compartir Planilla vegetales</small></button>
+        <button class="home-section-btn aprendizaje" id="homeLearningBtn" type="button"><span class="home-section-top"><span class="home-section-icon">🔢</span><strong>Lista de códigos</strong></span><small>Consultar y editar la planilla de códigos</small></button>
       </div>
     </div>
   </section>
@@ -1344,7 +1383,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
     </div>
   </section>
 
-  <section id="tab-pedidos" class="main-section">
+  <section id="tab-pedidos" class="main-section legacy-module">
     <div class="section-title-row">
       <div>
         <h1>Pedidos</h1>
@@ -1357,7 +1396,22 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
     <div class="next-order-card next-order-card-expanded" id="nextOrderCard">
       <div class="next-order-main"><div class="next-label">Próximo pedido</div><div class="next-order-row"><span>Día a hacer pedido</span><strong class="next-day" id="nextOrderDay">—</strong></div><div class="next-sub" id="nextOrderSub">Se actualiza automáticamente</div></div>
       <div class="next-order-arrow">›</div>
-      <div class="order-reminder-box"><strong>Recordatorio FRUTA SECA, JUGOS Y SEMILLAS</strong><div>Los <b>MARTES Y JUEVES</b> se consolida la imagen vía SRA.</div><div class="order-reminder-time">Edición disponible desde el día anterior al mediodía hasta el mismo día a las <b>8:30</b>. Después de ese horario, el pedido saldrá en base a lo sugerido por el sistema.</div></div>
+      <div class="order-reminder-box">
+        <strong>Recordatorio FRUTA SECA, JUGOS Y SEMILLAS</strong>
+        <div class="order-reminder-intro">Los <b>MARTES Y JUEVES</b> se consolida la imagen vía SRA.</div>
+        <div class="order-reminder-table-wrap">
+          <table class="order-reminder-table">
+            <thead><tr><th>IMAGEN</th><th>DÍA</th><th>ANTES DE LA HORA</th></tr></thead>
+            <tbody>
+              <tr><td>A-VEGETALES CON SRA 217</td><td>MARTES Y JUEVES</td><td>8:30 HS</td></tr>
+              <tr><td>VEGETALES 4° GAMA</td><td>MARTES Y JUEVES</td><td>10:00 HS</td></tr>
+              <tr><td>VEGETALES JUMBO RETAIL</td><td>MARTES, JUEVES Y SÁBADO</td><td>10:00 HS</td></tr>
+              <tr><td>IMAGEN CARBON</td><td>VIERNES</td><td>13:00 HS</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="order-reminder-time">Después de ese horario, el pedido saldrá en base a lo sugerido por el sistema.</div>
+      </div>
     </div>
     <button class="manage-toggle" id="toggleOrderSavedProducts">Productos guardados de Pedidos</button>
     <div id="orderSavedProductsPanel" class="saved-products-panel hidden"></div>
@@ -1374,17 +1428,18 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
       <p>El pedido de carbón corresponde únicamente al viernes.</p>
       <div id="carbonFridayList" class="carbon-friday-list"></div>
       <div class="footer-note">La carga y el cálculo permanecen pendientes hasta definir las categorías y los horarios correspondientes. No se aplican las reglas de Martes, Jueves ni Sábado.</div>
-      <button class="btn-primary carbon-add-product-btn" id="carbonAddProductBtn" type="button" data-add-panel="carbon" aria-expanded="false"><span class="add-panel-symbol">＋</span><span class="add-panel-label">Añadir producto</span></button>
+      <button class="btn-primary btn-add-product-standard carbon-add-product-btn" id="carbonAddProductBtn" type="button" data-add-panel="carbon" aria-expanded="false"><span class="add-panel-symbol">＋</span><span class="add-panel-label">Añadir producto</span></button>
       <form id="carbonOrderForm" class="add-product-form quick-entry-form hidden">
         <div class="quick-entry-title">Añadir producto al pedido de Carbón · Viernes</div>
         <div class="quick-entry-grid two-col">
           <div class="quick-field wide"><label>Producto</label><input id="carbonOrderName" autocomplete="off" placeholder="Nombre del producto" required></div>
           <div class="quick-field"><label>Código / EAN <span class="optional-label">opcional</span></label><input id="carbonOrderCode" inputmode="numeric" autocomplete="off" placeholder="Código"></div>
+          <div class="quick-field"><label>Categoría</label><input id="carbonOrderCategory" list="carbonOrderCategories" autocomplete="off" placeholder="Carbón"><datalist id="carbonOrderCategories"><option value="Carbón"></datalist></div>
           <div class="quick-field"><label>Unidad</label><select id="carbonOrderUnitType"><option value="bulto">Bulto</option><option value="peso">Peso</option></select></div>
           <div class="quick-field"><label>Pedido inicial</label><input id="carbonOrderQtyInput" type="number" inputmode="decimal" step="1" min="0" value="0"></div>
           <div class="quick-field wide"><label>Nota <span class="optional-label">opcional</span></label><input id="carbonOrderNotes" autocomplete="off" placeholder="Observación breve"></div>
         </div>
-        <div class="sticky-form-action"><button class="btn-primary" type="submit">Añadir producto a Carbón Viernes</button></div>
+        <div class="sticky-form-action"><button class="btn-primary btn-add-product-standard" type="submit">Añadir producto a Carbón Viernes</button></div>
       </form>
     </div>
 
@@ -1394,13 +1449,13 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
     </div>
 
     <div id="order-current-view">
-      <div class="order-add-shortcut"><button class="btn-primary" id="orderOpenAddBtn" data-add-panel="order" type="button" aria-expanded="false"><span class="add-panel-symbol">＋</span><span class="add-panel-label">Añadir producto</span></button><span>Agregá productos sin bajar hasta el final.</span></div>
+      <div class="order-add-shortcut"><button class="btn-primary btn-add-product-standard" id="orderOpenAddBtn" data-add-panel="order" type="button" aria-expanded="false"><span class="add-panel-symbol">＋</span><span class="add-panel-label">Añadir producto</span></button><span>Agregá productos sin bajar hasta el final.</span></div>
       <div class="card add-product-panel order-add-panel" id="orderAddPanel">
         <form id="orderForm" class="add-product-form quick-entry-form hidden">
           <div class="quick-entry-title">Añadir producto al pedido</div>
           <div class="quick-entry-grid two-col"><div class="quick-field wide"><label>Producto</label><input id="orderName" list="savedProducts" autocomplete="off" placeholder="Nombre del producto" required><datalist id="savedProducts"></datalist></div><div class="quick-field"><label for="orderCategory">Categoría</label><input list="lista_categorias" id="orderCategory" class="input-form" placeholder="Escribí o seleccioná una categoría" value="Vegetales" autocomplete="off"><datalist id="lista_categorias"><option value="Vegetales"><option value="Frutas"><option value="Hortalizas"></datalist></div><div class="quick-field"><label>Unidad</label><select id="orderUnitType"><option value="bulto">Bulto</option><option value="peso">Peso</option></select></div><div class="quick-field"><label>Pedido inicial</label><input id="orderQtyInput" type="number" inputmode="decimal" step="1" min="0" value="0"></div><div class="quick-field wide"><label>Nota <span class="optional-label">opcional</span></label><input id="orderNotes" autocomplete="off" placeholder="Observación breve"></div></div>
           <details class="compact-optional-details"><summary>Disponibilidad por meses</summary><div class="month-picker" id="orderMonthPicker"><div class="month-picker-head"><label style="margin:0">Meses disponibles</label><button class="month-toggle-all" id="orderMonthsToggleAll" type="button">Seleccionar todos</button></div><div class="month-grid" id="orderMonthsGrid"></div><div class="month-count-note" id="orderMonthsCount">0 de 12 meses seleccionados</div></div></details>
-          <div class="sticky-form-action"><button class="btn-primary" type="submit">Añadir producto</button></div>
+          <div class="sticky-form-action"><button class="btn-primary btn-add-product-standard" type="submit">Añadir producto</button></div>
         </form>
       </div>
 
@@ -1425,33 +1480,33 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
 
 
   <section id="tab-aprendizaje" class="main-section">
-    <div class="section-title-row"><div><h1>Biblioteca</h1><div class="subtitle">Consulta visual de recetas, temporadas y material de referencia de Al Día.</div></div></div>
+    <div class="section-title-row"><div><h1>Lista de códigos</h1><div class="subtitle">La planilla de códigos incorporada a Al Día: consultable, editable y exportable como XLSX.</div></div></div>
     <button class="back-home-btn" data-back-home type="button">← Volver a Inicio</button>
-    <div class="library-tabs" role="tablist" aria-label="Secciones de Biblioteca"><button id="libraryRecipesBtn" class="library-tab active" type="button">🍍 Recetas locales</button><button id="librarySeasonsBtn" class="library-tab" type="button">🌿 Temporadas</button></div>
-
-    <div id="library-recipes-pane" class="library-pane">
-      <div class="card library-intro"><div class="learning-source-name">📊 Recetas LOCALES.xlsx</div><div class="learning-source-meta">Reconstrucción visual dentro de Al Día. Se mantienen códigos, número de receta, ingredientes y cantidades con una disposición similar a la planilla original.</div></div>
-      <div class="card">
-        <div class="topbar"><div><strong>Recetas locales</strong><div class="footer-note">FRUTA y VERDURA · datos incorporados desde la planilla original.</div></div><span class="pill" id="recipeLibraryCount">0 recetas</span></div>
-        <div class="recipe-toolbar"><input id="recipeLibrarySearch" type="search" autocomplete="off" placeholder="Buscar receta, ingrediente o código"><div class="recipe-category-tabs"><button class="recipe-filter-btn active" data-recipe-category="" type="button">Todas</button><button class="recipe-filter-btn" data-recipe-category="FRUTA" type="button">FRUTA</button><button class="recipe-filter-btn" data-recipe-category="VERDURA" type="button">VERDURA</button></div></div>
-        <div class="recipe-summary" id="recipeLibrarySummary"></div>
-        <div id="recipeLibraryList" class="recipe-list"></div>
+    <div class="card">
+      <div class="code-list-toolbar">
+        <input id="codeListSearch" type="search" autocomplete="off" placeholder="Buscar por código, Scanning/EAN o descripción">
+        <button class="secondary-btn" id="codeListAddRowBtn" type="button">＋ Añadir fila</button>
+        <button class="secondary-btn" id="codeListShareBtn" type="button">Compartir XLSX</button>
       </div>
-    </div>
-
-    <div id="library-seasons-pane" class="library-pane hidden">
-      <div class="card learning-source"><div class="learning-source-name">📄 Productos de temporada</div><div class="learning-source-meta">Fuente inicial: DISCO - FRUTAS Y VERDURAS DE ESTACIÓN.xlsx · complementada con tus variedades y ajustes manuales.</div></div>
-      <div class="learning-summary-grid"><div class="learning-kpi"><strong id="learningMonthName">—</strong><span>Mes seleccionado</span></div><div class="learning-kpi"><strong id="learningMonthCount">0</strong><span>Productos activos</span></div><div class="learning-kpi"><strong id="learningAllYearCount">0</strong><span>Todo el año</span></div></div>
-      <div class="card learning-sheet-card">
-        <div class="learning-sheet-head"><div><strong>Productos de temporada</strong><div class="footer-note">Vista general de la disponibilidad mensual. Tocá un producto para editarlo.</div></div><div class="learning-view-tabs"><button id="learningMonthlyViewBtn" class="learning-view-btn active" type="button">Mes</button><button id="learningAnnualViewBtn" class="learning-view-btn" type="button">Año</button></div></div>
-        <div class="learning-toolbar"><input id="learningSearch" type="search" placeholder="Buscar producto"><select id="learningMonthFilter"></select><select id="learningCategoryFilter"><option value="">Todas las categorías</option><option>Frutas</option><option>Vegetales</option><option>Hortalizas</option></select></div>
-        <div class="footer-note" id="learningTransitions"></div>
-        <div id="learningProductList" class="learning-sheet-wrap"></div>
+      <div class="code-list-tabs" id="codeListTabs" aria-label="Listas de códigos"></div>
+      <div class="code-list-meta" id="codeListMeta"></div>
+      <div class="code-list-sheet-wrap"><table class="code-list-table"><thead><tr><th>articuloref</th><th>Scanning</th><th>Descripción</th><th>packaging</th></tr></thead><tbody id="codeListTableBody"></tbody></table></div>
+      <div class="code-list-actions"><button class="secondary-btn" id="codeListExportBtn" type="button">Guardar XLSX</button></div>
+      <div class="code-list-editor hidden" id="codeListEditor">
+        <strong id="codeListEditorTitle">Editar fila</strong>
+        <div class="form-grid" style="margin-top:9px">
+          <div><label>articuloref</label><input id="codeEditArticulo" data-no-autocap autocomplete="off"></div>
+          <div><label>Scanning</label><input id="codeEditScanning" data-no-autocap autocomplete="off"></div>
+          <div><label>Descripción</label><input id="codeEditDescripcion" autocomplete="off"></div>
+          <div><label>packaging</label><input id="codeEditPackaging" autocomplete="off"></div>
+        </div>
+        <div class="code-list-editor-actions"><button class="secondary-btn" id="codeListEditorCancelBtn" type="button">Cancelar</button><button class="btn-primary" id="codeListEditorSaveBtn" type="button">Guardar fila</button></div>
+        <button class="btn-danger code-list-editor-danger hidden" id="codeListEditorDeleteBtn" type="button">Eliminar fila</button>
       </div>
     </div>
   </section>
 
-  <section id="tab-muestras" class="main-section">
+  <section id="tab-muestras" class="main-section legacy-module">
     <div class="section-title-row">
       <div>
         <h1>Muestras</h1>
@@ -1463,14 +1518,14 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
     <div class="view-tabs"><button class="view-tab active" data-sample-view="current">Nueva muestra</button><button class="view-tab" data-sample-view="history">Muestras realizadas</button></div>
     <div id="sample-current-view">
       <div class="card add-product-panel">
-        <button class="add-product-toggle" type="button" data-add-panel="sample"><span>＋ Añadir producto a muestra</span><span class="add-panel-arrow">⌄</span></button>
+        <button class="add-product-toggle btn-add-product-standard" type="button" data-add-panel="sample"><span>＋ Añadir producto a muestra</span><span class="add-panel-arrow">⌄</span></button>
         <div class="add-product-form hidden" id="sampleAddBody">
         <div class="footer-note" style="margin:4px 0 12px">Elegí una muestra. Después de añadir el primer producto, quedará bloqueada hasta finalizar o cancelar la muestra.</div>
         <form id="sampleForm" class="quick-entry-form">
           <div class="quick-entry-title">Producto de la muestra</div>
           <div class="quick-entry-grid two-col"><div class="quick-field wide"><label>Muestra</label><select id="sampleTemplateSelect"></select></div><div class="quick-field wide"><label>Producto</label><input id="sampleProductName" list="sampleProductMemoryList" autocomplete="off" placeholder="Nombre del producto"><datalist id="sampleProductMemoryList"></datalist></div><div class="quick-field"><label>Medición</label><select id="sampleMeasure"><option value="peso">Peso</option><option value="unidad">Unidad</option></select></div><div class="quick-field"><label>Depósito</label><input id="sampleDeposit" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0"></div><div class="quick-field"><label>Góndola</label><input id="sampleShelf" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0"></div></div>
           <div class="sample-edit-status" id="sampleEditStatus">Editando producto</div>
-          <div class="sample-form-actions sticky-form-action"><button class="btn-primary" id="sampleSubmitBtn" type="submit">Añadir producto</button><button class="secondary-btn hidden" id="sampleCancelEditBtn" type="button">Cancelar edición</button></div>
+          <div class="sample-form-actions sticky-form-action"><button class="btn-primary btn-add-product-standard" id="sampleSubmitBtn" type="submit">Añadir producto</button><button class="secondary-btn hidden" id="sampleCancelEditBtn" type="button">Cancelar edición</button></div>
         </form>
         </div>
       </div>
@@ -1508,61 +1563,50 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
 
 
   <section id="tab-plantilla" class="main-section">
-    <div class="section-title-row">
-      <div>
-        <h1>Plantilla Carnes-Vegetales</h1>
-        <div class="subtitle">Armá una planilla con todos los productos y generá un único archivo XLSX.</div>
-      </div>
-    </div>
+    <div class="section-title-row"><div><h1>Baja de precios</h1><div class="subtitle">Prepará la Planilla vegetales con fecha de vencimiento, kilos o unidades y exportala como XLSX.</div></div></div>
     <button class="back-home-btn plantilla" data-back-home type="button">← Volver a Inicio</button>
 
     <div class="card cv-start-card" id="cvStartCard">
       <strong>Nueva planilla</strong>
-      <div class="footer-note" style="margin:4px 0 12px">Primero creá la planilla. Después podés ir agregando todos los productos que necesites.</div>
+      <div class="footer-note" style="margin:4px 0 12px">Creá una planilla y agregá los productos que necesites. Acción y vigencias quedan reservadas para Compras.</div>
       <button class="btn-primary" id="cvCreateSheetBtn" type="button" style="width:100%">＋ Crear planilla</button>
     </div>
 
     <div id="cvDraftPanel" class="hidden">
       <div class="card cv-draft-card">
-        <div class="topbar cv-draft-topbar">
-          <div><strong>Planilla en preparación</strong><div class="footer-note" id="cvDraftMeta">0 productos</div></div>
-          <button class="secondary-btn" id="cvAddProductBtn" type="button">＋ Añadir producto</button>
-        </div>
+        <div class="topbar cv-draft-topbar"><div><strong>Planilla en preparación</strong><div class="footer-note" id="cvDraftMeta">0 productos</div></div><button class="btn-add-product-standard secondary-btn" id="cvAddProductBtn" type="button">＋ Añadir producto</button></div>
+        <div class="cv-inline-help">En la app usamos <b>Código</b> y <b>Nombre / Producto</b>. En el XLSX se exportan con los encabezados originales <b>Artículo</b> y <b>Descripción</b>.</div>
 
         <form id="carnesVegetalesForm" class="form-grid hidden cv-product-form">
-          <div>
-            <label>Local</label>
-            <input id="cvLocal" value="953" disabled class="fixed-input" aria-label="Local fijo 953">
-            <div class="footer-note">Valor fijo</div>
+          <div><label>Local</label><input id="cvLocal" value="953" disabled class="fixed-input" aria-label="Local fijo 953"><div class="footer-note">Valor fijo</div></div>
+          <div class="cv-field-wrap"><label>Código</label><input id="cvArticulo" data-no-autocap autocomplete="off" placeholder="Opcional · articuloref"><div id="cvCodeSuggestions" class="cv-suggestions hidden"></div></div>
+          <div class="cv-field-wrap"><label>Nombre / Producto *</label><input id="cvDescripcion" autocomplete="off" required placeholder="Escribí para buscar en Lista de códigos"><div id="cvNameSuggestions" class="cv-suggestions hidden"></div></div>
+          <div class="cv-value-grid">
+            <div><label>Tipo *</label><select id="cvValueType"><option value="fecha">Fecha</option><option value="kg">Kg</option><option value="unidad">Unidad</option></select></div>
+            <div id="cvDateInputWrap"><label>Fecha de vencimiento *</label><input id="cvValueDate" type="date"></div>
+            <div id="cvNumberInputWrap" class="hidden"><label id="cvNumberLabel">Cantidad *</label><input id="cvValueNumber" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0"></div>
           </div>
-          <div><label>Artículo *</label><input id="cvArticulo" data-no-autocap autocomplete="off" required placeholder="Código"></div>
-          <div><label>Descripción *</label><input id="cvDescripcion" autocomplete="off" required placeholder="Nombre Producto"></div>
-          <div><label>Fecha de vencimiento del Producto *</label><input id="cvVencimiento" autocomplete="off" required placeholder="Ej: 250 k"></div>
-          <div class="cv-product-form-actions">
-            <button class="secondary-btn" id="cvCancelProductBtn" type="button">Cancelar</button>
-            <button class="btn-primary" id="cvProductSubmitBtn" type="submit">Añadir producto</button>
-          </div>
+          <div class="cv-inline-help">Fecha → calendario · Kg → número decimal · Unidad → número entero. El valor final se exporta en “Fecha de vencimiento del Producto”.</div>
+          <div class="cv-product-form-actions"><button class="secondary-btn" id="cvCancelProductBtn" type="button">Cancelar</button><button class="btn-primary btn-add-product-standard" id="cvProductSubmitBtn" type="submit">Añadir producto</button></div>
         </form>
 
+        <div class="cv-view-tools"><select id="cvSortView"><option value="load">Orden de carga</option><option value="code">Ordenar vista por código</option><option value="name">Ordenar vista por nombre</option></select><button class="secondary-btn" id="cvPreviewBtn" type="button">Vista previa</button></div>
+        <div id="cvPreview" class="cv-preview hidden"></div>
         <div id="cvDraftEmpty" class="empty">Todavía no añadiste productos a esta planilla.</div>
         <div id="cvDraftItems" class="cv-draft-items"></div>
-
-        <div class="cv-final-actions">
-          <button class="secondary-btn" id="cvCancelSheetBtn" type="button">Cancelar planilla</button>
-          <button class="btn-primary" id="cvFinalizeSheetBtn" type="button">Guardar y crear XLSX</button>
-        </div>
+        <div class="cv-final-actions"><button class="secondary-btn" id="cvCancelSheetBtn" type="button">Cancelar planilla</button><button class="btn-primary" id="cvFinalizeSheetBtn" type="button">Guardar y crear XLSX</button></div>
       </div>
     </div>
 
     <div class="card">
-      <div class="topbar"><div class="history-toolbar"><strong>Historial de plantillas</strong><div class="history-tools"><span class="pill" id="cvHistoryCount">0 archivos</span></div></div></div>
-      <div id="cvHistoryEmpty" class="empty">Todavía no generaste ninguna plantilla.</div>
+      <div class="topbar"><div class="history-toolbar"><strong>Historial de planillas</strong><div class="history-tools"><span class="pill" id="cvHistoryCount">0 archivos</span></div></div></div>
+      <div id="cvHistoryEmpty" class="empty">Todavía no generaste ninguna planilla.</div>
       <div id="cvHistoryList" class="cv-history-list"></div>
-      <div class="footer-note">Cada planilla queda guardada como “Plantilla Carnes-Vegetales DD-MM-YY.xlsx”. Desde acá podés descargarla o compartirla.</div>
+      <div class="footer-note">Los archivos se nombran automáticamente “Planilla vegetales-DD-MM-AAAA.xlsx”.</div>
     </div>
   </section>
 
-  <section id="tab-consultor" class="main-section">
+  <section id="tab-consultor" class="main-section legacy-module">
     <div class="section-title-row">
       <div>
         <h1>Consultor de productos</h1>
@@ -1572,7 +1616,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
     <button class="back-home-btn settings" data-back-home type="button">← Volver a Inicio</button>
 
     <div class="card">
-      <button class="add-product-toggle" type="button" data-add-panel="consultor"><span>＋ Añadir producto</span><span class="add-panel-arrow">⌄</span></button>
+      <button class="add-product-toggle btn-add-product-standard" type="button" data-add-panel="consultor"><span>＋ Añadir producto</span><span class="add-panel-arrow">⌄</span></button>
       <form id="consultorForm" class="add-product-form hidden">
         <div><label>Nombre *</label><input id="consultorName" autocomplete="off" required placeholder="Nombre del producto"></div>
         <div><label>Código / EAN</label><input id="consultorCode" autocomplete="off" placeholder="Opcional"></div>
@@ -1582,7 +1626,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
           <datalist id="consultorCategories"></datalist>
         </div>
         <div class="consultor-form-actions" id="consultorFormActions">
-          <button class="btn-primary" id="consultorSubmitBtn" type="submit">Agregar producto</button>
+          <button class="btn-primary btn-add-product-standard" id="consultorSubmitBtn" type="submit">Agregar producto</button>
           <button class="secondary-btn hidden" id="consultorCancelEditBtn" type="button">Cancelar edición</button>
         </div>
       </form>
@@ -1610,7 +1654,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
       <div class="switch-row">
         <div>
           <strong>Notificaciones</strong>
-          <div class="footer-note">Avisos de vencimientos próximos, productos para retirar hoy o con retiro atrasado.</div>
+          <div class="footer-note">Avisos de vencimientos, recordatorios de notas y pedidos programados para el día.</div>
         </div>
         <label class="switch" aria-label="Activar notificaciones">
           <input id="notificationSetting" type="checkbox">
@@ -1637,7 +1681,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
 
       <div class="notification-permission-status" id="notificationPermissionStatus">Comprobando permiso de notificaciones…</div>
       <button class="secondary-btn" id="requestNotificationPermissionBtn" type="button" style="width:100%;margin-top:8px">Habilitar permiso de notificaciones</button>
-      <button class="secondary-btn temporary-test-btn" id="testProductNotificationBtn" type="button" style="width:100%;margin-top:8px">Prueba temporal · alerta real de productos</button>
+      <button class="secondary-btn temporary-test-btn" id="testProductNotificationBtn" type="button" style="width:100%;margin-top:8px">Prueba temporal · alertas del día</button>
     </div>
 
     <div class="card">
@@ -1665,7 +1709,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
       <strong>Acerca de Al Día</strong>
       <div class="settings-option app-version-row">
         <span>Versión instalada</span>
-        <strong id="appVersionText">2.31</strong>
+        <strong id="appVersionText">2.33</strong>
       </div>
       <button class="secondary-btn" id="checkUpdatesBtn" type="button" style="width:100%">Buscar actualizaciones</button>
       <div class="footer-note" id="updateCheckStatus">Comprueba la última versión publicada en GitHub Releases.</div>
@@ -1693,12 +1737,12 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
       <button class="note-editor-close" id="noteEditorCloseBtn" type="button" aria-label="Cerrar editor"><span aria-hidden="true">←</span></button>
       <div class="note-editor-head-actions">
         <button class="note-editor-star" id="noteEditorStarBtn" type="button" aria-label="Fijar nota" title="Fijar nota">★</button>
-        <button class="note-editor-save" id="noteEditorSaveBtn" type="button">Guardar</button>
+        
       </div>
     </div>
     <input class="note-editor-title" id="noteEditorTitle" type="text" placeholder="Título (opcional)" aria-label="Título de la nota">
     <details class="note-editor-options" id="noteEditorFormatOptions"><summary>Opciones de lista</summary><div class="note-format-toolbar">
-      <button type="button" data-note-format="check">☑️ Checklist</button>
+      <button type="button" data-note-format="check">☐ Casilla</button>
       <button type="button" data-note-format="bullet">• Lista</button>
       <button type="button" data-note-format="number">1. Numerar</button>
     </div></details>
@@ -1713,9 +1757,13 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
     </details>
     <div class="note-editor-meta" id="noteEditorMeta"></div>
     <div class="note-editor-draft-status" id="noteEditorDraftStatus" aria-live="polite"></div>
-    <div class="note-editor-bottom">
+    <div class="note-editor-secondary-actions">
       <button class="share-btn" id="noteEditorShareBtn" type="button">Compartir</button>
       <button class="btn-danger" id="noteEditorDeleteBtn" type="button">Eliminar</button>
+    </div>
+    <div class="note-editor-primary-actions">
+      <button class="note-editor-cancel" id="noteEditorCancelBtn" type="button">Cancelar</button>
+      <button class="note-editor-save-bottom" id="noteEditorSaveBtn" type="button">Guardar</button>
     </div>
   </div>
 </div>
@@ -1736,6 +1784,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
 /* v2.25 - Recetas locales integradas para funcionamiento autónomo del HTML/WebView */
 window.ALDIA_RECETAS_LOCALES = {"source":"Recetas LOCALES.xlsx","recipeIndex":[{"recipe":"18","artref":"23120709001","scanning":"454483","description":"Sandia trozada","presentation":"BJA-1-Kg"},{"recipe":"20","artref":"23120128001","scanning":"454506","description":"Snack de frutas x 1kg","presentation":"BJA-1-Kg"},{"recipe":"551","artref":"23160101001","scanning":"214254","description":"Jugo de Naranjas exprimidas x 1lt","presentation":"PVC-1-lt."},{"recipe":"728","artref":"23120707002","scanning":"846271","description":"Piña pelada","presentation":"BJA-1-Kg"},{"recipe":"771","artref":"23120509003","scanning":"713696","description":"Snack de melones","presentation":"BJA-1-Kg"},{"recipe":"1036","artref":"23160101004","scanning":"831529","description":"Jugo de Naranjas exprimidas x 500ml","presentation":"BOT-500-cc."},{"recipe":"1215","artref":"23120725001","scanning":"784726","description":"Snack de frutas x 250grs","presentation":"S/E-1-un."},{"recipe":"1216","artref":"23120724001","scanning":"784719","description":"Snack de frutas x 400grs","presentation":"S/E-1-un."},{"recipe":"2128","artref":"23210542002","scanning":"951395","description":"Zapallo coreano rodajas","presentation":"BJA-1-Kg"},{"recipe":"2548","artref":"23230675001","scanning":"229883","description":"Carbonada","presentation":"BJA-1-Kg"},{"recipe":"3665","artref":"23120516001","scanning":"919944","description":"Citricos en gajos","presentation":"BJA-1-Kg"},{"recipe":"3666","artref":"23210108001","scanning":"957441","description":"Apio","presentation":"S/E-1-Kg"},{"recipe":"3667","artref":"23220337001","scanning":"149136","description":"Ensalada hojas verdes y cherry","presentation":"BJA-1-Kg"},{"recipe":"3668","artref":"23220535001","scanning":"373371","description":"Puchero","presentation":"GRA-1-Kg"},{"recipe":"3669","artref":"23210464001","scanning":"732239","description":"Vegetales para horno","presentation":"BJA-1-Kg"},{"recipe":"3670","artref":"23220390001","scanning":"373524","description":"Vegetales parrilleros","presentation":"BJA-1-Kg"},{"recipe":"3672","artref":"23220391001","scanning":"891738","description":"Brochette","presentation":"BJA-2-un."},{"recipe":"3673","artref":"23220395001","scanning":"732628","description":"Mix de pimientos y cebolla","presentation":"BJA-1-un."},{"recipe":"3674","artref":"23210512023","scanning":"789998","description":"Verduras fraccionadas","presentation":"BSA-1-Kg"},{"recipe":"3675","artref":"23220381001","scanning":"747066","description":"Verdurita para sopa","presentation":"BJA-1-Kg"},{"recipe":"3677","artref":"23220536001","scanning":"891745","description":"Cebolla pelada","presentation":"BJA-1-Kg"},{"recipe":"3678","artref":"23220539001","scanning":"725569","description":"Cebolla en aros","presentation":"BJA-1-un."},{"recipe":"4110","artref":"23230675003","scanning":"670470","description":"Carbonada con champiñones","presentation":"BJA-1-Kg"},{"recipe":"4156","artref":"23120732003","scanning":"803816","description":"Mix de uvas","presentation":"BJA-1-Kg"},{"recipe":"4157","artref":"23120732001","scanning":"671354","description":"Mix de melones con sandia","presentation":"BJA-1-Kg"},{"recipe":"4158","artref":"23120732004","scanning":"803793","description":"Trozos de papaya","presentation":"BJA-1-Kg"},{"recipe":"4159","artref":"23120732005","scanning":"803823","description":"Snack tropical","presentation":"BJA-1-Kg"},{"recipe":"4160","artref":"23120732002","scanning":"803809","description":"Mix arandanos, frutillas y sandia","presentation":"BJA-1-un"}],"recipes":[{"category":"FRUTA","name":"Snack de frutas x 1kg","productCode":"23120128001","scanning":"454506","recipe":"20","ingredients":[{"code":"23110722001","name":"Piña gold","qty":0.5},{"code":"23110708001","name":"Melón amarillo","qty":0.5},{"code":"23110101001","name":"Frutilla","qty":0.25},{"code":"23110704005","name":"Kiwi","qty":0.3}]},{"category":"FRUTA","name":"Snack de frutas x 400grs","productCode":"23120724001","scanning":"784719","recipe":"1216","ingredients":[{"code":"23110722001","name":"Piña gold","qty":0.2},{"code":"23110708001","name":"Melón amarillo","qty":0.2},{"code":"23110101001","name":"Frutilla","qty":0.15},{"code":"23110704005","name":"Kiwi","qty":0.12}]},{"category":"FRUTA","name":"Snack de frutas x 250grs","productCode":"23120725001","scanning":"784726","recipe":"1215","ingredients":[{"code":"23110722001","name":"Piña gold","qty":0.125},{"code":"23110708001","name":"Melón amarillo","qty":0.2},{"code":"23110101001","name":"Frutilla","qty":0.09},{"code":"23110704005","name":"Kiwi","qty":0.08}]},{"category":"FRUTA","name":"Snack de melones","productCode":"23120509003","scanning":"713696","recipe":"771","ingredients":[{"code":"23110708010","name":"Melón blanco","qty":0.9},{"code":"23110708001","name":"Melón amarillo","qty":1.15}]},{"category":"FRUTA","name":"Citricos en gajos","productCode":"23120516001","scanning":"919944","recipe":"3665","ingredients":[{"code":"23110562010","name":"Naranja jugo","qty":0.8},{"code":"23110541018","name":"Pomelo ruby star","qty":0.61}]},{"category":"FRUTA","name":"Jugo de naranja x 1lt","productCode":"23160101001","scanning":"214254","recipe":"551","ingredients":[{"code":"23110562001","name":"Naranja insumo","qty":2.5}]},{"category":"FRUTA","name":"Jugo de naranja x 500ml","productCode":"23160101004","scanning":"831529","recipe":"1036","ingredients":[{"code":"23110562001","name":"Naranja insumo","qty":1.25}]},{"category":"FRUTA","name":"Piña gold pelada","productCode":"23120707002","scanning":"846271","recipe":"728","ingredients":[{"code":"23110722001","name":"Piña gold","qty":2.2}]},{"category":"FRUTA","name":"Sandia trozada","productCode":"23120709001","scanning":"454483","recipe":"18","ingredients":[{"code":"23110715001","name":"Sandia","qty":2.1}]},{"category":"FRUTA","name":"Mix de uvas","productCode":"23120732003","scanning":"803816","recipe":"4156","ingredients":[{"code":"23110115001","name":"Uva Red Globe","qty":0.39},{"code":"23110115002","name":"Uva blanca","qty":0.39},{"code":"23110115022","name":"Uva negra","qty":0.39}]},{"category":"FRUTA","name":"Mix melones y sandias","productCode":"23120732001","scanning":"671354","recipe":"4157","ingredients":[{"code":"23110708001","name":"Melón Amarillo","qty":0.5},{"code":"23110708006","name":"Melon Escrito","qty":0.5},{"code":"23110708010","name":"Melón Blanco Elegido","qty":0.5},{"code":"23110715001","name":"Sandía","qty":0.5}]},{"category":"FRUTA","name":"Papaya en trozo","productCode":"23120732004","scanning":"803793","recipe":"4158","ingredients":[{"code":"23110721001","name":"Mamón","qty":1.5}]},{"category":"FRUTA","name":"Snack frutas tropicales","productCode":"23120732005","scanning":"803823","recipe":"4159","ingredients":[{"code":"23110706011","name":"Mango","qty":1},{"code":"23110721001","name":"Mamón","qty":0.7},{"code":"23110722001","name":"Piña Gold","qty":1}]},{"category":"FRUTA","name":"Mix berries y sandia","productCode":"23120732002","scanning":"803809","recipe":"4160","ingredients":[{"code":"23110101001","name":"Frutilla","qty":0.35},{"code":"23110715001","name":"Sandía","qty":0.75},{"code":"23130750002","name":"Arandano cub 125 gr","qty":1.5}]},{"category":"VERDURA","name":"Apio","productCode":"23210108001","scanning":"957441","recipe":"3666","ingredients":[{"code":"23210108016","name":"Apio planta","qty":2.3}]},{"category":"VERDURA","name":"Vegetales para horno","productCode":"23210464001","scanning":"732239","recipe":"3669","ingredients":[{"code":"23210510003","name":"Papa","qty":0.396},{"code":"23210504001","name":"Anco","qty":0.264},{"code":"23210319001","name":"Zapallito largo","qty":0.198},{"code":"23210507006","name":"Cebolla","qty":0.132},{"code":"23210308004","name":"Pimiento rojo","qty":0.132},{"code":"23210506001","name":"Batata","qty":0.198}]},{"category":"VERDURA","name":"Verduras fraccionadas","productCode":"23210512023","scanning":"789998","recipe":"3674","ingredients":[{"code":"23210113001","name":"Coliflor","qty":0.36},{"code":"23210512002","name":"Zanahoria","qty":0.36},{"code":"23210111001","name":"Brocoli","qty":0.36},{"code":"23210319001","name":"Zapallito largo","qty":0.36}]},{"category":"VERDURA","name":"Ensalada hojas verdes y cherry","productCode":"23220337001","scanning":"149136","recipe":"3667","ingredients":[{"code":"23210120004","name":"Lechuga francesa","qty":0.28},{"code":"23210120005","name":"Lechuga mantecosa","qty":0.28},{"code":"23210120007","name":"Lechuga morada","qty":0.28},{"code":"23210317001","name":"Tomate cherry","qty":0.28}]},{"category":"VERDURA","name":"Verdurita para sopa","productCode":"23220381001","scanning":"747066","recipe":"3675","ingredients":[{"code":"23210504001","name":"Anco","qty":0.25},{"code":"23210128016","name":"Puerro","qty":0.4},{"code":"23210512002","name":"Zanahoria","qty":0.25},{"code":"23210108016","name":"Apio","qty":0.4},{"code":"23210112014","name":"Verdeo","qty":0.4},{"code":"23210398001","name":"Choclo","qty":0.4},{"code":"23210102021","name":"Acelga","qty":0.4}]},{"category":"VERDURA","name":"Vegetales parrilleros","productCode":"23220390001","scanning":"373524","recipe":"3670","ingredients":[{"code":"23210375009","name":"Berenjena","qty":0.4},{"code":"23210308004","name":"Pimiento rojo","qty":0.26},{"code":"23210310001","name":"Pimiento verde","qty":0.26},{"code":"23210507006","name":"Cebolla","qty":0.4}]},{"category":"VERDURA","name":"Brochette","productCode":"23220391001","scanning":"891738","recipe":"3672","ingredients":[{"code":"23210308004","name":"Pimiento rojo","qty":0.22},{"code":"23210310001","name":"Pimiento verde","qty":0.22},{"code":"23210319001","name":"Zapallito largo","qty":0.22},{"code":"23210504001","name":"zapallo coreano","qty":0.22},{"code":"23210507006","name":"Cebolla","qty":0.22}]},{"category":"VERDURA","name":"Mix de pimientos y cebolla","productCode":"23220395001","scanning":"732628","recipe":"3673","ingredients":[{"code":"23210507006","name":"Cebolla","qty":0.16799999999999998},{"code":"23210308004","name":"Pimiento rojo","qty":0.147},{"code":"23210310001","name":"Pimiento verde","qty":0.147}]},{"category":"VERDURA","name":"Zapallo coreano rodajas","productCode":"23210542002","scanning":"951395","recipe":"2128","ingredients":[{"code":"23210504001","name":"zapallo coreano","qty":2.5}]},{"category":"VERDURA","name":"Carbonada","productCode":"23230675001","scanning":"951395","recipe":"2548","ingredients":[{"code":"23210535001","name":"Zapallo ingles","qty":0.925},{"code":"23210504001","name":"zapallo coreano","qty":0.065},{"code":"23210512002","name":"Zanahoria","qty":0.04},{"code":"23210507006","name":"Cebolla","qty":0.08},{"code":"23210398001","name":"Choclo","qty":0.25},{"code":"23210108016","name":"Apio","qty":0.13},{"code":"23210102021","name":"Acelga","qty":0.13}]},{"category":"VERDURA","name":"Carbonada con champiñones","productCode":"23230675003","scanning":"670470","recipe":"4110","ingredients":[{"code":"23210535001","name":"Zapallo ingles","qty":0.83},{"code":"23210504001","name":"zapallo coreano","qty":0.1},{"code":"23210403001","name":"Champiñon granel","qty":0.05},{"code":"23210310001","name":"Pimiento verde","qty":0.05},{"code":"23210308004","name":"Pimiento rojo","qty":0.05},{"code":"23210307001","name":"Pimiento amarillo","qty":0.05},{"code":"23210112014","name":"Verdeo","qty":0.2},{"code":"23210102021","name":"Acelga","qty":0.2}]},{"category":"VERDURA","name":"Puchero","productCode":"23220535001","scanning":"373371","recipe":"3668","ingredients":[{"code":"23210504001","name":"zapallo coreano","qty":0.27},{"code":"23210506001","name":"batata","qty":0.16},{"code":"23210512002","name":"Zanahoria","qty":0.19},{"code":"23210509005","name":"Papa negra","qty":0.23},{"code":"23210507006","name":"Cebolla","qty":0.19},{"code":"23210398001","name":"Choclo","qty":0.16},{"code":"23210102021","name":"Acelga","qty":0.1},{"code":"23210108016","name":"Apio planta","qty":0.1}]},{"category":"VERDURA","name":"Cebolla pelada","productCode":"23220536001","scanning":"891745","recipe":"3677","ingredients":[{"code":"23210507006","name":"Cebolla","qty":1.32}]},{"category":"VERDURA","name":"Cebolla en aros","productCode":"23220539001","scanning":"725569","recipe":"3678","ingredients":[{"code":"23210507006","name":"Cebolla","qty":0.5}]}]};
 </script>
+<script src="lista_codigos_data.js"></script>
 <script>
 const K={
   expiry:"control_vencimientos_v1",
@@ -1764,6 +1813,7 @@ const K={
   carnesVegetales:"al_dia_plantilla_carnes_vegetales_v1",
   carnesVegetalesDraft:"al_dia_plantilla_carnes_vegetales_borrador_v1",
   learningCatalog:"al_dia_base_aprendizaje_productos_v1",
+  codeList:"al_dia_lista_codigos_v1",
   settings:"dia_a_dia_ajustes_v1"
 };
 const cats=["Frutas","Vegetales","Hortalizas"];
@@ -1780,7 +1830,7 @@ let lastExpiryProductId=String(JSON.parse(localStorage.getItem(K.expiryLastProdu
 let expirySelectedProductId=null;
 let orders=JSON.parse(localStorage.getItem(K.orders)||'{"martes":[],"jueves":[],"sabado":[]}');
 let carbonOrders=JSON.parse(localStorage.getItem(K.carbonOrders)||'[]');
-if(!Array.isArray(carbonOrders))carbonOrders=[];
+if(!Array.isArray(carbonOrders))carbonOrders=[];carbonOrders.forEach(x=>{x.category=String(x.category||"Carbón").trim()||"Carbón";x.stockCurrent=Math.max(0,Number(x.stockCurrent)||0);x.priceState=["normal","oferta","caro"].includes(x.priceState)?x.priceState:"normal";x.expectedMovement=["poco","normal","mucho"].includes(x.expectedMovement)?x.expectedMovement:"normal";x.unitType=x.unitType==="peso"?"peso":"bulto";});
 let orderHistory=JSON.parse(localStorage.getItem(K.orderHistory)||'{"martes":[],"jueves":[],"sabado":[]}');
 let orderCompletion=JSON.parse(localStorage.getItem(K.orderCompletion)||'{"martes":null,"jueves":null,"sabado":null}');
 let orderSuggestedQty=JSON.parse(localStorage.getItem(K.orderSuggestedQty)||"{}");
@@ -1803,6 +1853,14 @@ if(!Array.isArray(carnesVegetalesHistory))carnesVegetalesHistory=[];
 let carnesVegetalesDraft=JSON.parse(localStorage.getItem(K.carnesVegetalesDraft)||"null");
 if(carnesVegetalesDraft&&(!Array.isArray(carnesVegetalesDraft.items)))carnesVegetalesDraft=null;
 let cvEditingItemId=null;
+function defaultCodeListSheets(){
+  const src=window.ALDIA_LISTA_CODIGOS?.sheets;
+  if(!Array.isArray(src))return [];
+  return JSON.parse(JSON.stringify(src)).map((sheet,i)=>({name:`Lista ${i+1}`,sourceName:sheet.sourceName||`Hoja ${i+1}`,rows:Array.isArray(sheet.rows)?sheet.rows:[]}));
+}
+let codeListSheets=JSON.parse(localStorage.getItem(K.codeList)||"null");
+if(!Array.isArray(codeListSheets)||!codeListSheets.length)codeListSheets=defaultCodeListSheets();
+codeListSheets=codeListSheets.map((sheet,i)=>({name:`Lista ${i+1}`,sourceName:sheet?.sourceName||`Hoja ${i+1}`,rows:Array.isArray(sheet?.rows)?sheet.rows.map(r=>({articuloref:String(r?.articuloref??""),scanning:String(r?.scanning??r?.Scanning??""),descripcion:String(r?.descripcion??r?.Descripción??""),packaging:String(r?.packaging??"")})):[]}));
 
 function migrateSampleCategories(){
   const aliases={
@@ -1877,6 +1935,7 @@ const saveAll=()=>{
   saveJsonIfChanged(K.carnesVegetales,carnesVegetalesHistory);
   saveJsonIfChanged(K.carnesVegetalesDraft,carnesVegetalesDraft);
   saveJsonIfChanged(K.learningCatalog,learningCatalog);
+  saveJsonIfChanged(K.codeList,codeListSheets);
   saveJsonIfChanged(K.backupMeta,backupMetaState);
   saveJsonIfChanged(K.expiryProductMemory,expiryProductMemory);
   saveJsonIfChanged(K.orderProductMemory,orderProductMemory);
@@ -2094,23 +2153,22 @@ function enhanceClearableInputs(root=document){
     sync();
   });
 }
-function renderCarbonFriday(){
-  const list=$("carbonFridayList");if(!list)return;
-  if(!carbonOrders.length){list.innerHTML='<div class="carbon-friday-empty">Todavía no agregaste productos para Carbón Viernes.</div>';return}
-  list.innerHTML=carbonOrders.map(x=>`<div class="carbon-friday-item" data-carbon-order-id="${esc(x.id)}"><div><strong>${esc(x.name)}</strong><div class="carbon-friday-meta">${x.qty!=null?`Pedido: ${esc(x.qty)}`:"Pedido: 0"}${x.code?` · Código/EAN: ${esc(x.code)}`:""}${x.notes?` · ${esc(x.notes)}`:""}</div></div><div class="carbon-friday-actions"><button type="button" data-del-carbon="${esc(x.id)}">Retirar</button></div></div>`).join("");
-  enhanceClearableInputs(list);
-}
-function resetCarbonOrderForm(){const f=$("carbonOrderForm");if(!f)return;f.reset();$("carbonOrderQtyInput").value="0"}
+function carbonCategoryNames(list=[]){const out=[];list.forEach(x=>{const c=String(x?.category||"Carbón").trim()||"Carbón";if(!out.some(v=>norm(v)===norm(c)))out.push(c)});return out.length?out:["Carbón"]}
+function carbonOrderItemCardHtml(x){const qty=Math.max(0,Number(x.qty)||0),stock=Math.max(0,Number(x.stockCurrent)||0);return `<div class="order-item order-item-compact order-item-carbon" data-carbon-order-id="${x.id}" data-order-category-name="${esc(x.category||"Carbón")}"><div class="order-compact-head"><div class="order-compact-product"><div class="name">${esc(x.name)}</div><div class="meta">${esc(x.code||"Sin código")}</div><div class="order-profile-summary">${x.unitType==="peso"?"Peso (kg)":"Bulto"} · sin aprendizaje</div></div></div><div class="order-inline-cell"><label>Stock</label><input type="number" min="0" step="${x.unitType==="peso"?"0.1":"1"}" inputmode="${x.unitType==="peso"?"decimal":"numeric"}" value="${stock}" data-carbon-stock="${x.id}" aria-label="Stock actual de ${esc(x.name)}"></div><div class="order-inline-cell"><label>Sugerido</label><div class="order-suggested-tap carbon-no-learning"><small>No aplica</small><span class="order-suggested-value">—</span></div></div><div class="order-inline-cell"><label>Pedido</label><input class="order-qty-input order-qty-input-v210" type="number" inputmode="${x.unitType==="peso"?"decimal":"numeric"}" step="${x.unitType==="peso"?"0.1":"1"}" min="0" value="${qty}" data-carbon-qty="${x.id}" aria-label="Pedido de ${esc(x.name)}"></div><div class="order-row-meta"><select class="order-mini-select" data-carbon-price="${x.id}" aria-label="Precio de ${esc(x.name)}"><option value="normal" ${x.priceState!=="oferta"&&x.priceState!=="caro"?"selected":""}>Precio normal</option><option value="oferta" ${x.priceState==="oferta"?"selected":""}>Oferta</option><option value="caro" ${x.priceState==="caro"?"selected":""}>Caro</option></select><select class="order-mini-select" data-carbon-movement="${x.id}" aria-label="Movimiento esperado de ${esc(x.name)}"><option value="poco" ${x.expectedMovement==="poco"?"selected":""}>Poco mov.</option><option value="normal" ${x.expectedMovement!=="poco"&&x.expectedMovement!=="mucho"?"selected":""}>Mov. normal</option><option value="mucho" ${x.expectedMovement==="mucho"?"selected":""}>Mucho mov.</option></select><span class="order-confidence-chip carbon-manual-chip">Sin aprendizaje</span></div><button class="btn-danger swipe-delete-source" data-del-carbon="${x.id}" type="button" tabindex="-1" aria-hidden="true">Eliminar</button></div>`}
+function renderCarbonFriday(){const list=$("carbonFridayList");if(!list)return;const active=carbonOrders||[];if(!active.length){list.innerHTML='<div class="mobile-sheet-head order-sheet-head"><span>Producto</span><span>Stock</span><span>Sugerido</span><span>Pedido</span></div><div class="carbon-friday-empty">Todavía no agregaste productos para Carbón Viernes.</div>';return}list.innerHTML=`<div class="mobile-sheet-head order-sheet-head"><span>Producto</span><span>Stock</span><span>Sugerido</span><span>Pedido</span></div><div class="sheet-list carbon-order-sheet">${carbonCategoryNames(active).map(cat=>{const ps=active.filter(x=>norm(x.category||"Carbón")===norm(cat));return `<div class="order-category carbon-order-category"><button class="category-header order-subgroup-title cat-custom" type="button"><span class="order-cat-label"><span class="order-cat-chevron">▾</span>${esc(cat)}</span><span class="category-count">${ps.length}</span></button><div class="category-body">${ps.map(carbonOrderItemCardHtml).join("")}</div></div>`}).join("")}</div>`;document.querySelectorAll("[data-carbon-stock]").forEach(i=>i.onchange=()=>{const x=active.find(y=>y.id===i.dataset.carbonStock);if(!x)return;const v=Number(i.value);x.stockCurrent=Number.isFinite(v)&&v>=0?v:0;i.value=String(x.stockCurrent);saveAll()});document.querySelectorAll("[data-carbon-qty]").forEach(i=>i.onchange=()=>{const x=active.find(y=>y.id===i.dataset.carbonQty);if(!x)return;const v=Number(i.value);x.qty=Number.isFinite(v)&&v>=0?v:0;i.value=String(x.qty);saveAll()});document.querySelectorAll("[data-carbon-price]").forEach(i=>i.onchange=()=>{const x=active.find(y=>y.id===i.dataset.carbonPrice);if(!x)return;x.priceState=i.value;saveAll()});document.querySelectorAll("[data-carbon-movement]").forEach(i=>i.onchange=()=>{const x=active.find(y=>y.id===i.dataset.carbonMovement);if(!x)return;x.expectedMovement=i.value;saveAll()});document.querySelectorAll("[data-carbon-order-id]").forEach(card=>card.addEventListener("click",e=>{if(e.target.closest("button,input,select"))return;openCarbonOrderEdit(card.dataset.carbonOrderId)}));refreshSwipeDelete()}
+function openCarbonOrderEdit(id){const x=carbonOrders.find(y=>y.id===id);if(!x)return;openModal("Configurar producto · Carbón Viernes",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código / EAN</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Categoría</label><input id="m3" value="${esc(x.category||"Carbón")}"><label style="margin-top:10px">Tipo de cantidad</label><select id="m4"><option value="bulto" ${x.unitType!=="peso"?"selected":""}>Bulto</option><option value="peso" ${x.unitType==="peso"?"selected":""}>Peso</option></select><label style="margin-top:10px">Nota opcional</label><input id="m5" value="${esc(x.notes||"")}">`,{type:"carbon-order",id});}
+function resetCarbonOrderForm(){const f=$("carbonOrderForm");if(!f)return;f.reset();if($("carbonOrderCategory"))$("carbonOrderCategory").value="Carbón";$("carbonOrderQtyInput").value="0"}
 $("carbonOrderForm")?.addEventListener("submit",e=>{
   e.preventDefault();
   const name=$("carbonOrderName").value.trim();
   const code=$("carbonOrderCode").value.trim();
   const unitType=$("carbonOrderUnitType").value;
   const qty=Number($("carbonOrderQtyInput").value||0);
+  const category=String($("carbonOrderCategory")?.value||"Carbón").trim()||"Carbón";
   const notes=$("carbonOrderNotes").value.trim();
   if(!name)return showToast("Ingresá un producto para Carbón Viernes.");
   if(carbonOrders.some(x=>norm(x.name)===norm(name)))return showToast("Ese producto ya está en Carbón Viernes.");
-  carbonOrders.push({id:uid(),name,code,unitType,qty,notes,createdAt:new Date().toISOString()});
+  carbonOrders.push({id:uid(),name,code,category,unitType,qty,stockCurrent:0,priceState:"normal",expectedMovement:"normal",notes,createdAt:new Date().toISOString()});
   saveAll();renderCarbonFriday();resetCarbonOrderForm();setAddPanel("carbon",false);showToast("Producto añadido a Carbón Viernes.");
 });
 
@@ -2199,6 +2257,15 @@ function nextOrderLabel(){
 }
 
 
+const ORDER_REMINDERS=[
+  {name:"A-VEGETALES CON SRA 217",days:[2,4],time:"08:30"},
+  {name:"VEGETALES 4° GAMA",days:[2,4],time:"10:00"},
+  {name:"VEGETALES JUMBO RETAIL",days:[2,4,6],time:"10:00"},
+  {name:"IMAGEN CARBON",days:[5],time:"13:00"}
+];
+function orderRemindersForDate(date=new Date()){return ORDER_REMINDERS.filter(x=>x.days.includes(date.getDay()))}
+function weekDayLong(date=new Date()){return date.toLocaleDateString("es-AR",{weekday:"long",day:"2-digit",month:"2-digit",year:"2-digit"}).replace(/^./,c=>c.toUpperCase())}
+
 let confirmResolver=null;function askConfirm(message,title="Confirmar",danger=false){return new Promise(resolve=>{confirmResolver=resolve;$("confirmTitle").textContent=title;$("confirmMessage").textContent=message;$("confirmOkBtn").classList.toggle("danger",!!danger);$("confirmBackdrop").classList.add("open")})}function closeConfirm(result){$("confirmBackdrop").classList.remove("open");if(confirmResolver){const r=confirmResolver;confirmResolver=null;r(!!result)}}$("confirmCancelBtn").onclick=()=>closeConfirm(false);$("confirmOkBtn").onclick=()=>closeConfirm(true);$("confirmBackdrop").onclick=e=>{if(e.target===$("confirmBackdrop"))closeConfirm(false)};let toastTimer=null;function showToast(message){clearTimeout(toastTimer);$("toast").textContent=message;$("toast").classList.add("show");toastTimer=setTimeout(()=>$("toast").classList.remove("show"),2200)}let lastNativeNotificationSignature="";
 function syncNativeNotificationData(){
   if(!(window.AndroidNative&&AndroidNative.updateNotificationSettings))return;
@@ -2208,7 +2275,7 @@ function syncNativeNotificationData(){
     const minute=Math.max(0,Math.min(59,Number(parts[1]||0)));
     const repeatValue=Number(appSettings.notificationRepeat||0);
     const repeatMinutes=repeatValue===0.5?30:repeatValue===1?60:repeatValue===2?120:0;
-    const dataJson=JSON.stringify({items,notes:notes.map(n=>({id:n.id,title:n.title,text:n.text,reminderDate:n.reminderDate||"",reminderTime:n.reminderTime||"09:00"}))});
+    const dataJson=JSON.stringify({items,orderReminders:ORDER_REMINDERS,notes:notes.map(n=>({id:n.id,title:n.title,text:n.text,reminderDate:n.reminderDate||"",reminderTime:n.reminderTime||"09:00"}))});
     const signature=JSON.stringify([!!appSettings.notifications,hour,minute,repeatMinutes,dataJson]);
     if(signature===lastNativeNotificationSignature)return;
     lastNativeNotificationSignature=signature;
@@ -2228,42 +2295,26 @@ function renderDashboard(){
   const upcomingItems=items.filter(x=>{const d=expiryStatus(x).days;return d>=1&&d<=7}),dueItems=items.filter(x=>expiryStatus(x).days<=0);
   const upcoming=upcomingItems.length,due=dueItems.length,attention=upcoming+due,dueProducts=expiryGroupsFor(dueItems).length,upcomingProducts=expiryGroupsFor(upcomingItems).length;
   setHomeBadge("homeExpiryBadge",attention);
-  $("homeExpirySummary").textContent=due?`${dueProducts} producto${dueProducts===1?"":"s"} · ${due} vencimiento${due===1?"":"s"} para retirar`:upcoming?`${upcomingProducts} producto${upcomingProducts===1?"":"s"} · ${upcoming} vencimiento${upcoming===1?"":"s"} próximo${upcoming===1?"":"s"}`:"Sin vencimientos";
-
-  const now=new Date(),minutes=now.getHours()*60+now.getMinutes(),todayOrder=[2,4,6].includes(now.getDay())&&minutes<615;
-  const next=keyFromDow(nextOrderDay());
-  $("homeOrderSummary").textContent=todayOrder?`Pedido de hoy · ${nextOrderLabel()}`:`Próximo: ${nextOrderLabel()}`;
-  setHomeBadge("homeOrderBadge",todayOrder?1:0);
-
-  const inSample=sampleInProgress();
-  $("homeSampleSummary").textContent=inSample?"Muestra en curso":"Sin muestra en curso";
-  setHomeBadge("homeSampleBadge",inSample?1:0);
+  if($("homeExpirySummary"))$("homeExpirySummary").textContent=due?`${dueProducts} producto${dueProducts===1?"":"s"} · ${due} vencimiento${due===1?"":"s"} para retirar`:upcoming?`${upcomingProducts} producto${upcomingProducts===1?"":"s"} · ${upcoming} vencimiento${upcoming===1?"":"s"} próximo${upcoming===1?"":"s"}`:"Sin vencimientos";
 
   const pinned=notes.filter(n=>n.pinned).length;
-  $("homeNotesSummary").textContent=pinned?`${pinned} nota${pinned===1?"":"s"} importante${pinned===1?"":"s"}`:notes.length?`${notes.length} nota${notes.length===1?"":"s"}`:"No hay notas pendientes";
+  if($("homeNotesSummary"))$("homeNotesSummary").textContent=pinned?`${pinned} nota${pinned===1?"":"s"} importante${pinned===1?"":"s"}`:notes.length?`${notes.length} nota${notes.length===1?"":"s"}`:"No hay notas pendientes";
   setHomeBadge("homeNotesBadge",pinned);
+
+  const now=new Date(),todayOrders=orderRemindersForDate(now);
+  if($("homeOrderReminderDay"))$("homeOrderReminderDay").textContent=weekDayLong(now);
+  if($("homeOrderRemindersList"))$("homeOrderRemindersList").innerHTML=todayOrders.length?todayOrders.map(x=>`<div class="home-order-reminder"><strong>${esc(x.name)}</strong><span>Antes de ${esc(x.time)} hs</span></div>`).join(""):`<div class="home-order-none">Hoy no hay pedidos programados.</div>`;
 
   const rows=[];
   if(due||upcoming){
-    const title=due
-      ? `${dueProducts} producto${dueProducts===1?"":"s"} pendiente${dueProducts===1?"":"s"} de retirar`
-      : `${upcomingProducts} producto${upcomingProducts===1?"":"s"} con vencimientos próximos`;
+    const title=due?`${dueProducts} producto${dueProducts===1?"":"s"} pendiente${dueProducts===1?"":"s"} de retirar`:`${upcomingProducts} producto${upcomingProducts===1?"":"s"} con vencimientos próximos`;
     const sub=due?(due>dueProducts?`${due} vencimientos requieren atención.${upcoming?` Además, ${upcoming} próximo${upcoming===1?"":"s"}.`:""}`:(upcoming?`Además, ${upcoming} próximo${upcoming===1?"":"s"}.`:"Requiere atención.")):`${upcoming} vencimiento${upcoming===1?"":"s"} para revisar.`;
     rows.push({type:"expiry",icon:"⏰",title,sub,action:"expiry"});
   }
-  rows.push({
-    type:"order",icon:"🧾",title:`Próximo pedido: ${nextOrderLabel()}`,
-    sub:todayOrder?"Es hoy · hasta las 10:15":"Tocá para abrir el próximo día de pedido.",
-    action:"order"
-  });
-  if(inSample)rows.push({type:"sample",icon:"📦",title:"Muestra en curso",sub:"Tocá para continuar la muestra pendiente.",action:"sample"});
-
-  $("todaySummaryList").innerHTML=rows.map(r=>`
-    <button class="today-summary-item ${r.type}" type="button" data-today-action="${r.action}">
-      <span class="summary-icon">${r.icon}</span>
-      <span><span class="summary-title">${esc(r.title)}</span><span class="summary-sub">${esc(r.sub)}</span></span>
-      <span class="summary-arrow">›</span>
-    </button>`).join("");
+  if(todayOrders.length)rows.push({type:"order",icon:"🧾",title:`${todayOrders.length} pedido${todayOrders.length===1?"":"s"} para hoy`,sub:todayOrders.map(x=>`${x.name} · ${x.time}`).join(" · "),action:"none"});
+  if(pinned)rows.push({type:"note",icon:"📝",title:`${pinned} nota${pinned===1?"":"s"} fijada${pinned===1?"":"s"}`,sub:"Tocá Notas rápidas para revisarlas.",action:"notes"});
+  if(!rows.length)rows.push({type:"ok",icon:"✓",title:"Sin pendientes destacados",sub:"No hay vencimientos cercanos ni pedidos programados para hoy.",action:"none"});
+  $("todaySummaryList").innerHTML=rows.map(r=>`<button class="today-summary-item ${r.type}" type="button" data-today-action="${r.action}" ${r.action==="none"?'disabled':''}><span class="summary-icon">${r.icon}</span><span><span class="summary-title">${esc(r.title)}</span><span class="summary-sub">${esc(r.sub)}</span></span><span class="summary-arrow">${r.action==="none"?'':'›'}</span></button>`).join("");
 }
 function rememberExpiry(name,code,withdrawDays){
   if(!name.trim())return;
@@ -2919,14 +2970,14 @@ function notePlainText(n){
   const body=String(n.text||"").trim();
   return [title,body].filter(Boolean).join("\n");
 }
+function noteCheckboxesToVisual(text){return String(text||"").split("\n").map(line=>line.replace(/^\[ \]\s?/,"☐ ").replace(/^\[[xX]\]\s?/,"☑ ")).join("\n")}
 function renderNoteBody(text,noteId){
   const lines=String(text||"").split("\n");
   return lines.map((line,idx)=>{
-    const check=line.match(/^\[( |x|X)\]\s?(.*)$/);
-    if(check){
-      const checked=check[1].toLowerCase()==="x";
-      return `<label class="sticky-note-checkline"><input type="checkbox" data-note-check="${noteId}" data-note-line="${idx}" ${checked?"checked":""}><span>${esc(check[2])}</span></label>`;
-    }
+    let m=line.match(/^(☐|☑)\s?(.*)$/),checked=false,content="";
+    if(m){checked=m[1]==="☑";content=m[2]}
+    else{m=line.match(/^\[( |x|X)\]\s?(.*)$/);if(m){checked=m[1].toLowerCase()==="x";content=m[2]}}
+    if(m)return `<label class="sticky-note-checkline"><input type="checkbox" data-note-check="${noteId}" data-note-line="${idx}" ${checked?"checked":""}><span>${esc(content)}</span></label>`;
     return `<div>${esc(line)||"&nbsp;"}</div>`;
   }).join("");
 }
@@ -2970,7 +3021,7 @@ function renderNotes(){
   document.querySelectorAll("[data-note-check]").forEach(c=>c.onchange=e=>{
     e.stopPropagation();const n=notes.find(x=>x.id===c.dataset.noteCheck);if(!n)return;
     const lines=String(n.text||"").split("\n"),i=Number(c.dataset.noteLine);
-    if(i>=0&&i<lines.length)lines[i]=lines[i].replace(/^\[( |x|X)\]/,c.checked?"[x]":"[ ]");
+    if(i>=0&&i<lines.length){const content=lines[i].replace(/^(?:☐|☑|\[(?: |x|X)\])\s?/,"");lines[i]=`${c.checked?"☑":"☐"} ${content}`;}
     n.text=lines.join("\n");n.updatedAt=new Date().toISOString();saveAll();renderNotes();renderDashboard();
   });
   document.querySelectorAll("[data-size-note]").forEach(b=>b.onclick=e=>{
@@ -3028,7 +3079,7 @@ function renderNoteDraftButton(){
 }
 function noteEditorValues(){return{title:$("noteEditorTitle").value,text:$("noteEditorText").value,pinned:noteEditorPinned,reminderDate:$("noteReminderDate").value||"",reminderTime:$("noteReminderTime").value||"09:00"}}
 function noteEditorSetValues(v){
-  $("noteEditorTitle").value=v.title||"";$("noteEditorText").value=v.text||"";
+  $("noteEditorTitle").value=v.title||"";$("noteEditorText").value=noteCheckboxesToVisual(v.text||"");
   noteEditorPinned=!!v.pinned;$("noteReminderDate").value=v.reminderDate||"";$("noteReminderTime").value=v.reminderTime||"09:00";
   $("noteEditorStarBtn").classList.toggle("pinned",noteEditorPinned);$("noteEditorStarBtn").textContent=noteEditorPinned?"★":"☆";
   updateNoteReminderSummary();
@@ -3062,7 +3113,7 @@ function openNoteEditor(id=null){
   noteEditorDraftKey=id||null;
   noteEditorCreatedAt=n&&n.createdAt?n.createdAt:new Date().toISOString();
   noteEditorColorIndex=n&&n.colorIndex!=null?n.colorIndex:(notes.length%6);
-  const values={title:n?.title||"",text:n?.text||"",pinned:!!n?.pinned,reminderDate:n?.reminderDate||"",reminderTime:n?.reminderTime||"09:00"};
+  const values={title:n?.title||"",text:noteCheckboxesToVisual(n?.text||""),pinned:!!n?.pinned,reminderDate:n?.reminderDate||"",reminderTime:n?.reminderTime||"09:00"};
   noteEditorSetValues(values);
   noteEditorBaseline=JSON.stringify(noteEditorValues());
   const draft=noteDraftFor(noteEditorDraftKey);
@@ -3079,14 +3130,13 @@ function openNoteEditor(id=null){
   $("noteEditorBackdrop").classList.add("open");
   setTimeout(()=>{(n?$("noteEditorText"):$("noteEditorTitle")).focus();updateNoteToolbarState()},40);
 }
+function hideNoteEditor(){clearTimeout(noteDraftTimer);$("noteEditorBackdrop").classList.remove("open");noteEditorId=null;noteEditorDraftKey=null;return true}
 async function closeNoteEditor(){
   if(noteEditorIsDirty()){
-    noteDraftPersist();
-    if(!await askConfirm("Hay cambios sin guardar. ¿Cerrar el editor? El borrador quedará disponible para recuperarlo.","Cambios sin guardar"))return false;
+    if(!await askConfirm("Se descartarán los cambios que no hayas guardado.","¿Cancelar edición?",true))return false;
   }
-  clearTimeout(noteDraftTimer);
-  $("noteEditorBackdrop").classList.remove("open");noteEditorId=null;noteEditorDraftKey=null;
-  return true;
+  noteDraftClear(noteEditorDraftKey);
+  return hideNoteEditor();
 }
 function saveOpenNote(){
   const title=$("noteEditorTitle").value.trim(),text=$("noteEditorText").value.trimEnd();
@@ -3112,7 +3162,9 @@ function openNoteDraftList(){
 }
 
 function noteLinePrefixInfo(line){
-  let m=line.match(/^\[( |x|X)\]\s?(.*)$/);
+  let m=line.match(/^(☐|☑)\s?(.*)$/);
+  if(m)return{kind:"check",prefix:m[0].slice(0,m[0].length-m[2].length),content:m[2]};
+  m=line.match(/^\[( |x|X)\]\s?(.*)$/);
   if(m)return{kind:"check",prefix:m[0].slice(0,m[0].length-m[2].length),content:m[2]};
   m=line.match(/^•\s?(.*)$/);
   if(m)return{kind:"bullet",prefix:line.slice(0,line.length-m[1].length),content:m[1]};
@@ -3156,7 +3208,7 @@ function formatSelectedNoteLines(kind){
     }
 
     const content=info.content;
-    if(kind==="check")return `[ ] ${content}`;
+    if(kind==="check")return `☐ ${content}`;
     if(kind==="bullet")return `• ${content}`;
     if(kind==="number")return `${number++}. ${content}`;
     return content;
@@ -3204,7 +3256,7 @@ function continueNoteListOnEnter(e){
 
   e.preventDefault();
   let nextPrefix="";
-  if(info.kind==="check")nextPrefix="[ ] ";
+  if(info.kind==="check")nextPrefix="☐ ";
   if(info.kind==="bullet")nextPrefix="• ";
   if(info.kind==="number")nextPrefix=`${(info.number||1)+1}. `;
   ta.setRangeText("\n"+nextPrefix,pos,pos,"end");
@@ -3259,13 +3311,14 @@ $("notesFilter").onchange=e=>{notesFilter=e.target.value;renderNotes()};
 $("addNoteBtn").onclick=()=>openNoteEditor();
 $("notesDraftsBtn").onclick=openNoteDraftList;
 $("noteEditorCloseBtn").onclick=()=>closeNoteEditor();
+$("noteEditorCancelBtn").onclick=()=>closeNoteEditor();
 $("noteEditorBackdrop").onclick=e=>{if(e.target===$("noteEditorBackdrop"))closeNoteEditor()};
 $("noteEditorStarBtn").onclick=()=>{
   noteEditorPinned=!noteEditorPinned;
   $("noteEditorStarBtn").classList.toggle("pinned",noteEditorPinned);
   $("noteEditorStarBtn").textContent=noteEditorPinned?"★":"☆";noteDraftSchedule();
 };
-$("noteEditorSaveBtn").onclick=()=>{if(saveOpenNote())closeNoteEditor()};
+$("noteEditorSaveBtn").onclick=()=>{if(saveOpenNote())hideNoteEditor()};
 $("noteReminderClearBtn").onclick=()=>{$("noteReminderDate").value="";$("noteReminderTime").value="09:00";noteDraftSchedule();showToast("Recordatorio quitado")};
 document.querySelectorAll("[data-note-format]").forEach(b=>b.onclick=()=>formatSelectedNoteLines(b.dataset.noteFormat));
 $("noteEditorShareBtn").onclick=()=>{
@@ -3282,7 +3335,7 @@ $("noteEditorText").addEventListener("select",updateNoteToolbarState);
 $("noteEditorDeleteBtn").onclick=async()=>{
   if(!noteEditorId)return;
   if(!await askConfirm("¿Eliminar esta nota?","Eliminar nota",true))return;
-  notes=notes.filter(x=>x.id!==noteEditorId);noteEditorBaseline=JSON.stringify(noteEditorValues());noteDraftClear();saveAll();renderAll();closeNoteEditor();showToast("Nota eliminada");
+  notes=notes.filter(x=>x.id!==noteEditorId);noteEditorBaseline=JSON.stringify(noteEditorValues());noteDraftClear();saveAll();renderAll();hideNoteEditor();showToast("Nota eliminada");
 };
 function updateNextOrder(){
   const date=nextOrderDate(),d=date.getDay(),key=keyFromDow(d),n=new Date(),minutes=n.getHours()*60+n.getMinutes();
@@ -3300,6 +3353,17 @@ function openExpiryQuickAdd(id){const seed=items.find(y=>y.id===id);if(!seed)ret
 function openExpiryNewDate(id){const x=items.find(y=>y.id===id);if(!x)return;openModal("Nueva fecha",`<div class="expiry-quick-product"><strong>${esc(x.name)}</strong><small>Fecha actual: ${fmt(x.date)}</small></div><label>Nueva fecha de vencimiento</label><input id="m3" type="date">`,{type:"expiry-new-date",id});$("editSaveBtn").textContent="Guardar nueva fecha";setTimeout(()=>$("m3")?.focus(),40)}
 async function retireExpiryLot(id){const x=items.find(y=>y.id===id);if(!x)return;if(!await askConfirm(`¿Retirar solamente la fecha ${fmt(x.date)} de “${x.name}”? Las demás fechas continuarán activas.`,"Retirar fecha"))return;const now=new Date();expiryHistory.unshift({...x,id:uid(),action:"retired",sourceExpiryId:x.id,removedAt:localDate(now),removedAtTs:now.getTime(),eventTs:now.getTime(),withdrawalDate:withdrawalDate(x)});items=items.filter(y=>y.id!==x.id);cleanExpiryHistory();saveAll();closeModal();renderExpiry();renderExpiryHistory();renderDashboard();showToast("Fecha retirada")}
 function openExpiryResolve(id){const x=items.find(y=>y.id===id);if(!x)return;openModal("Resolver vencimiento",`<div class="expiry-quick-product"><strong>${esc(x.name)}</strong><small>Vence: ${fmt(x.date)} · Retiro: ${fmt(withdrawalDate(x))}</small></div><div class="expiry-resolve-intro">Elegí qué hacer solamente con esta fecha. Si el producto tiene otras fechas, seguirán activas.</div><div class="expiry-resolve-actions"><button class="btn-retired" id="resolveExpiryRetireBtn" type="button">Retirar</button><button class="expiry-resolve-newdate" id="resolveExpiryNewDateBtn" type="button">Nueva fecha</button></div>`,{type:"expiry-resolve",id});$("editSaveBtn").classList.add("hidden");setTimeout(()=>{$("resolveExpiryRetireBtn").onclick=()=>retireExpiryLot(id);$("resolveExpiryNewDateBtn").onclick=()=>openExpiryNewDate(id)},0)}
+function openExpiryProductEdit(productId){
+  const group=expiryProductGroup(productId);if(!group.length)return;
+  const first=group[0],codeLabel=first.codeType==="PLU"?"PLU":"Código / EAN";
+  openModal("Editar producto",`<div class="expiry-quick-product"><strong>${esc(first.name)}</strong><small>${group.length} fecha${group.length===1?"":"s"} asociada${group.length===1?"":"s"}</small></div><label>Producto</label><input id="m1" value="${esc(first.name)}"><label style="margin-top:10px">${codeLabel}</label><input id="m2" data-no-autocap value="${esc(first.code||"")}">`,{type:"expiry-product",productId});
+}
+async function retireExpiryProduct(productId){
+  const group=expiryProductGroup(productId);if(!group.length)return;
+  if(!await askConfirm(`¿Retirar el producto “${group[0].name}” y sus ${group.length} fecha${group.length===1?"":"s"} de vencimiento? Esta acción elimina todas las fechas del producto.`,"Retirar producto",true))return;
+  const ids=new Set(group.map(x=>x.id)),now=new Date();group.forEach(x=>expiryHistory.unshift({...x,id:uid(),action:"retired_product",sourceExpiryId:x.id,removedAt:localDate(now),removedAtTs:now.getTime(),eventTs:now.getTime(),withdrawalDate:withdrawalDate(x)}));
+  items=items.filter(x=>!ids.has(x.id));cleanExpiryHistory();if(lastExpiryProductId&&group.some(x=>String(x.productId||x.id)===String(lastExpiryProductId)))lastExpiryProductId="";saveAll();renderExpiry();renderExpiryHistory();renderDashboard();showToast("Producto retirado con todas sus fechas");
+}
 function openSavedExpiryEdit(key){const x=savedExpiryProducts[key];openModal("Editar producto frecuente",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Retiro</label><select id="m3"><option value="0" ${Number(x.withdrawDays)===0?"selected":""}>Retirar el día</option><option value="10" ${Number(x.withdrawDays)===10?"selected":""}>Retirar 10 días antes</option></select>`,{type:"saved-expiry",key})}
 function orderProfileEditHtml(x,includeNotes=true){const p=orderProfileFor(x.name,x.unitType),learn=["martes","jueves","sabado"].map(d=>{const l=p.learning[d];return `<div>${dayLabel(d)}<strong>${l.base==null?"—":Math.round(l.base*10)/10}</strong><span>${l.cycles} ciclo${l.cycles===1?"":"s"}</span></div>`}).join("");return `<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Código</label><input id="m2" data-no-autocap value="${esc(x.code||"")}"><label style="margin-top:10px">Categoría</label><select id="m3">${cats.map(c=>`<option ${x.category===c?"selected":""}>${c}</option>`).join("")}</select><label style="margin-top:10px">Tipo de cantidad</label><select id="m4"><option value="bulto" ${p.qtyType!=="peso"?"selected":""}>Bulto</option><option value="peso" ${p.qtyType==="peso"?"selected":""}>Peso</option></select>${includeNotes?`<label style="margin-top:10px">Nota opcional</label><input id="m8" value="${esc(x.notes||"")}">`:""}<details class="order-advanced-details"><summary>Configuración avanzada y aprendizaje</summary><div class="order-advanced-body"><label>Rotación normal</label><select id="m5"><option value="alta" ${p.rotation==="alta"?"selected":""}>Alta</option><option value="media" ${p.rotation==="media"?"selected":""}>Media</option><option value="baja" ${p.rotation==="baja"?"selected":""}>Baja</option></select><label style="margin-top:10px">Reacción a oferta</label><select id="m6"><option value="ninguna" ${p.offerReaction==="ninguna"?"selected":""}>Ninguna</option><option value="baja" ${p.offerReaction==="baja"?"selected":""}>Baja</option><option value="media" ${p.offerReaction==="media"?"selected":""}>Media</option><option value="alta" ${p.offerReaction==="alta"?"selected":""}>Alta</option></select><label style="margin-top:10px">Sensibilidad cuando está caro</label><select id="m7"><option value="ninguna" ${p.expensiveSensitivity==="ninguna"?"selected":""}>Ninguna</option><option value="baja" ${p.expensiveSensitivity==="baja"?"selected":""}>Baja</option><option value="media" ${p.expensiveSensitivity==="media"?"selected":""}>Media</option><option value="alta" ${p.expensiveSensitivity==="alta"?"selected":""}>Alta</option></select><div class="order-advanced-note">Aprendizaje por día. La base se ajusta con los resultados reales, no por cambiar manualmente el Pedido.</div><div class="order-learned-summary">${learn}</div><label>Reiniciar aprendizaje</label><select id="m9"><option value="">No reiniciar</option><option value="martes">Solo Martes</option><option value="jueves">Solo Jueves</option><option value="sabado">Solo Sábado</option><option value="todos">Todos los días</option></select></div></details>`}
 function openOrderEdit(id){const x=orders[activeOrderTab].find(y=>y.id===id);if(!x)return;openModal("Configurar producto del pedido",orderProfileEditHtml(x,true),{type:"order",id,day:activeOrderTab})}
@@ -3310,6 +3374,8 @@ $("editSaveBtn").onclick=async()=>{
   try{
     if(ctx.type==="expiry"){const x=items.find(y=>y.id===ctx.id);if(!x)return;const newName=$("m1").value.trim(),newCode=$("m2").value.trim(),newDate=$("m3").value;if(!newName||!newDate)return showToast("Completá producto y fecha.");const clash=findExistingExpiryProduct(newName,newCode,x.productId);if(clash)return showToast(`Ese producto ya existe como “${clash.name}”. Usá su ficha para añadir fechas.`);if(items.some(y=>y.id!==x.id&&y.productId===x.productId&&y.date===newDate))return showToast("Esa fecha ya está cargada para este producto.");items.filter(y=>y.productId===x.productId).forEach(y=>{y.name=newName;y.code=newCode;y.codeType=newCode?(y.codeType||"EAN"):"";y.updatedAtTs=Date.now()});x.date=newDate;x.withdrawDays=Number($("m4").value);x.notes=$("m5").value.trim();rememberProductName(expiryProductMemory,newName);}
     if(ctx.type==="expiry-add-lot"){const seed=items.find(y=>y.id===ctx.seedId),date=$("m3").value;if(!seed)return;if(!date)return showToast("Seleccioná la fecha de vencimiento.");if(items.some(x=>x.productId===seed.productId&&x.date===date))return showToast("Esa fecha ya está cargada para este producto.");const now=new Date();items.push({id:uid(),productId:seed.productId,name:seed.name,code:seed.code||"",codeType:seed.codeType||((seed.code||"")?"EAN":""),date,withdrawDays:Number($("m4").value),notes:$("m5").value.trim(),createdAt:localDate(now),createdAtTs:now.getTime(),updatedAtTs:now.getTime()});lastExpiryProductId=seed.productId;rememberProductName(expiryProductMemory,seed.name);}if(ctx.type==="expiry-new-date"){const x=items.find(y=>y.id===ctx.id),date=$("m3").value;if(!x)return;if(!date)return showToast("Seleccioná la nueva fecha.");if(items.some(y=>y.id!==x.id&&y.productId===x.productId&&y.date===date))return showToast("Esa fecha ya está cargada para este producto.");const now=new Date(),oldDate=x.date;expiryHistory.unshift({id:uid(),action:"new_date",productId:x.productId,sourceExpiryId:x.id,name:x.name,code:x.code||"",codeType:x.codeType||"",oldDate,newDate:date,changedAt:localDate(now),changedAtTs:now.getTime(),eventTs:now.getTime()});x.date=date;x.updatedAtTs=now.getTime();cleanExpiryHistory();}
+    if(ctx.type==="carbon-order"){const x=carbonOrders.find(y=>y.id===ctx.id);if(!x)return;const name=$("m1").value.trim(),code=$("m2").value.trim(),category=$("m3").value.trim()||"Carbón";if(!name)return showToast("Ingresá un nombre de producto.");if(carbonOrders.some(y=>y.id!==x.id&&norm(y.name)===norm(name)))return showToast("Ese producto ya está en Carbón Viernes.");x.name=name;x.code=code;x.category=category;x.unitType=$("m4").value;x.notes=$("m5").value.trim();}
+    if(ctx.type==="expiry-product"){const group=expiryProductGroup(ctx.productId),newName=$("m1").value.trim(),newCode=$("m2").value.trim();if(!group.length)return;if(!newName)return showToast("Ingresá un nombre de producto.");const clash=findExistingExpiryProduct(newName,newCode,ctx.productId);if(clash)return showToast(`Ese producto ya existe como “${clash.name}”. Usá su ficha.`);const now=Date.now();group.forEach(y=>{y.name=newName;y.code=newCode;y.codeType=newCode?(y.codeType||"EAN"):"";y.updatedAtTs=now});rememberProductName(expiryProductMemory,newName);}
     if(ctx.type==="saved-expiry"){const old=ctx.key,name=$("m1").value.trim(),code=$("m2").value.trim(),wd=Number($("m3").value);if(!name)return showToast("Ingresá un producto.");delete savedExpiryProducts[old];savedExpiryProducts[norm(name)]={name,code,withdrawDays:wd};rememberProductName(expiryProductMemory,name);}
     if(ctx.type==="order"){const x=orders[ctx.day].find(y=>y.id===ctx.id),name=$("m1").value.trim();if(!x||!name)return showToast("Ingresá un producto.");const oldKey=norm(x.name),p=orderProfileFor(x.name,x.unitType);x.name=name;x.code=$("m2").value.trim();x.category=$("m3").value;x.unitType=orderQtyType($("m4").value,name);x.notes=$("m8")?$("m8").value.trim():"";p.name=name;p.qtyType=x.unitType;p.rotation=$("m5").value;p.offerReaction=$("m6").value;p.expensiveSensitivity=$("m7").value;if(oldKey!==norm(name)){delete orderProfiles[oldKey];orderProfiles[norm(name)]=p}const reset=$("m9")?.value||"";if(reset&&await askConfirm("Se eliminará la referencia aprendida seleccionada. Los pedidos guardados no se borrarán.","Reiniciar aprendizaje",true)){if(reset==="todos")["martes","jueves","sabado"].forEach(d=>p.learning[d]=blankOrderLearning());else p.learning[reset]=blankOrderLearning()}rememberProductName(orderProductMemory,x.name);}
     if(ctx.type==="saved-order"){const old=ctx.key,name=$("m1").value.trim(),code=$("m2").value.trim(),cat=$("m3").value,type=orderQtyType($("m4").value,name);if(!name)return showToast("Ingresá un producto.");const p=orderProfileFor(savedProducts[old]?.name||name,type);p.name=name;p.qtyType=type;p.rotation=$("m5").value;p.offerReaction=$("m6").value;p.expensiveSensitivity=$("m7").value;const reset=$("m9")?.value||"";if(reset&&await askConfirm("Se eliminará la referencia aprendida seleccionada. Los pedidos guardados no se borrarán.","Reiniciar aprendizaje",true)){if(reset==="todos")["martes","jueves","sabado"].forEach(d=>p.learning[d]=blankOrderLearning());else p.learning[reset]=blankOrderLearning()}delete savedProducts[old];savedProducts[norm(name)]={name,code,category:cat,unitType:type};if(old!==norm(name)){delete orderProfiles[old];orderProfiles[norm(name)]=p}rememberProductName(orderProductMemory,name);}
@@ -3348,79 +3414,29 @@ document.addEventListener("input",e=>{
   try{el.setSelectionRange(start,end)}catch(_){}
 },true);
 
-function cvFileDate(d=new Date()){
-  const dd=String(d.getDate()).padStart(2,"0"),mm=String(d.getMonth()+1).padStart(2,"0"),yy=String(d.getFullYear()).slice(-2);
-  return `${dd}-${mm}-${yy}`;
-}
-function cvFileNameFor(date=new Date()){return `Plantilla Carnes-Vegetales ${cvFileDate(date)}.xlsx`}
-function cvItemsForRecord(r){
-  if(Array.isArray(r?.items))return r.items;
-  if(r&&(r.articulo||r.descripcion||r.expiryDate))return [{id:r.itemId||r.id||uid(),local:"953",articulo:r.articulo||"",descripcion:r.descripcion||"",expiryText:r.expiryText||r.expiryDate||""}];
-  return [];
-}
-function cvRecordJson(r){
-  return JSON.stringify({id:r.id,local:"953",items:cvItemsForRecord(r).map(x=>({local:"953",articulo:x.articulo||"",descripcion:x.descripcion||"",expiryText:x.expiryText||x.expiryDate||""})),createdAt:r.createdAt,fileName:r.fileName});
-}
-function ensureCvXlsx(r){
-  try{return !!(window.AndroidNative&&AndroidNative.createCarnesVegetalesXlsx&&AndroidNative.createCarnesVegetalesXlsx(cvRecordJson(r)))}catch(e){console.error(e);return false}
-}
-function downloadCvXlsx(r){
-  try{
-    if(window.AndroidNative&&AndroidNative.exportCarnesVegetalesXlsx){AndroidNative.exportCarnesVegetalesXlsx(cvRecordJson(r));return}
-    showToast("La descarga XLSX está disponible en la app Android")
-  }catch(e){showToast("No se pudo preparar el XLSX")}
-}
-function shareCvXlsx(r){
-  try{
-    if(window.AndroidNative&&AndroidNative.shareCarnesVegetalesXlsx){AndroidNative.shareCarnesVegetalesXlsx(cvRecordJson(r));return}
-    showToast("Compartir XLSX está disponible en la app Android")
-  }catch(e){showToast("No se pudo compartir el XLSX")}
-}
-function resetCvProductForm(){
-  cvEditingItemId=null;
-  const f=$("carnesVegetalesForm");if(f)f.reset();
-  if($("cvLocal"))$("cvLocal").value="953";
-  if($("cvProductSubmitBtn"))$("cvProductSubmitBtn").textContent="Añadir producto";
-  if(f)f.classList.add("hidden");
-}
-function openCvProductForm(itemId=null){
-  if(!carnesVegetalesDraft)return;
-  const f=$("carnesVegetalesForm");if(!f)return;
-  cvEditingItemId=itemId;
-  const item=itemId?carnesVegetalesDraft.items.find(x=>x.id===itemId):null;
-  $("cvLocal").value="953";
-  $("cvArticulo").value=item?.articulo||"";
-  $("cvDescripcion").value=item?.descripcion||"";
-  $("cvVencimiento").value=item?.expiryText||"";
-  $("cvProductSubmitBtn").textContent=item?"Guardar cambios":"Añadir producto";
-  f.classList.remove("hidden");
-  setTimeout(()=>$("cvArticulo").focus(),50);
-}
-function renderCvDraft(){
-  const active=!!carnesVegetalesDraft;
-  $("cvStartCard")?.classList.toggle("hidden",active);
-  $("cvDraftPanel")?.classList.toggle("hidden",!active);
-  if(!active)return;
-  const items=carnesVegetalesDraft.items||[];
-  $("cvDraftMeta").textContent=`${items.length} producto${items.length===1?"":"s"} cargado${items.length===1?"":"s"}`;
-  $("cvDraftEmpty").style.display=items.length?"none":"block";
-  $("cvFinalizeSheetBtn").disabled=!items.length;
-  $("cvFinalizeSheetBtn").classList.toggle("hidden",!items.length);
-  $("cvDraftItems").innerHTML=items.map(x=>`<div class="cv-product-module" data-cv-item="${x.id}"><div class="cv-product-grid"><div class="cv-product-cell"><span>Local</span><strong>953</strong></div><div class="cv-product-cell"><span>Artículo</span><strong>${esc(x.articulo)}</strong></div><div class="cv-product-cell"><span>Descripción</span><strong>${esc(x.descripcion)}</strong></div><div class="cv-product-cell"><span>Fecha de vencimiento del Producto</span><strong>${esc(x.expiryText)}</strong></div></div><button class="cv-product-delete" type="button" data-del-cv-item="${x.id}" aria-label="Eliminar producto">×</button></div>`).join("");
-}
-function renderCvHistory(){
-  if(!$("cvHistoryList"))return;
-  $("cvHistoryCount").textContent=`${carnesVegetalesHistory.length} archivo${carnesVegetalesHistory.length===1?"":"s"}`;
-  $("cvHistoryEmpty").style.display=carnesVegetalesHistory.length?"none":"block";
-  $("cvHistoryList").innerHTML="";
-  carnesVegetalesHistory.forEach(r=>{
-    const el=document.createElement("div");el.className="cv-history-item";el.dataset.cvId=r.id;
-    const when=new Date(r.createdAt||Date.now()).toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
-    const count=cvItemsForRecord(r).length;
-    el.innerHTML=`<div class="cv-history-head"><div><div class="cv-history-name">${esc(r.fileName)}</div><div class="cv-history-meta"><strong>${count} producto${count===1?"":"s"}</strong> · Guardado: ${esc(when)}</div></div><button class="cv-history-delete" type="button" data-del-cv="${r.id}" aria-label="Eliminar">×</button></div><div class="cv-history-actions"><button class="secondary-btn" type="button" data-download-cv="${r.id}">Descargar XLSX</button><button class="share-btn" type="button" data-share-cv="${r.id}">Compartir XLSX</button></div>`;
-    $("cvHistoryList").appendChild(el);
-  });
-}
+function cvFileDate(d=new Date()){const dd=String(d.getDate()).padStart(2,"0"),mm=String(d.getMonth()+1).padStart(2,"0"),yyyy=d.getFullYear();return `${dd}-${mm}-${yyyy}`}
+function cvFileNameFor(date=new Date()){return `Planilla vegetales-${cvFileDate(date)}.xlsx`}
+function cvItemsForRecord(r){if(Array.isArray(r?.items))return r.items;if(r&&(r.articulo||r.descripcion||r.expiryDate))return [{id:r.itemId||r.id||uid(),local:"953",articulo:r.articulo||"",descripcion:r.descripcion||"",expiryText:r.expiryText||r.expiryDate||""}];return []}
+function cvRecordJson(r){return JSON.stringify({id:r.id,local:"953",items:cvItemsForRecord(r).map(x=>({local:"953",articulo:x.articulo||"",descripcion:x.descripcion||"",expiryText:x.expiryText||x.expiryDate||""})),createdAt:r.createdAt,fileName:r.fileName})}
+function ensureCvXlsx(r){try{return !!(window.AndroidNative&&AndroidNative.createCarnesVegetalesXlsx&&AndroidNative.createCarnesVegetalesXlsx(cvRecordJson(r)))}catch(e){console.error(e);return false}}
+function downloadCvXlsx(r){try{if(window.AndroidNative&&AndroidNative.exportCarnesVegetalesXlsx){AndroidNative.exportCarnesVegetalesXlsx(cvRecordJson(r));return}showToast("La descarga XLSX está disponible en la app Android")}catch(e){showToast("No se pudo preparar el XLSX")}}
+function shareCvXlsx(r){try{if(window.AndroidNative&&AndroidNative.shareCarnesVegetalesXlsx){AndroidNative.shareCarnesVegetalesXlsx(cvRecordJson(r));return}showToast("Compartir XLSX está disponible en la app Android")}catch(e){showToast("No se pudo compartir el XLSX")}}
+function cvFormatDate(raw){if(!raw)return"";const [y,m,d]=raw.split("-");return y&&m&&d?`${d}/${m}/${y}`:raw}
+function cvGuessType(item){const t=String(item?.valueType||"");if(["fecha","kg","unidad"].includes(t))return t;const v=String(item?.expiryText||"").trim();if(/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(v))return"fecha";if(/unidad/i.test(v))return"unidad";return"kg"}
+function cvRawValue(item,type){if(item?.valueRaw!=null)return String(item.valueRaw);const v=String(item?.expiryText||"").trim();if(type==="fecha"){const m=v.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);return m?`${m[3]}-${m[2].padStart(2,"0")}-${m[1].padStart(2,"0")}`:""}const m=v.replace(",",".").match(/-?\d+(?:\.\d+)?/);return m?m[0]:""}
+function cvBuildExpiryText(type,raw){if(type==="fecha")return cvFormatDate(raw);const n=Number(raw);if(!Number.isFinite(n)||n<0)return"";const shown=String(raw).replace(".",",");return type==="unidad"?`${Math.trunc(n)} unidades`:`${shown} kg`}
+function updateCvValueInput(){const type=$("cvValueType").value;$("cvDateInputWrap").classList.toggle("hidden",type!=="fecha");$("cvNumberInputWrap").classList.toggle("hidden",type==="fecha");$("cvNumberLabel").textContent=type==="unidad"?"Unidades *":"Kg *";$("cvValueNumber").step=type==="unidad"?"1":"0.01";$("cvValueNumber").inputMode=type==="unidad"?"numeric":"decimal"}
+function hideCvSuggestions(){$("cvCodeSuggestions")?.classList.add("hidden");$("cvNameSuggestions")?.classList.add("hidden")}
+function cvSuggestionsFor(q){const n=norm(q);if(!n)return[];return codeListFlatRows().filter(r=>[r.articuloref,r.scanning,r.descripcion].some(v=>norm(v).includes(n))).slice(0,10)}
+function renderCvSuggestions(inputId,boxId){const input=$(inputId),box=$(boxId);if(!input||!box)return;const rows=cvSuggestionsFor(input.value);if(!rows.length){box.classList.add("hidden");box.innerHTML="";return}box.innerHTML=rows.map(r=>`<button class="cv-suggestion" type="button" data-cv-suggest="${r.sheetIndex}:${r.rowIndex}"><strong>${esc(r.descripcion||"Sin descripción")}</strong><small>${r.articuloref?`Código ${esc(r.articuloref)} · `:""}${r.scanning?`Scanning ${esc(r.scanning)} · `:""}${esc(r.sheetName)}</small></button>`).join("");box.classList.remove("hidden")}
+function applyCvSuggestion(sheetIndex,rowIndex){const r=codeListSheets[Number(sheetIndex)]?.rows?.[Number(rowIndex)];if(!r)return;$("cvDescripcion").value=r.descripcion||"";$("cvArticulo").value=r.articuloref||"";hideCvSuggestions();showToast(r.articuloref?"Producto y código completados desde Lista de códigos":"Producto seleccionado; esta fila no tiene Código")}
+function resetCvProductForm(){cvEditingItemId=null;const f=$("carnesVegetalesForm");if(f)f.reset();if($("cvLocal"))$("cvLocal").value="953";if($("cvValueType"))$("cvValueType").value="fecha";updateCvValueInput();hideCvSuggestions();if($("cvProductSubmitBtn"))$("cvProductSubmitBtn").textContent="Añadir producto";if(f)f.classList.add("hidden")}
+function openCvProductForm(itemId=null){if(!carnesVegetalesDraft)return;const f=$("carnesVegetalesForm");if(!f)return;cvEditingItemId=itemId;const item=itemId?carnesVegetalesDraft.items.find(x=>x.id===itemId):null;$("cvLocal").value="953";$("cvArticulo").value=item?.articulo||"";$("cvDescripcion").value=item?.descripcion||"";const type=item?cvGuessType(item):"fecha";$("cvValueType").value=type;updateCvValueInput();const raw=item?cvRawValue(item,type):"";$("cvValueDate").value=type==="fecha"?raw:"";$("cvValueNumber").value=type!=="fecha"?raw:"";$("cvProductSubmitBtn").textContent=item?"Guardar cambios":"Añadir producto";f.classList.remove("hidden");setTimeout(()=>$("cvDescripcion").focus(),50)}
+function cvSortedDraftItems(){const items=[...(carnesVegetalesDraft?.items||[])],mode=$("cvSortView")?.value||"load";if(mode==="code")items.sort((a,b)=>String(a.articulo||"").localeCompare(String(b.articulo||""),"es",{numeric:true}));if(mode==="name")items.sort((a,b)=>String(a.descripcion||"").localeCompare(String(b.descripcion||""),"es"));return items}
+function cvPreviewHtml(){const items=cvSortedDraftItems();if(!items.length)return"<div class='empty'>No hay productos para previsualizar.</div>";return `<table><thead><tr><th>Local</th><th>Artículo</th><th>Descripción</th><th class="compras-col">Acción</th><th class="compras-col">Vigencia desde</th><th class="compras-col">Vigencia hasta</th><th>Fecha de vencimiento del Producto</th></tr></thead><tbody>${items.map(x=>`<tr><td>953</td><td>${esc(x.articulo||"")}</td><td>${esc(x.descripcion||"")}</td><td class="compras-col"></td><td class="compras-col"></td><td class="compras-col"></td><td>${esc(x.expiryText||"")}</td></tr>`).join("")}</tbody></table>`}
+function renderCvPreview(){const box=$("cvPreview");if(!box)return;box.innerHTML=cvPreviewHtml()}
+function renderCvDraft(){const active=!!carnesVegetalesDraft;$("cvStartCard")?.classList.toggle("hidden",active);$("cvDraftPanel")?.classList.toggle("hidden",!active);if(!active)return;const items=carnesVegetalesDraft.items||[];$("cvDraftMeta").textContent=`${items.length} producto${items.length===1?"":"s"} cargado${items.length===1?"":"s"}`;$("cvDraftEmpty").style.display=items.length?"none":"block";$("cvFinalizeSheetBtn").disabled=!items.length;$("cvFinalizeSheetBtn").classList.toggle("hidden",!items.length);$("cvDraftItems").innerHTML=cvSortedDraftItems().map(x=>`<div class="cv-product-module" data-cv-item="${x.id}"><div class="cv-product-grid"><div class="cv-product-cell"><span>Local</span><strong>953</strong></div><div class="cv-product-cell"><span>Código</span><strong>${esc(x.articulo||"—")}</strong></div><div class="cv-product-cell"><span>Nombre / Producto</span><strong>${esc(x.descripcion)}</strong></div><div class="cv-product-cell"><span>Fecha de vencimiento / Cantidad</span><strong>${esc(x.expiryText)}</strong></div></div><div class="cv-product-actions"><button class="secondary-btn" type="button" data-edit-cv-item="${x.id}">Editar</button><button class="secondary-btn" type="button" data-duplicate-cv-item="${x.id}">Duplicar</button><button class="btn-danger" type="button" data-remove-cv-item="${x.id}">Eliminar</button></div></div>`).join("");if(!$("cvPreview").classList.contains("hidden"))renderCvPreview()}
+function renderCvHistory(){if(!$("cvHistoryList"))return;$("cvHistoryCount").textContent=`${carnesVegetalesHistory.length} archivo${carnesVegetalesHistory.length===1?"":"s"}`;$("cvHistoryEmpty").style.display=carnesVegetalesHistory.length?"none":"block";$("cvHistoryList").innerHTML="";carnesVegetalesHistory.forEach(r=>{const el=document.createElement("div");el.className="cv-history-item";el.dataset.cvId=r.id;const when=new Date(r.createdAt||Date.now()).toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"}),count=cvItemsForRecord(r).length;el.innerHTML=`<div class="cv-history-head"><div><div class="cv-history-name">${esc(r.fileName)}</div><div class="cv-history-meta"><strong>${count} producto${count===1?"":"s"}</strong> · Guardado: ${esc(when)}</div></div><button class="cv-history-delete" type="button" data-del-cv="${r.id}" aria-label="Eliminar">×</button></div><div class="cv-history-actions"><button class="secondary-btn" type="button" data-download-cv="${r.id}">Descargar XLSX</button><button class="share-btn" type="button" data-share-cv="${r.id}">Compartir XLSX</button></div>`;$("cvHistoryList").appendChild(el)})}
 
 function learningCategoryClass(cat){return cat==="Frutas"?"cat-frutas":cat==="Vegetales"?"cat-vegetales":"cat-hortalizas-pesadas"}
 let learningViewMode="month";
@@ -3494,13 +3510,44 @@ function setLibraryView(view){
   $('library-seasons-pane')?.classList.toggle('hidden',libraryViewMode!=='seasons');
   if(libraryViewMode==='recipes')renderRecipeLibrary();else renderLearningBase();
 }
-function renderLibrary(){setLibraryView(libraryViewMode)}
+let codeListActiveSheet=0,codeListQuery="",codeListEditRow=null;
+function codeListFlatRows(){const out=[];(codeListSheets||[]).forEach((sheet,si)=>(sheet.rows||[]).forEach((row,ri)=>out.push({...row,sheetIndex:si,rowIndex:ri,sheetName:sheet.name||`Lista ${si+1}`})));return out}
+function codeListFileName(){const d=new Date();return `Planilla Lista de Codigos-${String(d.getDate()).padStart(2,"0")}-${String(d.getMonth()+1).padStart(2,"0")}-${d.getFullYear()}.xlsx`}
+function codeListPayload(){return JSON.stringify({fileName:codeListFileName(),sheets:(codeListSheets||[]).map((sheet,i)=>({name:`Lista ${i+1}`,rows:sheet.rows||[]}))})}
+function closeCodeListEditor(){codeListEditRow=null;$("codeListEditor")?.classList.add("hidden")}
+function openCodeListEditor(rowIndex=null){
+  const sheet=codeListSheets[codeListActiveSheet];if(!sheet)return;codeListEditRow=rowIndex;
+  const row=rowIndex==null?{}:(sheet.rows[rowIndex]||{});$("codeListEditorTitle").textContent=rowIndex==null?"Añadir fila":`Editar fila ${rowIndex+2}`;
+  $("codeEditArticulo").value=row.articuloref||"";$("codeEditScanning").value=row.scanning||"";$("codeEditDescripcion").value=row.descripcion||"";$("codeEditPackaging").value=row.packaging||"";
+  $("codeListEditorDeleteBtn").classList.toggle("hidden",rowIndex==null);$("codeListEditor").classList.remove("hidden");setTimeout(()=>$("codeEditDescripcion").focus(),40);
+}
+function renderCodeList(focusRow=null){
+  if(!$("codeListTableBody"))return;if(!codeListSheets.length)codeListSheets=defaultCodeListSheets();codeListActiveSheet=Math.max(0,Math.min(codeListSheets.length-1,codeListActiveSheet));
+  const sheet=codeListSheets[codeListActiveSheet],q=norm(codeListQuery);$("codeListTabs").innerHTML=codeListSheets.map((x,i)=>`<button class="code-list-tab ${i===codeListActiveSheet?"active":""}" data-code-sheet="${i}" type="button">Lista ${i+1}</button>`).join("");
+  const visible=(sheet.rows||[]).map((row,rowIndex)=>({row,rowIndex})).filter(x=>!q||[x.row.articuloref,x.row.scanning,x.row.descripcion,x.row.packaging].some(v=>norm(v).includes(q)));
+  $("codeListMeta").textContent=`Lista ${codeListActiveSheet+1} · ${visible.length} de ${(sheet.rows||[]).length} fila${(sheet.rows||[]).length===1?"":"s"}${q?" · filtro activo":""}`;
+  $("codeListTableBody").innerHTML=visible.length?visible.map(({row,rowIndex})=>`<tr data-code-row="${rowIndex}" class="${focusRow===rowIndex?"code-row-focus":""}"><td>${esc(row.articuloref||"")}</td><td>${esc(row.scanning||"")}</td><td>${esc(row.descripcion||"")}</td><td>${esc(row.packaging||"")}</td></tr>`).join(""):`<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:16px">No hay coincidencias.</td></tr>`;
+  $("codeListTabs").querySelectorAll("[data-code-sheet]").forEach(b=>b.onclick=()=>{codeListActiveSheet=Number(b.dataset.codeSheet);codeListQuery="";$("codeListSearch").value="";closeCodeListEditor();renderCodeList()});
+  $("codeListTableBody").querySelectorAll("[data-code-row]").forEach(tr=>tr.onclick=()=>openCodeListEditor(Number(tr.dataset.codeRow)));
+  if(focusRow!=null)setTimeout(()=>$("codeListTableBody")?.querySelector(`[data-code-row="${focusRow}"]`)?.scrollIntoView({behavior:"smooth",block:"center"}),60);
+}
+function renderLibrary(){renderCodeList()}
+function saveCodeListRow(){
+  const sheet=codeListSheets[codeListActiveSheet];if(!sheet)return;const row={articuloref:$("codeEditArticulo").value.trim(),scanning:$("codeEditScanning").value.trim(),descripcion:$("codeEditDescripcion").value.trim(),packaging:$("codeEditPackaging").value.trim()};
+  if(!row.articuloref&&!row.scanning&&!row.descripcion&&!row.packaging)return showToast("Completá al menos un dato de la fila.");
+  if(codeListEditRow==null)sheet.rows.push(row);else sheet.rows[codeListEditRow]=row;saveAll();closeCodeListEditor();renderCodeList();showToast("Fila guardada");
+}
+async function deleteCodeListRow(){if(codeListEditRow==null)return;if(!await askConfirm("¿Eliminar esta fila de la Lista de códigos?","Eliminar fila",true))return;codeListSheets[codeListActiveSheet].rows.splice(codeListEditRow,1);saveAll();closeCodeListEditor();renderCodeList();showToast("Fila eliminada")}
+function exportCodeList(share=false){try{if(!window.AndroidNative)return showToast("El XLSX se puede generar desde la app Android");if(share&&AndroidNative.shareListaCodigosXlsx){AndroidNative.shareListaCodigosXlsx(codeListPayload());return}if(!share&&AndroidNative.exportListaCodigosXlsx){AndroidNative.exportListaCodigosXlsx(codeListPayload());return}showToast("Esta versión no dispone del exportador XLSX")}catch(e){showToast("No se pudo preparar la Lista de códigos")}}
+function openCodeListResult(sheetIndex,rowIndex){codeListActiveSheet=Number(sheetIndex)||0;codeListQuery="";if($("codeListSearch"))$("codeListSearch").value="";openMainTab("aprendizaje");renderCodeList(Number(rowIndex));}
+
 
 function expiryIdentity(x){const pid=String(x?.productId||"").trim();if(pid)return`P:${pid}`;const c=String(x?.code||"").trim(),n=norm(x?.name);return c?`${x.codeType||"EAN"}:${c}`:(n?`N:${n}`:`I:${x?.id||""}`)}
 function expiryGroupsFor(list){const map=new Map();(list||[]).forEach(x=>{const k=expiryIdentity(x);if(!map.has(k))map.set(k,[]);map.get(k).push(x)});return [...map.values()].map(g=>g.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)))).sort((a,b)=>parseDate(withdrawalDate(a[0]))-parseDate(withdrawalDate(b[0])))}
 function expiryGroupCardHtml(group){
-  const first=group.find(x=>x.code)||group[0],codeLabel=first.codeType==="PLU"?"PLU":"Código / EAN";
-  return `<div class="item expiry-group-card expiry-sheet-group" data-expiry-product-id="${esc(first.productId||"")}">${group.map((x,idx)=>{const st=expiryStatus(x),rd=withdrawalDate(x);return `<div class="expiry-lot-row expiry-sheet-row ${st.cls}" data-expiry-id="${x.id}" tabindex="0"><div class="expiry-sheet-product"><strong>${esc(x.name)}</strong><small>${x.code?`${codeLabel}: ${esc(x.code)}`:"Sin código"}</small>${idx===0?`<div class="expiry-sheet-tools"><button class="expiry-add-lot-btn" data-add-expiry-lot="${x.id}" type="button">＋ Fecha</button><button class="share-btn" data-share-expiry-group="${x.id}" type="button" title="Compartir">↗</button></div>`:""}</div><div class="expiry-sheet-dates"><strong>Vence ${fmt(x.date)}</strong><small>Retiro ${fmt(rd)}${x.notes?` · ${esc(x.notes)}`:""}</small></div><div class="expiry-sheet-status"><span class="status-badge ${st.cls}">${st.text}</span>${st.days<=0?`<button class="btn-retired" data-resolve-expiry="${x.id}" type="button">Resolver</button>`:""}</div><button class="btn-danger expiry-lot-delete swipe-delete-source" data-del-expiry="${x.id}" type="button" tabindex="-1" aria-hidden="true">Eliminar</button></div>`}).join("")}</div>`;
+  const first=group[0],productId=first.productId||first.id,codeItem=group.find(x=>x.code)||first,codeLabel=codeItem.codeType==="PLU"?"PLU":"Código / EAN";
+  const rows=group.map(x=>{const st=expiryStatus(x),rd=withdrawalDate(x);return `<div class="expiry-lot-row expiry-sheet-row ${st.cls}" data-expiry-id="${x.id}" tabindex="0"><div class="expiry-sheet-product"><span class="expiry-lot-date-label">Vencimiento</span></div><div class="expiry-sheet-dates"><strong>Vence ${fmt(x.date)}</strong><small>Retiro ${fmt(rd)}${x.notes?` · ${esc(x.notes)}`:""}</small></div><div class="expiry-sheet-status"><span class="status-badge ${st.cls}">${st.text}</span><div class="expiry-lot-actions"><button class="secondary-btn expiry-edit-lot" data-edit-expiry="${x.id}" type="button">Editar</button><button class="btn-danger expiry-remove-lot" data-retire-expiry="${x.id}" type="button">Retirar</button></div></div></div>`}).join("");
+  return `<div class="item expiry-group-card expiry-sheet-group" data-expiry-product-id="${esc(productId)}"><div class="expiry-product-group-head"><div class="expiry-product-group-title"><strong>${esc(first.name)}</strong><small>${first.code?`${codeLabel}: ${esc(first.code)}`:"Sin código"} · ${group.length} fecha${group.length===1?"":"s"}</small></div><div class="expiry-product-group-actions"><button class="expiry-add-lot-btn" data-add-expiry-lot="${first.id}" type="button">＋ Añadir fecha</button><button class="secondary-btn" data-edit-expiry-product="${esc(productId)}" type="button">Editar producto</button><button class="btn-danger" data-retire-expiry-product="${esc(productId)}" type="button">Retirar producto</button><button class="share-btn" data-share-expiry-group="${first.id}" type="button" title="Compartir">↗</button></div></div><div class="expiry-lots-list">${rows}</div></div>`;
 }
 function renderLastExpiryProduct(){
   const list=$("lastExpiryList"),empty=$("lastExpiryEmpty"),count=$("lastExpiryCount");if(!list||!empty||!count)return;
@@ -3512,6 +3559,10 @@ function bindExpiryInteractions(){
   document.querySelectorAll("[data-resolve-expiry]").forEach(b=>b.onclick=e=>{e.stopPropagation();openExpiryResolve(b.dataset.resolveExpiry)});
   document.querySelectorAll("[data-share-expiry-group]").forEach(b=>b.onclick=e=>{e.stopPropagation();const seed=items.find(x=>x.id===b.dataset.shareExpiryGroup);if(!seed)return;const group=expiryProductGroup(seed.productId);const codeItem=group.find(x=>x.code)||seed,codeLabel=codeItem.codeType==="PLU"?"PLU":"Código / EAN";shareText("Vencimientos · "+seed.name,`Al Día · Vencimientos\n${seed.name}${codeItem.code?`\n${codeLabel}: ${codeItem.code}`:""}\n${group.map(x=>`Vence: ${fmt(x.date)} · Retiro: ${fmt(withdrawalDate(x))} · ${expiryStatus(x).text}${x.notes?` · ${x.notes}`:""}`).join("\n")}`)});
   document.querySelectorAll("[data-add-expiry-lot]").forEach(b=>b.onclick=e=>{e.stopPropagation();openExpiryQuickAdd(b.dataset.addExpiryLot)});
+  document.querySelectorAll("[data-edit-expiry]").forEach(b=>b.onclick=e=>{e.stopPropagation();openExpiryEdit(b.dataset.editExpiry)});
+  document.querySelectorAll("[data-retire-expiry]").forEach(b=>b.onclick=e=>{e.stopPropagation();retireExpiryLot(b.dataset.retireExpiry)});
+  document.querySelectorAll("[data-edit-expiry-product]").forEach(b=>b.onclick=e=>{e.stopPropagation();openExpiryProductEdit(b.dataset.editExpiryProduct)});
+  document.querySelectorAll("[data-retire-expiry-product]").forEach(b=>b.onclick=e=>{e.stopPropagation();retireExpiryProduct(b.dataset.retireExpiryProduct)});
   document.querySelectorAll(".expiry-lot-row[data-expiry-id]").forEach(row=>{const open=()=>openExpiryEdit(row.dataset.expiryId);row.onclick=e=>{if(row.dataset.gestureConsumed==="1"){row.dataset.gestureConsumed="0";return}if(e.target.closest("button,input,select,a"))return;open()};row.onkeydown=e=>{if((e.key==="Enter"||e.key===" ")&&!e.target.closest("button,input,select,a")){e.preventDefault();open()}}});
   try{refreshSwipeDelete()}catch(e){}
 }
@@ -3547,6 +3598,7 @@ function openExpiryProduct(productId,lotId="",attention=true){
 
 function openLearningEdit(id){const x=learningCatalog.find(y=>y.id===id);if(!x)return;openModal("Editar producto de temporada",`<label>Producto</label><input id="m1" value="${esc(x.name)}"><label style="margin-top:10px">Categoría</label><select id="m3">${cats.map(c=>`<option ${x.category===c?"selected":""}>${c}</option>`).join("")}</select><div class="month-picker"><div class="month-picker-head"><label style="margin:0">Meses disponibles</label><button class="month-toggle-all" id="modalMonthsToggle" type="button">Seleccionar todos</button></div><div class="month-grid" id="modalMonthsGrid">${monthPickerHtml(x.months)}</div><div class="month-count-note" id="modalMonthsCount"></div></div><div class="footer-note">Origen: ${esc(x.origin||"Dato guardado")}</div>`,{type:"learning",id});const upd=()=>{const n=[...$("modalMonthsGrid").querySelectorAll("input:checked")].length;$("modalMonthsCount").textContent=`${n} de 12 meses seleccionados`;$("modalMonthsToggle").textContent=n===12?"Deseleccionar todos":"Seleccionar todos"};$("modalMonthsGrid").querySelectorAll("input").forEach(i=>i.onchange=upd);$("modalMonthsToggle").onclick=()=>{const all=[...$("modalMonthsGrid").querySelectorAll("input:checked")].length===12;$("modalMonthsGrid").querySelectorAll("input").forEach(i=>i.checked=!all);upd()};upd()}
 function openMainTab(tab){
+  if(["pedidos","muestras","consultor"].includes(tab))tab="inicio";
   const prev=getActiveMainTab();
   document.querySelectorAll(".main-tab").forEach(x=>x.classList.toggle("active",x.dataset.mainTab===tab));
   document.querySelectorAll(".main-section").forEach(x=>x.classList.remove("active","section-enter-left","section-enter-right"));
@@ -3576,13 +3628,25 @@ function openExpiryAttention(lotId=""){
 function openExpiryFromHome(){expiryFilter="all";document.querySelectorAll("[data-expiry-filter]").forEach(x=>x.classList.toggle("active",x.dataset.expiryFilter==="all"));setExpiryView("active");collapseAddPanel("expiry");openMainTab("vencimientos");renderExpiry()}
 function openOrdersFromHome(){document.querySelectorAll("[data-order-view]").forEach(x=>x.classList.toggle("active",x.dataset.orderView==="current"));$("order-current-view").classList.remove("hidden");$("order-history-view").classList.add("hidden");collapseAddPanel("order");openMainTab("pedidos");renderOrders();updateNextOrder()}
 function openSamplesFromHome(){document.querySelectorAll("[data-sample-view]").forEach(x=>x.classList.toggle("active",x.dataset.sampleView==="current"));$("sample-current-view").classList.remove("hidden");$("sample-history-view").classList.add("hidden");collapseAddPanel("sample");openMainTab("muestras");renderSamples()}
+function searchValueMatch(value,q){const v=norm(value||"");return !!q&&v.includes(q)}
+function globalProductSearchResults(query){const q=norm(query);if(!q)return[];const out=[];(items||[]).forEach(x=>{if(searchValueMatch(x.name,q)||searchValueMatch(x.code,q))out.push({type:"expiry",id:x.id,name:x.name,code:x.code,location:"Vencimientos",detail:`Vence ${fmt(x.date)}`})});codeListFlatRows().forEach(r=>{if([r.descripcion,r.articuloref,r.scanning].some(v=>searchValueMatch(v,q)))out.push({type:"code-list",sheetIndex:r.sheetIndex,rowIndex:r.rowIndex,id:`${r.sheetIndex}:${r.rowIndex}`,name:r.descripcion||"Sin descripción",code:r.articuloref||r.scanning||"",location:`Lista de códigos · Lista ${r.sheetIndex+1}`,detail:[r.articuloref&&`Código ${r.articuloref}`,r.scanning&&`Scanning ${r.scanning}`,r.packaging].filter(Boolean).join(" · ")})});(carnesVegetalesDraft?.items||[]).forEach(x=>{if(searchValueMatch(x.descripcion,q)||searchValueMatch(x.articulo,q))out.push({type:"price",id:x.id,name:x.descripcion,code:x.articulo,location:"Baja de precios · Planilla actual",detail:x.expiryText||""})});return out.filter((r,i,a)=>i===a.findIndex(x=>x.type===r.type&&x.id===r.id)).slice(0,80)}
+function renderGlobalProductSearch(query){const box=$("globalProductSearchResults");if(!box)return;const q=String(query||"").trim(),results=globalProductSearchResults(q);if(!q){box.classList.add("hidden");box.innerHTML="";return}box.classList.remove("hidden");box.innerHTML=results.length?`<div class="global-product-search-summary">${results.length} coincidencia${results.length===1?"":"s"}</div>${results.map(r=>`<button class="global-search-result" data-global-result="${esc(JSON.stringify(r))}" type="button"><span class="global-search-result-main"><strong>${esc(r.name)}</strong><small>${esc(r.code||"Sin código")}</small></span><span class="global-search-result-location"><b>${esc(r.location)}</b><small>${esc(r.detail||"")}</small></span><span class="global-search-result-arrow">›</span></button>`).join("")}`:`<div class="global-product-search-empty">No encontré ese producto o código en Vencimientos, Lista de códigos ni Baja de precios.</div>`}
+function focusElementAfterOpen(selector){setTimeout(()=>{const el=document.querySelector(selector);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.add("attention-focus");setTimeout(()=>el.classList.remove("attention-focus"),1700)}},220)}
+function openGlobalSearchResult(r){$("homeProductSearchInput").blur();$("globalProductSearchResults")?.classList.add("hidden");if(r.type==="expiry"){openExpiryFromHome();focusElementAfterOpen(`#expiry-active-view [data-expiry-id="${CSS.escape(r.id)}"]`);return}if(r.type==="code-list"){openCodeListResult(r.sheetIndex,r.rowIndex);return}if(r.type==="price"){openMainTab("plantilla");renderCvDraft();openCvProductForm(r.id);return}}
+$("globalProductSearchResults")?.addEventListener("click",e=>{const b=e.target.closest("[data-global-result]");if(!b)return;try{openGlobalSearchResult(JSON.parse(b.dataset.globalResult))}catch(err){}});
 $("homeVencimientosBtn").onclick=()=>openExpiryFromHome();
-$("homePedidosBtn").onclick=()=>openOrdersFromHome();
-$("homeMuestrasBtn").onclick=()=>openSamplesFromHome();
 $("homeNotesBtn").onclick=()=>openMainTab("notas");
 $("homePlantillaBtn").onclick=()=>{openMainTab("plantilla");renderCvDraft();renderCvHistory()};
-$("homeLearningBtn").onclick=()=>{openMainTab("aprendizaje");renderLibrary()};
-$("homeProductSearchInput").onkeydown=e=>{if(e.key!=="Enter")return;const q=$("homeProductSearchInput").value.trim();openMainTab("consultor");$("consultorSearch").value=q;renderConsultor();$("consultorSearch").focus()};
+$("homeLearningBtn").onclick=()=>{openMainTab("aprendizaje");renderCodeList()};
+$("homeProductSearchInput").oninput=e=>renderGlobalProductSearch(e.target.value);
+$("homeProductSearchInput").onkeydown=e=>{if(e.key!=="Escape")return;e.target.value="";renderGlobalProductSearch("")};
+if($("codeListSearch"))$("codeListSearch").oninput=e=>{codeListQuery=e.target.value;closeCodeListEditor();renderCodeList()};
+if($("codeListAddRowBtn"))$("codeListAddRowBtn").onclick=()=>openCodeListEditor();
+if($("codeListEditorCancelBtn"))$("codeListEditorCancelBtn").onclick=closeCodeListEditor;
+if($("codeListEditorSaveBtn"))$("codeListEditorSaveBtn").onclick=saveCodeListRow;
+if($("codeListEditorDeleteBtn"))$("codeListEditorDeleteBtn").onclick=deleteCodeListRow;
+if($("codeListExportBtn"))$("codeListExportBtn").onclick=()=>exportCodeList(false);
+if($("codeListShareBtn"))$("codeListShareBtn").onclick=()=>exportCodeList(true);
 $("consultorSearch").oninput=renderConsultor;
 if($("learningSearch"))$("learningSearch").oninput=renderLearningBase;if($("learningMonthFilter"))$("learningMonthFilter").onchange=renderLearningBase;if($("learningCategoryFilter"))$("learningCategoryFilter").onchange=renderLearningBase;if($("learningMonthlyViewBtn"))$("learningMonthlyViewBtn").onclick=()=>{learningViewMode="month";renderLearningBase()};if($("learningAnnualViewBtn"))$("learningAnnualViewBtn").onclick=()=>{learningViewMode="year";renderLearningBase()};
 if($("libraryRecipesBtn"))$("libraryRecipesBtn").onclick=()=>setLibraryView("recipes");if($("librarySeasonsBtn"))$("librarySeasonsBtn").onclick=()=>setLibraryView("seasons");if($("recipeLibrarySearch"))$("recipeLibrarySearch").oninput=renderRecipeLibrary;document.querySelectorAll(".recipe-filter-btn[data-recipe-category]").forEach(b=>b.onclick=()=>{recipeCategoryFilter=b.dataset.recipeCategory||"";document.querySelectorAll(".recipe-filter-btn[data-recipe-category]").forEach(x=>x.classList.toggle("active",x===b));renderRecipeLibrary()});
@@ -3590,64 +3654,23 @@ if($("libraryRecipesBtn"))$("libraryRecipesBtn").onclick=()=>setLibraryView("rec
 if($("orderHistorySearch"))$("orderHistorySearch").oninput=renderOrderHistory;
 if($("sampleHistorySearch"))$("sampleHistorySearch").oninput=renderSampleHistory;
 
-$("todaySummaryList").onclick=e=>{
-  const b=e.target.closest("[data-today-action]");if(!b)return;
-  if(b.dataset.todayAction==="expiry"){openExpiryAttention();}
-  if(b.dataset.todayAction==="order"){
-    const t=keyFromDow(nextOrderDay());
-    document.querySelectorAll(".subtab").forEach(x=>x.classList.toggle("active",x.dataset.orderTab===t));
-    activeOrderTab=t;openMainTab("pedidos");renderAll();
-  }
-  if(b.dataset.todayAction==="sample"){openMainTab("muestras");renderSamples()}
-};
+$("todaySummaryList").onclick=e=>{const b=e.target.closest("[data-today-action]");if(!b)return;if(b.dataset.todayAction==="expiry")openExpiryAttention();if(b.dataset.todayAction==="notes")openMainTab("notas")};
 
 
-$("cvCreateSheetBtn").onclick=()=>{
-  if(carnesVegetalesDraft)return renderCvDraft();
-  carnesVegetalesDraft={id:uid(),createdAt:new Date().toISOString(),items:[]};
-  resetCvProductForm();saveAll();renderCvDraft();showToast("Planilla creada. Ahora podés añadir productos");
-};
+$("cvCreateSheetBtn").onclick=()=>{if(carnesVegetalesDraft)return renderCvDraft();carnesVegetalesDraft={id:uid(),createdAt:new Date().toISOString(),items:[]};resetCvProductForm();saveAll();renderCvDraft();showToast("Planilla creada. Ahora podés añadir productos")};
 $("cvAddProductBtn").onclick=()=>openCvProductForm();
 $("cvCancelProductBtn").onclick=()=>resetCvProductForm();
-$("carnesVegetalesForm").onsubmit=e=>{
-  e.preventDefault();if(!carnesVegetalesDraft)return;
-  const articulo=$("cvArticulo").value.trim(),descripcion=$("cvDescripcion").value.trim(),expiryText=$("cvVencimiento").value.trim();
-  if(!articulo||!descripcion||!expiryText)return showToast("Completá Artículo, Descripción y Fecha de vencimiento del Producto.");
-  if(cvEditingItemId){
-    const x=carnesVegetalesDraft.items.find(i=>i.id===cvEditingItemId);
-    if(x){x.articulo=articulo;x.descripcion=descripcion;x.expiryText=expiryText;}
-    showToast("Producto actualizado");
-  }else{
-    carnesVegetalesDraft.items.push({id:uid(),local:"953",articulo,descripcion,expiryText});
-    showToast("Producto añadido");
-  }
-  saveAll();resetCvProductForm();renderCvDraft();
-};
-$("cvDraftItems").onclick=async e=>{
-  const del=e.target.closest("[data-del-cv-item]");
-  if(del){e.stopPropagation();if(!await askConfirm("¿Eliminar este producto de la planilla?","Eliminar producto",true))return;carnesVegetalesDraft.items=carnesVegetalesDraft.items.filter(x=>x.id!==del.dataset.delCvItem);if(cvEditingItemId===del.dataset.delCvItem)resetCvProductForm();saveAll();renderCvDraft();return;}
-  const card=e.target.closest("[data-cv-item]");if(card)openCvProductForm(card.dataset.cvItem);
-};
-$("cvCancelSheetBtn").onclick=async()=>{
-  if(!carnesVegetalesDraft)return;
-  if(carnesVegetalesDraft.items.length&&!await askConfirm("Se descartarán todos los productos cargados.","¿Cancelar planilla?",true))return;
-  carnesVegetalesDraft=null;resetCvProductForm();saveAll();renderCvDraft();showToast("Planilla cancelada");
-};
-$("cvFinalizeSheetBtn").onclick=()=>{
-  if(!carnesVegetalesDraft||!carnesVegetalesDraft.items.length)return showToast("Añadí al menos un producto.");
-  const now=new Date();
-  const record={id:carnesVegetalesDraft.id||uid(),local:"953",items:carnesVegetalesDraft.items.map(x=>({...x,local:"953"})),createdAt:now.toISOString(),fileName:cvFileNameFor(now)};
-  carnesVegetalesHistory.unshift(record);
-  carnesVegetalesDraft=null;resetCvProductForm();saveAll();
-  const generated=ensureCvXlsx(record);
-  renderCvDraft();renderCvHistory();
-  showToast(generated?"Planilla XLSX creada y guardada":"Planilla guardada. El XLSX se generará al descargar o compartir");
-};
-$("cvHistoryList").onclick=async e=>{
-  const dl=e.target.closest("[data-download-cv]");if(dl){const r=carnesVegetalesHistory.find(x=>x.id===dl.dataset.downloadCv);if(r)downloadCvXlsx(r);return}
-  const sh=e.target.closest("[data-share-cv]");if(sh){const r=carnesVegetalesHistory.find(x=>x.id===sh.dataset.shareCv);if(r)shareCvXlsx(r);return}
-  const del=e.target.closest("[data-del-cv]");if(del){const r=carnesVegetalesHistory.find(x=>x.id===del.dataset.delCv);if(!r)return;if(!await askConfirm(`¿Eliminar “${r.fileName}” del historial?`,"Eliminar plantilla",true))return;carnesVegetalesHistory=carnesVegetalesHistory.filter(x=>x.id!==r.id);saveAll();renderCvHistory();showToast("Plantilla eliminada")}
-};
+$("cvValueType").onchange=()=>{updateCvValueInput();};
+$("cvSortView").onchange=()=>renderCvDraft();
+$("cvPreviewBtn").onclick=()=>{const box=$("cvPreview"),show=box.classList.contains("hidden");box.classList.toggle("hidden",!show);$("cvPreviewBtn").textContent=show?"Ocultar vista previa":"Vista previa";if(show)renderCvPreview()};
+$("cvArticulo").oninput=()=>renderCvSuggestions("cvArticulo","cvCodeSuggestions");
+$("cvDescripcion").oninput=()=>renderCvSuggestions("cvDescripcion","cvNameSuggestions");
+["cvCodeSuggestions","cvNameSuggestions"].forEach(id=>$(id).onclick=e=>{const b=e.target.closest("[data-cv-suggest]");if(!b)return;const [si,ri]=b.dataset.cvSuggest.split(":").map(Number);applyCvSuggestion(si,ri)});
+$("carnesVegetalesForm").onsubmit=e=>{e.preventDefault();if(!carnesVegetalesDraft)return;const articulo=$("cvArticulo").value.trim(),descripcion=$("cvDescripcion").value.trim(),valueType=$("cvValueType").value,raw=valueType==="fecha"?$("cvValueDate").value:$("cvValueNumber").value.trim();if(!descripcion)return showToast("Completá Nombre / Producto.");if(!raw)return showToast(valueType==="fecha"?"Elegí una fecha.":"Ingresá una cantidad.");if(valueType==="unidad"&&(!Number.isInteger(Number(raw))||Number(raw)<0))return showToast("Unidad debe ser un número entero.");if(valueType==="kg"&&(!Number.isFinite(Number(raw))||Number(raw)<0))return showToast("Kg debe ser un número válido.");const expiryText=cvBuildExpiryText(valueType,raw);if(!expiryText)return showToast("Revisá el valor ingresado.");if(cvEditingItemId){const x=carnesVegetalesDraft.items.find(i=>i.id===cvEditingItemId);if(x){Object.assign(x,{articulo,descripcion,valueType,valueRaw:raw,expiryText})}showToast("Producto actualizado")}else{carnesVegetalesDraft.items.push({id:uid(),local:"953",articulo,descripcion,valueType,valueRaw:raw,expiryText});showToast("Producto añadido")}saveAll();resetCvProductForm();renderCvDraft()};
+$("cvDraftItems").onclick=async e=>{const rem=e.target.closest("[data-remove-cv-item]");if(rem){e.stopPropagation();if(!await askConfirm("¿Eliminar este producto de la planilla?","Eliminar producto",true))return;carnesVegetalesDraft.items=carnesVegetalesDraft.items.filter(x=>x.id!==rem.dataset.removeCvItem);if(cvEditingItemId===rem.dataset.removeCvItem)resetCvProductForm();saveAll();renderCvDraft();return}const dup=e.target.closest("[data-duplicate-cv-item]");if(dup){e.stopPropagation();const idx=carnesVegetalesDraft.items.findIndex(x=>x.id===dup.dataset.duplicateCvItem);if(idx<0)return;const copy={...carnesVegetalesDraft.items[idx],id:uid()};carnesVegetalesDraft.items.splice(idx+1,0,copy);saveAll();renderCvDraft();showToast("Fila duplicada");return}const edit=e.target.closest("[data-edit-cv-item]");if(edit){e.stopPropagation();openCvProductForm(edit.dataset.editCvItem);return}const card=e.target.closest("[data-cv-item]");if(card)openCvProductForm(card.dataset.cvItem)};
+$("cvCancelSheetBtn").onclick=async()=>{if(!carnesVegetalesDraft)return;if(carnesVegetalesDraft.items.length&&!await askConfirm("Se descartarán todos los productos cargados.","¿Cancelar planilla?",true))return;carnesVegetalesDraft=null;resetCvProductForm();saveAll();renderCvDraft();showToast("Planilla cancelada")};
+$("cvFinalizeSheetBtn").onclick=()=>{if(!carnesVegetalesDraft||!carnesVegetalesDraft.items.length)return showToast("Añadí al menos un producto.");const now=new Date(),record={id:carnesVegetalesDraft.id||uid(),local:"953",items:carnesVegetalesDraft.items.map(x=>({...x,local:"953"})),createdAt:now.toISOString(),fileName:cvFileNameFor(now)};carnesVegetalesHistory.unshift(record);carnesVegetalesDraft=null;resetCvProductForm();saveAll();const generated=ensureCvXlsx(record);renderCvDraft();renderCvHistory();showToast(generated?"Planilla XLSX creada y guardada":"Planilla guardada. El XLSX se generará al descargar o compartir")};
+$("cvHistoryList").onclick=async e=>{const dl=e.target.closest("[data-download-cv]");if(dl){const r=carnesVegetalesHistory.find(x=>x.id===dl.dataset.downloadCv);if(r)downloadCvXlsx(r);return}const sh=e.target.closest("[data-share-cv]");if(sh){const r=carnesVegetalesHistory.find(x=>x.id===sh.dataset.shareCv);if(r)shareCvXlsx(r);return}const del=e.target.closest("[data-del-cv]");if(del){const r=carnesVegetalesHistory.find(x=>x.id===del.dataset.delCv);if(!r)return;if(!await askConfirm(`¿Eliminar “${r.fileName}” del historial?`,"Eliminar planilla",true))return;carnesVegetalesHistory=carnesVegetalesHistory.filter(x=>x.id!==r.id);saveAll();renderCvHistory();showToast("Planilla eliminada")}};
 
 $("consultorForm").onsubmit=e=>{
   e.preventDefault();
@@ -3672,15 +3695,15 @@ $("notesOrganizeBtn").onclick=()=>{
 };
 document.querySelectorAll("[data-back-home]").forEach(b=>b.onclick=()=>openMainTab("inicio"));
 
-const swipeTabs=["inicio"];
+const swipeTabs=["inicio","vencimientos","notas","plantilla","aprendizaje"];
 let touchStartX=0;
 let touchStartY=0;
 let touchEndX=0;
 let touchEndY=0;
 
 function getActiveMainTab(){
-  const active=document.querySelector(".main-tab.active");
-  return active ? active.dataset.mainTab : "inicio";
+  const active=document.querySelector(".main-section.active");
+  return active ? active.id.replace(/^tab-/,"") : "inicio";
 }
 
 function handleHorizontalSwipe(){
@@ -3706,7 +3729,7 @@ function handleHorizontalSwipe(){
   }
 }
 
-["tab-inicio","tab-vencimientos","tab-pedidos","tab-muestras","tab-notas"].forEach(id=>{
+["tab-inicio","tab-vencimientos","tab-notas","tab-plantilla","tab-aprendizaje"].forEach(id=>{
   const section=$(id);
   section.addEventListener("touchstart",e=>{
     if(!e.touches || !e.touches.length) return;
@@ -3804,7 +3827,8 @@ function backupCounts(d){
     orderHistory:d.orderHistory?Object.values(d.orderHistory).reduce((n,a)=>n+(Array.isArray(a)?a.length:0),0):0,
     sampleActive,
     sampleHistory:Array.isArray(d.sampleHistory)?d.sampleHistory.length:0,
-    carnesVegetales:Array.isArray(d.carnesVegetalesHistory)?d.carnesVegetalesHistory.length:0
+    carnesVegetales:Array.isArray(d.carnesVegetalesHistory)?d.carnesVegetalesHistory.length:0,
+    codeListRows:Array.isArray(d.codeListSheets)?d.codeListSheets.reduce((n,s)=>n+(Array.isArray(s?.rows)?s.rows.length:0),0):0
   };
 }
 function backupSummaryText(d,includeTitle=true){
@@ -3814,10 +3838,10 @@ function backupSummaryText(d,includeTitle=true){
     const dt=new Date(d.exportedAt);
     if(!Number.isNaN(dt.getTime()))when=dt.toLocaleString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"});
   }
-  return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nProductos del Consultor: ${c.consultant}\nNotas: ${c.notes}\nProductos en Pedidos: ${c.orderItems}\nPedidos guardados: ${c.orderHistory}\nProductos en Muestras activas: ${c.sampleActive}\nMuestras realizadas: ${c.sampleHistory}\nPlantillas Carnes-Vegetales: ${c.carnesVegetales}`;
+  return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nNotas rápidas: ${c.notes}\nFilas en Lista de códigos: ${c.codeListRows}\nPlanillas de Baja de precios: ${c.carnesVegetales}`;
 }
 function currentBackupObject(){
-  return {version:31,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,carbonOrders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,noteDraft:noteDraftRead(),consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:33,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,carbonOrders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,noteDraft:noteDraftRead(),consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,codeListSheets,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;
@@ -3832,7 +3856,7 @@ window.onBackupExported=function(){
   const data=currentBackupObject();
   backupMetaState.lastExportAt=new Date().toISOString();
   const c=backupCounts(data);
-  backupMetaState.lastSummary=`${c.expiry} vencimientos · ${c.consultant} productos consultor · ${c.notes} notas · ${c.orderHistory} pedidos · ${c.sampleHistory} muestras`;
+  backupMetaState.lastSummary=`${c.expiry} vencimientos · ${c.notes} notas · ${c.codeListRows} códigos · ${c.carnesVegetales} planillas`;
   saveAll();renderBackupStatus();
   showToast("Copia exportada correctamente");
 };
@@ -3866,6 +3890,7 @@ function applyBackupObject(d,silent=false){
   carnesVegetalesHistory=Array.isArray(d.carnesVegetalesHistory)?d.carnesVegetalesHistory:[];
   carnesVegetalesDraft=d.carnesVegetalesDraft&&Array.isArray(d.carnesVegetalesDraft.items)?d.carnesVegetalesDraft:null;
   learningCatalog=Array.isArray(d.learningCatalog)?d.learningCatalog:learningCatalog;seedLearningCatalog();
+  codeListSheets=Array.isArray(d.codeListSheets)&&d.codeListSheets.length?d.codeListSheets:codeListSheets;
   backupMetaState=d.backupMetaState&&typeof d.backupMetaState==="object"?d.backupMetaState:backupMetaState;
   expiryProductMemory=Array.isArray(d.expiryProductMemory)?d.expiryProductMemory:expiryProductMemory;
   orderProductMemory=Array.isArray(d.orderProductMemory)?d.orderProductMemory:orderProductMemory;
@@ -4077,8 +4102,7 @@ function initOrderLongPressReorder(){
 }
 
 function renderAll(){
-  seedLearningCatalog();migrateOrderCategoriesV215();
-  const jobs=[cleanExpiryHistory,cleanCompletion,renderProductMemories,renderExpiryDatalist,renderOrderDatalist,renderExpiry,renderExpiryHistory,renderOrders,renderOrderHistory,renderCompletion,renderSamples,renderSampleHistory,renderNotes,renderNoteHistory,renderConsultor,renderLibrary,renderCvDraft,renderCvHistory,updateNextOrder,renderDashboard,updateHomeClock,renderBackupStatus,applySettings,refreshNotificationPermissionStatus,loadNativeVersion];
+  const jobs=[cleanExpiryHistory,renderProductMemories,renderExpiryDatalist,renderExpiry,renderExpiryHistory,renderNotes,renderNoteHistory,renderLibrary,renderCvDraft,renderCvHistory,renderDashboard,updateHomeClock,renderBackupStatus,applySettings,refreshNotificationPermissionStatus,loadNativeVersion];
   jobs.forEach(fn=>{try{fn()}catch(e){console.error("Render:",fn&&fn.name,e)}});
   try{saveAll()}catch(e){console.error("Save",e)}
 }
@@ -4088,22 +4112,9 @@ window.addEventListener("scroll",()=>{
 },{passive:true});
 $("backToTopBtn").onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
 
-let lastAutomaticMonthKey=orderMonthKey();
-function refreshAutomaticMonthIfNeeded(){
-  const nowKey=orderMonthKey();
-  if(nowKey===lastAutomaticMonthKey)return;
-  lastAutomaticMonthKey=nowKey;
-  if($("learningMonthFilter"))$("learningMonthFilter").value=String(new Date().getMonth()+1);
-  ["martes","jueves","sabado"].forEach(day=>ensureOrderTemplateForDay(day));
-  renderOrders();renderLibrary();updateNextOrder();renderDashboard();
-}
 enhanceClearableInputs(document);
 const clearableObserver=new MutationObserver(muts=>{muts.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType===1)enhanceClearableInputs(n)}))});
 clearableObserver.observe(document.body,{childList:true,subtree:true});
-setAddPanel("order",$("orderForm")&&!$("orderForm").classList.contains("hidden"));
-renderCarbonFriday();
-setInterval(refreshAutomaticMonthIfNeeded,60000);
-document.addEventListener("visibilitychange",()=>{if(!document.hidden)refreshAutomaticMonthIfNeeded()});
 
 
 async function handleDeleteAction(target){const carbonBtn=target.closest("[data-del-carbon]");if(carbonBtn){if(!await askConfirm("¿Retirar este producto de Carbón Viernes?","Retirar producto",true))return true;carbonOrders=carbonOrders.filter(x=>x.id!==carbonBtn.dataset.delCarbon);saveAll();renderCarbonFriday();renderDashboard();return true}const expiryBtn=target.closest("[data-del-expiry]");if(expiryBtn){if(!await askConfirm("¿Eliminar este vencimiento?","Eliminar vencimiento",true))return true;const removed=items.find(x=>x.id===expiryBtn.dataset.delExpiry);items=items.filter(x=>x.id!==expiryBtn.dataset.delExpiry);if(removed&&lastExpiryProductId===removed.productId&&!items.some(x=>x.productId===removed.productId))lastExpiryProductId="";saveAll();renderExpiry();renderDashboard();return true}const expiryHistoryBtn=target.closest("[data-del-exp-h]");if(expiryHistoryBtn){if(!await askConfirm("¿Eliminar este registro del historial?","Eliminar registro",true))return true;expiryHistory=expiryHistory.filter(x=>x.id!==expiryHistoryBtn.dataset.delExpH);saveAll();renderExpiryHistory();renderDashboard();return true}const orderBtn=target.closest("[data-del-order]");if(orderBtn){if(!await askConfirm("¿Eliminar este producto?","Eliminar producto",true))return true;orders[activeOrderTab]=orders[activeOrderTab].filter(x=>x.id!==orderBtn.dataset.delOrder);saveAll();renderAll();return true}const orderHistoryBtn=target.closest("[data-del-oh]");if(orderHistoryBtn){if(!await askConfirm("¿Eliminar este pedido del historial?","Eliminar pedido",true))return true;orderHistory[activeOrderTab]=orderHistory[activeOrderTab].filter(x=>x.id!==orderHistoryBtn.dataset.delOh);saveAll();renderOrderHistory();renderDashboard();return true}const savedExpiryBtn=target.closest("[data-del-exp-s]");if(savedExpiryBtn){if(!await askConfirm("¿Eliminar este producto frecuente?","Eliminar producto frecuente",true))return true;delete savedExpiryProducts[savedExpiryBtn.dataset.delExpS];saveAll();renderExpiryDatalist();renderExpirySavedManager();return true}const savedOrderBtn=target.closest("[data-del-os]");if(savedOrderBtn){if(!await askConfirm("¿Eliminar este producto guardado?","Eliminar producto guardado",true))return true;delete savedProducts[savedOrderBtn.dataset.delOs];saveAll();renderOrderDatalist();renderOrderSavedManager();return true}const sampleRowBtn=target.closest("[data-del-sample-row]");if(sampleRowBtn){if(!await askConfirm("¿Eliminar este producto de la muestra?","Eliminar producto",true))return true;sampleTemplates[activeSampleTemplate]=sampleTemplates[activeSampleTemplate].filter(x=>x.id!==sampleRowBtn.dataset.delSampleRow);if(editingSampleId===sampleRowBtn.dataset.delSampleRow)resetSampleForm();sampleLocked=sampleTemplates[activeSampleTemplate].length>0;saveAll();renderSamples();return true}const sampleHistoryBtn=target.closest("[data-del-sample-history]");if(sampleHistoryBtn){if(!await askConfirm("¿Eliminar esta muestra del historial?","Eliminar muestra",true))return true;sampleHistory=sampleHistory.filter(x=>x.id!==sampleHistoryBtn.dataset.delSampleHistory);saveAll();renderSampleHistory();return true}return false;}
@@ -4138,7 +4149,7 @@ window.handleAndroidBack=function(){
 };
 
 
-restoreNativeStateIfAvailable();toggleQtyInput();applySettings();renderAll();openMainTab("inicio");refreshNotificationPermissionStatus();loadNativeVersion();setInterval(()=>{updateNextOrder();renderCompletion();renderDashboard()},60000);
+restoreNativeStateIfAvailable();toggleQtyInput();applySettings();renderAll();openMainTab("inicio");refreshNotificationPermissionStatus();loadNativeVersion();setInterval(()=>renderDashboard(),60000);
 </script>
 </body>
 </html>

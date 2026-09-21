@@ -1,0 +1,163 @@
+AL DÍA — CAMBIOS v2.33
+
+BASE
+- Actualización realizada sobre el proyecto completo v2.32.
+- v2.32 ya era acumulativa desde la base real v2.28.
+- No se reconstruyó el proyecto.
+- Se mantienen applicationId, firma debug fija, copias de seguridad, recursos y estructura Android existente.
+
+1. ESTRUCTURA PRINCIPAL SIMPLIFICADA
+Secciones activas:
+- Inicio
+- Vencimientos
+- Notas rápidas
+- Baja de precios
+- Lista de códigos
+- Ajustes
+
+Pedidos y Muestras dejan de exponerse como módulos de uso normal.
+Consultor también deja de exponerse como sección principal.
+Para evitar pérdida de información, sus datos heredados siguen conservándose internamente y dentro de las copias de seguridad. Los módulos quedan desactivados/ocultos y no participan del render principal.
+
+2. INICIO — RECORDATORIOS DE PEDIDOS
+Los recordatorios que antes dependían de Pedidos pasan a Inicio y a la notificación diaria:
+- A-VEGETALES CON SRA 217: Martes y Jueves — antes de 08:30.
+- VEGETALES 4° GAMA: Martes y Jueves — antes de 10:00.
+- VEGETALES JUMBO RETAIL: Martes, Jueves y Sábado — antes de 10:00.
+- IMAGEN CARBON: Viernes — antes de 13:00.
+
+Inicio muestra únicamente los pedidos correspondientes al día actual.
+En días sin pedidos informa que no hay pedidos programados.
+La notificación diaria usa la hora general configurada por el usuario y agrega los pedidos del día con su horario límite.
+Las repeticiones cada 30/60/120 minutos siguen aplicándose únicamente a vencimientos pendientes, no a pedidos.
+
+3. INICIO — REORGANIZACIÓN
+- Resumen diario.
+- Buscador global.
+- Tarjeta "Pedidos de hoy".
+- Accesos directos solamente a Vencimientos, Notas rápidas, Baja de precios y Lista de códigos.
+- Navegación por gesto actualizada al nuevo conjunto de módulos visibles.
+
+4. LISTA DE CÓDIGOS
+Biblioteca es reemplazada visualmente por "Lista de códigos".
+Fuente incorporada: Planilla Lista de Codigos.xlsx.
+
+Se importaron 8 hojas y se muestran como:
+- Lista 1
+- Lista 2
+- Lista 3
+- Lista 4
+- Lista 5
+- Lista 6
+- Lista 7
+- Lista 8
+
+Filas de datos incorporadas, en orden: 62, 63, 61, 63, 63, 63, 63 y 58.
+Columnas conservadas:
+- articuloref
+- Scanning
+- Descripción
+- packaging
+
+Funciones:
+- visualización en tabla;
+- búsqueda por articuloref, Scanning/EAN, Descripción o packaging;
+- edición de filas;
+- alta de filas;
+- eliminación con confirmación;
+- todos los códigos se manejan como texto para no perder ceros ni convertirlos a notación científica;
+- cambios incluidos en la copia de seguridad;
+- exportar/guardar como XLSX;
+- compartir como XLSX.
+
+El XLSX generado conserva las 8 hojas, las 4 columnas, el orden de las listas, bordes, encabezados en negrita, tipografía Arial, anchos equivalentes a la planilla fuente y Scanning destacado en negrita.
+
+5. BAJA DE PRECIOS
+El módulo visible "Carnes-Vegetales" pasa a llamarse "Baja de precios".
+
+Etiquetas dentro de la app:
+- Artículo -> Código
+- Descripción -> Nombre / Producto
+- Fecha de vencimiento del Producto -> Fecha de vencimiento / Cantidad
+
+Al exportar XLSX se mantienen los encabezados requeridos:
+- Local
+- Artículo
+- Descripción
+- Acción
+- Vigencia desde
+- Vigencia hasta
+- Fecha de vencimiento del Producto
+
+Local permanece fijo en 953.
+Acción y Vigencias continúan vacíos/reservados para Compras y se diferencian visualmente en la vista previa.
+
+El último valor puede cargarse como:
+- Fecha: selector de calendario y salida DD/MM/AAAA.
+- Kg: número decimal y salida "N kg".
+- Unidad: número entero y salida "N unidades".
+
+Código es opcional. Nombre / Producto es obligatorio.
+
+Sugerencias:
+- La única fuente de sugerencias es Lista de códigos.
+- Al escribir Nombre / Producto o Código se muestran coincidencias.
+- Al elegir una coincidencia se completa el nombre.
+- Código se completa únicamente con articuloref si la fila elegida realmente tiene ese dato.
+- Si la fila tiene nombre pero articuloref vacío, Código queda vacío.
+- También se puede encontrar una sugerencia por Scanning/EAN.
+- Se permiten productos manuales que no existan en Lista de códigos.
+
+Otras mejoras:
+- duplicar fila;
+- editar fila;
+- eliminación con confirmación;
+- validaciones de Fecha/Kg/Unidad;
+- orden visual opcional por código o nombre sin cambiar el orden de carga/exportación;
+- vista previa de la planilla antes de finalizar;
+- historial de planillas y compartir/guardar XLSX.
+
+Nombre automático de exportación:
+Planilla vegetales-DD-MM-AAAA.xlsx
+
+6. NOTAS RÁPIDAS
+- Editor ampliado para aprovechar prácticamente toda la pantalla del teléfono.
+- El contenido de una nota guardada ya no queda recortado en la tarjeta.
+- Los checklist antiguos [ ] / [x] siguen siendo compatibles.
+- En la edición se usan símbolos visuales de casilla (☐ / ☑) en lugar de mostrar [] como interfaz principal.
+- Las casillas pueden marcarse/desmarcarse directamente desde la nota guardada.
+- Guardar y Cancelar pasan a una zona inferior grande y fácil de tocar.
+- Cancelar en una nota nueva descarta la nota.
+- Cancelar al editar una nota existente deja intacta la versión guardada.
+- Cancelar descarta también el borrador de esa sesión después de confirmación si hay cambios.
+- Eliminar una nota sigue teniendo confirmación independiente.
+
+7. BUSCADOR GLOBAL
+Se adapta a la nueva estructura y busca en:
+- Vencimientos
+- Lista de códigos
+- Baja de precios (planilla en preparación)
+
+Los resultados abren directamente la sección y el elemento correspondiente.
+
+8. COPIA DE SEGURIDAD
+- Backup interno actualizado a v33.
+- Lista de códigos editada se incluye en exportación/restauración.
+- Los datos históricos de módulos retirados se conservan dentro de la copia para evitar pérdida de información.
+- Se mantiene compatibilidad con datos heredados de versiones anteriores.
+
+9. ANDROID / XLSX
+Nuevos o modificados:
+- app/src/main/assets/lista_codigos_data.js
+- app/src/main/java/com/aldia/app/ListaCodigosXlsx.java
+- MainActivity.java con bridges de guardar/compartir Lista de códigos.
+- CarnesVegetalesXlsx.java actualizado para Baja de precios y los encabezados requeridos.
+- NotificationReceiver.java actualizado con los recordatorios diarios de pedidos.
+
+10. VERSIÓN
+- versionName: 2.33
+- versionCode base: 233000 + GITHUB_RUN_NUMBER
+- backup interno: v33
+
+IMPORTANTE
+No se generó ni se compiló un APK en este entorno. La compilación real debe comprobarse mediante GitHub Actions con lintDebug y assembleDebug.

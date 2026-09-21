@@ -1,0 +1,62 @@
+AL DÍA — VALIDACIÓN v2.33
+
+VALIDACIONES REALIZADAS
+
+1. Base y diferencias
+- Base: AlDia_Proyecto_Completo_GitHub_v2_32.zip.
+- Se verificó que los cambios del proyecto se concentran en archivos relacionados con v2.33 y su documentación.
+- No se alteraron applicationId ni el proveedor interno com.aldia.app.files.
+
+2. JavaScript
+- Script principal extraído desde index.html y validado con `node --check`: OK.
+- `lista_codigos_data.js` validado con `node --check`: OK.
+- Se verificó la carga de los 8 conjuntos de Lista de códigos y sus cantidades de filas: 62,63,61,63,63,63,63,58.
+
+3. HTML
+- HTML analizado con parser estructural.
+- 240 IDs estáticos encontrados y 240 únicos: no hay IDs duplicados en el DOM inicial.
+- Se comprobaron las secciones visibles y las secciones heredadas ocultas.
+
+4. XML / GitHub Actions
+- XML del proyecto parseado correctamente: OK.
+- Workflows YAML parseados correctamente: OK.
+- Los workflows continúan ejecutando Gradle 8.13, Android SDK 36, lintDebug y assembleDebug.
+
+5. Exportadores XLSX Java
+- ListaCodigosXlsx.java y CarnesVegetalesXlsx.java se compilaron con stubs mínimos de Android/JSON para verificar sintaxis/tipos internos de estos exportadores: OK.
+- Se ejecutaron ambos generadores con datos de prueba mediante esos stubs.
+- Los XLSX resultantes pasaron `unzip -t`: OK.
+- Todos los XML internos OOXML de ambos XLSX se parsearon correctamente: OK.
+- En la prueba de Lista de códigos se verificó uso de cadenas para códigos con ceros iniciales y códigos largos.
+
+6. Java Android
+- Se realizó un smoke check con javac sin Android SDK.
+- Como era esperable, javac informa clases android.* ausentes.
+- No aparecieron diagnósticos de sintaxis Java del tipo `illegal start`, `; expected`, `unclosed string`, `reached end of file`, etc.
+- Esto NO sustituye una compilación Android real.
+
+7. Navegación / lógica estática
+- Pedidos, Muestras y Consultor quedan fuera de la navegación activa.
+- renderAll ya no renderiza ni inicializa los módulos retirados.
+- El refresco periódico ya no ejecuta lógica de Pedidos/Muestras.
+- La navegación horizontal usa Inicio, Vencimientos, Notas rápidas, Baja de precios y Lista de códigos.
+- Los intentos internos de abrir Pedidos/Muestras/Consultor son redirigidos a Inicio.
+
+8. Notificaciones
+- Recordatorios definidos:
+  Martes/Jueves: SRA 217, 4° Gama y Jumbo Retail.
+  Sábado: Jumbo Retail.
+  Viernes: IMAGEN CARBON.
+- La notificación diaria incluye los pedidos del día y su hora límite.
+- La repetición sigue ligada a vencimientos pendientes y no a los recordatorios de pedidos.
+
+9. Limitación de validación visual
+- Se intentó abrir el HTML con Chromium headless del entorno, pero el proceso no produjo un DOM utilizable debido a limitaciones del entorno/DBus.
+- Por lo tanto no se afirma una validación visual automatizada completa del WebView.
+
+10. Compilación APK
+- NO se compiló un APK Android en este entorno.
+- NO se afirma que `lintDebug` o `assembleDebug` hayan pasado todavía.
+- Validación definitiva recomendada en GitHub Actions:
+  gradle :app:lintDebug --stacktrace
+  gradle :app:assembleDebug --stacktrace

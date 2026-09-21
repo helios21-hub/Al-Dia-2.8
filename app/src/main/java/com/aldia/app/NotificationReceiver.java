@@ -52,6 +52,19 @@ public class NotificationReceiver extends BroadcastReceiver {
         try{
             JSONObject data=new JSONObject(prefs.getString("notification_data","{}"));
             JSONArray items=data.optJSONArray("items");LocalDate today=LocalDate.now();
+            JSONArray orderReminders=data.optJSONArray("orderReminders");
+            List<String> todayOrders=new ArrayList<>();
+            if(!isRepeat&&orderReminders!=null){
+                int todayDow=today.getDayOfWeek().getValue();
+                for(int i=0;i<orderReminders.length();i++){
+                    JSONObject reminder=orderReminders.optJSONObject(i);if(reminder==null)continue;
+                    JSONArray days=reminder.optJSONArray("days");boolean applies=false;
+                    if(days!=null)for(int j=0;j<days.length();j++)if(days.optInt(j,-1)==todayDow){applies=true;break;}
+                    if(!applies)continue;
+                    String name=reminder.optString("name","").trim();String time=reminder.optString("time","").trim();
+                    if(!name.isEmpty())todayOrders.add(name+(time.isEmpty()?"":" · antes de "+time));
+                }
+            }
             int overdue=0,upcoming=0,todayWithdraw=0;
             String bestExpiryId="";
             long bestDiff=Long.MAX_VALUE;
@@ -82,6 +95,7 @@ public class NotificationReceiver extends BroadcastReceiver {
             if(overdue>0)parts.add(overdue+(overdue==1?" vencimiento con retiro atrasado":" vencimientos con retiro atrasado"));
             if(todayWithdraw>0)parts.add(todayWithdraw+(todayWithdraw==1?" vencimiento para retirar hoy":" vencimientos para retirar hoy"));
             if(!isRepeat&&upcoming>0)parts.add(upcoming+(upcoming==1?" vencimiento próximo":" vencimientos próximos"));
+            if(!todayOrders.isEmpty())parts.add("Pedidos de hoy: "+String.join(" · ",todayOrders));
 
             if(parts.isEmpty()){
                 if(isTest)parts.add("No hay productos pendientes ni vencimientos próximos para probar");
@@ -97,7 +111,7 @@ public class NotificationReceiver extends BroadcastReceiver {
                 if(alertDates.size()>2)details.add("+"+(alertDates.size()-2)+" producto"+(alertDates.size()-2==1?"":"s"));
                 if(!details.isEmpty())message.append(" · ").append(String.join(" · ",details));
             }
-            String title=isTest?"Al Día · Prueba real de productos":"Al Día";
+            String title=isTest?"Al Día · Prueba de alertas":"Al Día";
             notify(context,4301,title,message.toString(),bestExpiryId.isEmpty()?"":"expiry",bestExpiryId);
 
             int repeat=prefs.getInt("notification_repeat_minutes",0);

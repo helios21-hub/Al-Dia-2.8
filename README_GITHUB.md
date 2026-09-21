@@ -1,6 +1,6 @@
 # Al Día — Android
 
-Proyecto Android de **Al Día**, una app personal para control de vencimientos y pedidos.
+Proyecto Android de **Al Día**, una app personal para control diario de vencimientos, notas, bajas de precios y consulta de códigos.
 
 ## Compilar el APK con GitHub Actions
 
@@ -16,23 +16,31 @@ Proyecto Android de **Al Día**, una app personal para control de vencimientos y
 Los workflows están configurados en modo **manual**. Después de cada actualización, entrá en **Actions** y ejecutá **Run workflow** cuando quieras compilar.
 
 
-## Estado actual — v2.30
+## Estado actual — v2.33
 
-La base válida para continuar es **v2.30**, derivada DIRECTAMENTE del ZIP completo **v2.28 real**.
-No se reconstruyó la app ni se alteró su identificador o su firma debug fija.
+La base válida para continuar es **v2.33**, creada sobre el proyecto completo **v2.32**. v2.32 ya era acumulativa desde la base real v2.28. No se reconstruyó la app ni se alteraron `applicationId`, firma debug fija, importación/exportación de copias ni los datos existentes.
 
-- Pedidos: alta accesible antes de la planilla, días Martes/Jueves/Sábado conservados y Carbón únicamente viernes, con reglas operativas pendientes.
-- Carnes-Vegetales: ayudas Código y Nombre Producto; XLSX y local 953 sin cambios.
-- Notas rápidas: lista de ancho completo, búsqueda, filtros, editor simplificado y borradores independientes recuperables.
-- Tema Claro: nueva paleta de alto contraste y controles más legibles.
-- Se conserva el aprendizaje, historial, importación y exportación de datos.
-- Pedidos: entrega automática Jueves/Sábado/Martes, 4ta Gama solo Martes/Jueves, un único acceso superior para Añadir producto y fecha completa en Próximo pedido.
-- Carbón Viernes incorpora Añadir producto y preselecciona la categoría Carbón.
-- Exportación XLSX universal: MainActivity y CarnesVegetalesXlsx están incluidos en conjunto, con imports necesarios.
-- Backup v30; `versionName 2.30`; `versionCode` base 230000 + GITHUB_RUN_NUMBER.
-- El APK no se compiló localmente. La validación definitiva es `lintDebug` seguido de `assembleDebug` en GitHub Actions.
+### Secciones activas
 
-Consultar `CAMBIOS_V2_28.txt` y `VALIDACION_V2_28.txt` para los detalles y límites de la validación.
+- **Inicio**: resumen diario, buscador global y recordatorios de pedidos por día.
+- **Vencimientos**: productos agrupados con múltiples fechas independientes.
+- **Notas rápidas**: editor amplio, Cancelar/Guardar accesibles y checklist interactivo.
+- **Baja de precios**: reemplaza visualmente a Carnes-Vegetales y exporta `Planilla vegetales-DD-MM-AAAA.xlsx`.
+- **Lista de códigos**: reemplaza Biblioteca con las 8 listas de `Planilla Lista de Codigos.xlsx`, editables y exportables a XLSX.
+- **Ajustes**.
+
+### Cambios estructurales
+
+- **Pedidos** y **Muestras** dejan de formar parte de la interfaz activa. Sus datos heredados se conservan internamente y en las copias para no destruir información histórica.
+- Los recordatorios de pedidos pasan a **Inicio** y a la notificación diaria: Martes/Jueves (SRA 217, 4° Gama y Jumbo Retail), Sábado (Jumbo Retail) y Viernes (Carbón), con sus horarios límite.
+- **Consultor** deja de exponerse como sección principal.
+- `versionName`: **2.33**.
+- `versionCode` base: **233000 + GITHUB_RUN_NUMBER**.
+- Backup interno: **v33**.
+
+El APK no fue compilado en el entorno donde se preparó esta actualización. La validación definitiva se realiza con `gradle :app:lintDebug --stacktrace` y luego `gradle :app:assembleDebug --stacktrace` en GitHub Actions.
+
+Consultar `CAMBIOS_V2_33.txt` y `VALIDACION_V2_33.txt` para el detalle de esta versión.
 
 ## Instalar en Android
 
@@ -45,7 +53,7 @@ Este es un APK **debug**, ideal para pruebas personales. Para una versión final
 
 ## Historial de versiones anteriores
 
-Las secciones siguientes son antecedentes y no sustituyen el estado vigente v2.28.
+Las secciones siguientes son antecedentes y no sustituyen el estado vigente v2.33.
 
 ## Actualización 1.1
 
@@ -94,3 +102,11 @@ Corrección de compilación del escáner de códigos de barras: AndroidX queda h
 - Vence se determina por la fecha inferior más cercana al PLU, penalizando L/Etq.
 - Nombre asociado por PLU o similitud contra Base de aprendizaje y catálogos conocidos.
 - Backup v21 y versionName 2.21.
+
+
+## Cambios v2.32
+- Buscador global por nombre o código/EAN con ubicación y acceso directo.
+- Vencimientos agrupa todas las fechas bajo un solo producto y permite editar/retirar cada fecha o el producto completo.
+- Carbón Viernes usa fichas de Pedidos, con Stock/Pedido/Precio/Movimiento manuales y sin aprendizaje.
+- Recordatorio de FRUTA SECA, JUGOS Y SEMILLAS con tabla IMAGEN/DÍA/ANTES DE LA HORA.
+- Botones de Añadir producto unificados en azul de alto contraste.

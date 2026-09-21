@@ -180,7 +180,7 @@ public class MainActivity extends ComponentActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID, "Alertas importantes de Al Día", NotificationManager.IMPORTANCE_HIGH);
-            channel.setDescription("Avisos de vencimientos y recordatorios importantes");
+            channel.setDescription("Avisos de vencimientos, notas y pedidos del día");
             channel.enableVibration(true);
             channel.setVibrationPattern(new long[]{0, 250, 150, 250});
             channel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
@@ -297,7 +297,7 @@ public class MainActivity extends ComponentActivity {
             try {
                 return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
             } catch (Exception e) {
-                return "2.31";
+                return "2.33";
             }
         }
 
@@ -372,6 +372,50 @@ public class MainActivity extends ComponentActivity {
                     startActivity(Intent.createChooser(send, "Compartir XLSX"));
                 } catch (Exception e) {
                     Toast.makeText(MainActivity.this, "No se pudo compartir el XLSX", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void exportListaCodigosXlsx(String dataJson) {
+            runOnUiThread(() -> {
+                try {
+                    JSONObject root = new JSONObject(dataJson == null ? "{}" : dataJson);
+                    pendingXlsxBytes = ListaCodigosXlsx.create(root);
+                    pendingXlsxName = root.optString("fileName", ListaCodigosXlsx.defaultFileName());
+                    Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+                    intent.addCategory(Intent.CATEGORY_OPENABLE);
+                    intent.setType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                    intent.putExtra(Intent.EXTRA_TITLE, pendingXlsxName);
+                    startActivityForResult(intent, SAVE_XLSX_REQUEST);
+                } catch (Exception e) {
+                    Toast.makeText(MainActivity.this, "No se pudo preparar la Lista de códigos", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+
+        @JavascriptInterface
+        public void shareListaCodigosXlsx(String dataJson) {
+            runOnUiThread(() -> {
+                try {
+                    JSONObject root = new JSONObject(dataJson == null ? "{}" : dataJson);
+                    File file = ListaCodigosXlsx.writePrivate(MainActivity.this, root);
+                    String displayName = root.optString("fileName", ListaCodigosXlsx.defaultFileName());
+                    Uri uri = new Uri.Builder()
+                            .scheme("content")
+                            .authority(getPackageName() + ".files")
+                            .appendPath("xlsx")
+                            .appendPath(file.getName())
+                            .appendQueryParameter("name", displayName)
+                            .build();
+                    Intent send = new Intent(Intent.ACTION_SEND);
+                    send.setType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+                    send.putExtra(Intent.EXTRA_STREAM, uri);
+                    send.setClipData(ClipData.newRawUri(displayName, uri));
+                    send.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    startActivity(Intent.createChooser(send, "Compartir Lista de códigos"));
+                } catch (Exception e) {
+                    Toast.makeText(MainActivity.this, "No se pudo compartir la Lista de códigos", Toast.LENGTH_LONG).show();
                 }
             });
         }
