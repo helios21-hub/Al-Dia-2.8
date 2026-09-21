@@ -1,0 +1,35 @@
+AL DÍA v2.35 — VALIDACIÓN ESTÁTICA
+
+OK   HTML sin IDs duplicados
+OK   Elementos principales v2.35 presentes
+OK   Barra inferior Inicio/Vencimientos/Notas/Ofertas/Más
+OK   Placeholder buscar producto / código EAN
+OK   Swipe lateral principal retirado
+OK   Ofertas usa editor dedicado
+OK   Vencimientos usa editor dedicado
+OK   Sugerencia Baja de precios sin recursión onchange
+OK   Fondo global blanco puro
+OK   Backup v35
+OK   versionName 2.35
+OK   versionCode base 235000
+OK   Fallback versión Java 2.35
+OK   XML válido: app/src/main/AndroidManifest.xml
+OK   XML válido: app/src/main/res/values/styles.xml
+OK   XML válido: app/src/main/res/values-v27/styles.xml
+OK   XML válido: app/src/main/res/xml/network_security_config.xml
+OK   windowLightNavigationBar solo API 27+
+OK   Workflow compatible GitHub: .github/workflows/build-apk.yml
+OK   Workflow compatible GitHub: .github/workflows/publicar-actualizacion.yml
+OK   Logo exacto incluido como asset
+OK   Iconos launcher presentes en 5 densidades
+
+JavaScript: validado aparte con node --check sobre todos los scripts inline del index.html.
+HTML: parseado con BeautifulSoup; no se detectaron IDs duplicados.
+XML/YAML: parseados correctamente.
+GitHub Actions: revisados para setup-android@v4, packages vacío e instalación explícita de Android SDK 36.
+Compatibilidad Android: minSdk 26 conservado; windowLightNavigationBar queda solamente en values-v27.
+
+LIMITACIONES DE ESTA VALIDACIÓN
+- No se compiló un APK localmente: el proyecto no incluye gradle-wrapper.jar y este entorno no dispone de una instalación Android/Gradle completa. No se fabricó ni añadió un wrapper.
+- La automatización de navegador para una captura visual quedó bloqueada por el entorno. Por eso no se afirma una prueba visual automatizada; se verificaron estructura, estilos y sintaxis de forma estática.
+- La comprobación definitiva de Android sigue siendo ejecutar lintDebug y assembleDebug en GitHub Actions.

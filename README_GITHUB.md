@@ -16,9 +16,9 @@ Proyecto Android de **Al Día**, una app personal para control diario de vencimi
 Los workflows están configurados en modo **manual**. Después de cada actualización, entrá en **Actions** y ejecutá **Run workflow** cuando quieras compilar.
 
 
-## Estado actual — v2.34
+## Estado actual — v2.35
 
-La base válida para continuar es **v2.34**, creada sobre la **v2.33 corregida**. La cadena conserva la base real v2.28 y las mejoras acumuladas posteriores. No se reconstruyó la app ni se alteraron `applicationId`, firma debug fija, importación/exportación de copias ni los datos existentes.
+La base válida para continuar es **v2.35**, creada sobre la **v2.34 corregida para Lint/API 26**. La cadena conserva la base real v2.28 y las mejoras acumuladas posteriores. No se reconstruyó la app ni se alteraron `applicationId`, firma debug fija, importación/exportación de copias ni los datos existentes.
 
 ### Secciones activas
 
@@ -32,16 +32,18 @@ La base válida para continuar es **v2.34**, creada sobre la **v2.33 corregida**
 
 ### Cambios estructurales
 
+- Navegación principal fija abajo: **Inicio, Vencimientos, Notas, Ofertas y Más**; Más agrupa Baja de precios, Lista de códigos y Ajustes. Se retiró el swipe lateral entre secciones para no interferir con tablas desplazables.
+- Identidad visual unificada con el logo **Al Dia** azul/verde, fondo blanco puro, tarjetas limpias, botones amplios y estados verde/naranja/rojo/azul.
 - **Pedidos** y **Muestras** dejan de formar parte de la interfaz activa. Sus datos heredados se conservan internamente y en las copias para no destruir información histórica.
 - Los recordatorios de pedidos pasan a **Inicio** y a la notificación diaria: Martes/Jueves (SRA 217, 4° Gama y Jumbo Retail), Sábado (Jumbo Retail) y Viernes (Carbón), con sus horarios límite.
 - **Consultor** deja de exponerse como sección principal.
-- `versionName`: **2.34**.
-- `versionCode` base: **234000 + GITHUB_RUN_NUMBER**.
-- Backup interno: **v34**.
+- `versionName`: **2.35**.
+- `versionCode` base: **235000 + GITHUB_RUN_NUMBER**.
+- Backup interno: **v35**.
 
 El APK no fue compilado en el entorno donde se preparó esta actualización. La validación definitiva se realiza con `gradle :app:lintDebug --stacktrace` y luego `gradle :app:assembleDebug --stacktrace` en GitHub Actions.
 
-Consultar `CAMBIOS_V2_34.txt` y `VALIDACION_V2_34.txt` para el detalle de esta versión.
+Consultar `CAMBIOS_V2_35.txt` y `VALIDACION_V2_35.txt` para el detalle de esta versión.
 
 ## Instalar en Android
 
@@ -54,7 +56,7 @@ Este es un APK **debug**, ideal para pruebas personales. Para una versión final
 
 ## Historial de versiones anteriores
 
-Las secciones siguientes son antecedentes y no sustituyen el estado vigente v2.34.
+Las secciones siguientes son antecedentes y no sustituyen el estado vigente v2.35.
 
 ## Actualización 1.1
 

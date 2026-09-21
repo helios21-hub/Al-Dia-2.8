@@ -1272,7 +1272,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
 
 
 
-/* v2.34 - identidad renovada, tema clásico único, campana y Ofertas */
+/* v2.35 - identidad renovada, tema clásico único, campana y Ofertas */
 :root{
   --bg:#f5f9fd;--card:#ffffff;--text:#102a4c;--muted:#60758f;--border:#dce6f0;
   --primary:#0f7ae5;--danger:#e53935;--warning:#ef9b22;--ok:#2caf55;
@@ -1299,36 +1299,100 @@ body,body:not(.dark){background:var(--bg)!important;color:var(--text)!important}
 #tab-ajustes .settings-option:has(#themeSetting){opacity:.9}
 @media(max-width:430px){.offer-editor-grid{grid-template-columns:1fr}.offer-view-tab{font-size:10px}.top-app-identity .app-name{font-size:24px!important}.top-app-identity .meta{font-size:10px!important}.container{padding-left:12px!important;padding-right:12px!important}}
 
+
+/* ===== v2.35 · Rediseño visual global inspirado en la referencia aprobada ===== */
+:root{
+  --bg:#ffffff;--card:#ffffff;--text:#12264a;--muted:#66758c;--border:#e6edf5;
+  --primary:#1062b8;--primary-2:#0b72d9;--primary-soft:#e9f3ff;
+  --ok:#07833f;--ok-soft:#e1f6e9;--warning:#e98a12;--warning-soft:#fff1dc;
+  --danger:#e63b4b;--danger-soft:#ffe7ea;--surface:#ffffff;--surface-soft:#f7faff;
+  --shadow:0 6px 20px rgba(28,67,111,.09);--shadow-soft:0 2px 10px rgba(28,67,111,.07);--radius:16px;
+}
+html,body{background:#fff!important;color:var(--text);font-family:Arial,Helvetica,sans-serif}
+body{padding-bottom:calc(78px + env(safe-area-inset-bottom))}
+.container{max-width:520px;padding:18px 16px 30px!important;padding-top:max(16px,calc(env(safe-area-inset-top) + 10px))!important}
+.top-nav{position:sticky;top:0;z-index:45;grid-template-columns:1fr auto!important;gap:12px;background:rgba(255,255,255,.97)!important;padding:7px 0 13px!important;margin-bottom:14px;border-bottom:0;backdrop-filter:blur(12px)}
+.top-app-identity{margin:0!important;min-height:48px;display:flex!important;align-items:center!important}
+.brand-logo-exact{display:block;width:118px;height:auto;max-height:44px;object-fit:contain;object-position:left center}
+.notification-bell-btn{width:46px!important;height:46px!important;min-height:46px!important;border-radius:50%!important;background:#fff!important;color:#123b70!important;border:1px solid #e1eaf4!important;box-shadow:var(--shadow-soft)!important}
+.notification-bell-btn svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.9}
+.notification-bell-badge{background:var(--danger)!important;color:#fff!important}
+.main-section{touch-action:auto!important;animation:none!important;padding-bottom:8px}
+.main-section>h1,.section-title-row h1,.notes-board-head h1{font-size:26px!important;line-height:1.15;color:#10274a;margin:0 0 5px!important}
+.subtitle{font-size:14px!important;line-height:1.45;color:var(--muted)!important;margin-bottom:16px!important}
+.card{background:#fff!important;border:0!important;border-radius:17px!important;box-shadow:var(--shadow)!important;padding:16px!important;margin-bottom:16px!important}
+button{min-height:48px;border-radius:13px;font-size:14px;font-weight:800}
+input,select,textarea{border-color:#dfe8f2!important;background:#fff!important;color:var(--text)!important;font-size:16px!important;border-radius:13px!important}
+label{font-size:13px!important;color:#52657e!important}
+.meta,.footer-note,.notes,.field-help{font-size:13px!important;line-height:1.45!important;color:var(--muted)!important}
+.btn-primary,.page-primary-action{background:linear-gradient(135deg,#0d66c2,#1479d9)!important;color:#fff!important;border:0!important;box-shadow:0 7px 18px rgba(16,98,184,.22)!important}
+.secondary-btn,.manage-toggle{background:#fff!important;color:#154f91!important;border:1px solid #b9d1ec!important;box-shadow:none!important}
+.btn-danger{background:var(--danger-soft)!important;color:#bd2332!important;border:0!important}
+.danger-outline{background:#fff!important;color:#e23343!important;border:1.5px solid #ff7d88!important}
+.share-btn{background:#fff!important;color:#155b9f!important;border:1px solid #c5d8ec!important}
+.ui-action-btn{display:inline-flex!important;align-items:center;justify-content:center;gap:7px;padding:9px 13px!important;min-height:45px!important}
+.ui-action-icon{font-size:18px;line-height:1;font-weight:500}.ui-mini-action{min-height:36px!important;padding:6px 9px!important;font-size:12px!important}.icon-only-btn{width:44px!important;min-width:44px!important;padding:0!important}
+.page-primary-action{width:100%;min-height:58px!important;margin-top:18px!important;border-radius:18px!important;font-size:16px!important}.action-icon{font-size:28px;vertical-align:-2px;font-weight:400;margin-right:5px}
+.back-home-btn{display:none!important}
+#backToTopBtn{bottom:calc(88px + env(safe-area-inset-bottom))!important;background:#fff!important;color:#1062b8!important;border:1px solid #c7d9ec!important;box-shadow:var(--shadow)!important}
+
+/* Navegación inferior fija */
+.bottom-nav{position:fixed;z-index:180;left:50%;transform:translateX(-50%);bottom:0;width:100%;max-width:520px;height:calc(70px + env(safe-area-inset-bottom));padding:7px 8px env(safe-area-inset-bottom);display:grid;grid-template-columns:repeat(5,1fr);align-items:start;background:#fff;border-top:1px solid #e6edf5;box-shadow:0 -6px 22px rgba(20,55,95,.08)}
+.bottom-nav-item{min-width:0;min-height:58px!important;padding:4px 2px!important;background:transparent!important;color:#6c7b8f!important;border:0!important;border-radius:12px!important;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10.5px!important;font-weight:700!important}
+.bottom-nav-icon{width:25px;height:25px;display:grid;place-items:center}.bottom-nav-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bottom-nav-item.active{color:#0c65c3!important}.bottom-nav-item.active .bottom-nav-icon svg{fill:#e7f2ff;stroke:#0c65c3;stroke-width:2}.bottom-nav-item:active{background:#f2f7fc!important}
+
+/* Inicio */
+#tab-inicio>h1{margin-top:2px!important}.home-product-search{margin-bottom:18px!important}.global-product-search-wrap{background:#fff!important;border:1px solid #dfe8f2!important;border-radius:15px!important;box-shadow:var(--shadow-soft)!important}.global-product-search-wrap input{border:0!important;background:transparent!important;min-height:52px!important}.dashboard{margin:0 0 16px!important}.dashboard-card{border:0!important;border-radius:17px!important;box-shadow:var(--shadow)!important;padding:16px!important}.dashboard-title{font-size:12px!important;color:#56708f!important}.today-summary-item{border:0!important;border-top:1px solid #edf2f7!important;border-radius:0!important;background:#fff!important;padding:12px 2px!important}.today-summary-item:first-child{border-top:0!important}.summary-title{font-size:14px!important}.summary-sub{font-size:12.5px!important;line-height:1.4!important}.summary-icon{border-radius:12px!important}.home-reminders-card{padding:16px!important}.home-reminders-head{align-items:center!important;margin-bottom:10px!important}.home-reminders-head strong{font-size:17px!important}.home-reminders-day{font-size:12px!important;color:#1266bd!important;background:#eaf4ff!important;border-radius:999px;padding:6px 9px;font-weight:800}.home-order-reminders{display:grid;gap:0!important}.home-order-reminder{display:grid!important;grid-template-columns:38px minmax(0,1fr)!important;gap:10px!important;align-items:center!important;padding:11px 0!important;border-top:1px solid #edf2f7!important;background:transparent!important}.home-order-reminder:first-child{border-top:0!important}.home-order-reminder strong{font-size:13.5px!important;color:#18365d!important}.home-order-reminder small{display:block;margin-top:3px;font-size:12px;color:#6f7f91}.home-order-icon{width:36px;height:36px;border-radius:11px;background:#e7f3ff;color:#0d67c6;display:grid;place-items:center;font-size:18px}.home-order-none{padding:10px 0!important;color:#6d7c8d!important;font-size:13px!important}.home-section-buttons,.home-access-group-title{display:none!important}
+
+/* Encabezados/menus secundarios */
+.modern-section-title,.section-title-row{margin:2px 0 10px!important}.more-menu-list{display:grid;gap:12px}.more-menu-card{display:grid;grid-template-columns:48px minmax(0,1fr) 24px;align-items:center;gap:12px;text-align:left;background:#fff;border:0;border-radius:17px;padding:14px;box-shadow:var(--shadow)}.more-menu-icon{width:46px;height:46px;border-radius:14px;background:#eaf4ff;color:#0f67c4;display:grid;place-items:center;font-size:23px}.more-menu-card strong{display:block;font-size:15px;color:#17365d}.more-menu-card small{display:block;font-size:12.5px;line-height:1.4;color:var(--muted);margin-top:3px}.more-menu-arrow{font-size:27px;color:#1a64ad}
+
+/* Tabs tipo chip */
+.view-tabs,.offer-view-tabs{background:transparent!important;gap:8px!important}.view-tab,.offer-view-tab,.filter-btn{border:0!important;background:#f1f5f9!important;color:#68778a!important;border-radius:999px!important;min-height:42px!important;font-size:12px!important}.view-tab.active,.offer-view-tab.active,.filter-btn.active{background:#e1f6e9!important;color:#17663a!important;box-shadow:none!important}.filter-btn.green.active{background:var(--ok-soft)!important;color:#17663a!important}.filter-btn.orange.active{background:var(--warning-soft)!important;color:#a85d00!important}.filter-btn.red.active{background:var(--danger-soft)!important;color:#bd2332!important}.filter-btn{border:0!important}.filter-row{gap:6px!important}
+
+/* Ofertas: tarjetas sin marcos pesados, como la referencia */
+.offers-main-card{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;margin:0!important}.offer-view-tabs{display:grid!important;grid-template-columns:repeat(3,1fr)!important;margin-bottom:16px!important}.offer-list{display:grid;gap:13px!important}.offer-card{background:#fff!important;border:0!important;border-radius:17px!important;padding:15px!important;box-shadow:var(--shadow)!important;margin:0!important}.offer-card-head{align-items:flex-start!important;gap:10px}.offer-card-type{display:inline-flex;background:#e1f6e9;color:#138043;border-radius:7px;padding:5px 8px;font-size:10px;font-weight:900;text-transform:uppercase;margin-bottom:7px}.offer-card-title{font-size:17px!important;line-height:1.28!important;color:#102b52!important}.offer-card-sub{display:none!important}.offer-status-chip{display:inline-flex!important;align-items:center!important;gap:6px!important;border-radius:999px!important;padding:6px 9px!important;font-size:11px!important;font-weight:900!important}.status-dot{width:8px;height:8px;border-radius:50%;background:currentColor}.offer-status-chip.active{background:var(--ok-soft)!important;color:#07833f!important}.offer-status-chip.upcoming{background:#e7f3ff!important;color:#0c67c5!important}.offer-status-chip.finished{background:#edf1f5!important;color:#708095!important}.offer-status-chip.ending-today{background:var(--danger-soft)!important;color:#d52e3d!important}.offer-card-meta{display:grid!important;gap:7px!important;margin:11px 0 4px!important;color:#596b81!important;font-size:13px!important}.offer-card-meta>span{display:flex!important;align-items:center!important;gap:7px}.meta-icon{width:18px;color:#0c68c7;font-weight:900}.offer-relative{font-weight:900!important}.offer-relative.active{color:#0a8b45!important}.offer-relative.upcoming{color:#0c67c5!important}.offer-relative.ending-today{color:#d72f3f!important}.offer-product-count{font-size:12px!important;color:#6c7d91!important}.offer-card-products{border-top:1px solid #edf2f7!important;margin-top:10px!important;padding-top:9px!important}.offer-card-products summary{font-size:13px!important;color:#15599c!important}.offer-product-summary-row{padding:9px 1px!important;border-top:1px solid #f0f3f7!important;font-size:13px!important}.offer-card-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:9px!important;margin-top:13px!important}.offer-card-actions button{min-height:46px!important}.offer-promo{color:#0b6bc7!important;font-size:13px!important;font-weight:900!important}.offer-new-btn{margin-bottom:6px!important}.dedicated-editor-page{background:#fff!important;border:0!important;box-shadow:none!important;padding:0 0 14px!important}.dedicated-editor-nav{display:grid;grid-template-columns:46px minmax(0,1fr);gap:11px;align-items:center;margin-bottom:18px}.dedicated-editor-nav strong{font-size:22px;color:#10294d}.editor-back-btn{width:46px!important;min-width:46px!important;height:46px!important;min-height:46px!important;padding:0!important;border-radius:50%!important;background:#f1f6fb!important;color:#124f8c!important;font-size:25px!important}.offer-editor-grid{gap:13px!important}.offer-reminder-box,.offer-product-form{border:0!important;background:#f8fbff!important;border-radius:15px!important;padding:14px!important;margin-top:14px!important}.offer-editor-actions{border-top:0!important;margin-top:16px!important;padding-top:0!important}.offer-draft-row{border:0!important;background:#f8fbff!important;border-radius:14px!important;padding:11px!important}.offer-draft-row strong{font-size:13px!important}.offer-draft-row small{font-size:11.5px!important}.offer-draft-empty{border:0!important;background:#f8fbff!important;font-size:13px!important}.offer-products-head{margin-top:18px!important}
+
+/* Vencimientos, misma familia visual */
+#tab-vencimientos.expiry-editor-mode>*:not(#expiryEditorView){display:none!important}#expiryEditorView.hidden{display:none!important}#expiryEditorView{display:block!important}.expiry-editor-page form{display:grid;gap:14px}.quick-entry-step{border:0!important;background:#f8fbff!important;border-radius:15px!important;padding:13px!important}.quick-step-number{background:#e8f3ff!important;color:#0f64bc!important}.expiry-optional-details{border:0!important;background:#f8fbff!important;border-radius:15px!important;padding:12px!important}.sheet-card,#expiry-active-view,#expiry-last-view,#expiry-history-view{background:transparent!important;box-shadow:none!important;padding:0!important}.mobile-sheet-head{display:none!important}.sheet-section-title{background:transparent!important;border:0!important;padding:12px 2px 7px!important;font-size:14px!important;color:#34506f!important}.expiry-withdraw-section{margin-bottom:12px}.expiry-group-card{border:0!important;border-left:0!important;background:#fff!important;border-radius:17px!important;box-shadow:var(--shadow)!important;padding:15px!important;margin-bottom:13px!important}.expiry-product-group-head{gap:12px!important}.expiry-product-group-title strong{font-size:17px!important;color:#102b52!important}.expiry-product-group-title small{font-size:12px!important;color:#708095!important}.expiry-product-group-actions{display:flex!important;flex-wrap:wrap!important;gap:7px!important;margin-top:12px!important}.expiry-product-group-actions button{flex:1 1 auto!important;min-width:104px}.expiry-lots-list{margin-top:12px!important;border-top:1px solid #edf2f7!important}.expiry-lot-row{grid-template-columns:minmax(0,1fr)!important;gap:8px!important;border:0!important;border-top:1px solid #f0f3f7!important;padding:12px 0!important;background:transparent!important}.expiry-lot-row:first-child{border-top:0!important}.expiry-sheet-product{display:none!important}.expiry-sheet-dates strong{font-size:14px!important;color:#17365d!important}.expiry-sheet-dates small{font-size:12px!important;color:#718095!important}.expiry-sheet-status{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:8px!important}.expiry-lot-actions{display:flex!important;gap:7px!important}.status-badge{margin:0!important;font-size:11.5px!important;padding:6px 9px!important}.status-badge.ok{background:var(--ok-soft)!important;color:#0a7b3e!important}.status-badge.warning{background:var(--warning-soft)!important;color:#b16708!important}.status-badge.danger{background:var(--danger-soft)!important;color:#c52736!important}.expiry-new-btn{margin-bottom:6px!important}.manage-toggle{width:100%!important;margin:10px 0 13px!important}.history-card{border:0!important;border-radius:16px!important;box-shadow:var(--shadow)!important;padding:15px!important;margin-bottom:11px!important}
+
+/* Notas */
+.notes-board-head{margin-bottom:14px!important}.notes-add-btn{background:linear-gradient(135deg,#0d66c2,#1479d9)!important;border-radius:15px!important;box-shadow:0 6px 16px rgba(16,98,184,.18)!important}.sticky-note{border:0!important;border-left:0!important;border-radius:17px!important;box-shadow:var(--shadow)!important;padding:16px!important}.sticky-note-preview{font-size:15px!important;line-height:1.58!important;max-height:none!important}.sticky-note-actions{border-top:1px solid #edf2f7!important}.sticky-note-actions button{background:#fff!important;border:1px solid #c7d9ec!important;color:#155795!important}.notes-search-row{grid-template-columns:minmax(0,1fr) 128px!important}.note-editor-sheet{background:#fff!important}.note-editor-title{font-size:21px!important}.note-editor-text{font-size:17px!important;line-height:1.58!important}.note-editor-primary-actions button{min-height:54px!important;font-size:15px!important}
+
+/* Lista de códigos: el gesto horizontal pertenece a la tabla, nunca cambia de menú */
+#tab-aprendizaje,.code-list-sheet-wrap{touch-action:pan-x pan-y!important}.code-list-sheet-wrap{overflow-x:auto!important;-webkit-overflow-scrolling:touch!important;border-radius:14px;background:#fff}.code-list-table{min-width:760px!important;font-size:13px!important}.code-list-table th{position:sticky;top:0;z-index:2;background:#eef5fc!important;color:#284b70!important;font-size:12px!important}.code-list-table td{font-size:13px!important;padding:10px 8px!important}.code-list-toolbar{gap:9px!important}.code-list-tabs{gap:6px!important}.library-tab,.code-list-tabs button{border-radius:999px!important}
+
+/* Baja de precios / Ajustes */
+.cv-start-card,.cv-draft-card,.cv-history-item,.cv-product-module,.notification-settings-card,.settings-option{border:0!important}.cv-product-module,.cv-history-item{background:#fff!important;border-radius:16px!important;box-shadow:var(--shadow-soft)!important;padding:13px!important;margin-bottom:10px!important}.cv-inline-help{background:#f5f9fd!important;border:0!important;border-radius:13px!important;font-size:12.5px!important}.settings-grid{gap:12px!important}.settings-option{background:#f8fbff!important;border-radius:14px!important;padding:12px!important}.notification-center-item{border:0!important;background:#fff!important;box-shadow:var(--shadow-soft)!important;padding:12px!important}.notification-center-main strong{font-size:14px!important}.notification-center-main small{font-size:12px!important}
+
+/* Solo tema clásico: neutralizar cualquier clase heredada sin exponer otros temas. */
+body.dark,body.theme-petrol,body.theme-forest,body.theme-graphite{--bg:#fff;--card:#fff;--text:#12264a;--muted:#66758c;--border:#e6edf5;--primary:#1062b8;background:#fff!important;color:#12264a!important}
+#themeSetting{pointer-events:none}.settings-option:has(#themeSetting) .footer-note{display:none}
+
+@media(max-width:430px){
+  .container{padding-left:14px!important;padding-right:14px!important}.brand-logo-exact{width:112px}.bottom-nav-item{font-size:9.5px!important}.bottom-nav-icon svg{width:22px;height:22px}.filter-row{grid-template-columns:repeat(2,1fr)!important}.offer-card-actions{grid-template-columns:1fr 1fr!important}.expiry-product-group-actions button{font-size:12px!important}.notes-search-row{grid-template-columns:1fr!important}
+}
 </style>
 </head>
 <body>
 <div class="container">
   <div class="top-nav" id="topNavBar">
     <div class="app-identity top-app-identity">
-      <div class="app-icon brand-leaf"><img src="al_dia_leaf.png" alt="Hoja de Al Día"></div>
-      <div class="brand-copy">
-        <div class="app-name"><span>Al Día</span></div>
-        <div class="meta">Tu día organizado</div>
-      </div>
+      <img class="brand-logo-exact" src="al_dia_logo.png" alt="Al Dia">
     </div>
     <button class="notification-bell-btn" id="notificationBellBtn" type="button" aria-label="Notificaciones">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg>
       <span class="notification-bell-badge" id="notificationBellBadge">0</span>
     </button>
-    <button class="settings-btn" id="settingsBtn" type="button" aria-label="Ajustes"><span aria-hidden="true">⚙</span></button>
   </div>
 
   <section id="tab-inicio" class="main-section active">
 
-    <div class="home-date-time" aria-label="Fecha y hora actual">
-      <div class="home-date-main"><span class="home-date-icon" aria-hidden="true">📅</span><div class="home-date-text" id="homeCurrentDate">—</div></div>
-      <div class="home-time-wrap"><span class="home-time-icon" aria-hidden="true">🕒</span><div class="home-time-text" id="homeCurrentTime">--:--</div></div>
-    </div>
-
     <div class="home-product-search">
       <div class="global-product-search-wrap">
         <span class="global-product-search-icon" aria-hidden="true">🔎</span>
-        <input id="homeProductSearchInput" type="search" autocomplete="off" placeholder="Buscar producto o código EAN">
+        <input id="homeProductSearchInput" type="search" autocomplete="off" placeholder="Buscar producto / código EAN">
       </div>
       <div id="globalProductSearchResults" class="global-product-search-results hidden" aria-live="polite"></div>
     </div>
@@ -1344,39 +1408,31 @@ body,body:not(.dark){background:var(--bg)!important;color:var(--text)!important}
     </div>
 
     <div class="card home-reminders-card">
-      <div class="home-reminders-head"><div><strong>Pedidos de hoy</strong><div class="footer-note">Recordatorios diarios conservados aunque el módulo Pedidos ya no forme parte de la app.</div></div><span class="home-reminders-day" id="homeOrderReminderDay">—</span></div>
+      <div class="home-reminders-head"><div><strong id="homeOrderReminderTitle">Pedidos de hoy</strong></div><span class="home-reminders-day" id="homeOrderReminderDay">—</span></div>
       <div id="homeOrderRemindersList" class="home-order-reminders"></div>
     </div>
 
-    <div class="card">
-      <div class="home-access-group-title">Secciones</div>
-      <div class="home-section-buttons">
-        <button class="home-section-btn vencimientos" id="homeVencimientosBtn" type="button"><span class="home-alert-badge" id="homeExpiryBadge">0</span><span class="home-section-top"><span class="home-section-icon">▣</span><strong>Vencimientos</strong></span><small id="homeExpirySummary">Sin vencimientos</small></button>
-        <button class="home-section-btn ofertas" id="homeOffersBtn" type="button"><span class="home-alert-badge" id="homeOffersBadge">0</span><span class="home-section-top"><span class="home-section-icon">◆</span><strong>Ofertas</strong></span><small id="homeOffersSummary">Sin ofertas activas</small></button>
-        <button class="home-section-btn notas" id="homeNotesBtn" type="button"><span class="home-alert-badge" id="homeNotesBadge">0</span><span class="home-section-top"><span class="home-section-icon">▤</span><strong>Notas rápidas</strong></span><small id="homeNotesSummary">No hay notas pendientes</small></button>
-        <button class="home-section-btn plantilla" id="homePlantillaBtn" type="button"><span class="home-section-top"><span class="home-section-icon">📉</span><strong>Baja de precios</strong></span><small>Preparar y compartir Planilla vegetales</small></button>
-        <button class="home-section-btn aprendizaje" id="homeLearningBtn" type="button"><span class="home-section-top"><span class="home-section-icon">🔢</span><strong>Lista de códigos</strong></span><small>Consultar y editar la planilla de códigos</small></button>
-      </div>
-    </div>
   </section>
 
   <section id="tab-ofertas" class="main-section">
-    <div class="section-title-row modern-section-title"><div><h1>Ofertas</h1><div class="subtitle">Creá y gestioná cada promoción como un bloque completo de productos.</div></div></div>
-    <button class="back-home-btn ofertas" data-back-home type="button">← Volver a Inicio</button>
+    <div id="offerListView">
+      <div class="section-title-row modern-section-title"><div><h1>Ofertas</h1><div class="subtitle">Creá y gestioná cada promoción como un bloque completo de productos.</div></div></div>
 
-    <div class="card offers-main-card">
-      <button class="btn-primary offer-new-btn" id="offerNewBtn" type="button">＋ Nueva oferta</button>
+      <div class="offers-main-card">
       <div class="offer-view-tabs" role="tablist" aria-label="Estado de ofertas">
         <button class="offer-view-tab active" data-offer-view="active" type="button">Activas <span id="offerActiveCount">0</span></button>
         <button class="offer-view-tab" data-offer-view="upcoming" type="button">Próximas <span id="offerUpcomingCount">0</span></button>
         <button class="offer-view-tab" data-offer-view="finished" type="button">Finalizadas <span id="offerFinishedCount">0</span></button>
       </div>
-      <div id="offerEmpty" class="empty">Todavía no hay ofertas en esta vista.</div>
-      <div id="offerList" class="offer-list"></div>
+        <div id="offerEmpty" class="empty">Todavía no hay ofertas en esta vista.</div>
+        <div id="offerList" class="offer-list"></div>
+        <button class="btn-primary page-primary-action offer-new-btn" id="offerNewBtn" type="button"><span class="action-icon">＋</span> Nueva oferta</button>
+      </div>
     </div>
 
-    <div class="card offer-editor-card hidden" id="offerEditorCard">
-      <div class="offer-editor-head"><div><strong id="offerEditorTitle">Nueva oferta</strong><div class="footer-note">Las fechas pertenecen al bloque completo, no a cada producto.</div></div><button class="offer-editor-close" id="offerEditorCloseBtn" type="button" aria-label="Cerrar">×</button></div>
+    <div class="offer-editor-card dedicated-editor-page hidden" id="offerEditorCard">
+      <div class="dedicated-editor-nav"><button class="editor-back-btn" id="offerEditorBackBtn" type="button" aria-label="Volver"><span aria-hidden="true">←</span></button><div><strong id="offerEditorTitle">Nueva oferta</strong><div class="footer-note">Fechas y recordatorios pertenecen a toda la oferta.</div></div></div>
+      <button class="offer-editor-close hidden" id="offerEditorCloseBtn" type="button" aria-label="Cerrar">×</button>
       <div class="offer-editor-grid">
         <div><label>Tipo de oferta *</label><select id="offerType"><option>Ofertas publicadas fin de semana</option><option>Oferta semanal publicada</option><option>Oferta semanal interna</option><option>Oferta 4ta Gama</option><option>Ofertas internas fin de semana</option></select></div>
         <div><label>Nombre <span class="optional-label">opcional</span></label><input id="offerTitle" autocomplete="off" placeholder="Ej. Frutas y verduras"></div>
@@ -1427,10 +1483,10 @@ body,body:not(.dark){background:var(--bg)!important;color:var(--text)!important}
     <button class="back-home-btn vencimientos" data-back-home type="button">← Volver a Inicio</button>
 
 
-    <div class="card add-product-panel">
-      <button class="add-product-toggle" type="button" data-add-panel="expiry"><span>＋ Añadir vencimiento</span><span class="add-panel-arrow">⌄</span></button>
-      <form id="expiryForm" class="add-product-form quick-entry-form hidden">
-        <div class="quick-entry-title">Nuevo vencimiento</div>
+    <div class="expiry-editor-page dedicated-editor-page hidden" id="expiryEditorView">
+      <div class="dedicated-editor-nav"><button class="editor-back-btn" id="expiryEditorBackBtn" type="button" aria-label="Volver"><span aria-hidden="true">←</span></button><div><strong>Nuevo vencimiento</strong><div class="footer-note">Cargá el producto y todas sus fechas en una sola ficha.</div></div></div>
+      <form id="expiryForm" class="quick-entry-form">
+        <div class="quick-entry-title">Datos del vencimiento</div>
         <div class="quick-entry-step expiry-product-input-wrap"><span class="quick-step-number">1</span><div class="quick-step-body"><label>Producto</label><input id="name" autocomplete="off" placeholder="Ej: Yogur natural" required><div class="field-help">Escribí el nombre o elegí una sugerencia.</div><div id="expirySuggestions" class="expiry-suggestions hidden" aria-label="Sugerencias de productos"></div><div id="expiryExistingHint" class="expiry-existing-hint hidden"></div></div></div>
         <div class="quick-entry-step"><span class="quick-step-number">2</span><div class="quick-step-body expiry-date-builder"><div class="expiry-date-builder-title">Fecha de vencimiento</div><div id="expiryDateRows" class="expiry-date-rows"></div><button id="addExpiryDateBtn" class="expiry-add-another-date" type="button">＋ Añadir otra fecha del mismo producto</button></div></div>
         <div class="quick-entry-step"><span class="quick-step-number">3</span><div class="quick-step-body"><label>¿Cuándo se retira?</label><select id="withdrawDays"><option value="0">El mismo día del vencimiento</option><option value="10">10 días antes del vencimiento</option></select><div class="field-help">Esta opción define en qué sección aparecerá el producto.</div></div></div>
@@ -1473,6 +1529,7 @@ body,body:not(.dark){background:var(--bg)!important;color:var(--text)!important}
       <div id="historyList" class="list"></div>
       <div class="footer-note">Incluye retiros y cambios a una nueva fecha. Máximo 30 registros; se borran automáticamente después de 15 días.</div>
     </div>
+    <button class="btn-primary page-primary-action expiry-new-btn" id="expiryNewBtn" type="button"><span class="action-icon">＋</span> Nuevo vencimiento</button>
   </section>
 
   <section id="tab-pedidos" class="main-section legacy-module">
@@ -1737,6 +1794,16 @@ body,body:not(.dark){background:var(--bg)!important;color:var(--text)!important}
     </div>
   </section>
 
+
+  <section id="tab-mas" class="main-section">
+    <div class="section-title-row modern-section-title"><div><h1>Más</h1><div class="subtitle">Herramientas y configuración de Al Dia.</div></div></div>
+    <div class="more-menu-list">
+      <button class="more-menu-card" type="button" data-more-target="plantilla"><span class="more-menu-icon">↘</span><span><strong>Baja de precios</strong><small>Preparar y compartir Planilla vegetales</small></span><span class="more-menu-arrow">›</span></button>
+      <button class="more-menu-card" type="button" data-more-target="aprendizaje"><span class="more-menu-icon">▦</span><span><strong>Lista de códigos</strong><small>Consultar, editar y compartir el XLSX</small></span><span class="more-menu-arrow">›</span></button>
+      <button class="more-menu-card" type="button" data-more-target="ajustes"><span class="more-menu-icon">⚙</span><span><strong>Ajustes</strong><small>Notificaciones, texto y copias de seguridad</small></span><span class="more-menu-arrow">›</span></button>
+    </div>
+  </section>
+
   <section id="tab-ajustes" class="main-section">
     <h1>Ajustes</h1>
     <button class="back-home-btn settings" data-settings-back-home type="button">← Volver a Inicio</button>
@@ -1800,7 +1867,7 @@ body,body:not(.dark){background:var(--bg)!important;color:var(--text)!important}
       <strong>Acerca de Al Día</strong>
       <div class="settings-option app-version-row">
         <span>Versión instalada</span>
-        <strong id="appVersionText">2.34</strong>
+        <strong id="appVersionText">2.35</strong>
       </div>
       <button class="secondary-btn" id="checkUpdatesBtn" type="button" style="width:100%">Buscar actualizaciones</button>
       <div class="footer-note" id="updateCheckStatus">Comprueba la última versión publicada en GitHub Releases.</div>
@@ -1818,6 +1885,14 @@ body,body:not(.dark){background:var(--bg)!important;color:var(--text)!important}
     </div>
   </section>
 </div>
+
+<nav class="bottom-nav" id="bottomNav" aria-label="Navegación principal">
+  <button class="bottom-nav-item active" type="button" data-bottom-tab="inicio" aria-label="Inicio"><span class="bottom-nav-icon"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></span><span>Inicio</span></button>
+  <button class="bottom-nav-item" type="button" data-bottom-tab="vencimientos" aria-label="Vencimientos"><span class="bottom-nav-icon"><svg viewBox="0 0 24 24"><path d="M7 3v3m10-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1zm3 8h3v3H8z"/></svg></span><span>Vencimientos</span></button>
+  <button class="bottom-nav-item" type="button" data-bottom-tab="notas" aria-label="Notas"><span class="bottom-nav-icon"><svg viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 8h8M8 12h8M8 16h5"/></svg></span><span>Notas</span></button>
+  <button class="bottom-nav-item" type="button" data-bottom-tab="ofertas" aria-label="Ofertas"><span class="bottom-nav-icon"><svg viewBox="0 0 24 24"><path d="M3 12 12 3h8v8l-9 9zM16 7h.01"/></svg></span><span>Ofertas</span></button>
+  <button class="bottom-nav-item" type="button" data-bottom-tab="mas" aria-label="Más"><span class="bottom-nav-icon"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span><span>Más</span></button>
+</nav>
 
 <button id="backToTopBtn" type="button" aria-label="Volver arriba">↑</button>
 
@@ -2356,6 +2431,7 @@ const ORDER_REMINDERS=[
   {name:"IMAGEN CARBON",days:[5],time:"13:00"}
 ];
 function orderRemindersForDate(date=new Date()){return ORDER_REMINDERS.filter(x=>x.days.includes(date.getDay()))}
+function nextOrderReminderDate(ref=new Date()){const base=new Date(ref.getFullYear(),ref.getMonth(),ref.getDate());for(let i=0;i<8;i++){const d=new Date(base);d.setDate(base.getDate()+i);if(orderRemindersForDate(d).length)return d}return base}
 function weekDayLong(date=new Date()){return date.toLocaleDateString("es-AR",{weekday:"long",day:"2-digit",month:"2-digit",year:"2-digit"}).replace(/^./,c=>c.toUpperCase())}
 
 let confirmResolver=null;function askConfirm(message,title="Confirmar",danger=false){return new Promise(resolve=>{confirmResolver=resolve;$("confirmTitle").textContent=title;$("confirmMessage").textContent=message;$("confirmOkBtn").classList.toggle("danger",!!danger);$("confirmBackdrop").classList.add("open")})}function closeConfirm(result){$("confirmBackdrop").classList.remove("open");if(confirmResolver){const r=confirmResolver;confirmResolver=null;r(!!result)}}$("confirmCancelBtn").onclick=()=>closeConfirm(false);$("confirmOkBtn").onclick=()=>closeConfirm(true);$("confirmBackdrop").onclick=e=>{if(e.target===$("confirmBackdrop"))closeConfirm(false)};let toastTimer=null;function showToast(message){clearTimeout(toastTimer);$("toast").textContent=message;$("toast").classList.add("show");toastTimer=setTimeout(()=>$("toast").classList.remove("show"),2200)}let lastNativeNotificationSignature="";
@@ -2396,9 +2472,10 @@ function renderDashboard(){
   if($("homeOffersSummary"))$("homeOffersSummary").textContent=activeOffers?`${activeOffers} activa${activeOffers===1?"":"s"}${upcomingOffers?` · ${upcomingOffers} próxima${upcomingOffers===1?"":"s"}`:""}`:upcomingOffers?`${upcomingOffers} próxima${upcomingOffers===1?"":"s"}`:"Sin ofertas activas";
   setHomeBadge("homeOffersBadge",activeOffers+upcomingOffers);
 
-  const now=new Date(),todayOrders=orderRemindersForDate(now);
-  if($("homeOrderReminderDay"))$("homeOrderReminderDay").textContent=weekDayLong(now);
-  if($("homeOrderRemindersList"))$("homeOrderRemindersList").innerHTML=todayOrders.length?todayOrders.map(x=>`<div class="home-order-reminder"><strong>${esc(x.name)}</strong><span>Antes de ${esc(x.time)} hs</span></div>`).join(""):`<div class="home-order-none">Hoy no hay pedidos programados.</div>`;
+  const now=new Date(),todayOrders=orderRemindersForDate(now),nextReminder=nextOrderReminderDate(now);
+  if($("homeOrderReminderTitle"))$("homeOrderReminderTitle").textContent=todayOrders.length?"Pedidos de hoy":"Próximo pedido";
+  if($("homeOrderReminderDay"))$("homeOrderReminderDay").textContent=weekDayLong(todayOrders.length?now:nextReminder);
+  if($("homeOrderRemindersList"))$("homeOrderRemindersList").innerHTML=todayOrders.length?todayOrders.map(x=>`<div class="home-order-reminder"><span class="home-order-icon">▣</span><span><strong>${esc(x.name)}</strong><small>Antes de ${esc(x.time)} hs</small></span></div>`).join(""):`<div class="home-order-none">Hoy no hay pedidos programados.</div>`;
 
   const rows=[];
   if(due||upcoming){
@@ -2543,7 +2620,7 @@ $("expiryForm").onsubmit=e=>{
   dates.forEach(date=>items.push({id:uid(),productId,name:canonicalName,code:canonicalCode,date,withdrawDays:wd,notes:notesValue,createdAt:localDate(now),createdAtTs:now.getTime(),updatedAtTs:now.getTime(),codeType}));
   lastExpiryProductId=productId;
   saveAll();renderExpiry();renderExpiryHistory();renderDashboard();if(!$("expirySavedProductsPanel").classList.contains("hidden"))renderExpirySavedManager();
-  resetExpiryEntryForm(true);showToast(dates.length===1?"Producto añadido":`Producto añadido con ${dates.length} fechas`);
+  resetExpiryEntryForm(false);closeExpiryEditor();showToast(dates.length===1?"Producto añadido":`Producto añadido con ${dates.length} fechas`);
 };
 renderExpiryDateRows([""]);
 
@@ -3526,7 +3603,7 @@ function updateCvValueInput(){const type=$("cvValueType").value;$("cvDateInputWr
 function hideCvSuggestions(){$("cvCodeSuggestions")?.classList.add("hidden");$("cvNameSuggestions")?.classList.add("hidden")}
 function cvSuggestionsFor(q){const n=norm(q);if(!n)return[];return codeListFlatRows().filter(r=>[r.articuloref,r.scanning,r.descripcion].some(v=>norm(v).includes(n))).slice(0,10)}
 function renderCvSuggestions(inputId,boxId){const input=$(inputId),box=$(boxId);if(!input||!box)return;const rows=cvSuggestionsFor(input.value);if(!rows.length){box.classList.add("hidden");box.innerHTML="";return}box.innerHTML=rows.map(r=>`<button class="cv-suggestion" type="button" data-cv-suggest="${r.sheetIndex}:${r.rowIndex}"><strong>${esc(r.descripcion||"Sin descripción")}</strong><small>${r.articuloref?`Código ${esc(r.articuloref)} · `:""}${r.scanning?`Scanning ${esc(r.scanning)} · `:""}${esc(r.sheetName)}</small></button>`).join("");box.classList.remove("hidden")}
-function applyCvSuggestion(sheetIndex,rowIndex){const r=codeListSheets[Number(sheetIndex)]?.rows?.[Number(rowIndex)];if(!r)return;$("cvDescripcion").value=r.descripcion||"";$("cvArticulo").value=r.articuloref||"";hideCvSuggestions();showToast(r.articuloref?"Producto y código completados desde Lista de códigos":"Producto seleccionado; esta fila no tiene Código")}
+function applyCvSuggestion(sheetIndex,rowIndex){const r=codeListSheets[Number(sheetIndex)]?.rows?.[Number(rowIndex)];if(!r)return;const codigo=String(r.articuloref??"").trim(),nombre=String(r.descripcion??"").trim();$("cvDescripcion").value=nombre;$("cvArticulo").value=codigo;hideCvSuggestions();showToast(codigo?`Producto seleccionado · Código ${codigo}`:"Producto seleccionado; esta fila no tiene Código de artículo")}
 function resetCvProductForm(){cvEditingItemId=null;const f=$("carnesVegetalesForm");if(f)f.reset();if($("cvLocal"))$("cvLocal").value="953";if($("cvValueType"))$("cvValueType").value="fecha";updateCvValueInput();hideCvSuggestions();if($("cvProductSubmitBtn"))$("cvProductSubmitBtn").textContent="Añadir producto";if(f)f.classList.add("hidden")}
 function openCvProductForm(itemId=null){if(!carnesVegetalesDraft)return;const f=$("carnesVegetalesForm");if(!f)return;cvEditingItemId=itemId;const item=itemId?carnesVegetalesDraft.items.find(x=>x.id===itemId):null;$("cvLocal").value="953";$("cvArticulo").value=item?.articulo||"";$("cvDescripcion").value=item?.descripcion||"";const type=item?cvGuessType(item):"fecha";$("cvValueType").value=type;updateCvValueInput();const raw=item?cvRawValue(item,type):"";$("cvValueDate").value=type==="fecha"?raw:"";$("cvValueNumber").value=type!=="fecha"?raw:"";$("cvProductSubmitBtn").textContent=item?"Guardar cambios":"Añadir producto";f.classList.remove("hidden");setTimeout(()=>$("cvDescripcion").focus(),50)}
 function cvSortedDraftItems(){const items=[...(carnesVegetalesDraft?.items||[])],mode=$("cvSortView")?.value||"load";if(mode==="code")items.sort((a,b)=>String(a.articulo||"").localeCompare(String(b.articulo||""),"es",{numeric:true}));if(mode==="name")items.sort((a,b)=>String(a.descripcion||"").localeCompare(String(b.descripcion||""),"es"));return items}
@@ -3643,8 +3720,8 @@ function expiryIdentity(x){const pid=String(x?.productId||"").trim();if(pid)retu
 function expiryGroupsFor(list){const map=new Map();(list||[]).forEach(x=>{const k=expiryIdentity(x);if(!map.has(k))map.set(k,[]);map.get(k).push(x)});return [...map.values()].map(g=>g.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)))).sort((a,b)=>parseDate(withdrawalDate(a[0]))-parseDate(withdrawalDate(b[0])))}
 function expiryGroupCardHtml(group){
   const first=group[0],productId=first.productId||first.id,codeItem=group.find(x=>x.code)||first,codeLabel=codeItem.codeType==="PLU"?"PLU":"Código / EAN";
-  const rows=group.map(x=>{const st=expiryStatus(x),rd=withdrawalDate(x);return `<div class="expiry-lot-row expiry-sheet-row ${st.cls}" data-expiry-id="${x.id}" tabindex="0"><div class="expiry-sheet-product"><span class="expiry-lot-date-label">Vencimiento</span></div><div class="expiry-sheet-dates"><strong>Vence ${fmt(x.date)}</strong><small>Retiro ${fmt(rd)}${x.notes?` · ${esc(x.notes)}`:""}</small></div><div class="expiry-sheet-status"><span class="status-badge ${st.cls}">${st.text}</span><div class="expiry-lot-actions"><button class="secondary-btn expiry-edit-lot" data-edit-expiry="${x.id}" type="button">Editar</button><button class="btn-danger expiry-remove-lot" data-retire-expiry="${x.id}" type="button">Retirar</button></div></div></div>`}).join("");
-  return `<div class="item expiry-group-card expiry-sheet-group" data-expiry-product-id="${esc(productId)}"><div class="expiry-product-group-head"><div class="expiry-product-group-title"><strong>${esc(first.name)}</strong><small>${first.code?`${codeLabel}: ${esc(first.code)}`:"Sin código"} · ${group.length} fecha${group.length===1?"":"s"}</small></div><div class="expiry-product-group-actions"><button class="expiry-add-lot-btn" data-add-expiry-lot="${first.id}" type="button">＋ Añadir fecha</button><button class="secondary-btn" data-edit-expiry-product="${esc(productId)}" type="button">Editar producto</button><button class="btn-danger" data-retire-expiry-product="${esc(productId)}" type="button">Retirar producto</button><button class="share-btn" data-share-expiry-group="${first.id}" type="button" title="Compartir">↗</button></div></div><div class="expiry-lots-list">${rows}</div></div>`;
+  const rows=group.map(x=>{const st=expiryStatus(x),rd=withdrawalDate(x);return `<div class="expiry-lot-row expiry-sheet-row ${st.cls}" data-expiry-id="${x.id}" tabindex="0"><div class="expiry-sheet-product"><span class="expiry-lot-date-label">Vencimiento</span></div><div class="expiry-sheet-dates"><strong>Vence ${fmt(x.date)}</strong><small>Retiro ${fmt(rd)}${x.notes?` · ${esc(x.notes)}`:""}</small></div><div class="expiry-sheet-status"><span class="status-badge ${st.cls}">${st.text}</span><div class="expiry-lot-actions"><button class="secondary-btn expiry-edit-lot ui-mini-action" data-edit-expiry="${x.id}" type="button">✎ Editar</button><button class="danger-outline expiry-remove-lot ui-mini-action" data-retire-expiry="${x.id}" type="button">Retirar</button></div></div></div>`}).join("");
+  return `<div class="item expiry-group-card expiry-sheet-group" data-expiry-product-id="${esc(productId)}"><div class="expiry-product-group-head"><div class="expiry-product-group-title"><strong>${esc(first.name)}</strong><small>${first.code?`${codeLabel}: ${esc(first.code)}`:"Sin código"} · ${group.length} fecha${group.length===1?"":"s"}</small></div><div class="expiry-product-group-actions"><button class="expiry-add-lot-btn ui-action-btn" data-add-expiry-lot="${first.id}" type="button"><span class="ui-action-icon">＋</span>Añadir fecha</button><button class="secondary-btn ui-action-btn" data-edit-expiry-product="${esc(productId)}" type="button"><span class="ui-action-icon">✎</span>Editar</button><button class="danger-outline ui-action-btn" data-retire-expiry-product="${esc(productId)}" type="button"><span class="ui-action-icon">■</span>Retirar</button><button class="share-btn icon-only-btn" data-share-expiry-group="${first.id}" type="button" title="Compartir" aria-label="Compartir">↗</button></div></div><div class="expiry-lots-list">${rows}</div></div>`;
 }
 function renderLastExpiryProduct(){
   const list=$("lastExpiryList"),empty=$("lastExpiryEmpty"),count=$("lastExpiryCount");if(!list||!empty||!count)return;
@@ -3746,9 +3823,9 @@ function openOfferEditor(id=""){
   const td=localDate(new Date());$("offerStartDate").value=o?.startDate||td;$("offerEndDate").value=o?.endDate||td;
   $("offerNotifyStart").checked=o?.notifyStart!==false;$("offerNotifyEnd").checked=o?.notifyEnd!==false;
   offerDraftProducts=JSON.parse(JSON.stringify(o?.products||[]));offerProductEditingId="";renderOfferProductSuggestions();resetOfferProductForm();renderOfferDraftProducts();
-  $("offerEditorCard").classList.remove("hidden");setTimeout(()=>$("offerEditorCard").scrollIntoView({behavior:"smooth",block:"start"}),40)
+  $("offerListView")?.classList.add("hidden");$("offerEditorCard").classList.remove("hidden");$("tab-ofertas")?.classList.add("editor-mode");window.scrollTo({top:0,behavior:"auto"})
 }
-function closeOfferEditor(){offerEditorId="";offerDraftProducts=[];offerProductEditingId="";$("offerEditorCard")?.classList.add("hidden");resetOfferProductForm()}
+function closeOfferEditor(){offerEditorId="";offerDraftProducts=[];offerProductEditingId="";$("offerEditorCard")?.classList.add("hidden");$("offerListView")?.classList.remove("hidden");$("tab-ofertas")?.classList.remove("editor-mode");resetOfferProductForm();window.scrollTo({top:0,behavior:"auto"})}
 function saveOfferProduct(){
   const name=$("offerProductName").value.trim(),code=$("offerProductCode").value.trim(),promoType=$("offerPromoType").value,value=$("offerPromoValue").value.trim();
   if(!name)return showToast("Escribí el nombre del producto");
@@ -3760,7 +3837,7 @@ function saveOfferProduct(){
   const idx=offerDraftProducts.findIndex(x=>x.id===item.id);if(idx>=0)offerDraftProducts[idx]=item;else offerDraftProducts.push(item);
   renderOfferDraftProducts();resetOfferProductForm();showToast(idx>=0?"Producto actualizado":"Producto añadido a la oferta")
 }
-function editOfferDraftProduct(id){const p=offerDraftProducts.find(x=>x.id===id);if(!p)return;offerProductEditingId=id;$("offerProductName").value=p.name;$("offerProductCode").value=p.code||"";$("offerPromoType").value=p.promoType||"price";$("offerPromoValue").value=p.value||"";$("offerProductFormTitle").textContent="Editar producto";$("offerProductAddBtn").textContent="Guardar producto";updateOfferPromoInput();$("offerProductForm").scrollIntoView({behavior:"smooth",block:"center"})}
+function editOfferDraftProduct(id){const p=offerDraftProducts.find(x=>x.id===id);if(!p)return;offerProductEditingId=id;$("offerProductName").value=p.name;$("offerProductCode").value=p.code||"";$("offerPromoType").value=p.promoType||"price";$("offerPromoValue").value=p.value||"";$("offerProductFormTitle").textContent="Editar producto";$("offerProductAddBtn").textContent="Guardar producto";updateOfferPromoInput();$("offerProductForm")?.classList.add("editing-product");setTimeout(()=>$("offerProductName")?.focus({preventScroll:true}),40)}
 function saveOffer(){
   const type=$("offerType").value,title=$("offerTitle").value.trim(),startDate=$("offerStartDate").value,endDate=$("offerEndDate").value;
   if(!startDate||!endDate)return showToast("Elegí fecha de inicio y finalización");
@@ -3778,7 +3855,7 @@ function renderOffers(){
   document.querySelectorAll("[data-offer-view]").forEach(b=>b.classList.toggle("active",b.dataset.offerView===offerView));
   const arr=offers.filter(o=>offerStatus(o)===offerView).sort((a,b)=>String(a.startDate).localeCompare(String(b.startDate)));
   if($("offerEmpty"))$("offerEmpty").classList.toggle("hidden",!!arr.length);
-  if($("offerList"))$("offerList").innerHTML=arr.map(o=>{const st=offerStatus(o),products=Array.isArray(o.products)?o.products:[];return `<article class="offer-card ${st}" data-offer-id="${o.id}"><div class="offer-card-head"><div><div class="offer-card-title">${esc(offerName(o))}</div><div class="offer-card-sub">${esc(o.type)}</div></div><span class="offer-status-chip ${st}">${offerStatusLabel(st)}</span></div><div class="offer-card-meta"><span>📅 ${esc(fmt(o.startDate))} → ${esc(fmt(o.endDate))}</span><span>◆ ${products.length} producto${products.length===1?"":"s"}</span><span>${st==="finished"?"✓":st==="active"?"◷":"◴"} ${esc(offerRelativeLabel(o))}</span></div><details class="offer-card-products"><summary>Ver productos</summary>${products.map(p=>`<div class="offer-product-summary-row"><span><strong>${esc(p.name)}</strong><small>${esc(p.code||"Sin código")}</small></span><span class="offer-promo">${esc(offerPromoLabel(p))}</span></div>`).join("")}</details><div class="offer-card-actions"><button class="secondary-btn" type="button" data-offer-edit="${o.id}">Editar</button>${st!=="finished"?`<button class="btn-danger" type="button" data-offer-finish="${o.id}">Finalizar oferta</button>`:`<button class="btn-danger" type="button" data-offer-delete="${o.id}">Eliminar</button>`}</div></article>`}).join("");
+  if($("offerList"))$("offerList").innerHTML=arr.map(o=>{const st=offerStatus(o),products=Array.isArray(o.products)?o.products:[],endingToday=st==="active"&&o.endDate===localDate(new Date()),statusClass=endingToday?"ending-today":st,statusLabel=endingToday?"Último día":offerStatusLabel(st);return `<article class="offer-card ${statusClass}" data-offer-id="${o.id}"><div class="offer-card-head"><div><div class="offer-card-type">${esc(o.type)}</div><div class="offer-card-title">${esc(offerName(o))}</div></div><span class="offer-status-chip ${statusClass}"><span class="status-dot"></span>${statusLabel}</span></div><div class="offer-card-meta"><span class="offer-date-line"><span class="meta-icon">▣</span>${esc(fmt(o.startDate))} → ${esc(fmt(o.endDate))}</span><span class="offer-relative ${statusClass}"><span class="meta-icon">◷</span>${esc(offerRelativeLabel(o))}</span><span class="offer-product-count">${products.length} producto${products.length===1?"":"s"}</span></div><details class="offer-card-products"><summary>Ver productos</summary>${products.map(p=>`<div class="offer-product-summary-row"><span><strong>${esc(p.name)}</strong><small>${esc(p.code||"Sin código")}</small></span><span class="offer-promo">${esc(offerPromoLabel(p))}</span></div>`).join("")}</details><div class="offer-card-actions"><button class="secondary-btn ui-action-btn" type="button" data-offer-edit="${o.id}"><span class="ui-action-icon">✎</span>Editar</button>${st!=="finished"?`<button class="danger-outline ui-action-btn" type="button" data-offer-finish="${o.id}"><span class="ui-action-icon">■</span>Finalizar</button>`:`<button class="danger-outline ui-action-btn" type="button" data-offer-delete="${o.id}"><span class="ui-action-icon">×</span>Eliminar</button>`}</div></article>`}).join("");
 }
 function offerAlertsForDate(date=new Date()){
   const td=localDate(date),alerts=[];
@@ -3798,21 +3875,17 @@ function renderNotificationCenter(){
 }
 function openNotificationItem(a){if(!a)return;if(a.offerId){openMainTab("ofertas");offerView=offerStatus(offers.find(x=>x.id===a.offerId)||{})||"active";renderOffers();focusElementAfterOpen(`[data-offer-id="${CSS.escape(a.offerId)}"]`);return}if(a.expiryId){openExpiryAttention(a.expiryId);return}if(a.noteId){openMainTab("notas");return}}
 
+function bottomNavKey(tab){if(tab==="notificaciones")return "inicio";return ["plantilla","aprendizaje","ajustes","mas"].includes(tab)?"mas":tab}
+function syncBottomNav(tab){const key=bottomNavKey(tab);document.querySelectorAll("[data-bottom-tab]").forEach(b=>{const on=b.dataset.bottomTab===key;b.classList.toggle("active",on);b.setAttribute("aria-current",on?"page":"false")})}
 function openMainTab(tab){
   if(["pedidos","muestras","consultor"].includes(tab))tab="inicio";
-  const prev=getActiveMainTab();
   document.querySelectorAll(".main-tab").forEach(x=>x.classList.toggle("active",x.dataset.mainTab===tab));
   document.querySelectorAll(".main-section").forEach(x=>x.classList.remove("active","section-enter-left","section-enter-right"));
   const target=$("tab-"+tab);
-  if(target){
-    target.classList.add("active");
-    const a=swipeTabs.indexOf(prev),b=swipeTabs.indexOf(tab);
-    if(a!==-1&&b!==-1&&a!==b)target.classList.add(b>a?"section-enter-right":"section-enter-left");
-  }
-
+  if(target)target.classList.add("active");
+  syncBottomNav(tab);
   if($("topNavBar")) $("topNavBar").classList.remove("topbar-hidden");
-
-  window.scrollTo({top:0,behavior:"smooth"});
+  window.scrollTo({top:0,behavior:"auto"});
 }
 
 
@@ -3825,7 +3898,9 @@ function openExpiryAttention(lotId=""){
   setExpiryView("active");openMainTab("vencimientos");renderExpiry();
   if(target)setTimeout(()=>{const card=document.querySelector(`#expiry-active-view [data-expiry-id="${target.id}"]`);if(card){card.scrollIntoView({behavior:"smooth",block:"center"});card.classList.add("attention-focus");setTimeout(()=>card.classList.remove("attention-focus"),1800)}},180);
 }
-function openExpiryFromHome(){expiryFilter="all";document.querySelectorAll("[data-expiry-filter]").forEach(x=>x.classList.toggle("active",x.dataset.expiryFilter==="all"));setExpiryView("active");collapseAddPanel("expiry");openMainTab("vencimientos");renderExpiry()}
+function closeExpiryEditor(){const sec=$("tab-vencimientos");sec?.classList.remove("expiry-editor-mode");$("expiryEditorView")?.classList.add("hidden");window.scrollTo({top:0,behavior:"auto"})}
+function openExpiryEditor(){resetExpiryEntryForm(false);const sec=$("tab-vencimientos");sec?.classList.add("expiry-editor-mode");$("expiryEditorView")?.classList.remove("hidden");window.scrollTo({top:0,behavior:"auto"});setTimeout(()=>$("name")?.focus({preventScroll:true}),80)}
+function openExpiryFromHome(){expiryFilter="all";document.querySelectorAll("[data-expiry-filter]").forEach(x=>x.classList.toggle("active",x.dataset.expiryFilter==="all"));setExpiryView("active");closeExpiryEditor();openMainTab("vencimientos");renderExpiry()}
 function openOrdersFromHome(){document.querySelectorAll("[data-order-view]").forEach(x=>x.classList.toggle("active",x.dataset.orderView==="current"));$("order-current-view").classList.remove("hidden");$("order-history-view").classList.add("hidden");collapseAddPanel("order");openMainTab("pedidos");renderOrders();updateNextOrder()}
 function openSamplesFromHome(){document.querySelectorAll("[data-sample-view]").forEach(x=>x.classList.toggle("active",x.dataset.sampleView==="current"));$("sample-current-view").classList.remove("hidden");$("sample-history-view").classList.add("hidden");collapseAddPanel("sample");openMainTab("muestras");renderSamples()}
 function searchValueMatch(value,q){const v=norm(value||"");return !!q&&v.includes(q)}
@@ -3834,11 +3909,11 @@ function renderGlobalProductSearch(query){const box=$("globalProductSearchResult
 function focusElementAfterOpen(selector){setTimeout(()=>{const el=document.querySelector(selector);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.add("attention-focus");setTimeout(()=>el.classList.remove("attention-focus"),1700)}},220)}
 function openGlobalSearchResult(r){$("homeProductSearchInput").blur();$("globalProductSearchResults")?.classList.add("hidden");if(r.type==="expiry"){openExpiryFromHome();focusElementAfterOpen(`#expiry-active-view [data-expiry-id="${CSS.escape(r.id)}"]`);return}if(r.type==="code-list"){openCodeListResult(r.sheetIndex,r.rowIndex);return}if(r.type==="price"){openMainTab("plantilla");renderCvDraft();openCvProductForm(r.id);return}if(r.type==="offer"){openMainTab("ofertas");const o=offers.find(x=>x.id===r.offerId);if(o)offerView=offerStatus(o);renderOffers();focusElementAfterOpen(`[data-offer-id="${CSS.escape(r.offerId)}"]`);return}}
 $("globalProductSearchResults")?.addEventListener("click",e=>{const b=e.target.closest("[data-global-result]");if(!b)return;try{openGlobalSearchResult(JSON.parse(b.dataset.globalResult))}catch(err){}});
-$("homeVencimientosBtn").onclick=()=>openExpiryFromHome();
-$("homeOffersBtn").onclick=()=>{openMainTab("ofertas");renderOffers()};
-$("homeNotesBtn").onclick=()=>openMainTab("notas");
-$("homePlantillaBtn").onclick=()=>{openMainTab("plantilla");renderCvDraft();renderCvHistory()};
-$("homeLearningBtn").onclick=()=>{openMainTab("aprendizaje");renderCodeList()};
+if($("homeVencimientosBtn"))$("homeVencimientosBtn").onclick=()=>openExpiryFromHome();
+if($("homeOffersBtn"))$("homeOffersBtn").onclick=()=>{openMainTab("ofertas");renderOffers()};
+if($("homeNotesBtn"))$("homeNotesBtn").onclick=()=>openMainTab("notas");
+if($("homePlantillaBtn"))$("homePlantillaBtn").onclick=()=>{openMainTab("plantilla");renderCvDraft();renderCvHistory()};
+if($("homeLearningBtn"))$("homeLearningBtn").onclick=()=>{openMainTab("aprendizaje");renderCodeList()};
 if($("notificationBellBtn"))$("notificationBellBtn").onclick=()=>{openMainTab("notificaciones");renderNotificationCenter()};
 if($("offerNewBtn"))$("offerNewBtn").onclick=()=>openOfferEditor();
 if($("offerEditorCloseBtn"))$("offerEditorCloseBtn").onclick=closeOfferEditor;
@@ -3880,6 +3955,8 @@ $("cvSortView").onchange=()=>renderCvDraft();
 $("cvPreviewBtn").onclick=()=>{const box=$("cvPreview"),show=box.classList.contains("hidden");box.classList.toggle("hidden",!show);$("cvPreviewBtn").textContent=show?"Ocultar vista previa":"Vista previa";if(show)renderCvPreview()};
 $("cvArticulo").oninput=()=>renderCvSuggestions("cvArticulo","cvCodeSuggestions");
 $("cvDescripcion").oninput=()=>renderCvSuggestions("cvDescripcion","cvNameSuggestions");
+$("cvDescripcion").onchange=()=>{const r=findCodeRowByName($("cvDescripcion").value);if(r&&norm(r.descripcion)===norm($("cvDescripcion").value))applyCvSuggestion(r.sheetIndex,r.rowIndex)};
+$("cvArticulo").onchange=()=>{const r=findCodeRowByCode($("cvArticulo").value);if(r)applyCvSuggestion(r.sheetIndex,r.rowIndex)};
 ["cvCodeSuggestions","cvNameSuggestions"].forEach(id=>$(id).onclick=e=>{const b=e.target.closest("[data-cv-suggest]");if(!b)return;const [si,ri]=b.dataset.cvSuggest.split(":").map(Number);applyCvSuggestion(si,ri)});
 $("carnesVegetalesForm").onsubmit=e=>{e.preventDefault();if(!carnesVegetalesDraft)return;const articulo=$("cvArticulo").value.trim(),descripcion=$("cvDescripcion").value.trim(),valueType=$("cvValueType").value,raw=valueType==="fecha"?$("cvValueDate").value:$("cvValueNumber").value.trim();if(!descripcion)return showToast("Completá Nombre / Producto.");if(!raw)return showToast(valueType==="fecha"?"Elegí una fecha.":"Ingresá una cantidad.");if(valueType==="unidad"&&(!Number.isInteger(Number(raw))||Number(raw)<0))return showToast("Unidad debe ser un número entero.");if(valueType==="kg"&&(!Number.isFinite(Number(raw))||Number(raw)<0))return showToast("Kg debe ser un número válido.");const expiryText=cvBuildExpiryText(valueType,raw);if(!expiryText)return showToast("Revisá el valor ingresado.");if(cvEditingItemId){const x=carnesVegetalesDraft.items.find(i=>i.id===cvEditingItemId);if(x){Object.assign(x,{articulo,descripcion,valueType,valueRaw:raw,expiryText})}showToast("Producto actualizado")}else{carnesVegetalesDraft.items.push({id:uid(),local:"953",articulo,descripcion,valueType,valueRaw:raw,expiryText});showToast("Producto añadido")}saveAll();resetCvProductForm();renderCvDraft()};
 $("cvDraftItems").onclick=async e=>{const rem=e.target.closest("[data-remove-cv-item]");if(rem){e.stopPropagation();if(!await askConfirm("¿Eliminar este producto de la planilla?","Eliminar producto",true))return;carnesVegetalesDraft.items=carnesVegetalesDraft.items.filter(x=>x.id!==rem.dataset.removeCvItem);if(cvEditingItemId===rem.dataset.removeCvItem)resetCvProductForm();saveAll();renderCvDraft();return}const dup=e.target.closest("[data-duplicate-cv-item]");if(dup){e.stopPropagation();const idx=carnesVegetalesDraft.items.findIndex(x=>x.id===dup.dataset.duplicateCvItem);if(idx<0)return;const copy={...carnesVegetalesDraft.items[idx],id:uid()};carnesVegetalesDraft.items.splice(idx+1,0,copy);saveAll();renderCvDraft();showToast("Fila duplicada");return}const edit=e.target.closest("[data-edit-cv-item]");if(edit){e.stopPropagation();openCvProductForm(edit.dataset.editCvItem);return}const card=e.target.closest("[data-cv-item]");if(card)openCvProductForm(card.dataset.cvItem)};
@@ -3910,58 +3987,18 @@ $("notesOrganizeBtn").onclick=()=>{
 };
 document.querySelectorAll("[data-back-home]").forEach(b=>b.onclick=()=>openMainTab("inicio"));
 
-const swipeTabs=["inicio","vencimientos","ofertas","notas","plantilla","aprendizaje"];
-let touchStartX=0;
-let touchStartY=0;
-let touchEndX=0;
-let touchEndY=0;
-
 function getActiveMainTab(){
   const active=document.querySelector(".main-section.active");
   return active ? active.id.replace(/^tab-/,"") : "inicio";
 }
 
-function handleHorizontalSwipe(){
-  const activeTab=getActiveMainTab();
-
-  // Ajustes nunca participa en la navegación por gesto.
-  if(activeTab==="ajustes") return;
-
-  const dx=touchEndX-touchStartX;
-  const dy=touchEndY-touchStartY;
-
-  // Solo considerar deslizamientos horizontales claros.
-  if(Math.abs(dx)<60) return;
-  if(Math.abs(dx)<=Math.abs(dy)*1.25) return;
-
-  const index=swipeTabs.indexOf(activeTab);
-  if(index===-1) return;
-
-  if(dx<0 && index<swipeTabs.length-1){
-    openMainTab(swipeTabs[index+1]);
-  }else if(dx>0 && index>0){
-    openMainTab(swipeTabs[index-1]);
-  }
-}
-
-["tab-inicio","tab-vencimientos","tab-notas","tab-plantilla","tab-aprendizaje"].forEach(id=>{
-  const section=$(id);
-  section.addEventListener("touchstart",e=>{
-    if(!e.touches || !e.touches.length) return;
-    touchStartX=e.touches[0].clientX;
-    touchStartY=e.touches[0].clientY;
-  },{passive:true});
-
-  section.addEventListener("touchend",e=>{
-    if(!e.changedTouches || !e.changedTouches.length) return;
-    touchEndX=e.changedTouches[0].clientX;
-    touchEndY=e.changedTouches[0].clientY;
-    handleHorizontalSwipe();
-  },{passive:true});
-});
-
 document.querySelectorAll(".main-tab").forEach(b=>b.onclick=()=>openMainTab(b.dataset.mainTab));
-$("settingsBtn").onclick=()=>openMainTab("ajustes");
+$("offerEditorBackBtn")?.addEventListener("click",closeOfferEditor);
+$("expiryNewBtn")?.addEventListener("click",openExpiryEditor);
+$("expiryEditorBackBtn")?.addEventListener("click",()=>{resetExpiryEntryForm(false);closeExpiryEditor()});
+if($("settingsBtn"))$("settingsBtn").onclick=()=>openMainTab("ajustes");
+document.querySelectorAll("[data-bottom-tab]").forEach(b=>b.onclick=()=>openMainTab(b.dataset.bottomTab));
+document.querySelectorAll("[data-more-target]").forEach(b=>b.onclick=()=>openMainTab(b.dataset.moreTarget));
 if(document.querySelector("[data-settings-back-home]")) document.querySelector("[data-settings-back-home]").onclick=()=>openMainTab("inicio");
 if($("goVencimientosBtn")) $("goVencimientosBtn").onclick=()=>{expiryFilter="danger";document.querySelectorAll("[data-expiry-filter]").forEach(x=>x.classList.toggle("active",x.dataset.expiryFilter==="danger"));setExpiryView("active");openMainTab("vencimientos");renderExpiry()};
 if($("goPedidosBtn")) $("goPedidosBtn").onclick=()=>{const t=keyFromDow(nextOrderDay());activateRegularOrderDay(t);openMainTab("pedidos")};
@@ -4057,7 +4094,7 @@ function backupSummaryText(d,includeTitle=true){
   return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nOfertas: ${c.offers}\nNotas rápidas: ${c.notes}\nFilas en Lista de códigos: ${c.codeListRows}\nPlanillas de Baja de precios: ${c.carnesVegetales}`;
 }
 function currentBackupObject(){
-  return {version:34,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,carbonOrders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,noteDraft:noteDraftRead(),consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,codeListSheets,offers,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:35,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,carbonOrders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,noteDraft:noteDraftRead(),consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,codeListSheets,offers,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;
@@ -4352,8 +4389,8 @@ window.handleAndroidBack=function(){
   const tab=getActiveMainTab();
   if(tab==="ofertas"&&!$("offerEditorCard").classList.contains("hidden")){closeOfferEditor();return true}
   if(tab==="vencimientos"){
-    if(!$("expiry-history-view").classList.contains("hidden")||!$("expiry-last-view").classList.contains("hidden")){setExpiryView("active");window.scrollTo({top:0,behavior:"smooth"});return true}
-    if(!$("expiryForm").classList.contains("hidden")){collapseAddPanel("expiry");window.scrollTo({top:0,behavior:"smooth"});return true}
+    if($("tab-vencimientos")?.classList.contains("expiry-editor-mode")){resetExpiryEntryForm(false);closeExpiryEditor();return true}
+    if(!$("expiry-history-view").classList.contains("hidden")||!$("expiry-last-view").classList.contains("hidden")){setExpiryView("active");window.scrollTo({top:0,behavior:"auto"});return true}
   }
   if(tab==="pedidos"){
     if(!$("order-history-view").classList.contains("hidden")){document.querySelectorAll("[data-order-view]").forEach(x=>x.classList.toggle("active",x.dataset.orderView==="current"));$("order-current-view").classList.remove("hidden");$("order-history-view").classList.add("hidden");window.scrollTo({top:0,behavior:"smooth"});return true}
@@ -4363,6 +4400,7 @@ window.handleAndroidBack=function(){
     if(!$("sample-history-view").classList.contains("hidden")){document.querySelectorAll("[data-sample-view]").forEach(x=>x.classList.toggle("active",x.dataset.sampleView==="current"));$("sample-current-view").classList.remove("hidden");$("sample-history-view").classList.add("hidden");window.scrollTo({top:0,behavior:"smooth"});return true}
     if(!$("sampleAddBody").classList.contains("hidden")){collapseAddPanel("sample");window.scrollTo({top:0,behavior:"smooth"});return true}
   }
+  if(["plantilla","aprendizaje","ajustes"].includes(tab)){openMainTab("mas");return true}
   if(tab!=="inicio"){openMainTab("inicio");return true}
   return false;
 };

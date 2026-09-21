@@ -8,7 +8,7 @@
         <!-- API 26 does not support light navigation-bar icons. Use the app blue
              so the system's light icons remain legible on Android 8.0. -->
         <item name="android:navigationBarColor">#0F7AE5</item>
-        <item name="android:statusBarColor">#F5F9FD</item>
+        <item name="android:statusBarColor">#FFFFFF</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>

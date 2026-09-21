@@ -1,0 +1,44 @@
+AL DÍA v2.35
+
+Base: v2.34 corregida (Lint/API 26).
+
+REDISEÑO GLOBAL
+- Nuevo lenguaje visual unificado basado en la referencia aprobada: fondo blanco puro, tarjetas sin marcos pesados, sombras suaves, mayor tamaño de texto, botones amplios e iconografía coherente.
+- Paleta unificada: azul principal, verde activo/en fecha, naranja próximo y rojo urgente/último día.
+- Encabezado con el logo exacto “Al Dia” aportado por el usuario y campana de notificaciones.
+- El icono Android usa el mismo logo/identidad.
+- Se mantiene únicamente el tema Clásico.
+
+NAVEGACIÓN
+- Barra inferior fija: Inicio, Vencimientos, Notas, Ofertas y Más.
+- Más agrupa Baja de precios, Lista de códigos y Ajustes.
+- Se elimina la navegación horizontal por swipe entre secciones. Esto permite desplazar horizontalmente Lista de códigos sin cambiar de pantalla.
+
+INICIO
+- Se eliminó el texto técnico sobre la conservación de recordatorios de Pedidos.
+- El bloque muestra “Pedidos de hoy” con fecha cuando corresponde; si hoy no hay pedidos muestra “Próximo pedido” con la próxima fecha y mantiene “Hoy no hay pedidos programados.”
+- Buscador renombrado a “Buscar producto / código EAN”.
+- Se retiró el bloque redundante de accesos a secciones, ya que la navegación principal está fija abajo.
+
+OFERTAS
+- Tarjetas rediseñadas con el mismo lenguaje visual de la referencia.
+- Estado activo verde, próxima azul, último día rojo y finalizada neutra.
+- Botones con iconos y acción clara.
+- “Nueva oferta” queda como botón grande al final de la lista.
+- Crear/editar oferta abre una vista dedicada; ya no expande un formulario debajo de la lista.
+
+VENCIMIENTOS
+- Tarjetas de producto y fechas rediseñadas con menos líneas y más aire.
+- Verde = en fecha, naranja = próximo, rojo = urgente/vencido.
+- “Nuevo vencimiento” es un botón grande y abre una vista dedicada, sin desplazar la lista hacia un formulario inline.
+- Se conservan varias fechas agrupadas por producto y acciones independientes por fecha/producto.
+
+BAJA DE PRECIOS
+- Sugerencias de Lista de códigos sincronizan explícitamente Nombre / Producto y Código (articuloref).
+- Si la fila elegida no tiene articuloref, Código queda vacío.
+
+COMPATIBILIDAD / GITHUB
+- minSdk 26 se mantiene.
+- windowLightNavigationBar permanece solo en values-v27.
+- Workflows siguen usando android-actions/setup-android@v4 con packages vacío e instalación explícita de SDK 36.
+- No se elimina información heredada de módulos retirados de la interfaz.
