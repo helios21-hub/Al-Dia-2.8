@@ -1,0 +1,35 @@
+AL DÍA v2.36 — CAMBIOS
+Base real: proyecto completo v2.35.
+
+VENCIMIENTOS
+- Se eliminó de la interfaz el acceso a "Productos frecuentes". Los datos antiguos se conservan internamente/backup para no destruir información previa.
+- Se eliminó la navegación secundaria Activos / Último añadido / Historial.
+- Los filtros principales quedan como: Todos / En fecha / Próximos / Vencidos, con estilo tipo chip coherente con Ofertas.
+- "Último añadido" pasa a ser una opción de orden junto a Próximo retiro y Nombre.
+- Historial y Compartir lista pasan a un menú secundario de tres puntos.
+- Historial abre una vista propia con botón Volver.
+- "Nuevo vencimiento" queda visible arriba de la lista como acción principal y abre la vista dedicada ya existente.
+- Las fichas de producto se rediseñaron para móvil: nombre y código arriba, Añadir fecha en una acción clara y las acciones del producto completo dentro de un menú de tres puntos.
+- Cada fecha conserva Editar / Retirar, pero ahora los botones se adaptan al ancho y no deben desbordar hacia la derecha.
+- Se refuerza overflow y distribución responsive para evitar tarjetas cortadas.
+
+OFERTAS
+- Si se está creando/editando una oferta y se cambia de sección desde la navegación inferior, la edición se cancela y se descarta el borrador abierto.
+- Al volver a Ofertas siempre se entra en la vista principal de ofertas, no en el formulario anterior.
+
+VENCIMIENTOS / FORMULARIOS
+- Se aplica el mismo comportamiento al alta de Vencimientos: si se abandona la sección desde la navegación inferior, el formulario abierto se cancela y se vuelve limpio la próxima vez.
+
+NOTAS RÁPIDAS
+- Cada nota guardada incorpora un botón visible "Compartir" junto a Editar.
+- Compartir usa el selector nativo ya existente de Android.
+
+VERSIÓN Y BACKUP
+- versionName: 2.36
+- versionCode base: 236000
+- Formato de backup: v36
+
+GITHUB ACTIONS / COMPATIBILIDAD
+- Se verificó que ambos workflows continúan usando android-actions/setup-android@v4 con packages: '' y la instalación explícita de Android SDK 36.
+- Se verificó que android:windowLightNavigationBar permanece únicamente en values-v27 para conservar minSdk 26 sin el error NewApi de lint.
+- No se añadió ni fabricó gradle-wrapper.jar.

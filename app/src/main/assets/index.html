@@ -1273,6 +1273,7 @@ body.dark .notes-add-btn{background:#2563eb;color:#fff}
 
 
 /* v2.35 - identidad renovada, tema clásico único, campana y Ofertas */
+/* v2.36 - correcciones de Vencimientos, navegación de formularios y compartir Notas */
 :root{
   --bg:#f5f9fd;--card:#ffffff;--text:#102a4c;--muted:#60758f;--border:#dce6f0;
   --primary:#0f7ae5;--danger:#e53935;--warning:#ef9b22;--ok:#2caf55;
@@ -1373,6 +1374,26 @@ body.dark,body.theme-petrol,body.theme-forest,body.theme-graphite{--bg:#fff;--ca
 @media(max-width:430px){
   .container{padding-left:14px!important;padding-right:14px!important}.brand-logo-exact{width:112px}.bottom-nav-item{font-size:9.5px!important}.bottom-nav-icon svg{width:22px;height:22px}.filter-row{grid-template-columns:repeat(2,1fr)!important}.offer-card-actions{grid-template-columns:1fr 1fr!important}.expiry-product-group-actions button{font-size:12px!important}.notes-search-row{grid-template-columns:1fr!important}
 }
+
+/* ===== v2.36 · Vencimientos limpios, acciones adaptables y navegación segura ===== */
+#tab-vencimientos{overflow-x:hidden!important}
+.expiry-list-controls{display:grid;gap:12px;margin-bottom:12px}
+.expiry-status-tabs{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:7px!important;margin:0!important}
+.expiry-status-tabs .filter-btn{min-width:0!important;padding:8px 4px!important;white-space:nowrap!important;font-size:11.5px!important}
+.expiry-list-toolbar{display:grid;grid-template-columns:minmax(0,1fr) 48px;gap:9px;align-items:end}
+.expiry-sort-control{margin:0!important}.expiry-sort-control>span{display:block;font-size:11px;font-weight:800;color:#65778e;margin:0 0 5px 2px}.expiry-sort-control select{min-height:46px!important;width:100%}
+.expiry-page-menu{position:relative}.expiry-page-menu>summary{list-style:none;width:48px;height:46px;border:1px solid #c8d9ea;border-radius:13px;background:#fff;color:#195b9b;display:grid;place-items:center;font-size:26px;font-weight:900;cursor:pointer}.expiry-page-menu>summary::-webkit-details-marker{display:none}.expiry-page-menu-popover{position:absolute;right:0;top:52px;z-index:80;width:190px;background:#fff;border:1px solid #e4ebf3;border-radius:14px;box-shadow:0 12px 30px rgba(22,50,85,.16);padding:7px}.expiry-page-menu-popover button{width:100%;justify-content:flex-start;text-align:left;background:#fff;color:#173b66;border:0;box-shadow:none!important;min-height:43px!important;padding:8px 10px!important}.expiry-page-menu-popover button+button{border-top:1px solid #edf2f7}
+.expiry-new-btn-top{margin:0!important;min-height:56px!important}
+.expiry-summary-row{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 10px}.expiry-summary-row .pill{background:#f1f5f9!important;color:#52667e!important;border:0!important}
+.expiry-product-group-head{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:start!important;padding:0!important;background:transparent!important;border:0!important;margin:0!important}
+.expiry-product-group-title strong{white-space:normal!important;overflow:visible!important;text-overflow:clip!important;line-height:1.25!important}.expiry-product-group-title small{line-height:1.35!important}
+.expiry-product-group-actions{display:block!important;margin:0!important;width:auto!important}.expiry-add-lot-btn{grid-column:1/-1;width:100%!important;margin:12px 0 0!important;min-height:46px!important;background:#eef5fb!important;color:#173b66!important;border:1px solid #d4e1ef!important;border-radius:13px!important;font-size:13px!important;box-shadow:none!important}
+.expiry-product-menu{position:relative}.expiry-product-menu>summary{list-style:none;width:42px;height:42px;border:1px solid #d6e2ee;border-radius:12px;background:#fff;color:#1b5b99;display:grid;place-items:center;font-size:23px;cursor:pointer}.expiry-product-menu>summary::-webkit-details-marker{display:none}.expiry-product-menu-popover{position:absolute;right:0;top:47px;z-index:45;width:190px;background:#fff;border:1px solid #e2eaf2;border-radius:13px;box-shadow:0 11px 26px rgba(20,48,82,.16);padding:6px}.expiry-product-menu-popover button{width:100%!important;min-width:0!important;min-height:41px!important;text-align:left!important;justify-content:flex-start!important;background:#fff!important;border:0!important;color:#174e84!important;padding:7px 9px!important;box-shadow:none!important}.expiry-product-menu-popover button+button{border-top:1px solid #eef2f6!important}.expiry-product-menu-popover .danger-menu-action{color:#cf3140!important}
+.expiry-lots-list{margin-top:12px!important;border-top:1px solid #edf2f7!important}.expiry-lot-row{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:9px!important;min-width:0!important;overflow:visible!important}.expiry-sheet-status{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:9px!important;min-width:0!important}.expiry-lot-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:7px!important;min-width:0!important}.expiry-lot-actions button{min-width:0!important;width:100%!important;min-height:38px!important;padding:6px 9px!important;font-size:11.5px!important}.status-badge{justify-self:start!important;white-space:normal!important}.expiry-group-card{overflow:visible!important;max-width:100%!important}.expiry-withdraw-section,.sheet-list{min-width:0!important;max-width:100%!important}.sheet-empty{margin:0!important;max-width:100%!important;box-sizing:border-box!important}
+.expiry-history-page{margin-top:6px!important}.expiry-history-head{display:grid;grid-template-columns:46px minmax(0,1fr) auto;gap:10px;align-items:center;margin-bottom:12px}.expiry-history-head strong{font-size:21px;color:#17365d}.expiry-history-actions{display:flex;justify-content:flex-end;margin-bottom:10px}.expiry-history-mode #expiryListControls,.expiry-history-mode #expiry-active-view{display:none!important}
+.sticky-note-actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:8px!important}.sticky-note-actions button{min-width:0!important}.note-share-card-btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:6px!important}
+@media(max-width:430px){.expiry-status-tabs{grid-template-columns:repeat(4,minmax(0,1fr))!important}.expiry-status-tabs .filter-btn{font-size:10.5px!important;padding:7px 2px!important}.expiry-sheet-status{grid-template-columns:1fr!important}.expiry-lot-actions{width:100%!important}.expiry-product-menu-popover,.expiry-page-menu-popover{max-width:calc(100vw - 36px)}}
+
 </style>
 </head>
 <body>
@@ -1490,46 +1511,53 @@ body.dark,body.theme-petrol,body.theme-forest,body.theme-graphite{--bg:#fff;--ca
         <div class="quick-entry-step expiry-product-input-wrap"><span class="quick-step-number">1</span><div class="quick-step-body"><label>Producto</label><input id="name" autocomplete="off" placeholder="Ej: Yogur natural" required><div class="field-help">Escribí el nombre o elegí una sugerencia.</div><div id="expirySuggestions" class="expiry-suggestions hidden" aria-label="Sugerencias de productos"></div><div id="expiryExistingHint" class="expiry-existing-hint hidden"></div></div></div>
         <div class="quick-entry-step"><span class="quick-step-number">2</span><div class="quick-step-body expiry-date-builder"><div class="expiry-date-builder-title">Fecha de vencimiento</div><div id="expiryDateRows" class="expiry-date-rows"></div><button id="addExpiryDateBtn" class="expiry-add-another-date" type="button">＋ Añadir otra fecha del mismo producto</button></div></div>
         <div class="quick-entry-step"><span class="quick-step-number">3</span><div class="quick-step-body"><label>¿Cuándo se retira?</label><select id="withdrawDays"><option value="0">El mismo día del vencimiento</option><option value="10">10 días antes del vencimiento</option></select><div class="field-help">Esta opción define en qué sección aparecerá el producto.</div></div></div>
-        <details class="expiry-optional-details"><summary>Datos opcionales: código, nota y producto frecuente</summary><div class="expiry-optional-body"><div><label>Código / EAN</label><input id="code" autocomplete="off" inputmode="numeric" placeholder="Opcional"></div><div style="margin-top:8px"><label>Nota</label><input id="notes" placeholder="Opcional"></div><label class="frequent-check"><input id="saveAsFrequent" type="checkbox"> <span>Guardar como producto frecuente</span></label></div></details>
+        <details class="expiry-optional-details"><summary>Datos opcionales: código y nota</summary><div class="expiry-optional-body"><div><label>Código / EAN</label><input id="code" autocomplete="off" inputmode="numeric" placeholder="Opcional"></div><div style="margin-top:8px"><label>Nota</label><input id="notes" placeholder="Opcional"></div><input id="saveAsFrequent" type="checkbox" class="hidden" aria-hidden="true"></div></details>
         <div class="expiry-form-actions sticky-form-action"><button class="btn-primary" type="submit">Guardar vencimiento</button></div>
       </form>
     </div>
-    <div class="filter-row">
-      <button class="filter-btn active" data-expiry-filter="all">Todos</button>
-      <button class="filter-btn green" data-expiry-filter="ok">En fecha</button>
-      <button class="filter-btn orange" data-expiry-filter="warning">Próximos</button>
-      <button class="filter-btn red" data-expiry-filter="danger">Vencidos</button>
-    </div>
-    <button class="manage-toggle" id="toggleExpirySavedProducts">Productos frecuentes</button>
-    <div id="expirySavedProductsPanel" class="saved-products-panel hidden"></div>
 
-    <div class="view-tabs">
-      <button class="view-tab active" data-expiry-view="active">Activos</button>
-      <button class="view-tab" data-expiry-view="last">Último añadido</button>
-      <button class="view-tab" data-expiry-view="history">Historial</button>
+    <div id="expiryListControls" class="expiry-list-controls">
+      <div class="filter-row expiry-status-tabs" role="tablist" aria-label="Estado de vencimientos">
+        <button class="filter-btn active" data-expiry-filter="all">Todos</button>
+        <button class="filter-btn green" data-expiry-filter="ok">En fecha</button>
+        <button class="filter-btn orange" data-expiry-filter="warning">Próximos</button>
+        <button class="filter-btn red" data-expiry-filter="danger">Vencidos</button>
+      </div>
+      <div class="expiry-list-toolbar">
+        <label class="expiry-sort-control"><span>Ordenar</span><select id="expirySortSelect"><option value="next">Próximo retiro</option><option value="last">Último añadido</option><option value="name">Nombre</option></select></label>
+        <details class="expiry-page-menu">
+          <summary aria-label="Más opciones" title="Más opciones">⋮</summary>
+          <div class="expiry-page-menu-popover">
+            <button type="button" id="openExpiryHistoryBtn">▤ Historial</button>
+            <button type="button" id="shareExpiryListBtn">↗ Compartir lista</button>
+          </div>
+        </details>
+      </div>
+      <button class="btn-primary page-primary-action expiry-new-btn expiry-new-btn-top" id="expiryNewBtn" type="button"><span class="action-icon">＋</span> Nuevo vencimiento</button>
     </div>
+    <div id="expirySavedProductsPanel" class="saved-products-panel hidden" aria-hidden="true"></div>
 
     <div id="expiry-active-view" class="card sheet-card">
-      <div class="topbar"><div class="history-toolbar"><strong>Productos activos</strong><div class="history-tools"><span class="pill" id="totalCount">0 registros</span><span class="pill" id="urgentCount">0 para revisar</span><button class="share-btn" id="shareExpiryListBtn" type="button">Compartir lista</button></div></div></div>
+      <div class="expiry-summary-row"><span class="pill" id="totalCount">0 registros</span><span class="pill" id="urgentCount">0 para revisar</span></div>
       <div id="emptyState" class="empty">Todavía no cargaste ningún vencimiento.</div>
       <div id="expirySameDaySection" class="expiry-withdraw-section"><div class="sheet-section-title"><span>Retirar día del vencimiento</span><span class="pill" id="expirySameDayCount">0</span></div><div class="mobile-sheet-head expiry-sheet-head"><span>Producto</span><span>Fechas</span><span>Estado</span></div><div id="expirySameDayList" class="list sheet-list"></div></div>
       <div id="expiryTenDaysSection" class="expiry-withdraw-section"><div class="sheet-section-title"><span>Retirar 10 días antes</span><span class="pill" id="expiryTenDaysCount">0</span></div><div class="mobile-sheet-head expiry-sheet-head"><span>Producto</span><span>Fechas</span><span>Estado</span></div><div id="expiryTenDaysList" class="list sheet-list"></div></div>
       <div id="list" class="list hidden" aria-hidden="true"></div>
     </div>
 
-    <div id="expiry-last-view" class="card expiry-last-card hidden">
-      <div class="topbar"><div class="history-toolbar"><strong>Último producto añadido</strong><div class="history-tools"><span class="pill" id="lastExpiryCount">—</span></div></div></div>
+    <div id="expiry-last-view" class="card expiry-last-card hidden" aria-hidden="true">
       <div id="lastExpiryEmpty" class="empty">Todavía no hay un último producto añadido.</div>
+      <div id="lastExpiryCount" class="hidden">—</div>
       <div id="lastExpiryList" class="list"></div>
     </div>
 
-    <div id="expiry-history-view" class="card hidden">
-      <div class="topbar"><div class="history-toolbar"><strong>Historial</strong><div class="history-tools"><span class="pill" id="historyCount">0 registros</span><button class="clear-history-btn" id="clearExpiryHistoryBtn" type="button">Limpiar historial</button></div></div></div>
+    <div id="expiry-history-view" class="card hidden expiry-history-page">
+      <div class="expiry-history-head"><button class="editor-back-btn" id="expiryHistoryBackBtn" type="button" aria-label="Volver a vencimientos">←</button><div><strong>Historial</strong><div class="footer-note">Retiros y cambios recientes.</div></div><span class="pill" id="historyCount">0 registros</span></div>
+      <div class="expiry-history-actions"><button class="clear-history-btn" id="clearExpiryHistoryBtn" type="button">Limpiar historial</button></div>
       <div id="historyEmpty" class="empty">Todavía no hay movimientos en el historial.</div>
       <div id="historyList" class="list"></div>
-      <div class="footer-note">Incluye retiros y cambios a una nueva fecha. Máximo 30 registros; se borran automáticamente después de 15 días.</div>
+      <div class="footer-note">Máximo 30 registros; se borran automáticamente después de 15 días.</div>
     </div>
-    <button class="btn-primary page-primary-action expiry-new-btn" id="expiryNewBtn" type="button"><span class="action-icon">＋</span> Nuevo vencimiento</button>
   </section>
 
   <section id="tab-pedidos" class="main-section legacy-module">
@@ -1867,7 +1895,7 @@ body.dark,body.theme-petrol,body.theme-forest,body.theme-graphite{--bg:#fff;--ca
       <strong>Acerca de Al Día</strong>
       <div class="settings-option app-version-row">
         <span>Versión instalada</span>
-        <strong id="appVersionText">2.35</strong>
+        <strong id="appVersionText">2.36</strong>
       </div>
       <button class="secondary-btn" id="checkUpdatesBtn" type="button" style="width:100%">Buscar actualizaciones</button>
       <div class="footer-note" id="updateCheckStatus">Comprueba la última versión publicada en GitHub Releases.</div>
@@ -2580,7 +2608,7 @@ function renderExpiryDateRows(values=[""]){
   rows.innerHTML=vals.map((v,i)=>`<div class="expiry-date-row"><div><label>${i===0?"Fecha de vencimiento":`Fecha ${i+1}`}</label><input class="expiry-date-input" type="date" value="${esc(v||"")}" ${i===0?"required":""}></div>${i===0?"":`<button class="expiry-date-remove" type="button" data-remove-expiry-date="${i}" aria-label="Quitar fecha">×</button>`}</div>`).join("");
 }
 function resetExpiryEntryForm(focus=false){
-  $("expiryForm").reset();$("withdrawDays").value="0";$("saveAsFrequent").checked=false;expirySelectedProductId=null;
+  $("expiryForm").reset();$("withdrawDays").value="0";if($("saveAsFrequent"))$("saveAsFrequent").checked=false;expirySelectedProductId=null;
   renderExpiryDateRows([""]);$("expirySuggestions").classList.add("hidden");$("expirySuggestions").innerHTML="";$("expiryExistingHint").classList.add("hidden");$("expiryExistingHint").innerHTML="";
   const details=$("expiryForm").querySelector("details");if(details)details.removeAttribute("open");
   if(focus)setTimeout(()=>{try{$("name").focus({preventScroll:true});$("name").scrollIntoView({block:"center",behavior:"smooth"})}catch(_){$("name").focus()}},60);
@@ -2615,7 +2643,7 @@ $("expiryForm").onsubmit=e=>{
   if(duplicate)return showToast(`La fecha ${fmt(duplicate)} ya está cargada para este producto.`);
   const canonicalName=rep?.name||name,canonicalCode=code||rep?.code||"",codeType=rep?.codeType||(canonicalCode?"EAN":"");
   if(rep&&canonicalCode)expiryProductGroup(productId).forEach(x=>{x.code=canonicalCode;x.codeType=codeType;x.updatedAtTs=now.getTime()});
-  if($("saveAsFrequent").checked)rememberExpiry(canonicalName,canonicalCode,wd);
+  if($("saveAsFrequent")?.checked)rememberExpiry(canonicalName,canonicalCode,wd);
   rememberProductName(expiryProductMemory,canonicalName);
   dates.forEach(date=>items.push({id:uid(),productId,name:canonicalName,code:canonicalCode,date,withdrawDays:wd,notes:notesValue,createdAt:localDate(now),createdAtTs:now.getTime(),updatedAtTs:now.getTime(),codeType}));
   lastExpiryProductId=productId;
@@ -3180,7 +3208,7 @@ function renderNotes(){
     el.className=`sticky-note ${noteColorClass(n,index)} ${n.pinned?"pinned":""} ${n.noteSize==="large"?"note-large":n.noteSize==="compact"?"note-compact":""}`;
     el.dataset.openNote=n.id;
     const title=String(n.title||"").trim();
-    el.innerHTML=`<div class="sticky-note-header"><div class="sticky-note-heading">${title?`<div class="sticky-note-title">${esc(title)}</div>`:""}<div class="sticky-note-meta">${n.reminderDate?`🔔 ${esc(fmt(n.reminderDate))} ${esc(n.reminderTime||"09:00")} · `:""}${n.updatedAt?"Editada ":"Creada "}${esc(n.updatedAt?noteUpdatedLabel(n):noteCreatedLabel(n))}</div></div><button class="sticky-note-star" data-pin-note="${n.id}" type="button" aria-label="${n.pinned?"Quitar de fijadas":"Fijar nota"}">${n.pinned?"★":"☆"}</button></div><div class="sticky-note-preview">${renderNoteBody(n.text,n.id)}</div><div class="sticky-note-actions"><button type="button" class="note-open-btn" data-edit-note="${n.id}">Abrir y editar</button></div><div class="note-layout-tools"><button class="note-drag-handle" data-drag-note="${n.id}" type="button" aria-label="Mover nota">↕</button><button data-size-note="${n.id}" type="button">${n.noteSize==="compact"?"Tamaño: compacto":n.noteSize==="large"?"Tamaño: grande":"Tamaño: normal"}</button></div>`;
+    el.innerHTML=`<div class="sticky-note-header"><div class="sticky-note-heading">${title?`<div class="sticky-note-title">${esc(title)}</div>`:""}<div class="sticky-note-meta">${n.reminderDate?`🔔 ${esc(fmt(n.reminderDate))} ${esc(n.reminderTime||"09:00")} · `:""}${n.updatedAt?"Editada ":"Creada "}${esc(n.updatedAt?noteUpdatedLabel(n):noteCreatedLabel(n))}</div></div><button class="sticky-note-star" data-pin-note="${n.id}" type="button" aria-label="${n.pinned?"Quitar de fijadas":"Fijar nota"}">${n.pinned?"★":"☆"}</button></div><div class="sticky-note-preview">${renderNoteBody(n.text,n.id)}</div><div class="sticky-note-actions"><button type="button" class="note-open-btn" data-edit-note="${n.id}">✎ Editar</button><button type="button" class="note-share-card-btn" data-share-note="${n.id}">↗ Compartir</button></div><div class="note-layout-tools"><button class="note-drag-handle" data-drag-note="${n.id}" type="button" aria-label="Mover nota">↕</button><button data-size-note="${n.id}" type="button">${n.noteSize==="compact"?"Tamaño: compacto":n.noteSize==="large"?"Tamaño: grande":"Tamaño: normal"}</button></div>`;
     $("noteList").appendChild(el);
   });
   document.querySelectorAll("[data-open-note]").forEach(card=>card.onclick=e=>{
@@ -3188,6 +3216,7 @@ function renderNotes(){
     openNoteEditor(card.dataset.openNote);
   });
   document.querySelectorAll("[data-edit-note]").forEach(b=>b.onclick=e=>{e.stopPropagation();openNoteEditor(b.dataset.editNote)});
+  document.querySelectorAll("[data-share-note]").forEach(b=>b.onclick=e=>{e.stopPropagation();const n=notes.find(x=>x.id===b.dataset.shareNote);if(n)shareText("Nota rápida",noteShareContent(n))});
   document.querySelectorAll("[data-pin-note]").forEach(b=>b.onclick=e=>{
     e.stopPropagation();const n=notes.find(x=>x.id===b.dataset.pinNote);
     if(n){n.pinned=!n.pinned;n.updatedAt=new Date().toISOString();saveAll();renderNotes();renderDashboard()}
@@ -3720,8 +3749,8 @@ function expiryIdentity(x){const pid=String(x?.productId||"").trim();if(pid)retu
 function expiryGroupsFor(list){const map=new Map();(list||[]).forEach(x=>{const k=expiryIdentity(x);if(!map.has(k))map.set(k,[]);map.get(k).push(x)});return [...map.values()].map(g=>g.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)))).sort((a,b)=>parseDate(withdrawalDate(a[0]))-parseDate(withdrawalDate(b[0])))}
 function expiryGroupCardHtml(group){
   const first=group[0],productId=first.productId||first.id,codeItem=group.find(x=>x.code)||first,codeLabel=codeItem.codeType==="PLU"?"PLU":"Código / EAN";
-  const rows=group.map(x=>{const st=expiryStatus(x),rd=withdrawalDate(x);return `<div class="expiry-lot-row expiry-sheet-row ${st.cls}" data-expiry-id="${x.id}" tabindex="0"><div class="expiry-sheet-product"><span class="expiry-lot-date-label">Vencimiento</span></div><div class="expiry-sheet-dates"><strong>Vence ${fmt(x.date)}</strong><small>Retiro ${fmt(rd)}${x.notes?` · ${esc(x.notes)}`:""}</small></div><div class="expiry-sheet-status"><span class="status-badge ${st.cls}">${st.text}</span><div class="expiry-lot-actions"><button class="secondary-btn expiry-edit-lot ui-mini-action" data-edit-expiry="${x.id}" type="button">✎ Editar</button><button class="danger-outline expiry-remove-lot ui-mini-action" data-retire-expiry="${x.id}" type="button">Retirar</button></div></div></div>`}).join("");
-  return `<div class="item expiry-group-card expiry-sheet-group" data-expiry-product-id="${esc(productId)}"><div class="expiry-product-group-head"><div class="expiry-product-group-title"><strong>${esc(first.name)}</strong><small>${first.code?`${codeLabel}: ${esc(first.code)}`:"Sin código"} · ${group.length} fecha${group.length===1?"":"s"}</small></div><div class="expiry-product-group-actions"><button class="expiry-add-lot-btn ui-action-btn" data-add-expiry-lot="${first.id}" type="button"><span class="ui-action-icon">＋</span>Añadir fecha</button><button class="secondary-btn ui-action-btn" data-edit-expiry-product="${esc(productId)}" type="button"><span class="ui-action-icon">✎</span>Editar</button><button class="danger-outline ui-action-btn" data-retire-expiry-product="${esc(productId)}" type="button"><span class="ui-action-icon">■</span>Retirar</button><button class="share-btn icon-only-btn" data-share-expiry-group="${first.id}" type="button" title="Compartir" aria-label="Compartir">↗</button></div></div><div class="expiry-lots-list">${rows}</div></div>`;
+  const rows=group.map(x=>{const st=expiryStatus(x),rd=withdrawalDate(x);return `<div class="expiry-lot-row expiry-sheet-row ${st.cls}" data-expiry-id="${x.id}" tabindex="0"><div class="expiry-sheet-dates"><strong>Vence ${fmt(x.date)}</strong><small>Retiro ${fmt(rd)}${x.notes?` · ${esc(x.notes)}`:""}</small></div><div class="expiry-sheet-status"><span class="status-badge ${st.cls}">${st.text}</span><div class="expiry-lot-actions"><button class="secondary-btn expiry-edit-lot ui-mini-action" data-edit-expiry="${x.id}" type="button">✎ Editar</button><button class="danger-outline expiry-remove-lot ui-mini-action" data-retire-expiry="${x.id}" type="button">Retirar</button></div></div></div>`}).join("");
+  return `<div class="item expiry-group-card expiry-sheet-group" data-expiry-product-id="${esc(productId)}"><div class="expiry-product-group-head"><div class="expiry-product-group-title"><strong>${esc(first.name)}</strong><small>${first.code?`${codeLabel}: ${esc(first.code)}`:"Sin código"} · ${group.length} fecha${group.length===1?"":"s"}</small></div><details class="expiry-product-menu"><summary aria-label="Opciones de ${esc(first.name)}" title="Más opciones">⋮</summary><div class="expiry-product-menu-popover"><button data-edit-expiry-product="${esc(productId)}" type="button">✎ Editar producto</button><button data-share-expiry-group="${first.id}" type="button">↗ Compartir</button><button class="danger-menu-action" data-retire-expiry-product="${esc(productId)}" type="button">■ Retirar producto</button></div></details><button class="expiry-add-lot-btn ui-action-btn" data-add-expiry-lot="${first.id}" type="button"><span class="ui-action-icon">＋</span>Añadir fecha</button></div><div class="expiry-lots-list">${rows}</div></div>`;
 }
 function renderLastExpiryProduct(){
   const list=$("lastExpiryList"),empty=$("lastExpiryEmpty"),count=$("lastExpiryCount");if(!list||!empty||!count)return;
@@ -3740,12 +3769,19 @@ function bindExpiryInteractions(){
   document.querySelectorAll(".expiry-lot-row[data-expiry-id]").forEach(row=>{const open=()=>openExpiryEdit(row.dataset.expiryId);row.onclick=e=>{if(row.dataset.gestureConsumed==="1"){row.dataset.gestureConsumed="0";return}if(e.target.closest("button,input,select,a"))return;open()};row.onkeydown=e=>{if((e.key==="Enter"||e.key===" ")&&!e.target.closest("button,input,select,a")){e.preventDefault();open()}}});
   try{refreshSwipeDelete()}catch(e){}
 }
+let expirySort="next";
+function sortExpiryGroups(groups){
+  const arr=[...groups];
+  if(expirySort==="last")return arr.sort((a,b)=>Math.max(...b.map(x=>Number(x.createdAtTs||x.updatedAtTs||0)))-Math.max(...a.map(x=>Number(x.createdAtTs||x.updatedAtTs||0))));
+  if(expirySort==="name")return arr.sort((a,b)=>String(a[0]?.name||"").localeCompare(String(b[0]?.name||""),"es",{sensitivity:"base"}));
+  return arr.sort((a,b)=>parseDate(withdrawalDate(a[0]))-parseDate(withdrawalDate(b[0])));
+}
 function renderExpiry(){
   migrateExpiryProductIds();
   items.sort((a,b)=>parseDate(withdrawalDate(a))-parseDate(withdrawalDate(b)));
   const filtered=items.filter(x=>{const status=expiryStatus(x);return expiryFilter==="all"||status.cls===expiryFilter});
-  const sameDay=expiryGroupsFor(filtered.filter(x=>Number(x.withdrawDays||0)===0));
-  const tenDays=expiryGroupsFor(filtered.filter(x=>Number(x.withdrawDays||0)===10));
+  const sameDay=sortExpiryGroups(expiryGroupsFor(filtered.filter(x=>Number(x.withdrawDays||0)===0)));
+  const tenDays=sortExpiryGroups(expiryGroupsFor(filtered.filter(x=>Number(x.withdrawDays||0)===10)));
   const groups=[...sameDay,...tenDays];
   $("emptyState").style.display=groups.length?"none":"block";
   $("expirySameDayList").innerHTML=sameDay.length?sameDay.map(expiryGroupCardHtml).join(""):`<div class="sheet-empty">Sin productos en esta sección.</div>`;
@@ -3757,13 +3793,12 @@ function renderExpiry(){
   renderLastExpiryProduct();bindExpiryInteractions();
 }
 function setExpiryView(view){
-  const allowed=["active","last","history"];if(!allowed.includes(view))view="active";
-  document.querySelectorAll("[data-expiry-view]").forEach(x=>x.classList.toggle("active",x.dataset.expiryView===view));
+  if(view!=="history")view="active";
+  const sec=$("tab-vencimientos");sec?.classList.toggle("expiry-history-mode",view==="history");
   $("expiry-active-view").classList.toggle("hidden",view!=="active");
-  $("expiry-last-view").classList.toggle("hidden",view!=="last");
+  $("expiry-last-view").classList.add("hidden");
   $("expiry-history-view").classList.toggle("hidden",view!=="history");
   if(view==="history")renderExpiryHistory();
-  if(view==="last"){renderLastExpiryProduct();bindExpiryInteractions()}
 }
 function openExpiryProduct(productId,lotId="",attention=true){
   expiryFilter="all";document.querySelectorAll("[data-expiry-filter]").forEach(x=>x.classList.toggle("active",x.dataset.expiryFilter==="all"));setExpiryView("active");openMainTab("vencimientos");renderExpiry();
@@ -3879,6 +3914,9 @@ function bottomNavKey(tab){if(tab==="notificaciones")return "inicio";return ["pl
 function syncBottomNav(tab){const key=bottomNavKey(tab);document.querySelectorAll("[data-bottom-tab]").forEach(b=>{const on=b.dataset.bottomTab===key;b.classList.toggle("active",on);b.setAttribute("aria-current",on?"page":"false")})}
 function openMainTab(tab){
   if(["pedidos","muestras","consultor"].includes(tab))tab="inicio";
+  const currentTab=getActiveMainTab();
+  if(currentTab==="ofertas"&&tab!=="ofertas"&&!$("offerEditorCard")?.classList.contains("hidden"))closeOfferEditor();
+  if(currentTab==="vencimientos"&&tab!=="vencimientos"&&$("tab-vencimientos")?.classList.contains("expiry-editor-mode")){resetExpiryEntryForm(false);closeExpiryEditor()}
   document.querySelectorAll(".main-tab").forEach(x=>x.classList.toggle("active",x.dataset.mainTab===tab));
   document.querySelectorAll(".main-section").forEach(x=>x.classList.remove("active","section-enter-left","section-enter-right"));
   const target=$("tab-"+tab);
@@ -4019,7 +4057,6 @@ $("carbonAddProductBtn")?.addEventListener("click",()=>{
   setAddPanel("carbon",open);
   if(open){$("carbonOrderForm").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>$("carbonOrderName")?.focus({preventScroll:true}),160)}
 });
-document.querySelectorAll("[data-expiry-view]").forEach(b=>b.onclick=()=>setExpiryView(b.dataset.expiryView));
 document.querySelectorAll("[data-order-view]").forEach(b=>b.onclick=()=>{if(!$("carbonFridayPanel").classList.contains("hidden"))activateRegularOrderDay(activeOrderTab);document.querySelectorAll("[data-order-view]").forEach(x=>x.classList.remove("active"));b.classList.add("active");$("order-current-view").classList.toggle("hidden",b.dataset.orderView!=="current");$("order-history-view").classList.toggle("hidden",b.dataset.orderView!=="history");if(b.dataset.orderView==="history")renderOrderHistory()});
 function activateRegularOrderDay(day){
   if(!["martes","jueves","sabado"].includes(day))return;
@@ -4040,7 +4077,10 @@ document.querySelectorAll("[data-expiry-filter]").forEach(b=>b.onclick=()=>{
   expiryFilter=b.dataset.expiryFilter;
   renderExpiry();
 });
-$("toggleExpirySavedProducts").onclick=()=>{$("expirySavedProductsPanel").classList.toggle("hidden");if(!$("expirySavedProductsPanel").classList.contains("hidden"))renderExpirySavedManager()};
+if($("toggleExpirySavedProducts"))$("toggleExpirySavedProducts").onclick=()=>{$("expirySavedProductsPanel").classList.toggle("hidden");if(!$("expirySavedProductsPanel").classList.contains("hidden"))renderExpirySavedManager()};
+if($("expirySortSelect"))$("expirySortSelect").onchange=()=>{expirySort=$("expirySortSelect").value||"next";renderExpiry()};
+if($("openExpiryHistoryBtn"))$("openExpiryHistoryBtn").onclick=()=>{document.querySelector(".expiry-page-menu")?.removeAttribute("open");setExpiryView("history");window.scrollTo({top:0,behavior:"auto"})};
+if($("expiryHistoryBackBtn"))$("expiryHistoryBackBtn").onclick=()=>{setExpiryView("active");window.scrollTo({top:0,behavior:"auto"})};
 $("toggleOrderSavedProducts").onclick=()=>{$("orderSavedProductsPanel").classList.toggle("hidden");if(!$("orderSavedProductsPanel").classList.contains("hidden"))renderOrderSavedManager()};
 $("themeSetting").onchange=()=>{appSettings.theme="light";applySettings();saveAll()};
 $("textSizeSetting").onchange=()=>{appSettings.textSize=$("textSizeSetting").value;applySettings();saveAll()};
@@ -4094,7 +4134,7 @@ function backupSummaryText(d,includeTitle=true){
   return `${includeTitle?"Contenido de la copia\n":""}Fecha: ${when}\nVencimientos activos: ${c.expiry}\nOfertas: ${c.offers}\nNotas rápidas: ${c.notes}\nFilas en Lista de códigos: ${c.codeListRows}\nPlanillas de Baja de precios: ${c.carnesVegetales}`;
 }
 function currentBackupObject(){
-  return {version:35,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,carbonOrders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,noteDraft:noteDraftRead(),consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,codeListSheets,offers,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
+  return {version:36,exportedAt:new Date().toISOString(),expiryItems:items,expiryHistory,savedExpiryProducts,lastExpiryProductId,orders,carbonOrders,orderHistory,orderCompletion,orderSuggestedQty,orderTemplateState,orderProfiles,savedProducts,sampleTemplates,sampleHistory,notes,noteHistory,noteDraft:noteDraftRead(),consultantProducts,carnesVegetalesHistory,carnesVegetalesDraft,learningCatalog,codeListSheets,offers,backupMetaState,expiryProductMemory,orderProductMemory,sampleProductMemory,sampleSession:{activeTemplate:activeSampleTemplate||""},appSettings};
 }
 function renderBackupStatus(){
   if(!$("backupStatus"))return;
@@ -4390,7 +4430,7 @@ window.handleAndroidBack=function(){
   if(tab==="ofertas"&&!$("offerEditorCard").classList.contains("hidden")){closeOfferEditor();return true}
   if(tab==="vencimientos"){
     if($("tab-vencimientos")?.classList.contains("expiry-editor-mode")){resetExpiryEntryForm(false);closeExpiryEditor();return true}
-    if(!$("expiry-history-view").classList.contains("hidden")||!$("expiry-last-view").classList.contains("hidden")){setExpiryView("active");window.scrollTo({top:0,behavior:"auto"});return true}
+    if(!$("expiry-history-view").classList.contains("hidden")){setExpiryView("active");window.scrollTo({top:0,behavior:"auto"});return true}
   }
   if(tab==="pedidos"){
     if(!$("order-history-view").classList.contains("hidden")){document.querySelectorAll("[data-order-view]").forEach(x=>x.classList.toggle("active",x.dataset.orderView==="current"));$("order-current-view").classList.remove("hidden");$("order-history-view").classList.add("hidden");window.scrollTo({top:0,behavior:"smooth"});return true}

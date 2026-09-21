@@ -1,0 +1,36 @@
+AL DÍA v2.36 — VALIDACIÓN REALIZADA
+
+Origen
+- v2.36 fue generada directamente desde el proyecto completo v2.35.
+- No se reconstruyó la app desde memoria.
+
+Comprobaciones estáticas
+- JavaScript inline extraído y validado con node --check: OK.
+- IDs HTML duplicados: 0.
+- XML de recursos Android parseado: OK.
+- YAML de GitHub Actions parseado: OK.
+- versionName: 2.36.
+- versionCode base: 236000.
+- Backup interno: v36.
+
+GitHub Actions / Android
+- build-apk.yml: android-actions/setup-android@v4: OK.
+- publicar-actualizacion.yml: android-actions/setup-android@v4: OK.
+- packages: '' para evitar el paquete obsoleto tools: OK.
+- SDK explícito: platform-tools + platforms;android-36 + build-tools;36.0.0: OK.
+- minSdk 26: conservado.
+- android:windowLightNavigationBar: solo values-v27/styles.xml.
+
+Revisión funcional por código
+- Cambiar de pestaña mientras el editor de Ofertas está abierto ejecuta closeOfferEditor(): OK.
+- Cambiar de pestaña mientras el alta de Vencimientos está abierta resetea y cierra la vista: OK.
+- Vencimientos muestra solo filtros Todos / En fecha / Próximos / Vencidos como navegación principal: OK.
+- Productos frecuentes eliminado de la interfaz visible: OK.
+- Último añadido disponible como orden: OK.
+- Historial y Compartir lista accesibles desde menú secundario: OK.
+- Acciones de fichas reorganizadas para evitar overflow horizontal: OK.
+- Notas incluyen Compartir en cada tarjeta: OK.
+
+Limitación
+- Este entorno no dispone de un Android SDK/Gradle completo ni del gradle-wrapper.jar original, por lo que NO se afirma compilación del APK local.
+- La validación definitiva sigue siendo GitHub Actions: :app:lintDebug y luego :app:assembleDebug.
